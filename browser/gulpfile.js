@@ -19,9 +19,9 @@ var _ = require('lodash');
 var tasks = require('./gulp/tasks');
 var log = require('gulp-util').log;
 
-gulp.addListener('err', function(e) {
-  console.log(e.err.stack);
-});
+// gulp.addListener('err', function(e) {
+//   console.log(e.err.stack);
+// });
 
 _.forEach(tasks, function(task, taskName) {
   gulp.task(taskName, task.deps, task.func);

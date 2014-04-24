@@ -161,6 +161,17 @@ tasks['watch'] = {
   }
 };
 
+tasks['lint'] = {
+  deps: [],
+  func: function() {
+    return h.fs.src(path.join(h.src, '**/*.js'))
+      .pipe($.jshint(path.join(__dirname, '../src/.jshintrc')))
+      .pipe($.jshint.reporter('jshint-stylish'))
+      .pipe($.jscs(path.join(__dirname, '../src/.jscsrc')));
+
+  }
+};
+
 // // load specifics for each task... e.g.
 // // the select function for sass goes to
 // // { select: sass: {} }

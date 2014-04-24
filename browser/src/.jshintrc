@@ -1,4 +1,5 @@
 {
+  "plusplus": true,
   "node": false,
   "browser": true,
   "globals": {
