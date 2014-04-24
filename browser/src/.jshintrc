@@ -9,7 +9,8 @@
     "console": false,
     "describe": false,
     "it": false,
-    "angular": false
+    "angular": false,
+    "mocha": false
   },
 
   "esnext": false,

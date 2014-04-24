@@ -108,7 +108,7 @@ tasks.clean = {
 tasks['bower'] = {
   deps: ['clean'],
   func: function() {
-    return $.bowerFiles({includeDev: true})
+    return h.fs.src('bower_components/**/*')
       .pipe(h.fs.dest(path.join(h.targets.build, 'js/bower_components')))
       .pipe(h.fs.dest(path.join(h.targets.unit, 'js/bower_components')));
   }
@@ -171,6 +171,14 @@ tasks['lint'] = {
 
   }
 };
+
+tasks['unit'] = {
+  deps: ['lint', 'build'],
+  func: function() {
+
+
+  }
+}
 
 // // load specifics for each task... e.g.
 // // the select function for sass goes to

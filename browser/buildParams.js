@@ -1,14 +1,17 @@
 var defaultParams = {
   appName: 'soDemo',
-  noscriptHtml: '<p>You need a script-enabled browser.</p>'
+  noscriptHtml: '<p>You need a script-enabled browser.</p>',
+  unit: false
 };
 
 var targetParams = {
   // build target specifics
   build: {
+    unit: true
   },
   // unit target specifics
   unit: {
+    unit: true
   },
   // e2e target specifics
   e2e: {
