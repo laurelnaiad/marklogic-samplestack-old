@@ -11,7 +11,16 @@
     <div id="mocha"></div>
     <script src="js/bower_components/mocha/mocha.js"></script>
     <script src="js/bower_components/chai/chai.js"></script>
-    <script>mocha.setup('bdd')</script>
+    <script
+      src="js/bower_components/chai-as-promised/lib/chai-as-promised.js"
+    ></script>
+    <script src="js/bower_components/sinon-chai/lib/sinon-chai.js"></script>
+    <script src="js/bower_components/sinon-browser-only/sinon.js"></script>
+
+    <script>
+      mocha.setup('bdd');
+      var should = chai.should();
+    </script>
     <script
       data-main="js/main"
       src="js/bower_components/requirejs/require.js"

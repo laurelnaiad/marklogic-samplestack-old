@@ -1,4 +1,4 @@
-define(function() {
+define(['app'], function(app) {
 
   /**
    * Represents a ui-router state definition that includes all aspects
@@ -12,6 +12,10 @@ define(function() {
     if (!definition) { definition = {}; }
     definition.name = name;
 
+    if (definition.controller) {
+      app.controller(name + 'Controller', definition.controller);
+      app.controller = name + 'Controller';
+    }
 
     this.children = [];
 

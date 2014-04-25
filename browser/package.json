@@ -54,7 +54,9 @@
     "callback-stream": "^1.0.2",
     "gulp-jshint": "^1.5.5",
     "jshint-stylish": "^0.1.5",
-    "gulp-jscs": "^0.4.2"
+    "gulp-jscs": "^0.4.2",
+    "gulp-mocha-phantomjs": "^0.1.5",
+    "gulp-match": "0.0.3"
   },
   "dependencies": {}
 }

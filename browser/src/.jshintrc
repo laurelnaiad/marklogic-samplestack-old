@@ -1,5 +1,4 @@
 {
-  "plusplus": true,
   "node": false,
   "browser": true,
   "globals": {
@@ -10,10 +9,15 @@
     "describe": false,
     "it": false,
     "angular": false,
-    "mocha": false
+    "mocha": false,
+    "inject": false,
+    "beforeEach": false,
+    "before": false,
+    "sinon": false
   },
 
   "esnext": false,
+  "expr": true,
   "bitwise": true,
   "boss": true,
   "camelcase": true,
