@@ -1,5 +1,5 @@
 var defaultParams = {
-  appName: 'soDemo',
+  appName: 'app',
   noscriptHtml: '<p>You need a script-enabled browser.</p>',
   unit: false
 };
@@ -7,7 +7,6 @@ var defaultParams = {
 var targetParams = {
   // build target specifics
   build: {
-    unit: true
   },
   // unit target specifics
   unit: {

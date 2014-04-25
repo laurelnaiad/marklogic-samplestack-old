@@ -105,9 +105,10 @@ plugins.rebase = function(outFolder, opt) {
     }
 
     file.cwd = cwd;
-    file.base = basePath;
+    file.base = path.resolve(path.join(basePath, '..'));
     file.path = writePath;
 
+    cb(null, file);
     // // mkdirp the folder the file is going in
     // // then write to it
     // mkdirp(writeFolder, folderMode, function(err){
