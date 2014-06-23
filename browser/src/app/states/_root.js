@@ -5,8 +5,12 @@ define(['app/module'], function (module) {
 
   module.controller('rootCtlr', [
 
-    '$scope', '$rootScope',
-    function ($scope, $rootScope) {
+    // TODO: unstub data
+
+    '$scope', '$rootScope', 'stubData',
+    function ($scope, $rootScope, stubData) {
+      $scope.searchResults = stubData;
+
       $scope.setPageTitle = function (title) {
         $rootScope.pageTitle = title;
       };
