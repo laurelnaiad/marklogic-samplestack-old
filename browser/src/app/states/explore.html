@@ -1,39 +1,37 @@
-<section id="search">
+<section class="search col-lg-12">
   <input type="text" />
-  <div id="search-button">
-    <button>Search</button>
-  </div>
-  <div id="search-tips">Search Tips</div>
+  <button>Search</button>
+  <div class="tips">Search Tips</div>
 </section>
-<section id="browse">
-  <section id="filters">
-    <div id="filters-container">
+
+<section class="content row">
+
+  <section class="filters col-lg-3">
+    <header>
       <h2>Filter Results</h2>
-
-      <div id="entries"><input type="checkbox" /> Show my entries only</div>
-      <div id="resolved"><input type="checkbox" /> Show resolved only</div>
-
-      <div id="date">
-        <h3>Date</h3>
-        <div id="date-placeholder">&nbsp;</div>
-      </div>
-
-      <div id="tags">
-        <h3>Tags</h3>
-        <div ng-repeat="facet in searchResults.facets">
-          <div ng-switch="facet.name">
-            <div ng-switch-when="tags">
-              <div ng-repeat="item in facet.items">
-                <input type="checkbox" /> {{item.name}} ({{item.count}})
-              </div>
+    </header>
+    <div class="entries"><input type="checkbox" /> Show my entries only</div>
+    <div class="resolved"><input type="checkbox" /> Show resolved only</div>
+    <div class="date">
+      <h3>Date</h3>
+      <div class="date-placeholder">&nbsp;</div>
+    </div>
+    <div class="tags">
+      <h3>Tags</h3>
+      <div ng-repeat="facet in searchResults.facets">
+        <div ng-switch="facet.name">
+          <div ng-switch-when="tags">
+            <div ng-repeat="item in facet.items">
+              <input type="checkbox" /> {{item.name}} ({{item.count}})
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="results">
-    <header>
+
+  <section class="results col-lg-9">
+    <header class="row">
       <h2>Browsing Questions</h2>
       <ul class="sort">
         <li class="sort active">relevance</li>
@@ -42,15 +40,18 @@
       </ul>
     </header>
     <section class="result" ng-repeat="result in searchResults.results">
-      <div class="votes">votes answs</div>
-      <div class="question"><a ui-sref="root.layout.qnaDoc">Q: {{result.title}}</a></div>
-      <div class="snippet">This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet.</div>
+      <div class="votes">votes</div>
+      <div>
+        <div class="title"><a ui-sref="root.layout.qnaDoc">Q: {{result.title}}</a></div>
+        <div class="snippet">This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet.</div>
+      </div>
       <div class="metadata">
-        <ul class="tags">
-          <ss-tag ng-repeat="tag in result.tags" name="{{tag}}" class="tag"></ss-tag>
+        <ul class="tags col-lg-8">
+          <li ng-repeat="tag in result.tags" class="tag">{{tag}}</li>
         </ul>
-        <div class="author">asked {{dateDisplay(result.creationDate)}} by {{result.owner.displayName}} [{{result.owner.reputation}}]</div>
+        <div class="author col-lg-4 text-right">asked {{dateDisplay(result.creationDate)}} by {{result.owner.displayName}} [{{result.owner.reputation}}]</div>
       </div>
     </section>
   </section>
+
 </section>
