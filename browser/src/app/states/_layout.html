@@ -1,15 +1,15 @@
-<header class="global" ui-view="globalNav">
-  <h1><a ui-sref="root.layout.explore">samplestack</a></h1>
-  <div id="actions">
-    <div id="login">Logged in as <strong>Snippet</strong></div>
+<header class="global row" ui-view="globalNav">
+  <h1 class="col-lg-8"><a ui-sref="root.layout.explore">samplestack</a></h1>
+  <div class="actions col-lg-4">
+    <div class="login">Logged in as <strong>Snippet</strong></div>
     <button ng-click="ask()">Ask a Question</button>
   </div>
 </header>
 
-<section id="main">
+<section class="main row">
   <div ui-view></div>
 </section>
 
-<footer class="global" ui-view="footer">
+<footer class="global row text-center" ui-view="footer">
   Copyright MarkLogic 2014
 </footer>
