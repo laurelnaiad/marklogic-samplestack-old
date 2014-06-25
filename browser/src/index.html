@@ -31,21 +31,7 @@
 
 <body>
 
-  <!--
-  CSS will cause this animated overlay to fade out when the application
-  has been bootstrapped. TODO: replace this with a better/branded spinner
-  -->
-  <div class="initspin">
-    <div id="initspinContainer">
-      <div class="stick"></div>
-      <div class="stick"></div>
-      <div class="stick"></div>
-      <div class="stick"></div>
-      <div class="stick"></div>
-      <div class="stick"></div>
-      <h1>Loading...</h1>
-    </div>
-  </div>
+  <!-- TODO: add a spinner -->
 
   <!--
   This is the real body of the app.  It is initially hidden until it is
@@ -61,7 +47,6 @@
     <ui-view/>
 
   </div>
-
 
 </body>
 
@@ -82,15 +67,15 @@ See app/services/appRouting.js
  */
 require(['/configuredApp.js'], function (appModule) {
   var htmlEl = angular.element(window.document.children[0]);
-  // angular.bootstrap(
-  //   htmlEl,
-  //   [
-  //     '<%=appName%>',
-  //     function() {
+  angular.bootstrap(
+    htmlEl,
+    [
+      '<%=appName%>',
+      function() {
         htmlEl.attr('ng-app', '<%=appName%>');
-  //     }
-  //   ]
-  // );
+      }
+    ]
+  );
   appModule.run(['appRouting', function (appRouting) {}]);
 });
 

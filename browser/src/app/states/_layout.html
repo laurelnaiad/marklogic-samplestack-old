@@ -1,10 +1,16 @@
-<header class="global row" ui-view="globalNav">
-  <h1 class="col-lg-8"><a ui-sref="root.layout.explore">samplestack</a></h1>
-  <div class="actions col-lg-4">
-    <div class="login">Logged in as <strong>Snippet</strong></div>
+<header class="ss-page-header">
+  <div class="ss-app-title">
+    <h1>
+      <a ui-sref="root.layout.explore">samplestack</a>
+    </h1>
+  </div>
+  <div class="ss-page-header-actions">
+    <div class="ss-login">Logged in as <strong>Snippet</strong></div>
     <button ng-click="ask()">Ask a Question</button>
   </div>
 </header>
+
+<!-- after this we haven't semantic-ized yet -->
 
 <section class="main row">
   <div ui-view></div>
