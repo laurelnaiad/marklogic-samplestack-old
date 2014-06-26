@@ -2,26 +2,12 @@
 @import "bootstrap-vars";
 @import "bootstrap";
 
-button {
-  @extend .btn;
-  @extend .btn-default;
-  // font-size: $font-size-h3;
-}
-
-form {
-  // font-size: $font-size-base;
+.ss-root {
+  @extend .container-fluid;
 }
 
 header {
   @extend .row;
-}
-
-section {
-  // margin: 10px 0;
-}
-
-.ss-root {
-  @extend .container-fluid;
 }
 
 .ss-page-header {
@@ -29,42 +15,45 @@ section {
 
   .ss-app-title {
     @extend .col-lg-7;
-    // @extend .h1;
   }
   .ss-page-header-actions {
     @extend .col-lg-5;
     text-align: right;
-    // font-size: $font-size-h3;
     > * {
       display: inline-block;
-      margin-right: 10px;
-    }
-  }
-}
-
-.ss-search-bar {
-  @extend .row;
-  @extend .col-lg-12;
-
-  form {
-    > * {
       margin-right: 10px;
     }
     > *:last-child {
       margin-right: 0;
     }
   }
-  form > * {
-    float: left;
-    display: block;
+}
+
+.ss-search-bar {
+  @extend .col-lg-12;
+
+  .ss-search-form {
+    > * {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    > *:last-child {
+      margin-right: 0;
+    }
+    .ss-search-tips {
+      padding: 5px;
+    }
   }
 }
 
+button {
+  @extend .btn;
+  @extend .btn-default;
+  // font-size: $font-size-h3;
+}
 
-.ss-tips {
-  position: relative;
-  float: left;
-  padding: 5px;
+section {
+  // margin: 10px 0;
 }
 
 // /* reset styles */
