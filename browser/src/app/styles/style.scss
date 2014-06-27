@@ -10,6 +10,7 @@ header {
   @extend .row;
 }
 
+/*** GLOBAL HEADER ***/
 .ss-page-header {
   @extend .page-header;
 
@@ -29,6 +30,7 @@ header {
   }
 }
 
+/*** SEARCH BAR ***/
 .ss-search-bar {
   @extend .col-lg-12;
 
@@ -46,6 +48,7 @@ header {
   }
 }
 
+/*** ASK VIEW ***/
 .ss-ask {
   @extend .col-lg-12;
 
@@ -67,6 +70,106 @@ header {
       height: 200px;
     }
   }
+}
+
+/*** QNA DOCUMENT VIEW ***/
+.ss-qnadoc {
+  @extend .col-lg-12;
+
+  .ss-question,
+  .ss-answer {
+    padding: 10px;
+    padding-left: 85px;
+
+    .ss-vote {
+      position: absolute;
+      left: 15px;
+      width: 60px;
+      height: 70px;
+      background-color: #DDDDDD;
+    }
+    .ss-metadata {
+      min-height: 40px;
+      border-bottom: solid 1px black;
+
+      > * {
+        display: inline-block;
+      }
+    }
+    .ss-comment {
+      padding: 10px 0 10px 30px;
+      border-bottom: solid 1px #AAAAAA;
+    }
+  }
+
+  .ss-answers header {
+    width: 100%;
+    display: inline-block;
+
+    h3 {
+      position: relative;
+      float: left;
+    }
+
+    ul.ss-sort {
+      position: relative;
+      float: right;
+      margin-top: 20px;
+      li {
+        margin-left: 10px;
+      }
+      li.active {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .ss-answer-form {
+    @extend .form-horizontal;
+    
+    > * {
+      display: block;
+      margin-bottom: 10px;
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
+    input {
+      width: 500px;
+    }
+    textarea {
+      width: 700px;
+      height: 200px;
+    }
+  }
+}
+
+/*** SORT/TAG LISTS ***/
+ul.ss-sort, ul.ss-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    position: relative;
+    float: left;
+  }
+}
+
+ul.ss-tags {
+
+  li {
+    margin-right: 10px;
+    padding: 3px 5px;
+    background-color: #DDD;
+  }
+}
+
+/*** MISC GLOBAL ***/
+.ss-author {
+  position: relative;
+  float: right;
+  padding: 5px;
 }
 
 .ml-edit-tools {
