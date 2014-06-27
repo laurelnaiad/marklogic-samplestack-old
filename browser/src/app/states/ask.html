@@ -1,17 +1,18 @@
-<section id="ask">
-  <h2>Ask a Question</h3>
-  <div id="askform">
-    <div id="title-container">
-      <label>Title</label> <input type="text" id="title" />
-      <button id="similar">Find Similar</button>
+<section class="ss-ask">
+  <header>
+    <h2>Ask a Question</h2>
+  </header>
+  <form class="ss-ask-form">
+    <div class="ss-ask-title">
+      <label>Title</label> <input type="text" id="" />
     </div>
-    <div class="tools">Editing Tools</div>
-    <div id="box">
-      <textarea></textarea>
+    <!-- @todo markdown editor -->
+    <div class="ml-edit-tools">Editing Tools</div>
+    <textarea></textarea>
+    <!-- @todo https://github.com/TimSchlechter/bootstrap-tagsinput -->
+    <div class="ss-ask-tags">
+      <label>Tags</label> <input type="text" data-role="tagsinput" />
     </div>
-    <div id="tags">
-      <label>Tags</label> <input type="text" />
-    </div>
-    <button id="post">Post Your Question</button>
-  </div>
+    <button>Post Your Question</button>
+  </form>
 </section>
