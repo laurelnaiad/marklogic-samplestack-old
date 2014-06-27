@@ -46,6 +46,36 @@ header {
   }
 }
 
+.ss-ask {
+  @extend .col-lg-12;
+
+  .ss-ask-form {
+    @extend .form-horizontal;
+    
+    > * {
+      display: block;
+      margin-bottom: 10px;
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
+    input {
+      width: 500px;
+    }
+    textarea {
+      width: 700px;
+      height: 200px;
+    }
+  }
+}
+
+.ml-edit-tools {
+  width: 400px;
+  padding: 5px;
+  margin-top: 20px;
+  background-color: #DDD;
+}
+
 button {
   @extend .btn;
   @extend .btn-default;
