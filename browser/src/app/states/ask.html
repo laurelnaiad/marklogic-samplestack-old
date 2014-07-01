@@ -1,18 +1,19 @@
+<!-- @todo move form classes (.form-control, .btn, etc.) into sass without losing styling -->
 <section class="ss-ask">
   <header>
     <h2>Ask a Question</h2>
   </header>
-  <form class="ss-ask-form">
+  <form class="ss-ask-form form-inline">
     <div class="ss-ask-title">
-      <label>Title</label> <input type="text" id="" />
+      <label>Title</label> <input type="text" class="form-control" />
     </div>
     <!-- @todo markdown editor -->
     <div class="ml-edit-tools">Editing Tools</div>
-    <textarea></textarea>
+    <textarea class="form-control"></textarea>
     <!-- @todo https://github.com/TimSchlechter/bootstrap-tagsinput -->
     <div class="ss-ask-tags">
-      <label>Tags</label> <input type="text" data-role="tagsinput" />
+      <label>Tags</label> <input type="text" class="form-control" data-role="tagsinput" />
     </div>
-    <button>Post Your Question</button>
+    <button class="btn btn-default">Post Your Question</button>
   </form>
 </section>
