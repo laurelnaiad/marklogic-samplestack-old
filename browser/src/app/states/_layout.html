@@ -1,3 +1,4 @@
+<!-- @todo move form classes (.form-control, .btn, etc.) into sass without losing styling -->
 <header class="ss-page-header">
   <div class="ss-app-title">
     <h1>
@@ -6,16 +7,14 @@
   </div>
   <div class="ss-page-header-actions">
     <div class="ss-login">Logged in as <strong>Snippet</strong></div>
-    <button ng-click="ask()">Ask a Question</button>
+    <button class="btn btn-default" ng-click="ask()">Ask a Question</button>
   </div>
 </header>
-
-<!-- after this we haven't semantic-ized yet -->
 
 <section class="main row">
   <div ui-view></div>
 </section>
 
-<footer class="global row text-center" ui-view="footer">
+<footer class="ss-page-footer">
   Copyright MarkLogic 2014
 </footer>

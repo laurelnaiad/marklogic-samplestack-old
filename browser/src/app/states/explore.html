@@ -1,59 +1,57 @@
+<!-- @todo move form classes (.form-control, .btn, etc.) into sass without losing styles -->
 <section class="ss-search-bar">
-  <form class="ss-search-form">
-    <input type="text" />
-    <button>Search</button>
-    <div class="ss-search-tips">Search Tips</div>
+  <form class="ss-search-form" role="form">
+    <!-- @todo how move form classes into sass and keep styling? -->
+    <input class="form-control" type="text" />
+    <button type="submit" class="btn btn-default">Search</button>
+    <div class="ss-search-tips">Search Tips</label>
   </form>
 </section>
 
-<!-- after this we haven't semantic-ized yet -->
+<section class="ss-explore">
 
-<section class="content row">
-
-  <section class="filters col-lg-3">
+  <section class="ss-filters">
     <header>
       <h2>Filter Results</h2>
     </header>
-    <div class="entries"><input type="checkbox" /> Show my entries only</div>
-    <div class="resolved"><input type="checkbox" /> Show resolved only</div>
-    <div class="date">
+    <div class="ss-filters-entries"><input type="checkbox" /> Show my entries only</div>
+    <div class="ss-filters-resolved"><input type="checkbox" /> Show resolved only</div>
+    <div class="ss-filters-date">
       <h3>Date</h3>
       <div class="date-placeholder">&nbsp;</div>
     </div>
-    <div class="tags">
+    <div class="ss-filters-tags">
       <h3>Tags</h3>
-      <div ng-repeat="facet in searchResults.facets">
+      <ul ng-repeat="facet in searchResults.facets">
         <div ng-switch="facet.name">
           <div ng-switch-when="tags">
             <div ng-repeat="item in facet.items">
-              <input type="checkbox" /> {{item.name}} ({{item.count}})
+              <li><input type="checkbox" /> {{item.name}} ({{item.count}})</li>
             </div>
           </div>
         </div>
-      </div>
+      </ul>
     </div>
   </section>
 
-  <section class="results col-lg-9">
-    <header class="row">
+  <section class="ss-results">
+    <header>
       <h2>Browsing Questions</h2>
-      <ul class="sort">
-        <li class="sort active">relevance</li>
-        <li class="sort">newest</li>
-        <li class="sort">votes</li>
+      <ul class="ss-sort">
+        <li class="active">relevance</li>
+        <li>newest</li>
+        <li>votes</li>
       </ul>
     </header>
-    <section class="result" ng-repeat="result in searchResults.results">
-      <div class="votes">votes</div>
-      <div>
-        <div class="title"><a ui-sref="root.layout.qnaDoc">Q: {{result.title}}</a></div>
-        <div class="snippet">This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet.</div>
-      </div>
-      <div class="metadata">
-        <ul class="tags col-lg-8">
+    <section class="ss-result" ng-repeat="result in searchResults.results">
+      <div class="ss-votes">votes</div>
+      <div class="title"><a ui-sref="root.layout.qnaDoc">Q: {{result.title}}</a></div>
+      <p>This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet.</p>
+      <div class="ss-metadata">
+        <ul class="ss-tags">
           <li ng-repeat="tag in result.tags" class="tag">{{tag}}</li>
         </ul>
-        <div class="author col-lg-4 text-right">asked {{dateDisplay(result.creationDate)}} by {{result.owner.displayName}} [{{result.owner.reputation}}]</div>
+        <div class="ss-author">asked {{dateDisplay(result.creationDate)}} by {{result.owner.displayName}} [{{result.owner.reputation}}]</div>
       </div>
     </section>
   </section>
