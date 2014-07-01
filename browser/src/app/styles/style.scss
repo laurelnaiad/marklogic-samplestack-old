@@ -2,6 +2,20 @@
 @import "bootstrap-vars";
 @import "bootstrap";
 
+button {
+  @extend .btn;
+  @extend .btn-default;
+}
+
+form input, textarea {
+  @extend .form-control;
+}
+
+.ss-main {
+  @extend .main;
+  @extend .row;
+}
+
 .ss-root {
   @extend .container-fluid;
 }
@@ -107,6 +121,10 @@
       }
     }
 
+    .ss-result-title {
+      @extend .title; // is this a bootstrap class?
+    }
+
   }
 }
 
@@ -116,6 +134,7 @@
 
   .ss-ask-form {
     @extend .form-horizontal;
+    @extend .form-inline;
 
     > * {
       display: block;
@@ -176,7 +195,7 @@
       li {
         margin-left: 10px;
       }
-      li.active {
+      li.ss-sort-active {
         font-weight: bold;
       }
     }
@@ -201,6 +220,8 @@
     }
   }
 }
+
+
 
 /*** GLOBAL FOOTER ***/
 .ss-page-footer {
@@ -250,14 +271,6 @@ ul.ss-tags {
   padding: 5px;
   margin-top: 20px;
   background-color: #DDD;
-}
-
-button {
-  /* @extend .btn;
-  @extend .btn-default;
-  @extend .btn-sm;
-  height: 26px;
-  font-size: 14px; */
 }
 
 // /* reset styles */
