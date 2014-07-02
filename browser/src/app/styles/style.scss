@@ -7,7 +7,8 @@ button {
   @extend .btn-default;
 }
 
-form input, textarea {
+form input,
+form textarea {
   @extend .form-control;
 }
 
@@ -24,7 +25,6 @@ form input, textarea {
 .ss-page-header {
   @extend .page-header;
   @extend .row;
-
   .ss-app-title {
     @extend .col-lg-7;
   }
@@ -44,8 +44,7 @@ form input, textarea {
 /*** SEARCH BAR ***/
 .ss-search-bar {
   @extend .col-lg-12;
-
-  .ss-search-form {
+  form {
     > * {
       display: inline-block;
     }
@@ -62,12 +61,10 @@ form input, textarea {
 /*** EXPLORE VIEW ***/
 .ss-explore {
   @extend .col-lg-12;
-
   .ss-filters {
     @extend .col-lg-2;
     padding-left: 0;
     padding-right: 0;
-
     .ss-filters-tags {
       ul {
         list-style: none;
@@ -84,16 +81,13 @@ form input, textarea {
     @extend .col-lg-10;
     padding-left: 0;
     padding-right: 0;
-
     header {
       width: 100%;
       display: inline-block;
-
       h2 {
         position: relative;
         float: left;
       }
-
       ul.ss-sort {
         position: relative;
         float: right;
@@ -106,12 +100,10 @@ form input, textarea {
         }
       }
     }
-
     .ss-result {
       padding: 10px;
       padding-left: 80px;
       border-bottom: solid 1px black;
-
       .ss-votes {
         position: absolute;
         left: 0;
@@ -120,22 +112,18 @@ form input, textarea {
         background-color: #DDDDDD;
       }
     }
-
     .ss-result-title {
       @extend .title; // is this a bootstrap class?
     }
-
   }
 }
 
 /*** ASK VIEW ***/
 .ss-ask {
   @extend .col-lg-12;
-
-  .ss-ask-form {
+  form {
     @extend .form-horizontal;
     @extend .form-inline;
-
     > * {
       display: block;
       margin-bottom: 10px;
@@ -156,12 +144,10 @@ form input, textarea {
 /*** QNA DOCUMENT VIEW ***/
 .ss-qnadoc {
   @extend .col-lg-12;
-
   .ss-question,
   .ss-answer {
     padding: 10px;
     padding-left: 85px;
-
     .ss-vote {
       position: absolute;
       left: 15px;
@@ -178,16 +164,13 @@ form input, textarea {
       border-bottom: solid 1px #AAAAAA;
     }
   }
-
   .ss-answers header {
     width: 100%;
     display: inline-block;
-
     h3 {
       position: relative;
       float: left;
     }
-
     ul.ss-sort {
       position: relative;
       float: right;
@@ -202,9 +185,7 @@ form input, textarea {
   }
 
   .ss-answer-form {
-    @extend .form-horizontal;
-
-    > * {
+    form > * {
       display: block;
       margin-bottom: 10px;
     }
@@ -227,7 +208,6 @@ form input, textarea {
 .ss-page-footer {
   @extend .row;
   @extend .text-center;
-
   margin-top: 10px;
   padding: 10px;
 }
@@ -237,7 +217,6 @@ ul.ss-sort, ul.ss-tags {
   list-style: none;
   padding: 0;
   margin: 0;
-
   li {
     position: relative;
     float: left;
@@ -245,7 +224,6 @@ ul.ss-sort, ul.ss-tags {
 }
 
 ul.ss-tags {
-
   li {
     margin-right: 10px;
     padding: 3px 5px;
@@ -269,7 +247,7 @@ ul.ss-tags {
 .ml-edit-tools {
   width: 400px;
   padding: 5px;
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: #DDD;
 }
 

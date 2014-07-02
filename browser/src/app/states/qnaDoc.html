@@ -1,9 +1,7 @@
-<!-- @todo move form classes (.form-control, .btn etc.) into sass without losing styles -->
 <section class="ss-search-bar">
-  <form class="ss-search-form" role="form">
-    <!-- @todo how move form classes into sass and keep styling? -->
+  <form>
     <input type="text" />
-    <button type="submit">Search</button>
+    <button>Search</button>
     <div class="ss-search-tips">Search Tips</label>
   </form>
 </section>
@@ -46,7 +44,7 @@
           <div class="ss-author">answered June 11 2014 at 11:17 by Bob [876]</div>
         </div>
         <div class="ss-comment">
-          Trust fund Echo Park wayfarers Godard ethnic leggings kale chips Shoreditch Bushwick, post-ironic forage blog beard meh. Fap narwhal farm-to-table, wolf XOXO seitan four loko. Swag literally Kickstarter selfies.<span>&mdash; <a ui-sref="">Beyonce</a> June 11 2014 at 23:59</span>
+          Trust fund Echo Park wayfarers Godard ethnic leggings kale chips Shoreditch Bushwick, post-ironic forage blog beard meh. Fap narwhal farm-to-table, wolf XOXO seitan four loko. Swag literally Kickstarter selfies.<span>&mdash; Beyonce June 11 2014 at 23:59</span>
         </div>
         <div class="ss-add-comment">add comment</div>
       </div>
@@ -56,10 +54,11 @@
       <header>
         <h3>Your Answer</h3>
       </header>
-      <div class="ml-edit-tools">Editing Tools</div>
-      <!-- these should have been in a form, right? -->
-      <textarea></textarea>
-      <button>Post Your Answer</button>
+      <form>
+        <div class="ml-edit-tools">Editing Tools</div>
+        <textarea></textarea>
+        <button>Post Your Answer</button>
+      </form>
     </section>
 
   </section>
