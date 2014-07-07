@@ -1,5 +1,7 @@
 define([
+  'app/directives/ssTags.unit',
 ], function (
+  ssTags
 ) {
   describe('unit tests', function () {
     describe('_marklogic', function () {
@@ -15,7 +17,7 @@ define([
 
       });
       describe('directives', function () {
-
+        ssTags();
       });
       describe('services', function () {
 
