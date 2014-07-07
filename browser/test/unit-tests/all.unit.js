@@ -1,4 +1,5 @@
 define([
+<<<<<<< HEAD
 ], function (
 ) {
   describe('unit tests', function () {
@@ -26,3 +27,8 @@ define([
     });
   });
 });
+=======
+  'app/states/store.unit',
+  '_marklogic/services/data/mlStore.unit'
+], function () {});
+>>>>>>> initial data commit
