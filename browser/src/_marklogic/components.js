@@ -3,8 +3,6 @@ _marklogic/components.js
 
  */
 define([
-
-/*
-TODO: figre out what's really in here
-*/
+  '_marklogic/services/data/mlModel',
+  '_marklogic/services/data/mlStore'
 ], function () {});
