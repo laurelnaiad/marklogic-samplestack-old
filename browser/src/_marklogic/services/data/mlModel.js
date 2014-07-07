@@ -21,22 +21,18 @@ _marklogic/services/mlModel.js
 
 define(['_marklogic/module'], function (module) {
 
-  module.provider('mlModel', [
+  module.factory('mlModel', [
 
     // deps tbd
     function (
       // deps tbd
     ) {
 
-      // TODO -- lots of stuff to be done here
-      this.$get = [
-        // deps tbd
-        function (/*deps tbd */) {
-          return {
-            tweedle: 'dum'
-          };
-        }
-      ];
+      return function (spec) {
+
+        this.find = function (query) {};
+
+      };
 
     }
   ]);
