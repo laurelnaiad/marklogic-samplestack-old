@@ -23,9 +23,7 @@
       <ul ng-repeat="facet in searchResults.facets">
         <div ng-switch="facet.name">
           <div ng-switch-when="tags">
-            <div ng-repeat="item in facet.items">
-              <li><input type="checkbox" /> {{item.name}} ({{item.count}})</li>
-            </div>
+            <ss-tags tags="facet.items"></ss-tags>
           </div>
         </div>
       </ul>

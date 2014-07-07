@@ -21,6 +21,7 @@ finds all components.  This pattern enables us to add/remove components
 from the component directories without requiring us to reference/de-reference
 the files individually.
 */
+  './directives/ssTags',
   './services/appRouting',
   './services/stubData',
   './states/_layout',
