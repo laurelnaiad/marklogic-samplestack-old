@@ -1,13 +1,13 @@
 define(['app/module'], function (module) {
   module.directive('ssTags', function () {
     return {
-      restrict: 'EAC',
+      restrict: 'EA',
       scope: {
         tags: '='
       },
     /* jshint -W101 */ // disable line length rule
       template:
-          '<ul><li ng-repeat="tag in tags">' +
+          '<ul class="ss-tags"><li ng-repeat="tag in tags">' +
           '<input type="checkbox" />' +
           '{{tag.name}} ({{tag.count}})' +
           '</li></ul>',
