@@ -3,13 +3,27 @@ define(
     'app/module',
   ],
   function (module) {
-
     var root = {
       name: 'root',
       abstract: true,
       url: '',
-      controller: 'rootCtlr',
-      templateUrl: '/app/states/_root.html',
+      views: {
+        '': {
+          // template doesn't follow naming conventions
+          controller: 'rootCtlr',
+          templateUrl: '/app/states/_root.html'
+        },
+        // shadow scope where our data store lives
+        // fullName will be store@root, but we should need it.
+        // this scope isolates data activity from the UI.
+        //
+        // shadowdom will obviate the usefulness of this in the future
+        'store@root': {
+          controller: 'storeCtlr',
+          templateUrl: null
+        }
+
+      },
       children: [
         {
           name: 'layout',
@@ -47,7 +61,6 @@ define(
         controller: 'askCtlr',
         templateUrl: '/app/states/ask.html'
       }
-
     ];
 
     module.constant('statesHierarchy', root);
