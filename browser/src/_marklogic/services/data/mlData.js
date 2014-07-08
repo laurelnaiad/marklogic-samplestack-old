@@ -1,10 +1,6 @@
-// /*
-// Angularized jsonschema support.
-//  */
+// this is kind of a non-requirement
 //
-// (function (undefined) {
-//   var _jsonschema_ = this.jsonschema;
-//
+// define(
 //   var module = this.angular.module(
 //     'marklogic.svc.schema', []
 //   );
@@ -27,3 +23,5 @@
 //   ); //module.factory
 //
 // }).call(global);
+//
+// )
