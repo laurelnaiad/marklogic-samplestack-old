@@ -3,8 +3,5 @@ _marklogic/components.js
 
  */
 define([
-
-/*
-TODO: figre out what's really in here
-*/
+  '_marklogic/directives/mlDynamicSearch'
 ], function () {});
