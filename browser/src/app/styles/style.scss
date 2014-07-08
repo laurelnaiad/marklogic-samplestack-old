@@ -39,6 +39,9 @@ form textarea {
       margin-right: 0;
     }
   }
+  .ss-login {
+    font-weight: bold;
+  }
 }
 
 /*** SEARCH BAR ***/
@@ -202,7 +205,24 @@ form textarea {
   }
 }
 
-
+/*** DIALOGS ***/
+.ss-dialog-login {
+  header {
+    @extend .modal-header;
+  }
+  h4 {
+   @extend .modal-title;
+  }
+  label {
+    width: 75px;
+  }
+  input {
+    width: 300px !important;
+  }
+  footer {
+    @extend .modal-footer;
+  }
+}
 
 /*** GLOBAL FOOTER ***/
 .ss-page-footer {

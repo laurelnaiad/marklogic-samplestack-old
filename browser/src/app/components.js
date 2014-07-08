@@ -14,6 +14,7 @@ dependency management that is coming in Angular 2.0 and ECMAScript 6.
  */
 
 define([
+  './dialogs/index',
   './services/index',
   './states/index'
 ], function () {});

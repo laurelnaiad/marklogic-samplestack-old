@@ -6,7 +6,9 @@
     </h1>
   </div>
   <div class="ss-page-header-actions">
-    <div class="ss-login">Logged in as <strong>Snippet</strong></div>
+    <div class="ss-login" ng-controller="loginDialogCtlr">
+      <a href="" ng-click="open()">Log In</a>
+    </div>
     <button ng-click="ask()">Ask a Question</button>
   </div>
 </header>
