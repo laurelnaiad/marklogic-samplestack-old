@@ -1,7 +1,6 @@
 define(['testHelper'], function (helper) {
 
-  describe('states', function () {
-
+  return function () {
     describe('store', function () {
       var testable;
       var stub;
@@ -29,5 +28,5 @@ define(['testHelper'], function (helper) {
       // });
 
     });
-  });
+  };
 });
