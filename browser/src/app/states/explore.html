@@ -52,7 +52,9 @@
           <li ng-repeat="tag in result.tags">{{tag}}</li>
         </ul>
         <div class="ss-author">asked {{dateDisplay(result.creationDate)}} by
-        <a href="" ng-click="openUser(userID)">{{result.owner.displayName}}</a> [{{result.owner.reputation}}]</div>
+        <!-- <a href="" ng-click="openUser(userID)">{{result.owner.displayName}}</a> -->
+        <a href="" popover="{{userPopover}}" popover-placement="bottom">{{result.owner.displayName}}</a>
+        [{{result.owner.reputation}}]</div>
       </div>
     </section>
   </section>

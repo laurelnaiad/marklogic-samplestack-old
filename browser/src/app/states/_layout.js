@@ -19,6 +19,7 @@ define(['app/module'], function (module) {
         var dialogResult = loginDialog();
       };
 
+      // @todo generalize with user popover
       var loginText = function () {
         // @todo return formatted user text
         var text = '<strong>Email</strong> john@marklogic.com<br />';

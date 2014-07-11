@@ -52,6 +52,17 @@
 
 <script src="/deps/requirejs/require<%=min%>.js"></script>
 
+<!-- Override Angular-UI popover template to allow HTML in content -->
+<script id="template/popover/popover.html" type="text/ng-template">
+    <div class="popover {{placement}}" ng-class="{ in: isOpen(), fade: animation() }">
+        <div class="arrow"></div>
+        <div class="popover-inner">
+            <h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
+            <div class="popover-content" bind-html-unsafe="content"></div>
+        </div>
+    </div>
+</script>
+
 <script>
 
 /*

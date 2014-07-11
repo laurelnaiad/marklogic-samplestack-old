@@ -2,9 +2,15 @@ define(['app/module'], function (module) {
 
   module.controller('askCtlr', [
 
-    '$scope',
-    function ($scope) {
+    '$scope', 'postDialog',
+    function ($scope, postDialog) {
+
       $scope.setPageTitle('ask');
+
+      $scope.post = function () {
+        var dialogResult = postDialog();
+      }
+
     }
 
   ]);

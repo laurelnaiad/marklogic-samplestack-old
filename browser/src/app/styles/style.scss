@@ -39,9 +39,6 @@ form textarea {
       margin-right: 0;
     }
   }
-  .ss-login {
-    font-weight: bold;
-  }
 }
 
 /*** SEARCH BAR ***/
@@ -235,11 +232,16 @@ form textarea {
   }
 }
 
-.ss-dialog-user {
+.ss-dialog-post {
   // @extend .ss-dialog; // @todo does not work as expected
-  label {
-    width: 100px;
+  header {
+    border-bottom: 0;
   }
+  >div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
 }
 
 /*** GLOBAL FOOTER ***/
