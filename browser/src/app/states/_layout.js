@@ -24,7 +24,7 @@ define(['app/module'], function (module) {
         var text = '<strong>Email</strong> john@marklogic.com<br />';
         text += '<strong>Account Type</strong> Contributor';
         return text;
-      }
+      };
 
       $scope.loginPopover = loginText();
 
