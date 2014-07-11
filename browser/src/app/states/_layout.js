@@ -19,6 +19,15 @@ define(['app/module'], function (module) {
         var dialogResult = loginDialog();
       };
 
+      var loginText = function () {
+        // @todo return formatted user text
+        var text = '<strong>Email</strong> john@marklogic.com<br />';
+        text += '<strong>Account Type</strong> Contributor';
+        return text;
+      }
+
+      $scope.loginPopover = loginText();
+
     }
 
   ]);

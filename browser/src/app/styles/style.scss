@@ -235,6 +235,13 @@ form textarea {
   }
 }
 
+.ss-dialog-user {
+  // @extend .ss-dialog; // @todo does not work as expected
+  label {
+    width: 100px;
+  }
+}
+
 /*** GLOBAL FOOTER ***/
 .ss-page-footer {
   @extend .row;
