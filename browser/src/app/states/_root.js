@@ -15,6 +15,10 @@ define(['app/module'], function (module) {
         $rootScope.pageTitle = title;
       };
 
+      $scope.setStoreScope = function (scope) {
+        this.storeScope = scope;
+      };
+
       // todo -- there is no real reason that we should be
       // doing it this way -- it is sloppy to use jqLite outside of
       // directives -- should set scope property

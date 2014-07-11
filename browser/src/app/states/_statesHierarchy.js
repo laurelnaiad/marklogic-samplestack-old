@@ -8,12 +8,27 @@ define(
       abstract: true,
       url: '',
       children: [],
-      templateUrl: '/app/states/_root.html'
+      views: {
+        '': {
+          // template doesn't follow naming conventions
+          templateUrl: '/app/states/_root.html'
+        },
+        // shadow scope where our data store lives
+        // fullName will be store@root, but we should need it.
+        // this scope isolates data activity from the UI.
+        //
+        // shadowdom will obviate the usefulness of this in the future
+        'store@root': {
+          templateUrl: null
+        }
+
+      }
     };
 
     var layout = {
       name: 'layout',
       abstract: true,
+          // template doesn't follow naming conventions
       templateUrl: '/app/states/_layout.html'
     };
     root.children.push(layout);

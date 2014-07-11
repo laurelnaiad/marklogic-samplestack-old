@@ -22,6 +22,7 @@ from the component directories without requiring us to reference/de-reference
 the files individually.
 */
   './services/appRouting',
+  './services/ssModel',
   './services/stubData',
   './states/_layout',
   './states/_root',
@@ -29,5 +30,8 @@ the files individually.
   './states/ask',
   './states/explore',
   './states/fourOhFour',
-  './states/qnaDoc'
+  './states/qnaDoc',
+  './states/store'
+  // './states/speeches'
+
 ], function () {});

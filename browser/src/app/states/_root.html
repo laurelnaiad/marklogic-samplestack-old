@@ -1,3 +1,8 @@
 <div class="ss-root">
-  <ui-view/>
+  <div ui-view="store" style="visibiliy: invisible">
+    <!-- handles/stores data, like a fake shadow dom -->
+  </div>
+  <div ui-view>
+    <!-- contains actual UI -->
+  </div>
 </div>
