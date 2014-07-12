@@ -3,6 +3,5 @@ _marklogic/components.js
 
  */
 define([
-  '_marklogic/services/data/mlModel',
-  '_marklogic/services/data/mlStore'
+  '_marklogic/services/index'
 ], function () {});
