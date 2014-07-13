@@ -6,7 +6,11 @@ define(['app/module'], function (module) {
     function ($scope) {
       $scope.setPageTitle('search');
 
-      $scope.ds = {};
+      $scope.ds = {
+        query: {
+          text: 'testy'
+        }
+      };
 
     }
 

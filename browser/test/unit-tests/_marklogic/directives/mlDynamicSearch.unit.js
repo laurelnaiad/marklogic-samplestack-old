@@ -1,41 +1,55 @@
 define(['testHelper'], function (helper) {
 
   return function () {
-    describe('mlDynamicSearch', function () {
+    describe('mlDsQText', function () {
+      var el;
       var scope;
       var $compile;
+      var $timeout;
       var element;
+      var sut;
 
       beforeEach(function (done) {
         angular.mock.module('app');
         inject(
-          function ($rootScope, _$compile_) {
+          function ($rootScope, _$compile_, _$timeout_) {
 
             scope = $rootScope;
             $compile = _$compile_;
+            $timeout = _$timeout_;
 
             element = angular.element(
               '<div ml-dynamic-search="dsObj">' +
-              '<div ml-ds-bind="example1" ml-ds-value="exampleVal"></div>' +
-              '<div ml-ds-bind="example2" ml-ds-value="exampleBack"></div>' +
+              '<input ml-ds-q-text/>' +
               '</div>'
             );
+
+            $compile(element)(scope);
+            // el = element[0].querySelector('.ml-ds-q-text');
+            scope.$digest();
+            sut = element.find('input');
 
             done();
           }
         );
       });
 
-      it('should have two-way binding for properties', function () {
-        $compile(element)(scope);
-        scope.exampleVal = 'testy';
-        scope.dsObj = {
-          example2: 'test back'
-        };
-        scope.$digest();
-        scope.dsObj.example1.should.equal('testy');
-        scope.exampleBack.should.equal('test back');
+      it('it should be initialized', function () {
+        scope.dsObj.query.should.have.property('text', null);
       });
+
+      it('it should sync scope to html', function () {
+        scope.dsObj.query.text = 'testy';
+        scope.$digest();
+        sut.val().should.equal('testy');
+      });
+
+      it('it should sync html to scope', function () {
+        sut.val('tested').triggerHandler('change');
+        scope.$digest();
+        scope.dsObj.query.text.should.equal('tested');
+      });
+
 
     });
 

@@ -11,7 +11,12 @@ define(['_marklogic/module'], function (module) {
         dynamicSearch: '=mlDynamicSearch'
       },
       controller: function ($scope) {
-        $scope.dynamicSearch = $scope.dynamicSearch || {};
+        $scope.dynamicSearch = {
+          query: {
+            text: null
+
+          }
+        };
         this.scope = $scope;
       }
     };
@@ -38,5 +43,41 @@ define(['_marklogic/module'], function (module) {
       }
     };
   });
+
+  module.directive('mlDsQText', [
+
+    '$timeout',
+    function ($timeout) {
+      return {
+        restrict: 'A',
+        require: '^mlDynamicSearch',
+        compile: function (tElement, tAttrs, transclude) {
+          tElement.addClass('ml-ds-q-text');
+          tElement.attr('type', 'text');
+          return function (scope, element, attrs, dsCtlr) {
+            dsCtlr.scope.$watch('dynamicSearch.query.text', function (val) {
+              element[0].value = val;
+            });
+            var setVal = function (evt) {
+              dsCtlr.scope.dynamicSearch.query.text = element.val();//ue;
+            };
+            element.bind('change keyup', function (evt) {
+              setVal(evt);
+            });
+            element.bind('paste', function (evt) {
+              $timeout(function () { setVal(evt); }, 0);
+            });
+          };
+        },
+        scope: {
+          //TODO -- not sure we actually want to make this an optio -- it would
+          //allow app dev to override the model schema, and its not clear that
+          //that has any value aside from letting people get themselves into
+          //trouble.
+          mlDsBind: '=?'
+        }
+      };
+    }
+  ]);
 
 });
