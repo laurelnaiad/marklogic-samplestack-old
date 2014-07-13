@@ -42,12 +42,12 @@ define(
         templateUrl: '/app/states/fourOhFour.html'
       },
       {
-        name: 'explore',
+        name: 'search',
         // will deal with all sorts of parameters here, potentially
         // as sub-states
         url: '/',
-        controller: 'exploreCtlr',
-        templateUrl: '/app/states/explore.html'
+        controller: 'searchCtlr',
+        templateUrl: '/app/states/search.html'
       },
       {
         name: 'qnaDoc',

@@ -29,10 +29,8 @@ the files individually.
   './states/_root',
   './states/_statesHierarchy',
   './states/ask',
-  './states/explore',
   './states/fourOhFour',
+  './states/search',
   './states/qnaDoc',
   './states/store'
-  // './states/speeches'
-
 ], function () {});

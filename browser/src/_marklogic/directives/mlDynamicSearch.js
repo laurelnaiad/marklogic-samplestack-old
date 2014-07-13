@@ -3,15 +3,17 @@ define(['_marklogic/module'], function (module) {
   module.directive('mlDynamicSearch', function () {
     return {
       restrict: 'A',
+      compile: function compile (tElement, tAttrs, transclude) {
+        tElement.addClass('ml-dynamic-search');
+        return {};
+      },
       scope: {
         dynamicSearch: '=mlDynamicSearch'
       },
       controller: function ($scope) {
         $scope.dynamicSearch = $scope.dynamicSearch || {};
         this.scope = $scope;
-
       }
-
     };
   });
 

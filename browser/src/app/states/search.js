@@ -1,10 +1,12 @@
 define(['app/module'], function (module) {
 
-  module.controller('exploreCtlr', [
+  module.controller('searchCtlr', [
 
     '$scope',
     function ($scope) {
-      $scope.setPageTitle('explore');
+      $scope.setPageTitle('search');
+
+      $scope.ds = {};
 
     }
 
