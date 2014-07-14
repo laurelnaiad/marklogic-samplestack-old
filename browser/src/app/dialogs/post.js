@@ -11,7 +11,7 @@ define(['app/module'], function (module) {
       $scope.ok = function () {
         $modalInstance.dismiss();
         appRouting.go('explore');
-      }
+      };
 
     }
   ]);

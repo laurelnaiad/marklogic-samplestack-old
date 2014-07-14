@@ -9,7 +9,7 @@ define(['app/module'], function (module) {
 
       $scope.post = function () {
         var dialogResult = postDialog();
-      }
+      };
 
     }
 
