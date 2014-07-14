@@ -78,6 +78,11 @@ configuredApp = '/configuredApp.js';
 require([configuredApp], function (appModule) {
   var htmlEl = angular.element(window.document.childNodes[1]);
 
+  appModule.run([
+    'appRouting',
+    function (appRouting) {}
+  ]);
+
   angular.bootstrap(
     htmlEl,
     [
@@ -87,6 +92,7 @@ require([configuredApp], function (appModule) {
       }
     ]
   );
+
 
 });
 

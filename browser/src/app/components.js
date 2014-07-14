@@ -1,4 +1,13 @@
 /*
+_marklogic/components.js
+
+ */
+define([
+  './directives/index',
+  './services/index',
+  './states/index'
+], function () {});
+/*
 app/components.js
 
 TODO: move and/or adapt this information into design doc.
@@ -12,25 +21,3 @@ component injects the dependencies that it needs.
 Require.js is used in this application as a stand-in for the more complete
 dependency management that is coming in Angular 2.0 and ECMAScript 6.
  */
-
-define([
-
-/*
-TODO: this should be auto-generated at build time based on a glob pattern that
-finds all components.  This pattern enables us to add/remove components
-from the component directories without requiring us to reference/de-reference
-the files individually.
-*/
-  './directives/ssTags',
-  './services/appRouting',
-  './services/ssModel',
-  './services/stubData',
-  './states/_layout',
-  './states/_root',
-  './states/_statesHierarchy',
-  './states/ask',
-  './states/fourOhFour',
-  './states/search',
-  './states/qnaDoc',
-  './states/store'
-], function () {});

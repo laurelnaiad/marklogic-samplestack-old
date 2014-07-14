@@ -1,7 +1,7 @@
 var defaultParams = {
   min: '',
   appName: 'app',
-  e2eMock: true,
+  e2eMock: false,
   noscriptHtml: '<p>You need a script-enabled browser.</p>',
   unit: false,
   pkg: require('./package.json'),

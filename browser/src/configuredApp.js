@@ -22,12 +22,6 @@ define(['app/app'], function (appModule) {
 
   ]);
 
-
-  appModule.run([
-    'appRouting',
-    function (appRouting) {}
-  ]);
-
   return appModule;
 
 });
