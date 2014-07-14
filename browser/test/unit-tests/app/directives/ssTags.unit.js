@@ -15,7 +15,7 @@ define(['testHelper'], function (helper) {
         inject(
           function ($rootScope, _$compile_, ssModel) {
 
-            scope = $rootScope;
+            scope = $rootScope.$new();
             $compile = _$compile_;
 
             element = angular.element('<ss-tags tags="tags"></ss-tags>');

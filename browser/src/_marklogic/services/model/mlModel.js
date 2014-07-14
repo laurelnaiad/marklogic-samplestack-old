@@ -35,9 +35,9 @@ define(['_marklogic/module'], function (module) {
 
   module.factory('mlModel', [
 
-    // deps tbd
+    'mlSchema',
     function (
-      // deps tbd
+      mlSchema
     ) {
 
       /**
@@ -61,6 +61,7 @@ define(['_marklogic/module'], function (module) {
         // Should created instances by posted right away or reserved for "sync"
         // time (the latter, presumably).
 
+        // this.validator = new mlSchema.Validator(this.schema)
 
         this.query = function (spec) {
 
@@ -70,6 +71,9 @@ define(['_marklogic/module'], function (module) {
 
         };
       };
+      //
+      // MlModel.prototype.validate = function () {
+      //   this.validator.
 
       MlModel.prototype.create = function () {
 

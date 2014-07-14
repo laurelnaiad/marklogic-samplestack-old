@@ -1,5 +1,5 @@
 define([
-  './mlModel',
-  './mlSchema',
-  './mlStore'
+  './http/index',
+  './model/index',
+  './util/index'
 ], function () {});

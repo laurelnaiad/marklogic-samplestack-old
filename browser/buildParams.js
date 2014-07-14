@@ -1,6 +1,7 @@
 var defaultParams = {
   min: '',
   appName: 'app',
+  e2eMock: true,
   noscriptHtml: '<p>You need a script-enabled browser.</p>',
   unit: false,
   pkg: require('./package.json'),
@@ -30,6 +31,7 @@ var targetParams = {
   },
   // unit target specifics
   unit: {
+    e2eMock: false,
     unit: true
   },
   // e2e target specifics

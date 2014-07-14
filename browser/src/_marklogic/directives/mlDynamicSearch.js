@@ -13,8 +13,7 @@ define(['_marklogic/module'], function (module) {
       controller: function ($scope) {
         $scope.dynamicSearch = {
           query: {
-            text: null
-
+            qtext: null
           }
         };
         this.scope = $scope;
@@ -46,8 +45,8 @@ define(['_marklogic/module'], function (module) {
 
   module.directive('mlDsQText', [
 
-    '$timeout',
-    function ($timeout) {
+    '$timeout', 'mlUtil',
+    function ($timeout, mlUtil) {
       return {
         restrict: 'A',
         require: '^mlDynamicSearch',
@@ -55,11 +54,16 @@ define(['_marklogic/module'], function (module) {
           tElement.addClass('ml-ds-q-text');
           tElement.attr('type', 'text');
           return function (scope, element, attrs, dsCtlr) {
-            dsCtlr.scope.$watch('dynamicSearch.query.text', function (val) {
-              element[0].value = val;
-            });
+            dsCtlr.scope.$watch(
+              'dynamicSearch.query.qtext',
+              function (val) {
+                element.val(val);
+              }
+            );
             var setVal = function (evt) {
-              dsCtlr.scope.dynamicSearch.query.text = element.val();//ue;
+              mlUtil.extend(dsCtlr.scope.dynamicSearch, {
+                query: { qtext: element.val() }
+              });
             };
             element.bind('change keyup', function (evt) {
               setVal(evt);

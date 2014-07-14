@@ -22,7 +22,8 @@
     "spin.js": "~2.0.0",
     "angular-marked": "~0.0.11",
     "momentjs": "~2.6.0",
-    "marked": "~0.3.2"
+    "marked": "~0.3.2",
+    "angular-mocks": "~1.2.20"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
@@ -71,6 +72,7 @@
     }
   },
   "resolutions": {
-    "angular-ui-router": "2014-06-22"
+    "angular-ui-router": "2014-06-22",
+    "angular": "1.2.20"
   }
 }

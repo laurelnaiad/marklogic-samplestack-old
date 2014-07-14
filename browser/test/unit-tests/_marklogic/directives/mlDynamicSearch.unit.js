@@ -14,7 +14,7 @@ define(['testHelper'], function (helper) {
         inject(
           function ($rootScope, _$compile_, _$timeout_) {
 
-            scope = $rootScope;
+            scope = $rootScope.$new();
             $compile = _$compile_;
             $timeout = _$timeout_;
 
@@ -35,11 +35,11 @@ define(['testHelper'], function (helper) {
       });
 
       it('it should be initialized', function () {
-        scope.dsObj.query.should.have.property('text', null);
+        scope.dsObj.query.should.have.property('qtext');
       });
 
       it('it should sync scope to html', function () {
-        scope.dsObj.query.text = 'testy';
+        scope.dsObj.query.qtext = 'testy';
         scope.$digest();
         sut.val().should.equal('testy');
       });
@@ -47,7 +47,7 @@ define(['testHelper'], function (helper) {
       it('it should sync html to scope', function () {
         sut.val('tested').triggerHandler('change');
         scope.$digest();
-        scope.dsObj.query.text.should.equal('tested');
+        scope.dsObj.query.qtext.should.equal('tested');
       });
 
 

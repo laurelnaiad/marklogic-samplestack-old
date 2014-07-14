@@ -1,16 +1,16 @@
 define([
-  './mlSchema.unit',
-  './mlStore.unit'
+  './http/index.unit',
+  './model/index.unit'
 ], function (
-  mlSchema,
-  mlStore
+  http,
+  model
 ) {
 
   return function () {
 
     describe('services', function () {
-      mlSchema();
-      mlStore();
+      http();
+      model();
     });
 
   };
