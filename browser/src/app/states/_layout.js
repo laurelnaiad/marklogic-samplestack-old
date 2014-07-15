@@ -5,8 +5,8 @@ define(['app/module'], function (module) {
 
   module.controller('layoutCtlr', [
 
-    '$scope', 'appRouting', 'loginDialog',
-    function ($scope, appRouting, loginDialog) {
+    '$scope', 'appRouting', 'loginDialog', 'userDialog',
+    function ($scope, appRouting, loginDialog, userDialog) {
       // TODO: this is dead code, do we need a controller?
       // $scope.collapsed = true;
 
@@ -19,15 +19,16 @@ define(['app/module'], function (module) {
         var dialogResult = loginDialog();
       };
 
-      // @todo generalize with user popover
-      var loginText = function () {
-        // @todo return formatted user text
-        var text = '<strong>Email</strong> john@marklogic.com<br />';
-        text += '<strong>Account Type</strong> Contributor';
-        return text;
+      $scope.user = {
+        displayName: 'John Snippet',
+        email: 'user@example.com',
+        accountType: 'Contributor',
+        dateCreated: 'April 1, 2014'
       };
 
-      $scope.loginPopover = loginText();
+      $scope.openUser = function () {
+        var dialogResult = userDialog();
+      };
 
     }
 
