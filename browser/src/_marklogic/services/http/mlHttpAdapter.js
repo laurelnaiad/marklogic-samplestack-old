@@ -32,10 +32,36 @@ not to push memory constraints and to have "fresher" data.
 
 define(['_marklogic/module'], function (module) {
 
-  module.factory('mlHttpAdapter', [
+  module.factory('mlHttpInterceptor', [
+    function () {
 
-    // deps tbd
+      return {
+
+        request: function (config) {
+          if (config.url === '/v1/login' && config.method === 'POST') {
+            config.headers['Content-Type'] =
+                'application/x-www-form-urlencoded';
+
+            config.data =
+                'username=' + encodeURI(config.data.username) + '&' +
+                'password=' + encodeURI(config.data.password);
+          }
+          return config;
+        }
+      };
+
+    }
+  ]);
+
+  module.config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.interceptors.push('mlHttpInterceptor');
+  }]);
+
+  module.provider('mlHttpAdapter', [
+
+    '$httpProvider',
     function (
+      $httpProvider
     ) {
 
       /**
@@ -57,7 +83,7 @@ define(['_marklogic/module'], function (module) {
        * @param  {[type]} spec [description]
        * @return {[type]}      [description]
        */
-      var MlData = function (spec) {
+      var MlHttpAdapter = function (spec) {
 
         /**
          * [search description]
@@ -90,7 +116,9 @@ define(['_marklogic/module'], function (module) {
 
       };
 
-      return MlData;
+      return {
+        $get: function () { return new MlHttpAdapter(); }
+      };
 
     }
   ]);

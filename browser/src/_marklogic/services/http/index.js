@@ -1,3 +1,4 @@
 define([
+  './mlHttpAdapter',
   './mlStore'
 ], function () {});
