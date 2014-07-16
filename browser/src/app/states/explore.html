@@ -14,10 +14,13 @@
     </header>
     <div class="ss-filters-entries"><input type="checkbox" /> Show my entries only</div>
     <div class="ss-filters-resolved"><input type="checkbox" /> Show resolved only</div>
-    <div class="ss-filters-date">
-      <h3>Date</h3>
-      <div class="date-placeholder">&nbsp;</div>
-    </div>
+    <section class="ss-filters-date">
+      <header>
+        <h3>Date</h3>
+        <a href="" class="ss-clear-date" ng-click="dateScope.clearSelection()">Clear</a>
+      </header>
+      <div ss-facet-date-range></div>
+    </section>
     <section class="ss-filters-tags">
       <header>
         <h3>Tags</h3>

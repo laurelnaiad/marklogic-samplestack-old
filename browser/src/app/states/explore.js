@@ -185,6 +185,19 @@ define(['app/module'], function (module) {
 
       };
 
+      $scope.dateData = [
+        {x: Date.UTC(2010, 0, 1), y: 65.5},
+        {x: Date.UTC(2010, 1, 1), y: 29.9},
+        {x: Date.UTC(2010, 2, 1), y: 106.4},
+        {x: Date.UTC(2010, 3, 1), y: 129.2},
+        {x: Date.UTC(2010, 4, 1), y: 144.0},
+        {x: Date.UTC(2010, 5, 1), y: 135.6},
+        {x: Date.UTC(2010, 6, 1), y: 148.5},
+        {x: Date.UTC(2010, 7, 1), y: 216.4},
+        {x: Date.UTC(2010, 8, 1), y: 194.1},
+        {x: Date.UTC(2010, 9, 1), y: 95.6}
+      ];
+
     }
 
   ]);
