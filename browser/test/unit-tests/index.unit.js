@@ -1,31 +1,12 @@
 define([
+  '_marklogic/index.unit',
+  'app/index.unit'
 ], function (
+  marklogic,
+  app
 ) {
   describe('unit tests', function () {
-    describe('_marklogic', function () {
-      describe('directives', function () {
-
-      });
-      describe('filters', function () {
-
-      });
-      describe('services', function () {
-
-      });
-    });
-    describe('app', function () {
-      describe('dialogs', function () {
-
-      });
-      describe('directives', function () {
-
-      });
-      describe('services', function () {
-
-      });
-      describe('states', function () {
-
-      });
-    });
+    marklogic();
+    app();
   });
 });

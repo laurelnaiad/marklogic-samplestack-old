@@ -12,8 +12,14 @@ define([
 
   appModule.config([
 
-    'appRoutingProvider', 'statesHierarchy', 'markedProvider',
-    function (appRoutingProvider, statesHierarchy, markedProvider) {
+    'appRoutingProvider',
+    'statesHierarchy',
+    'markedProvider',
+    function (
+      appRoutingProvider,
+      statesHierarchy,
+      markedProvider
+    ) {
 
       // Apply the statesHierarchy as configuration for the
       // appRoutingProvider/appRouting service.
