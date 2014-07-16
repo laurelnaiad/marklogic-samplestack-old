@@ -1,9 +1,11 @@
 define([
   './mlHttpAdapter.unit',
-  './mlStore.unit'
+  './mlStore.unit',
+  './mlWaiter.unit'
 ], function (
   mlHttpAdapter,
-  mlStore
+  mlStore,
+  mlWaiter
 ) {
 
   return function () {
@@ -11,6 +13,7 @@ define([
     describe('http', function () {
       mlHttpAdapter();
       mlStore();
+      mlWaiter();
     });
 
   };

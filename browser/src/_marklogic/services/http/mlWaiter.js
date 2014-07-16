@@ -1,8 +1,11 @@
-(function (undefined) {
-
-  var module = this.angular.module(
-    'marklogic.svc.waiter', []
-  );
+/*
+this is provisional -- to be refactored to follow basic patterns that
+Angular 2.0 is pointing towards where we're doing the same thing they are
+planning to put into core -- this may mean that mlWaiter is factored into
+somethign that looks more like Angular's ChangeEvent and oorresponding hooks
+in models and the store.
+ */
+define(['_marklogic/module'], function (module) {
 
   module.factory(
 
@@ -77,4 +80,5 @@
     ] // injector shorthand
   ); //module.factory
 
-}).call(global);
+
+});

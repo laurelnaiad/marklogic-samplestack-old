@@ -1,4 +1,5 @@
 define([
   './mlHttpAdapter',
-  './mlStore'
+  './mlStore',
+  './mlWaiter'
 ], function () {});
