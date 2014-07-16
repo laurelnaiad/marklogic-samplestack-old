@@ -1,12 +1,13 @@
 define([
+  './ssFacetDateRange.unit'
 ], function (
-  ssTags
+  ssFacetDateRange
 ) {
 
   return function () {
 
     describe('directives', function () {
-
+      ssFacetDateRange();
     });
 
   };

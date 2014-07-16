@@ -11,8 +11,8 @@ require.config({
 });
 
 define([
-  'configuredApp', 'angular-mocks'
-], function (appModule) {
+  'configuredApp', 'mocks/index', 'angular-mocks'
+], function (appModule, mocks) {
 
   var mockModule = angular.module('mockModule', ['ngMockE2E']);
 
@@ -36,6 +36,8 @@ define([
         'votes': [],
         'role': ['SAMPLESTACK_CONTRIBUTOR']
       }, { 'X-CSRF-TOKEN': 'some token' });
+
+      $httpBackend.whenPOST(/^\/v1\/search$/).respond(200, mocks.searchResult);
 
       $httpBackend.whenGET(/^(?!\/v1\/).*/).passThrough();
     }

@@ -1,0 +1,4 @@
+define([
+  './ssFacetDateRange',
+  './ssFacetTags'
+], function () {});

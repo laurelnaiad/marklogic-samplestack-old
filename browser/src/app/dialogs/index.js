@@ -1,3 +1,4 @@
 define([
+  './allTags',
   './login'
 ], function () {});

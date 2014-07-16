@@ -1,11 +1,13 @@
 define([
   './mlAuth.unit',
   './http/index.unit',
-  './model/index.unit'
+  './model/index.unit',
+  './search/index.unit'
 ], function (
   mlAuth,
   http,
-  model
+  model,
+  search
 ) {
 
   return function () {
@@ -14,6 +16,7 @@ define([
       mlAuth();
       http();
       model();
+      search();
     });
 
   };
