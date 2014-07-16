@@ -320,6 +320,9 @@ form textarea {
       li {
         margin-left: 10px;
       }
+      li.ss-sort-active {
+        font-weight: bold;
+      }
     }
   }
 
@@ -380,6 +383,9 @@ form textarea {
   .ss-column {
     width: 190px;
   }
+  .ss-paging {
+    clear: both;
+  }
   .ss-all-tags-actions {
     display: inline-block;
     width: 100%;
@@ -390,6 +396,10 @@ form textarea {
     float: right;
     li {
       margin-left: 10px;
+      cursor: pointer;
+    }
+    li.ss-sort-active {
+      font-weight: bold;
     }
   }
   input.ss-typeahead-input {
@@ -480,5 +490,13 @@ ul.ss-tags {
 
 .ss-facet-date-range {
   .highcharts-container {
+  }
+}
+
+.ss-facet-date-range {
+
+
+  .highcharts-container {
+
   }
 }
