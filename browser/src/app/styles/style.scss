@@ -202,6 +202,35 @@ form textarea {
   }
 }
 
+/*** DIALOGS ***/
+.ss-dialog {
+  header {
+    @extend .modal-header;
+    button {
+      @extend .close;
+      margin-top: -10px;
+    }
+  }
+  h4 {
+   @extend .modal-title;
+  }
+  >div {
+    @extend .modal-body;
+  }
+  footer {
+    @extend .modal-footer;
+  }
+}
+
+.ss-dialog-login {
+  // @extend .ss-dialog; // @todo does not work as expected
+  label {
+    width: 75px;
+  }
+  input {
+    width: 300px !important;
+  }
+}
 
 
 /*** GLOBAL FOOTER ***/
