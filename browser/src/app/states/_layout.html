@@ -6,7 +6,16 @@
     </h1>
   </div>
   <div class="ss-page-header-actions">
-    <div class="ss-login">Logged in as <strong>Snippet</strong></div>
+    <div class="ss-login">
+      <a href="" ng-click="openLogin()">When not logged in</a> |
+      <span class="dropdown">
+        <a href="" class="dropdown-toggle">When logged in</a>
+        <ul class="dropdown-menu">
+          <li><strong>Email</strong> {{user.email}}</li>
+          <li><strong>Account Type</strong> {{user.accountType}}</li>
+        </ul>
+      </span>
+    </div>
     <button ng-click="ask()">Ask a Question</button>
   </div>
 </header>

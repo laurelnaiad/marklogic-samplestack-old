@@ -1,0 +1,25 @@
+<section class="ss-dialog ss-dialog-login">
+
+  <header>
+    <button type="button" ng-click="cancel()">&times;</button>
+    <h4>Log In</h4>
+  </header>
+
+  <div>
+    <!-- @todo form tag should contain buttons and not conflict with styling -->
+    <form class="form-inline">
+      <div class="ss-login-userid">
+        <label>User ID</label> <input type="text" class="form-control" />
+      </div>
+      <div class="ss-login-password">
+        <label>Password</label> <input type="password" class="form-control" />
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <button ng-click="cancel()">Cancel</button>
+    <button ng-click="login()">Log In</button>
+  </footer>
+
+</section>
