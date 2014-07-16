@@ -7,9 +7,8 @@ define(['app/module'], function (module) {
 
     // TODO: unstub data
 
-    '$scope', '$rootScope', 'mlStore', 'stubData',
-    function ($scope, $rootScope, mlStore, stubData) {
-      $scope.searchResults = stubData;
+    '$scope', '$rootScope', 'mlStore',
+    function ($scope, $rootScope, mlStore) {
 
       $scope.setPageTitle = function (title) {
         $rootScope.pageTitle = title;

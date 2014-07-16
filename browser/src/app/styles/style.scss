@@ -58,21 +58,45 @@ form textarea {
   }
 }
 
-/*** EXPLORE VIEW ***/
-.ss-explore {
+
+/*** SEARCH VIEW ***/
+.ml-dynamic-search {
   @extend .col-lg-12;
   .ss-filters {
     @extend .col-lg-2;
     padding-left: 0;
     padding-right: 0;
     .ss-filters-tags {
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+      header {
+        width: 100%;
+        display: inline-block;
+        h3 {
+          position: relative;
+          float: left;
+        }
+        .ss-clear-tags {
+          position: relative;
+          float: right;
+          margin: 21px 30px 0 0;
+          cursor: pointer;
+        }
       }
-      li {
-
+      .ss-facet-tags {
+        input.ss-typeahead-input {
+          display: block;
+          clear: all;
+          width: 202px;
+          margin-bottom: 5px;
+          font-size: 14px;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+      }
+      .ss-open-all-tags {
+        cursor: pointer;
       }
     }
   }
@@ -228,6 +252,14 @@ form textarea {
   }
   input {
     width: 300px !important;
+  }
+}
+
+.ss-dialog-all-tags {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 }
 

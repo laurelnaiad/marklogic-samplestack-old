@@ -1,4 +1,3 @@
 define([
-  './allTags',
-  './login'
+  './mlDynamicSearch'
 ], function () {});
