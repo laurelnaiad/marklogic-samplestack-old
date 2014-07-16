@@ -224,9 +224,35 @@ form textarea {
     input {
       width: 500px;
     }
-    textarea {
-      width: 700px;
-      height: 200px;
+    .ss-markdown-editor {
+      li {
+        cursor: pointer;
+      }
+      img {
+        margin:0 3px;
+        cursor: pointer;
+      }
+      button {
+        margin:0 6px;
+        border:0px;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+      textarea {
+        height:174px;
+      }
+      .divider {
+        margin:0 6px;
+        color:#D3D3D3;
+      }
+      .tab-content {
+        height: 250px;
+        padding:10px 16px;
+        border:1px solid #ddd;
+        border-top:0;
+        border-radius: 0 0 4px 4px;
+      }
     }
   }
 }
@@ -430,9 +456,6 @@ ul.ss-tags {
 }
 
 .ss-facet-date-range {
-
-
   .highcharts-container {
-
   }
 }

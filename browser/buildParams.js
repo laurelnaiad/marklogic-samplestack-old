@@ -13,7 +13,8 @@ var defaultParams = {
     'angularSpinner',
     'dialogs.main',
     'ngSanitize',
-    'hc.marked'
+    'hc.marked',
+    'wiz.markdown'
   ],
   html5Mode: true,
   seleniumAddress: 'http://localhost:4445',

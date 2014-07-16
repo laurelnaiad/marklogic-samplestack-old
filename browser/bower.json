@@ -17,17 +17,19 @@
     "angular-ui-router.stateHelper": "1.1.0",
     "lodash": "2.4.1",
     "angular-bootstrap": "0.11.0",
-    "angular-marked": "0.0.12",
     "momentjs": "2.7.0",
+    "angular-marked": "0.0.12",
+    "ngMarkdown": "GrumpyWizards/ngMarkdown#c396e44b64d9e67f4dbc56",
     "marked": "0.3.2",
+    "angular-sanitize": "1.2.20",
     "angular-mocks": "1.2.20",
     "angular-ui-router": "stu-salsbury/ui-router#0.2.10-SNAPSHOT",
     "angular-cookies": "1.2.20",
     "highcharts-ng": "0.0.6",
     "highcharts": "4.0.3",
     "jquery": "2.1.1",
-    "restangular": "1.4.0",
-    "normalize-css": "3.0.1"
+    "highlightjs": "8.0.0",
+    "restangular": "1.4.0"
   },
   "devDependencies": {
     "mocha": "1.20.1",
@@ -56,6 +58,11 @@
         "lib/marked.js"
       ]
     },
+    "ngMarkdown": {
+      "main": [
+        "wizMarkdown/wizMarkdown.js"
+      ]
+    },
     "mocha": {
       "main": [
         "mocha.js",
@@ -70,6 +77,12 @@
     "sinon-chai": {
       "main": [
         "lib/sinon-chai.js"
+      ]
+    },
+    "highlightjs": {
+      "main": [
+        "highlight.pack.js",
+        "styles/github.css"
       ]
     }
   }
