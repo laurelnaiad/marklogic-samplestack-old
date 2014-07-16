@@ -3,4 +3,7 @@ _marklogic/components.js
 
  */
 define([
-], function () {});
+  './services/index'
+], function (
+  services
+) {});
