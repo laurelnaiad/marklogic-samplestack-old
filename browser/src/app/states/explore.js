@@ -4,9 +4,11 @@ define(['app/module'], function (module) {
 
     '$scope',
     function ($scope) {
+
       $scope.setPageTitle('explore');
 
     }
+
 
   ]);
 

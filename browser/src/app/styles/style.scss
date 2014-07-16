@@ -202,7 +202,55 @@ form textarea {
   }
 }
 
+/*** DIALOGS ***/
+.ss-dialog {
+  header {
+    @extend .modal-header;
+    button {
+      @extend .close;
+      margin-top: -10px;
+    }
+  }
+  h4 {
+   @extend .modal-title;
+  }
+  >div {
+    @extend .modal-body;
+  }
+  footer {
+    @extend .modal-footer;
+  }
+}
 
+.ss-dialog-login {
+  // @extend .ss-dialog; // @todo does not work as expected
+  label {
+    width: 75px;
+  }
+  input {
+    width: 300px !important;
+  }
+}
+
+.ss-dialog-post {
+  // @extend .ss-dialog; // @todo does not work as expected
+  header {
+    border-bottom: 0;
+  }
+  >div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+.ss-dialog-user {
+  // @extend .ss-dialog; // @todo does not work as expected
+  label {
+    width: 120px;
+  }
+
+}
 
 /*** GLOBAL FOOTER ***/
 .ss-page-footer {
