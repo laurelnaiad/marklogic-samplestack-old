@@ -1,5 +1,5 @@
 define([
-  // './mlAuth.js',
+  './mlAuth.js',
   './http/index',
   './model/index',
   './util/index'
