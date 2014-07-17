@@ -1,5 +1,4 @@
 define([
   './mlModel',
-  './mlSchema',
-  './mlSearchParams'
+  './mlSchema'
 ], function () {});
