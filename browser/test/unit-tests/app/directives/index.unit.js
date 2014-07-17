@@ -1,4 +1,5 @@
 define([
+  './ssTags.unit'
 ], function (
   ssTags
 ) {
@@ -6,7 +7,7 @@ define([
   return function () {
 
     describe('directives', function () {
-
+      ssTags();
     });
 
   };

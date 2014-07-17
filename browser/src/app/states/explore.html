@@ -1,12 +1,13 @@
-<section class="ss-search-bar">
-  <form>
-    <input type="text" />
-    <button>Search</button>
-    <div class="ss-search-tips">Search Tips</label>
-  </form>
-</section>
+<section ml-dynamic-search="ds">
 
-<section class="ss-explore">
+  <section class="ss-search-bar">
+    <form>
+      <input ml-ds-q-text/>
+      <button>Search</button>
+      <div class="ss-search-tips">Search Tips</label>
+    </form>
+  </section>
+
 
   <section class="ss-filters">
     <header>
@@ -23,9 +24,7 @@
       <ul ng-repeat="facet in searchResults.facets">
         <div ng-switch="facet.name">
           <div ng-switch-when="tags">
-            <div ng-repeat="item in facet.items">
-              <li><input type="checkbox" /> {{item.name}} ({{item.count}})</li>
-            </div>
+            <ss-tags tags="facet.items"></ss-tags>
           </div>
         </div>
       </ul>

@@ -1,13 +1,16 @@
 define([
-  './mlSchema.unit'
+  './mlSchema.unit',
+  './mlSearchParams.unit',
 ], function (
-  mlSchema
+  mlSchema,
+  mlSearchParams
 ) {
 
   return function () {
 
     describe('model', function () {
       mlSchema();
+      mlSearchParams();
     });
 
   };
