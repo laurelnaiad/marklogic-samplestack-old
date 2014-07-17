@@ -1,12 +1,30 @@
 define(['app/module'], function (module) {
 
   module.controller('loginDialogCtlr', [
-    '$scope', '$modalInstance',
-    function ($scope, $modalInstance) {
 
-      $scope.login = function () {
-        // @todo Log the user in
-        $modalInstance.close();
+    '$scope', '$modalInstance', 'mlUserModel', 'mlAuth',
+    function ($scope, $modalInstance, mlUserModel, mlAuth) {
+
+      $scope.model = {
+        user: mlUserModel.create()
+      };
+
+      var onAuthSuccess = function (user) {
+        $modalInstance.close(user);
+      };
+
+      var onAuthFailure = function (reason) {
+        // $scope.doSomethingWithTheReasonToIndicateSituationToUser
+        /* jshint ignore:start */
+        alert('fail: ' + JSON.stringify(reason));
+        /* jshint ignore:end */
+      };
+
+      $scope.authenticate = function () {
+        mlAuth.idAuthenticate($scope.model.user).then(
+          onAuthSuccess,
+          onAuthFailure
+        );
       };
 
       $scope.cancel = function () {
@@ -29,5 +47,3 @@ define(['app/module'], function (module) {
   ]);
 
 });
-
-
