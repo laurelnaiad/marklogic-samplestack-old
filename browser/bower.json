@@ -23,7 +23,7 @@
     "momentjs": "~2.6.0",
     "marked": "~0.3.2",
     "angular-mocks": "~1.2.21",
-    "angular-ui-router": "stu-salsbury/ui-router#2.0.10-SNAPSHOT"
+    "angular-ui-router": "stu-salsbury/ui-router#2.0.10-SNAPSHOT",
     "angular-cookies": "~1.2.21"
   },
   "devDependencies": {

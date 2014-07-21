@@ -25,7 +25,7 @@ define(['app/module'], function (module) {
       };
 
       var onAuthSuccess = function (user) {
-        $modalInstance.close({});
+        $modalInstance.close(user);
       };
 
       var onAuthFailure = function (reason) {

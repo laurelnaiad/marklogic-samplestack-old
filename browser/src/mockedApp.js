@@ -2,7 +2,8 @@ require.config({
   paths: {
     'angular': 'deps/angular/angular',
     'angular-mocks': 'deps/angular-mocks/angular-mocks',
-    'appGo': './appGo'
+    'appGo': './appGo',
+    'mocks': 'mocks'
   },
   shim: {
     'angular-mocks': { deps: ['configuredApp'] }
@@ -35,8 +36,6 @@ define([
         'votes': [],
         'role': ['SAMPLESTACK_CONTRIBUTOR']
       }, { 'X-CSRF-TOKEN': 'some token' });
-
-      $httpBackend.whenPOST(/^\/v1\/search$/).respond(200, mocks.searchResult);
 
       $httpBackend.whenGET(/^(?!\/v1\/).*/).passThrough();
     }

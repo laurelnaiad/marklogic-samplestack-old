@@ -15,7 +15,12 @@ define(['app/module'], function (module) {
         appRouting.go('ask');
       };
 
-      $scope.openLogin = loginDialog;
+      $scope.openLogin = function () {
+        // there is a fix coming from angular-ui for the bug that is exposed
+        // by closing this dialog
+        loginDialog();
+      };
+
       $scope.logout = mlAuth.logout;
 
     }
