@@ -37,6 +37,8 @@ define([
         'role': ['SAMPLESTACK_CONTRIBUTOR']
       }, { 'X-CSRF-TOKEN': 'some token' });
 
+      $httpBackend.whenPOST(/^\/v1\/search$/).respond(200, mocks.searchResult);
+
       $httpBackend.whenGET(/^(?!\/v1\/).*/).passThrough();
     }
 
