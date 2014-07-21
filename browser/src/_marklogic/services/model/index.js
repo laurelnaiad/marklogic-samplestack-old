@@ -1,4 +1,6 @@
 define([
+  './MlCredentialsModel',
   './MlModel',
-  './mlSchema'
+  './mlSchema',
+  './MlUserModel'
 ], function () {});
