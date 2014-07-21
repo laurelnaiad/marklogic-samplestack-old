@@ -1,0 +1,4 @@
+define([
+  './SsContributorModel',
+  './SsCredentialsModel'
+], function () {});

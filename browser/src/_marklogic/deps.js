@@ -16,12 +16,16 @@ require.config({
     deps: '/deps',
 
     'angular': 'deps/angular/angular<%=min%>',
+    'angular-cookies': 'deps/angular-cookies/angular-cookies<%=min%>',
     'moment': 'deps/momentjs/moment<%=min%>'
   },
 
   shim: {
     'angular': {
       exports: 'angular'
+    },
+    'angular-cookies': {
+      deps: ['angular']
     }
   }
 });
@@ -29,15 +33,15 @@ require.config({
 define(
   [
     'angular',
-    'moment'
+    'angular-cookies'
   ],
-  function (angular, moment) {
+  function (angular) {
 
     // angular is made global as a convenience.
     window.angular = angular;
 
     // we won't introduce any angular dependencies -- otherwisethis would be
     // an array
-    return [];
+    return ['ngCookies'];
   }
 );
