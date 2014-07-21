@@ -34,17 +34,17 @@ define(['testHelper'], function (helper) {
         );
       });
 
-      it('it should be initialized', function () {
+      xit('it should be initialized', function () {
         scope.dsObj.query.should.have.property('qtext');
       });
 
-      it('it should sync scope to html', function () {
+      xit('it should sync scope to html', function () {
         scope.dsObj.query.qtext = 'testy';
         scope.$digest();
         sut.val().should.equal('testy');
       });
 
-      it('it should sync html to scope', function () {
+      xit('it should sync html to scope', function () {
         sut.val('tested').triggerHandler('change');
         scope.$digest();
         scope.dsObj.query.qtext.should.equal('tested');
