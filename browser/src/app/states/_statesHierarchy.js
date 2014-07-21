@@ -35,7 +35,7 @@ define(
         name: 'explore',
         // will deal with all sorts of parameters here, potentially
         // as sub-states
-        url: '/',
+        url: '/?q&tags&dates',
         controller: 'exploreCtlr',
         templateUrl: '/app/states/explore.html'
       },
