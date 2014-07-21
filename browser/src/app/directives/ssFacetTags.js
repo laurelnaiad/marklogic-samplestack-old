@@ -14,7 +14,7 @@ define(['app/module'], function (module) {
       },
       link: function (scope, element, attrs) {
 
-        scope.tags = scope.stubData.facets.tags;
+        scope.tags = scope.searchResultsStatic.facets.tags;
         element.addClass('ss-facet-tags');
 
         scope.selectedTags = [];

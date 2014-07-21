@@ -20,8 +20,6 @@ define(['app/module'], function (module) {
     ) {
       $scope.setPageTitle('explore');
 
-      $scope.setPageTitle('explore');
-
       var parsedParams = {};
 
       parsedParams.queryText = $stateParams.q ?
@@ -47,7 +45,7 @@ define(['app/module'], function (module) {
       };
 
             /*jshint ignore:start */
-      $scope.stubData = {
+      $scope.searchResultsStatic = {
         'results': [
           {
             'title': 'Why do birds suddenly appear every time you are near? I\'m running MarkLogic 7.0 with geospatial and semantics enabled on Fedora 99 under an IKEA Borgsjo office desk.',
@@ -160,7 +158,7 @@ define(['app/module'], function (module) {
       /*jshint ignore:end */
 
       $scope.openAllTags = function () {
-        var dialogResult = allTagsDialog($scope.stubData.facets.tags);
+        var dialogResult = allTagsDialog($scope.searchResultsStatic.facets.tags);
       };
 
     }
