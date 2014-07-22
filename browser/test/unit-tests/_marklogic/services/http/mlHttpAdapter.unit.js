@@ -76,14 +76,15 @@ define(['testHelper'], function (helper) {
           );
           $httpBackend.flush();
         });
+      });
 
-        it('should support PATCH', function () {
-          setExpectCsrf('some token');
-          $httpBackend.expectPATCH('/v1/something').respond(200);
-          var resp = $http.patch('/v1/something');
-          $httpBackend.flush();
-          resp.should.eventually.have.property('status', 200);
-        });
+      it('should support PATCH', function () {
+        setExpectCsrf('some token');
+        $httpBackend.expectPATCH('/v1/something').respond(200);
+        var resp = $http.patch('/v1/something');
+        $httpBackend.flush();
+        resp.should.eventually.have.property('status', 200);
+      });
 
       it('should know what it can\'t do', function () {
         var inst = {}; // no operations defined

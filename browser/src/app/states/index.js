@@ -5,6 +5,5 @@ define([
   './ask',
   './explore',
   './fourOhFour',
-  './qnaDoc',
-  './store'
+  './qnaDoc'
 ], function () {});
