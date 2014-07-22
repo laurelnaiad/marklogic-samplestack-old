@@ -86,32 +86,31 @@ define(['testHelper'], function (helper) {
         resp.should.eventually.have.property('status', 200);
       });
 
-        it('should form-encode login', function () {
-          var uname = 'me@somewhere.com';
-          var pass = 'myPass';
+      it('should form-encode login', function () {
+        var uname = 'me@somewhere.com';
+        var pass = 'myPass';
 
-          setExpectCsrf('some token');
-          $httpBackend.expectPOST(
-            '/v1/login',
-            function (body) {
-              return body ===
-                  'username=' + encodeURI(uname) + '&' +
-                  'password=' + encodeURI(pass);
-            },
-            function (headers) {
-              var encoded = headers['Content-Type'] ===
-                  'application/x-www-form-urlencoded';
-              return encoded;
-            }
-          ).respond(200);
+        setExpectCsrf('some token');
+        $httpBackend.expectPOST(
+          '/v1/login',
+          function (body) {
+            return body ===
+                'username=' + encodeURI(uname) + '&' +
+                'password=' + encodeURI(pass);
+          },
+          function (headers) {
+            var encoded = headers['Content-Type'] ===
+                'application/x-www-form-urlencoded';
+            return encoded;
+          }
+        ).respond(200);
 
-          var resp = $http.post(
-            '/v1/login',
-            { username: uname, password: pass}
-          );
-          $httpBackend.flush();
-          resp.should.eventually.have.property('status', 200);
-        });
+        var resp = $http.post(
+          '/v1/login',
+          { username: uname, password: pass}
+        );
+        $httpBackend.flush();
+        resp.should.eventually.have.property('status', 200);
       });
 
       it('should know what it can\'t do', function () {

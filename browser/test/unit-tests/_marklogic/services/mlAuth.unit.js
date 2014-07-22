@@ -19,10 +19,10 @@ define(['testHelper'], function (helper) {
             _MlUserModel_,
             _MlCredentialsModel_
           ) {
-            $q = _$q_;
             $httpBackend = _$httpBackend_;
-            MlUserModel = _MlUserModel_;
+            $q = _$q_;
             mlAuth = _mlAuth_;
+            MlUserModel = _MlUserModel_;
             MlCredentialsModel = _MlCredentialsModel_;
             done();
           }

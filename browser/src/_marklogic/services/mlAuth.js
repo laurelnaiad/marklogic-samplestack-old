@@ -43,7 +43,7 @@ define(['_marklogic/module'], function (module) {
               function (user) {
                 mlStore.currentUser = user;
                 var toStore =
-                $cookieStore.put('currentUser', user.value);
+                $cookieStore.put('currentUserId', user.value.id);
 
                 deferred.resolve(user);
               },
@@ -54,7 +54,8 @@ define(['_marklogic/module'], function (module) {
 
           svc.logout = function () {
             mlStore.currentUser = null;
-            $cookieStore.remove('currentUser');
+            // todo invoke server-side logout
+            $cookieStore.remove('currentUserId');
           };
 
           return svc;

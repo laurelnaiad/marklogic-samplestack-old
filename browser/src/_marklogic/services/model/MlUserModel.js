@@ -12,7 +12,7 @@ define(['_marklogic/module'], function (module) {
         MlModel.call(this, spec);
       };
 
-      MlUserModel.prototype = MlModel.prototype;
+      MlUserModel.prototype = Object.create(MlModel.prototype);
 
       MlUserModel.prototype.$schema = mlSchema.addSchema({
         id: 'http://marklogic.com/#user',
@@ -32,12 +32,12 @@ define(['_marklogic/module'], function (module) {
 
       // we don't directly get user, it comes back from logging in,
       // and we haven't implemented any modifyability
-      // MlUserModel.prototype.operations = {
+      // operations: {
       //   'POST': {
       //     endpoint: '/login',
       //     expects: MlUserModel
       //   }
-      // };
+      // }
 
       return MlUserModel;
 

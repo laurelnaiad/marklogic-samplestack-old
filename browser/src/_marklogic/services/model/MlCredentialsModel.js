@@ -11,7 +11,7 @@ define(['_marklogic/module'], function (module) {
         MlModel.call(this, spec);
       };
 
-      MlCredentialsModel.prototype = MlModel.prototype;
+      MlCredentialsModel.prototype = Object.create(MlModel.prototype);
 
       MlCredentialsModel.prototype.$schema = mlSchema.addSchema({
         id: 'http://marklogic.com/#credentials',
