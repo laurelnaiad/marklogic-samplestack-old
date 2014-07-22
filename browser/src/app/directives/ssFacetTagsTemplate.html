@@ -1,18 +1,25 @@
 <input
   type="text"
   ng-model="selected"
-  typeahead="tag.count as tag.name+' ('+tag.count+')' for tag in tags | filter:$viewValue"
+  typeahead="tag.count as tag.name+' ('+tag.count+')' for tag in unselTags.concat(selTags) | filter:$viewValue | orderBy:predicate"
   class="ss-typeahead-input"
   typeahead-on-select="onMenuSelect($item, $model, $label)"
 />
 <ul>
-  <li ng-repeat="sel in selectedTags | orderBy:predicate">
-    <input type="checkbox" checked="true" ng-click="deselectTag(sel)" /> {{sel.name}} ({{sel.count}})
+  <li ng-repeat="tag in selTags | orderBy:predicate">
+    <input
+      type="checkbox"
+      checked="true"
+      ng-click="clicked(this.tag)"
+    /> {{tag.name}} ({{tag.count}})
   </li>
 </ul>
-<div class="ss-divider" ng-if="selectedTags.length > 0">&nbsp</div>
+<div class="ss-divider" ng-if="selTags.length > 0">&nbsp</div>
 <ul>
-  <li ng-repeat="tag in tags | orderBy:predicate">
-    <input type="checkbox" ng-click="selectTag(tag)" /> {{tag.name}} ({{tag.count}})
+  <li ng-repeat="tag in unselTags | orderBy:predicate">
+    <input
+      type="checkbox"
+      ng-click="clicked(this.tag)"
+    /> {{tag.name}} ({{tag.count}})
   </li>
 </ul>

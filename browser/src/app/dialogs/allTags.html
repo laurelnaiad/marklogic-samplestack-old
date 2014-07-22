@@ -7,14 +7,18 @@
 
   <div>
     <ul>
-      <li ng-repeat="tag in tags | orderBy:predicate">
-        <input type="checkbox" ng-click="" /> {{tag.name}} ({{tag.count}})
+      <li ng-repeat="tag in unselTagsAll.concat(selTagsAll) | orderBy:predicate">
+        <input
+          type="checkbox"
+          ng-checked="selTagsAll.indexOf(tag) > -1"
+          ng-click="clicked(this.tag)"
+        /> {{tag.name}} ({{tag.count}})
       </li>
     </ul>
   </div>
 
   <footer>
-    <button ng-click="cancel()">OK</button>
+    <button ng-click="ok()">OK</button>
   </footer>
 
 </section>

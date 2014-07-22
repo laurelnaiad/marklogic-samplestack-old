@@ -157,8 +157,26 @@ define(['app/module'], function (module) {
       };
       /*jshint ignore:end */
 
+      // All tags begin as unselected
+      $scope.unselTags = angular.copy($scope.searchResultsStatic.facets.tags);
+      $scope.selTags = [];
+
       $scope.openAllTags = function () {
-        var dialogResult = allTagsDialog($scope.searchResultsStatic.facets.tags);
+
+        // Open dialog and pass in tags
+        var dialogResult = allTagsDialog(
+          angular.copy($scope.unselTags),
+          angular.copy($scope.selTags)
+        );
+
+        dialogResult.result.then(
+          // On success, save tag state based on selection in dialog
+          function (data) {
+            $scope.unselTags = data.unselTagsAll;
+            $scope.selTags = data.selTagsAll;
+          }
+        );
+
       };
 
     }
