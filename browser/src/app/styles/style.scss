@@ -97,6 +97,7 @@ form textarea {
       }
       .ss-open-all-tags {
         cursor: pointer;
+        margin-top: 3px;
       }
     }
   }
@@ -243,6 +244,7 @@ form textarea {
   }
   footer {
     @extend .modal-footer;
+    clear: both;
   }
 }
 
@@ -260,6 +262,33 @@ form textarea {
     list-style: none;
     padding: 0;
     margin: 0;
+  }
+  .ss-column {
+    width: 190px;
+  }
+  .ss-paging {
+    clear: both;
+  }
+  .ss-all-tags-actions {
+    display: inline-block;
+    width: 100%;
+    padding-right: 20px;
+  }
+  ul.ss-sort {
+    position: relative;
+    float: right;
+    li {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    li.ss-sort-active {
+      font-weight: bold;
+    }
+  }
+  input.ss-typeahead-input {
+    width: 202px;
+    margin-bottom: 5px;
+    font-size: 14px;
   }
 }
 
@@ -320,4 +349,9 @@ ul.ss-tags {
 
 .ss-typeahead-item {
   cursor: pointer;
+}
+
+.ss-column {
+  position: relative;
+  float: left;
 }
