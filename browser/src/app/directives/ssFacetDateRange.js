@@ -34,6 +34,7 @@ define(['app/module'], function (module) {
       compile: function compile (tElement, tAttrs, transclude) {
         var chart;
         var chartClearSelection;
+        var chartUpdateSelection;
         var chartSelectAll;
         var convertDateToUTC;
 
@@ -103,7 +104,7 @@ define(['app/module'], function (module) {
               scope.dtEndSelection = scope.dtDataEnd;
             };
 
-            var chartUpdateSelection = function () {
+            chartUpdateSelection = function () {
               var points = (chart.series[0] && chart.series[0].points) ?
                   chart.series[0].points :
                   undefined;
@@ -303,7 +304,7 @@ define(['app/module'], function (module) {
 
               // TODO: fix this line
               // doing everything in the object literal is catching up with you
-              // chartUpdateSelection();
+              chartUpdateSelection();
             });
 
             scope.$watch('dtEndSelection', function () {
@@ -311,7 +312,7 @@ define(['app/module'], function (module) {
 
               // TODO: fix this line
               // doing everything in the object literal is catching up with you
-              // chartUpdateSelection();
+              chartUpdateSelection();
             });
 
             /* Calender Picker end */
