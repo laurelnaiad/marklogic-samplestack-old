@@ -61,7 +61,7 @@ var srcDir = path.join(h.rootDir, h.src);
 var unitSrcDir = path.join(h.rootDir, h.unitSrc);
 
 var bootstrapDir =
-    'bower_components/bootstrap-sass-official/vendor/assets/stylesheets';
+    'bower_components/bootstrap-sass-official/assets/stylesheets';
 
 
 /**************************
