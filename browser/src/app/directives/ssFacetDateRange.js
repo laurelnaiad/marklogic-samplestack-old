@@ -11,7 +11,8 @@ define(['app/module'], function (module) {
           '<label for="date-from">From:</label>' +
           '<input type="text" id="date-from" ' +
           'class="form-control ng-valid-date" datepicker-popup="MM/dd/yyyy" ' +
-          'ng-model="dtStartSelection" ng-click="open($event,\'startOpened\')" ' +
+          'ng-model="dtStartSelection" ' +
+          'ng-click="open($event,\'startOpened\')" ' +
           'ng-change="selectDate(dtStartSelection,\'dtStartSelection\')"  ' +
               'datepicker-options="dateOptions" min-date="minDate" ' +
               'max-date="maxDate" is-open="startOpened" ' +
@@ -21,7 +22,8 @@ define(['app/module'], function (module) {
           'class="form-control ng-valid-date" datepicker-popup="MM/dd/yyyy"' +
           'ng-model="dtEndSelection" ng-click="open($event,\'endOpened\')"' +
           'ng-change="selectDate(dtEndSelection,\'dtEndSelection\')"  ' +
-          'datepicker-options="dateOptions" min-date="minDate" max-date="maxDate" ' +
+          'datepicker-options="dateOptions" min-date="minDate" ' +
+          'max-date="maxDate" ' +
           'is-open="endOpened" show-button-bar="false" show-weeks="false" />',
 
       scope: {
@@ -30,18 +32,25 @@ define(['app/module'], function (module) {
         data: '=dateRangeData'
       },
       compile: function compile (tElement, tAttrs, transclude) {
-        var chart, chartClearSelection, chartSelectAll, convertDateToUTC;
+        var chart;
+        var chartClearSelection;
+        var chartSelectAll;
+        var convertDateToUTC;
 
-        convertDateToUTC = function(dateToConvert, retDateObj) {
-          dateToConvert         = (dateToConvert instanceof Date) ?
-                                    dateToConvert : new Date(dateToConvert);
-                                  // milliseconds offset from GMT/UTC
-          var timeZoneOffsetMs  = dateToConvert.getTimezoneOffset() * 60 * 1000,
-              convertedDateMs   = Date.UTC(dateToConvert.getUTCFullYear(),
-                                            dateToConvert.getUTCMonth(),
-                                            dateToConvert.getUTCDate());
+        convertDateToUTC = function (dateToConvert, retDateObj) {
+          dateToConvert = (dateToConvert instanceof Date) ?
+              dateToConvert :
+              new Date(dateToConvert);
 
-          convertedDate = convertedDateMs + timeZoneOffsetMs;
+          // milliseconds offset from GMT/UTC
+          var timeZoneOffsetMs = dateToConvert.getTimezoneOffset() * 60 * 1000;
+          var convertedDateMs = Date.UTC(
+            dateToConvert.getUTCFullYear(),
+            dateToConvert.getUTCMonth(),
+            dateToConvert.getUTCDate()
+          );
+
+          var convertedDate = convertedDateMs + timeZoneOffsetMs;
           return (retDateObj) ? new Date(convertedDate) : convertedDate;
         };
 
@@ -49,54 +58,67 @@ define(['app/module'], function (module) {
         return {
           pre: function (scope, element, attrs) {
             var x;
+            var i;
+            var dataLength = scope.data.length;
             // determine start and end dates for data
-            scope.dtDataStart = scope.dtDataEnd = convertDateToUTC(scope.data[0].x);
-            for (var i = 0, l = scope.data.length; i < l; i++) {
-              x = convertDateToUTC(scope.data[i].x)
-              if (x < scope.dtDataStart)
+            scope.dtDataStart =
+                scope.dtDataEnd = convertDateToUTC(scope.data[0].x);
+
+            for (i = 0; i < dataLength; i++) {
+              x = convertDateToUTC(scope.data[i].x);
+              if (x < scope.dtDataStart) {
                 scope.dtDataStart = x;
-              if (x > scope.dtDataEnd)
+              }
+              if (x > scope.dtDataEnd) {
                 scope.dtDataEnd = x;
+              }
             }
             // set inputs to match data high and low
             scope.dtStartSelection  = scope.dtDataStart;
             scope.dtEndSelection    = scope.dtDataEnd;
 
             chartClearSelection = function () {
-              var selectedPoints = chart.getSelectedPoints(),
-                  l = selectedPoints.length;
-              if (l > 0) {
-                for (var i = 0; i < l; i = i + 1) {
+              var selectedPoints = chart.getSelectedPoints();
+              var pointsLength = selectedPoints.length;
+              if (pointsLength > 0) {
+                for (var i = 0; i < pointsLength; i = i + 1) {
                   selectedPoints[i].select(false);
                 }
               }
             };
 
             chartSelectAll = function () {
-              /*
-              var points = (chart.series[0] && chart.series[0].points) ? chart.series[0].points : undefined;
-              if (points) {
-                $.each(points, function (index,point) {
-                    point.select(true, true);
-                });
-              }
-              */
+
+              // var points = (chart.series[0] && chart.series[0].points) ?
+              //     chart.series[0].points :
+              //     undefined;
+              // if (points) {
+              //   $.each(points, function (index,point) {
+              //       point.select(true, true);
+              //   });
+              // }
+
               // clear selection in scope
               scope.dtStartSelection = scope.dtDataStart;
               scope.dtEndSelection = scope.dtDataEnd;
             };
 
-            chartUpdateSelection = function () {
-              var points = (chart.series[0]
-                              && chart.series[0].points) ?
-                              chart.series[0].points : undefined;
-              if (points && !(scope.dtStartSelection instanceof Date) && !(scope.dtEndSelection instanceof Date)) {
+            var chartUpdateSelection = function () {
+              var points = (chart.series[0] && chart.series[0].points) ?
+                  chart.series[0].points :
+                  undefined;
+              if (points &&
+                  !(scope.dtStartSelection instanceof Date) &&
+                  !(scope.dtEndSelection instanceof Date)
+              ) {
                 chartClearSelection();
-                $.each(points, function (index,point) {
+                angular.forEach(points, function (point, index) {
                   // convert to UTC as original series was standard Date
-                  if (convertDateToUTC(point.x) >= scope.dtStartSelection
-                    && convertDateToUTC(point.x) <= scope.dtEndSelection)
-                  point.select(true, true);
+                  if (convertDateToUTC(point.x) >= scope.dtStartSelection &&
+                      convertDateToUTC(point.x) <= scope.dtEndSelection
+                  ) {
+                    point.select(true, true);
+                  }
                 });
               }
             };
@@ -108,7 +130,11 @@ define(['app/module'], function (module) {
                   zoomType: 'x',
                   events: {
                     load: function (event) {
-                      chart = this;
+                      // this is a workaround
+                      //
+                      // the closre on chart feels strange
+                      var self = this;
+                      chart = self;
                     },
                     redraw: function () {
                       chartUpdateSelection();
@@ -127,25 +153,29 @@ define(['app/module'], function (module) {
                       var self = this;
                       scope.$apply(function () {
                         chartClearSelection();
-                        var seriesData    = self.series[0].data,
-                            selSeriesLow, selSeriesHigh;
+                        var seriesData = self.series[0].data;
+                        var selSeriesLow;
+                        var selSeriesHigh;
 
                         for (var i = 0, l = seriesData.length; i < l; i++) {
                           if (seriesData[i].x >= event.xAxis[0].min
                               && seriesData[i].x <= event.xAxis[0].max) {
                             seriesData[i].select(true, true);
-                            if (selSeriesLow === undefined)
+                            if (selSeriesLow === undefined) {
                               selSeriesLow  = selSeriesHigh = seriesData[i].x;
+                            }
                             // find highest and lowest selected dates
-                            if (seriesData[i].x < selSeriesLow)
+                            if (seriesData[i].x < selSeriesLow) {
                               selSeriesLow = seriesData[i].x;
-                            if (seriesData[i].x > selSeriesHigh)
+                            }
+                            if (seriesData[i].x > selSeriesHigh) {
                               selSeriesHigh = seriesData[i].x;
+                            }
                           }
                         }
 
-                        scope.dtStartSelection   = convertDateToUTC(selSeriesLow);
-                        scope.dtEndSelection     = convertDateToUTC(selSeriesHigh);
+                        scope.dtStartSelection = convertDateToUTC(selSeriesLow);
+                        scope.dtEndSelection = convertDateToUTC(selSeriesHigh);
                       });
                       event.preventDefault();  // stop zoom from happening
                     }
@@ -175,9 +205,18 @@ define(['app/module'], function (module) {
 
                 tooltip: {
                   formatter: function () {
-                    return '<strong>'+
-                      Highcharts.dateFormat('%b %e, %Y', this.x) +
-                      '</strong>' + ': ' + this.y;
+                    var formattedDate;
+
+                    // TODO: do not introduce dependency on globally scoped
+                    // Highcharts
+                    /* jshint ignore:start */
+                    formattedDate = Highcharts.dateFormat(
+                      '%b %e, %Y', this.x
+                    );
+                    /* jshint ignore:end */
+                    return '<strong>' +
+                        formattedDate +
+                        '</strong>' + ': ' + this.y;
                   }
                 },
 
@@ -232,14 +271,6 @@ define(['app/module'], function (module) {
 
               series: [{
                 data: scope.data
-                // [
-                //   {x: Date.UTC(2010, 0, 1), y: 29.9}, {x: Date.UTC(2010, 1, 1), y: 71.5},
-                //   {x: Date.UTC(2010, 2, 1), y: 106.4}, {x: Date.UTC(2010, 3, 1), y: 129.2},
-                //   {x: Date.UTC(2010, 4, 1), y: 144.0}, {x: Date.UTC(2010, 4, 1), y: 176.0},
-                //   {x: Date.UTC(2010, 5, 1), y: 135.6}, {x: Date.UTC(2010, 6, 1), y: 148.5},
-                //   {x: Date.UTC(2010, 7, 1), y: 216.4}, {x: Date.UTC(2010, 8, 1), y: 194.1},
-                //   {x: Date.UTC(2010, 9, 1), y: 95.6}, {x: Date.UTC(2011, 10, 1), y: 54.4}
-                // ]
               }]
             };
           },
@@ -268,18 +299,24 @@ define(['app/module'], function (module) {
             };
 
             scope.$watch('dtStartSelection', function () {
-              /* convertDateToUTC(scope.dtStartSelection).getTime() */
-              chartUpdateSelection();
+              // convertDateToUTC(scope.dtStartSelection).getTime()
+
+              // TODO: fix this line
+              // doing everything in the object literal is catching up with you
+              // chartUpdateSelection();
             });
 
             scope.$watch('dtEndSelection', function () {
-              /* convertDateToUTC(scope.dtEndSelection).getTime() */
-              chartUpdateSelection();
+              // convertDateToUTC(scope.dtEndSelection).getTime() *
+
+              // TODO: fix this line
+              // doing everything in the object literal is catching up with you
+              // chartUpdateSelection();
             });
 
             /* Calender Picker end */
           }
-        }
+        };
       }
     };
   });
