@@ -141,7 +141,7 @@ define(['app/module'], function (module) {
         'facets': {
           'tags': [
             {
-              'name': 'robins',
+              'name': 'robin',
               'count': 4
             },
             {
@@ -149,8 +149,48 @@ define(['app/module'], function (module) {
               'count': 6
             },
             {
-              'name': 'vultures',
+              'name': 'vulture',
               'count': 4
+            },
+            {
+              'name': 'sparrow',
+              'count': 2
+            },
+            {
+              'name': 'hen',
+              'count': 1
+            },
+            {
+              'name': 'quadcopter',
+              'count': 1
+            },
+            {
+              'name': 'eagle',
+              'count': 3
+            },
+            {
+              'name': 'alala',
+              'count': 4
+            },
+            {
+              'name': 'cormorant',
+              'count': 2
+            },
+            {
+              'name': 'dodo',
+              'count': 1
+            },
+            {
+              'name': 'cockatoo',
+              'count': 4
+            },
+            {
+              'name': 'hawk',
+              'count': 3
+            },
+            {
+              'name': 'goose',
+              'count': 1
             }
           ]
         }
@@ -172,8 +212,8 @@ define(['app/module'], function (module) {
         dialogResult.result.then(
           // On success, save tag state based on selection in dialog
           function (data) {
-            $scope.unselTags = data.unselTagsAll;
-            $scope.selTags = data.selTagsAll;
+            $scope.unselTags = data.unselTags;
+            $scope.selTags = data.selTags;
           }
         );
 
