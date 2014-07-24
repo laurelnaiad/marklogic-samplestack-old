@@ -1,5 +1,5 @@
 define(['app/module'], function (module) {
-  module.directive('ssAskEditPreview', ['marked', function (marked) {
+  module.directive('ssAskEditPreview',['marked','hljs',function (marked, hljs) {
     return {
       restrict: 'A',
       // replace: true,
@@ -11,8 +11,9 @@ define(['app/module'], function (module) {
       compile: function compile (tElement, tAttrs, transclude) {
         marked.setOptions({
           gfm: true,
-          highlight: function (code) {
-            return hljs.highlightAuto(code).value;
+          highlight: function (code, lang) {
+            return (lang && hljs.LANGUAGES.hasOwnProperty(lang)) ?
+              hljs.highlight(lang, code).value : code;
           }
         });
         return {

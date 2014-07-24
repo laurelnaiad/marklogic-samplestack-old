@@ -16,6 +16,7 @@ require.config({
     'ui-bootstrap': 'deps/angular-bootstrap/ui-bootstrap-tpls<%=min%>',
     'angular-sanitize': 'deps/angular-sanitize/angular-sanitize<%=min%>',
     'ng-markdown': 'deps/ngMarkdown/wizMarkdown/wizMarkdown<%=min%>',
+    'hljs': 'deps/highlight.js/src/highlight<%=min%>',
     'marked': 'deps/marked/lib/marked<%=min%>',
     'angular-marked': 'deps/angular-marked/angular-marked<%=min%>',
     'jquery': 'deps/jquery/dist/jquery<%=min%>',
@@ -33,7 +34,7 @@ require.config({
     'highcharts': { deps: ['jquery'] },
     'angular-sanitize': { deps: ['angular'] },
     'ng-markdown': { deps: ['angular', 'angular-sanitize'] },
-    'angular-marked': { deps: ['angular', 'marked'] },
+    'angular-marked': { deps: ['angular', 'marked', 'hljs'] }
   }
 });
 
@@ -45,6 +46,7 @@ define(
     'lodash',
     'angular',
     'marked',
+    'hljs',
 
     'ui-router',
     'state-helper',
@@ -56,12 +58,13 @@ define(
 
     '_marklogic/marklogic'
   ],
-  function (lodash, angular, marked) {
+  function (lodash, angular, marked, hljs) {
 
     // lodash and angular are made global as a convenience.
     window._ = lodash;
     window.angular = angular;
     window.marked = marked;
+    window.hljs = hljs;
 
     return [
       'ui.router',

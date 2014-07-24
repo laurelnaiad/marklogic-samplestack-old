@@ -15,12 +15,10 @@ define([
     'mlAuthProvider',
     'appRoutingProvider',
     'statesHierarchy',
-    'markedProvider',
     function (
       mlAuthProvider,
       appRoutingProvider,
-      statesHierarchy,
-      markedProvider
+      statesHierarchy
     ) {
 
       mlAuthProvider.userService = 'SsContributorModel';
@@ -31,7 +29,6 @@ define([
 
       // render github-flavored markdown
       // TODO: set up highlight.js
-      markedProvider.setOptions({gfm: true});
 
     }
 
