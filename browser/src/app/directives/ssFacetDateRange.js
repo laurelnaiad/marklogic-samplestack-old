@@ -20,7 +20,7 @@ define(['app/module'], function (module) {
           '<label for="date-to">To:</label>' +
           '<input type="text" id="date-to" ' +
           'class="form-control ng-valid-date" datepicker-popup="MM/dd/yyyy"' +
-          'ng-model="dtEndSelection" ç="open($event,\'endOpened\')"' +
+          'ng-model="dtEndSelection" ng-click="open($event,\'endOpened\')"' +
           'ng-change="selectDate(dtEndSelection,\'dtEndSelection\')"  ' +
           'datepicker-options="dateOptions" min-date="minDate" ' +
           'max-date="maxDate" ' +
