@@ -14,8 +14,7 @@ var defaultParams = {
     'dialogs.main',
     'ngSanitize',
     'hc.marked',
-    'sanitize-ng',
-    'markdown-ng'
+    'wiz.markdown'
   ],
   html5Mode: true,
   seleniumAddress: 'http://localhost:4445',
