@@ -180,9 +180,18 @@ form textarea {
     input {
       width: 500px;
     }
-    textarea {
-      width: 700px;
-      height: 200px;
+    .ss-ask-edit-preview {
+      li {
+        cursor: pointer;
+      }
+      img {
+        margin:0 3px;
+        cursor: pointer;
+      }
+      .divider {
+        margin:0 6px;
+        color:#D3D3D3;
+      }
     }
   }
 }

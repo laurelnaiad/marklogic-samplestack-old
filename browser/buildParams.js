@@ -13,7 +13,9 @@ var defaultParams = {
     'angularSpinner',
     'dialogs.main',
     'ngSanitize',
-    'hc.marked'
+    'hc.marked',
+    'sanitize-ng',
+    'markdown-ng'
   ],
   html5Mode: true,
   seleniumAddress: 'http://localhost:4445',
@@ -23,7 +25,7 @@ var defaultParams = {
   // WARNING: 'roby-sass' options is experimental and is not likely to work,
   // yet.
   // ***********************************************************************
-  
+
   // node-sass is *much* faster than ruby-sass. In a watch environment while
   // editing scss file and relying on live-reload to see changes, the difference
   // in speed is palpable.

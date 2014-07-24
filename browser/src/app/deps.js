@@ -14,6 +14,8 @@ require.config({
     'ui-router': 'deps/angular-ui-router/release/angular-ui-router<%=min%>',
     'state-helper': 'deps/angular-ui-router.stateHelper/statehelper<%=min%>',
     'ui-bootstrap': 'deps/angular-bootstrap/ui-bootstrap-tpls<%=min%>',
+    'sanitize-ng': 'deps/angular-sanitize/angular-sanitize<%=min%>',
+    'markdown-ng': 'deps/ngMarkdown/wizMarkdown/wizMarkdown<%=min%>',
     'marked': 'deps/marked/lib/marked<%=min%>',
     'angular-marked': 'deps/angular-marked/angular-marked<%=min%>',
     'jquery': 'deps/jquery/dist/jquery<%=min%>',
@@ -29,6 +31,7 @@ require.config({
     'ui-bootstrap': { deps: ['angular'] },
     'highcharts-ng': { deps: ['angular', 'highcharts'] },
     'highcharts': { deps: ['jquery'] },
+    'markdown-ng': { deps: ['angular', 'sanitize-ng'] },
     'angular-marked': { deps: ['angular', 'marked'] },
   }
 });
@@ -46,6 +49,7 @@ define(
     'ui-bootstrap',
     'highcharts-ng',
     'angular-marked',
+    'markdown-ng',
 
     '_marklogic/marklogic'
   ],
@@ -61,6 +65,7 @@ define(
       'ui.bootstrap',
       'highcharts-ng',
       'hc.marked',
+      'markdown-ng',
 
       'marklogic.sample'
     ];
