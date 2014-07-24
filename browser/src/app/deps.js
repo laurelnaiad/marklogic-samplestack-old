@@ -14,8 +14,8 @@ require.config({
     'ui-router': 'deps/angular-ui-router/release/angular-ui-router<%=min%>',
     'state-helper': 'deps/angular-ui-router.stateHelper/statehelper<%=min%>',
     'ui-bootstrap': 'deps/angular-bootstrap/ui-bootstrap-tpls<%=min%>',
-    'ngSanitize': 'deps/angular-sanitize/angular-sanitize<%=min%>',
-    'markdown-ng': 'deps/ngMarkdown/wizMarkdown/wizMarkdown<%=min%>',
+    'angular-sanitize': 'deps/angular-sanitize/angular-sanitize<%=min%>',
+    'ng-markdown': 'deps/ngMarkdown/wizMarkdown/wizMarkdown<%=min%>',
     'marked': 'deps/marked/lib/marked<%=min%>',
     'angular-marked': 'deps/angular-marked/angular-marked<%=min%>',
     'jquery': 'deps/jquery/dist/jquery<%=min%>',
@@ -31,7 +31,8 @@ require.config({
     'ui-bootstrap': { deps: ['angular'] },
     'highcharts-ng': { deps: ['angular', 'highcharts'] },
     'highcharts': { deps: ['jquery'] },
-    'markdown-ng': { deps: ['angular', 'ngSanitize'] },
+    'angular-sanitize': { deps: ['angular'] },
+    'ng-markdown': { deps: ['angular', 'angular-sanitize'] },
     'angular-marked': { deps: ['angular', 'marked'] },
   }
 });
@@ -43,21 +44,24 @@ define(
     // handling need to be referenced in the callback function.
     'lodash',
     'angular',
+    'marked',
 
     'ui-router',
     'state-helper',
     'ui-bootstrap',
     'highcharts-ng',
     'angular-marked',
-    'markdown-ng',
+    'angular-sanitize',
+    'ng-markdown',
 
     '_marklogic/marklogic'
   ],
-  function (lodash, angular) {
+  function (lodash, angular, marked) {
 
     // lodash and angular are made global as a convenience.
     window._ = lodash;
     window.angular = angular;
+    window.marked = marked;
 
     return [
       'ui.router',
@@ -65,6 +69,7 @@ define(
       'ui.bootstrap',
       'highcharts-ng',
       'hc.marked',
+      'ngSanitize',
       'wiz.markdown',
 
       'marklogic.sample'

@@ -1,5 +1,5 @@
 define(['app/module'], function (module) {
-  module.directive('ssAskEditPreview', function () {
+  module.directive('ssAskEditPreview', ['marked', function (marked) {
     return {
       restrict: 'A',
       // replace: true,
@@ -9,6 +9,12 @@ define(['app/module'], function (module) {
       templateUrl: '/app/directives/ssAskEditPreview.html',
       scope: '=',
       compile: function compile (tElement, tAttrs, transclude) {
+        marked.setOptions({
+          gfm: true,
+          highlight: function (code) {
+            return hljs.highlightAuto(code).value;
+          }
+        });
         return {
           pre: function (scope, element, attrs) {
 
@@ -20,5 +26,5 @@ define(['app/module'], function (module) {
         };
       }
     };
-  });
+  }]);
 });

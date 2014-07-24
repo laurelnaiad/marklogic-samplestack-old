@@ -53,6 +53,11 @@
         "lib/marked.js"
       ]
     },
+    "ngMarkdown": {
+      "main": [
+        "wizMarkdown/wizMarkdown.js"
+      ]
+    },
     "mocha": {
       "main": [
         "mocha.js",
