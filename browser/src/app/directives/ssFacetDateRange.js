@@ -20,17 +20,13 @@ define(['app/module'], function (module) {
           '<label for="date-to">To:</label>' +
           '<input type="text" id="date-to" ' +
           'class="form-control ng-valid-date" datepicker-popup="MM/dd/yyyy"' +
-          'ng-model="dtEndSelection" ng-click="open($event,\'endOpened\')"' +
+          'ng-model="dtEndSelection" ç="open($event,\'endOpened\')"' +
           'ng-change="selectDate(dtEndSelection,\'dtEndSelection\')"  ' +
           'datepicker-options="dateOptions" min-date="minDate" ' +
           'max-date="maxDate" ' +
           'is-open="endOpened" show-button-bar="false" show-weeks="false" />',
 
-      scope: {
-        // bound via data attribute to a view-scoped property. For now, draft
-        // a schema here that represents all the data needed for the directive.
-        data: '=dateRangeData'
-      },
+      scope: '=',
       compile: function compile (tElement, tAttrs, transclude) {
         var chart;
         var chartClearSelection;
@@ -38,6 +34,12 @@ define(['app/module'], function (module) {
         var chartSelectAll;
         var convertDateToUTC;
 
+       /*
+        * Utility funct to convert standard Date() object to UTC for HighCharts
+        * @param {object} [dateToConvert] - as Date obj or Date().getTime() ms
+        * @param {boolean} [retDateObj] - set return type as Date() or ms
+        * @returns {Number}
+        */
         convertDateToUTC = function (dateToConvert, retDateObj) {
           dateToConvert = (dateToConvert instanceof Date) ?
               dateToConvert :
@@ -60,13 +62,13 @@ define(['app/module'], function (module) {
           pre: function (scope, element, attrs) {
             var x;
             var i;
-            var dataLength = scope.data.length;
+            var dataLength = scope.dateData.length;
             // determine start and end dates for data
             scope.dtDataStart =
-                scope.dtDataEnd = convertDateToUTC(scope.data[0].x);
+                scope.dtDataEnd = convertDateToUTC(scope.dateData[0].x);
 
             for (i = 0; i < dataLength; i++) {
-              x = convertDateToUTC(scope.data[i].x);
+              x = convertDateToUTC(scope.dateData[i].x);
               if (x < scope.dtDataStart) {
                 scope.dtDataStart = x;
               }
@@ -78,6 +80,9 @@ define(['app/module'], function (module) {
             scope.dtStartSelection  = scope.dtDataStart;
             scope.dtEndSelection    = scope.dtDataEnd;
 
+           /*
+            * Resets chart selection to select all points
+            */
             chartClearSelection = function () {
               var selectedPoints = chart.getSelectedPoints();
               var pointsLength = selectedPoints.length;
@@ -88,22 +93,18 @@ define(['app/module'], function (module) {
               }
             };
 
+           /*
+            * Changes selection to range of date,
+            * watch on start/end triggers chartUpdateSelection()
+            */
             chartSelectAll = function () {
-
-              // var points = (chart.series[0] && chart.series[0].points) ?
-              //     chart.series[0].points :
-              //     undefined;
-              // if (points) {
-              //   $.each(points, function (index,point) {
-              //       point.select(true, true);
-              //   });
-              // }
-
-              // clear selection in scope
               scope.dtStartSelection = scope.dtDataStart;
               scope.dtEndSelection = scope.dtDataEnd;
             };
 
+           /*
+            * Updates chart to match the currently selected range
+            */
             chartUpdateSelection = function () {
               var points = (chart.series[0] && chart.series[0].points) ?
                   chart.series[0].points :
@@ -271,7 +272,7 @@ define(['app/module'], function (module) {
               },
 
               series: [{
-                data: scope.data
+                data: scope.dateData
               }]
             };
           },
@@ -286,7 +287,14 @@ define(['app/module'], function (module) {
               startingDay: 1
             };
 
-            /* Calender Picker Setup and Management */
+            // Calender Picker Setup and Management
+
+           /*
+            * Opens Calendar by ng-click event on directive input fields
+            * @param {object} [event] - click event
+            * @param {string} [prop] - the property bound to the input calendar
+            * state being open or not.  On being set TRUE it opens.
+            */
             scope.open = function (event,prop) {
               event.preventDefault();
               event.stopPropagation();
@@ -294,28 +302,29 @@ define(['app/module'], function (module) {
               scope[prop] = true;
             };
 
+           /*
+            * Calendar Picker ng-change event on directive.  Convert selection
+            * (standard Date) to UTC Date
+            * @param {object} [event] - change event
+            * @param {string} [prop] - the property bound to the input calendar
+            * dtStartSelection or dtEndSelection, depending on wiring
+            */
             scope.selectDate = function (event,prop) {
-              // convert selection (standard Date) to UTC Date
               scope[prop] = convertDateToUTC(event);
             };
 
             scope.$watch('dtStartSelection', function () {
-              // convertDateToUTC(scope.dtStartSelection).getTime()
-
-              // TODO: fix this line
-              // doing everything in the object literal is catching up with you
               chartUpdateSelection();
             });
 
             scope.$watch('dtEndSelection', function () {
-              // convertDateToUTC(scope.dtEndSelection).getTime() *
-
-              // TODO: fix this line
-              // doing everything in the object literal is catching up with you
               chartUpdateSelection();
             });
+            // Calender Picker end
 
-            /* Calender Picker end */
+            // Expose functions to $parent scope
+            scope.$parent.dateScope = {};
+            scope.$parent.dateScope.clearSelection = chartSelectAll;
           }
         };
       }
