@@ -19,7 +19,7 @@
     "angular-bootstrap": "0.11.0",
     "angular-marked": "0.0.12",
     "momentjs": "2.7.0",
-    "ngMarkdown": "GrumpyWizards/ngMarkdown",
+    "ngMarkdown": "https://github.com/GrumpyWizards/ngMarkdown.git#c396e44b64",
     "marked": "0.3.2",
     "angular-mocks": "1.2.20",
     "angular-ui-router": "stu-salsbury/ui-router#0.2.10-SNAPSHOT",
@@ -81,5 +81,8 @@
         "styles/github.css"
       ]
     }
+  },
+  "resolutions": {
+    "ngMarkdown": "c396e44b64"
   }
 }
