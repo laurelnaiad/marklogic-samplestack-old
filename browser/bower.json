@@ -28,7 +28,7 @@
     "highcharts": "4.0.3",
     "jquery": "2.1.1",
     "angular-sanitize": "~1.2.20",
-    "highlight.js": "~7.3.0"
+    "highlightjs": "~8.0.0"
   },
   "devDependencies": {
     "mocha": "1.20.1",
@@ -54,11 +54,6 @@
         "lib/marked.js"
       ]
     },
-    "highlight.js": {
-      "main": [
-        "src/highlight.js"
-      ]
-    },
     "ngMarkdown": {
       "main": [
         "wizMarkdown/wizMarkdown.js"
@@ -78,6 +73,12 @@
     "sinon-chai": {
       "main": [
         "lib/sinon-chai.js"
+      ]
+    },
+    "highlightjs": {
+      "main": [
+        "highlight.pack.js",
+        "styles/github.css"
       ]
     }
   }

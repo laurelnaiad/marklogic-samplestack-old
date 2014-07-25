@@ -1,10 +1,10 @@
-<div class="ss-ask-edit-preview">
+<div class="ss-markdown-editor">
   <tabset>
     <tab>
       <tab-heading>
         edit
       </tab-heading>
-      <wiz-markdown-editor content="question">
+      <wiz-markdown-editor content="content">
           <wiz-toolbar-button command="bold"><img src="/app/images/md-bold.png" /></wiz-toolbar-button>
           <wiz-toolbar-button command="italic"><img src="/app/images/md-italic.png" /></wiz-toolbar-button>
           <wiz-toolbar-button command="heading"><img src="/app/images/md-heading.png" /></wiz-toolbar-button>
@@ -24,7 +24,7 @@
       <tab-heading>
         preview
       </tab-heading>
-      <div marked="question"></div>
+      <div ss-markdown="content"></div>
     </tab>
   </tabset>
 </div>

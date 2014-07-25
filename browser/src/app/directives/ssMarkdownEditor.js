@@ -1,21 +1,18 @@
-define(['app/module'], function (module) {
-  module.directive('ssAskEditPreview',['marked','hljs',function (marked, hljs) {
+define([
+  'app/module'
+], function (module) {
+  module.directive('ssMarkdownEditor', [function () {
     return {
       restrict: 'A',
       // replace: true,
       // higchart is embedded, this is subject to change as to how to get
       // the chart loaded. Much of the work here will be in driving highchart
       // bindings from data
-      templateUrl: '/app/directives/ssAskEditPreview.html',
-      scope: '=',
+      templateUrl: '/app/directives/ssMarkdownEditor.html',
+      scope: {
+        content: '=content'
+      },
       compile: function compile (tElement, tAttrs, transclude) {
-        marked.setOptions({
-          gfm: true,
-          highlight: function (code, lang) {
-            return (lang && hljs.LANGUAGES.hasOwnProperty(lang)) ?
-              hljs.highlight(lang, code).value : code;
-          }
-        });
         return {
           pre: function (scope, element, attrs) {
 

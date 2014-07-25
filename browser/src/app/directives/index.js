@@ -1,5 +1,6 @@
 define([
-  './ssAskEditPreview',
   './ssFacetDateRange',
-  './ssFacetTags'
+  './ssFacetTags',
+  './ssMarkdown',
+  './ssMarkdownEditor'
 ], function () {});

@@ -16,12 +16,12 @@ require.config({
     'ui-bootstrap': 'deps/angular-bootstrap/ui-bootstrap-tpls<%=min%>',
     'angular-sanitize': 'deps/angular-sanitize/angular-sanitize<%=min%>',
     'ng-markdown': 'deps/ngMarkdown/wizMarkdown/wizMarkdown<%=min%>',
-    'hljs': 'deps/highlight.js/src/highlight<%=min%>',
     'marked': 'deps/marked/lib/marked<%=min%>',
     'angular-marked': 'deps/angular-marked/angular-marked<%=min%>',
     'jquery': 'deps/jquery/dist/jquery<%=min%>',
     'highcharts': 'deps/highcharts/highcharts',
-    'highcharts-ng': 'deps/highcharts-ng/dist/highcharts-ng<%=min%>'
+    'highcharts-ng': 'deps/highcharts-ng/dist/highcharts-ng<%=min%>',
+    'highlightjs': 'deps/highlightjs/highlight.pack<%=min%>'
   },
 
   shim: {
@@ -34,7 +34,8 @@ require.config({
     'highcharts': { deps: ['jquery'] },
     'angular-sanitize': { deps: ['angular'] },
     'ng-markdown': { deps: ['angular', 'angular-sanitize'] },
-    'angular-marked': { deps: ['angular', 'marked', 'hljs'] }
+    'angular-marked': { deps: ['angular'] },
+    'highlightjs': { exports: 'hljs' }
   }
 });
 
@@ -45,8 +46,6 @@ define(
     // handling need to be referenced in the callback function.
     'lodash',
     'angular',
-    'marked',
-    'hljs',
 
     'ui-router',
     'state-helper',
