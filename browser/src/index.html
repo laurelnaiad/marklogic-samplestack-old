@@ -15,6 +15,10 @@
   <title ng-bind="pageTitle + ' - samplestack'">samplestack</title>
 
   <link rel="stylesheet" type="text/css" href="/app/styles/style.css">
+<!--
+  <link rel="stylesheet" type="text/css" href="/deps/normalize-css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/app/styles/bourbon-style.css">
+-->
 
   <!--
   An honest effort to maintain consistency across less-than modern
@@ -44,7 +48,7 @@
     This is the main ui-view, corresponding to the _root state in the
     ui-router hierarchy.
     -->
-    <ui-view/>
+    <div ui-view></div>
 
   </div>
 

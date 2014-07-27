@@ -1,5 +1,24 @@
-define([], function () {
+define(['jquery'], function ($) {
   var helper = {};
+
+  helper.postCoverage = function (coverage, cb) {
+    $.ajax({
+      type: 'POST',
+      url: '/coverage/reset'
+    })
+    .done(function () {
+      // console.log('cleared coverage');
+      $.ajax({
+        type: 'POST',
+        url: '/coverage/client',
+        data: JSON.stringify(coverage),
+        contentType: 'application/json'
+      }).done(function () {
+        // console.log('reported coverage');
+        cb();
+      });
+    });
+  };
 
   helper.getTestableController = function (
     $injector,
@@ -55,6 +74,16 @@ define([], function () {
     var stub = helper.stubPromiseDeferred($q, stubObj, funcName, dh);
     dh.resolve(value);
     return stub;
+  };
+
+  helper.setExpectCsrf = function ($httpBackend, omitCsrf) {
+    var withCsrf = { 'X-CSRF-TOKEN': 'some token' };
+    if (omitCsrf) {
+      $httpBackend.expectGET('/v1/session').respond(200);
+    }
+    else {
+      $httpBackend.expectGET('/v1/session').respond(200, null, withCsrf);
+    }
   };
 
   return helper;

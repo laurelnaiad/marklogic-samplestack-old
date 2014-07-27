@@ -3,14 +3,6 @@ app/deps.js
 
 Load all dependency modules files  and return an array of their angular module
 names.
-
-TODO: consider possibility of autogenerting here.
-
-TODO: figure out whether things like angular, lodash should be manually
-referenced where used.
-
-TODO: include angular-mocks somewhere for unit testing.
-
  */
 
 require.config({
@@ -19,44 +11,25 @@ require.config({
 
     'lodash': 'deps/lodash/dist/lodash.compat<%=min%>',
     'angular': 'deps/angular/angular<%=min%>',
-    'ui-bootstrap': 'deps/angular-bootstrap/ui-bootstrap-tpls<%=min%>',
     'ui-router': 'deps/angular-ui-router/release/angular-ui-router<%=min%>',
-    'angular-marked': 'deps/angular-marked/angular-marked<%=min%>',
     'state-helper': 'deps/angular-ui-router.stateHelper/statehelper<%=min%>',
-    'marked': 'deps/marked/lib/marked<%=min%>'
+    'ui-bootstrap': 'deps/angular-bootstrap/ui-bootstrap-tpls<%=min%>',
+    'marked': 'deps/marked/lib/marked<%=min%>',
+    'angular-marked': 'deps/angular-marked/angular-marked<%=min%>',
+    'jquery': 'deps/jquery/dist/jquery<%=min%>',
+    'highcharts': 'deps/highcharts/highcharts',
+    'highcharts-ng': 'deps/highcharts-ng/dist/highcharts-ng<%=min%>'
   },
 
   shim: {
-    'angular': { exports: 'angular' },
-    // 'angular-mocks': {
-    //   deps: ['angular']
-    // },
-    'ui-bootstrap': { deps: ['angular'] },
+    'angular': { exports: 'angular', deps: ['jquery'] },
+    'angular-mocks': { deps: ['angular'] },
     'ui-router': { deps: ['angular'] },
-    'angular-marked': { deps: ['angular', 'marked'] },
-    // 'angular-sanitize': {
-    //   deps: ['angular']
-    // },
-    // 'angular-translate': {
-    //   deps: ['angular']
-    // },
-    // 'marked': {
-    //   exports: 'marked'
-    // },
     'state-helper': { deps: ['angular', 'ui-router'] },
-
-    // 'spinner': {
-    //   deps: ['spinjs']
-    // },
-    // 'angular-dialogs': {
-    //   deps: ['ui-bootstrap', 'angular-sanitize', 'angular-translate']
-    // },
-    // 'mocha': {
-    //   exports: 'mocha'
-    // },
-    // 'sinon-chai': {
-    //   deps: ['sinon']
-    // }
+    'ui-bootstrap': { deps: ['angular'] },
+    'highcharts-ng': { deps: ['angular', 'highcharts'] },
+    'highcharts': { deps: ['jquery'] },
+    'angular-marked': { deps: ['angular', 'marked'] },
   }
 });
 
@@ -67,11 +40,11 @@ define(
     // handling need to be referenced in the callback function.
     'lodash',
     'angular',
+
     'ui-router',
     'state-helper',
-    //TODO: possibly rearrange bootstrap-tpls to use customized
     'ui-bootstrap',
-    'marked',
+    'highcharts-ng',
     'angular-marked',
 
     '_marklogic/marklogic'
@@ -83,15 +56,12 @@ define(
     window.angular = angular;
 
     return [
-
       'ui.router',
       'ui.router.stateHelper',
       'ui.bootstrap',
+      'highcharts-ng',
       'hc.marked',
 
-      // this one isn't auto-generated -- marklogic.sample includes
-      // some of its own dependencies.  We need not concern ourselves
-      // with those here.
       'marklogic.sample'
     ];
   }
