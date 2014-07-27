@@ -1,7 +1,8 @@
 <header>
   <h2>Browsing {{searchResults.value['total'] | number:0}} Questions</h2>
-  <ul class="ss-sort" ng-repeat="sort in sorts">
+  <ul class="ss-sort">
     <li
+      ng-repeat="sort in sorts"
       ng-click="setSort()"
       ng-class="selectedSort == sort ? 'ss-sort-active': ''"
     >{{sort.label}}</li>
