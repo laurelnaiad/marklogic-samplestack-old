@@ -11,17 +11,16 @@ define([
 ) {
 
   appModule.config([
-
-    'appRoutingProvider', 'statesHierarchy', 'markedProvider',
-    function (appRoutingProvider, statesHierarchy, markedProvider) {
+    'appRoutingProvider',
+    'statesHierarchy',
+    function (
+      appRoutingProvider,
+      statesHierarchy
+    ) {
 
       // Apply the statesHierarchy as configuration for the
       // appRoutingProvider/appRouting service.
       appRoutingProvider.configure(statesHierarchy);
-
-      // render github-flavored markdown
-      // TODO: set up highlight.js
-      markedProvider.setOptions({gfm: true});
 
     }
 

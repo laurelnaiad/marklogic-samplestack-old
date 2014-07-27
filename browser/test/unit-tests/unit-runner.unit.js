@@ -1,7 +1,8 @@
 require.config({
 
   paths: {
-    'angular-mocks': 'deps/angular-mocks/angular-mocks'
+    'angular-mocks': 'deps/angular-mocks/angular-mocks',
+    'testHelper': 'testHelper.unit'
   }
 
 });
@@ -9,14 +10,13 @@ require.config({
 require(['configuredApp'], function () {
   require(['angular-mocks'], function () {
 
-    require(['index.unit'], function () {
+    require(['testHelper', 'index.unit'], function (helper) {
 
       // window.sinon = sinon;
       var myMocha = window.mochaPhantomJS ?
           window.mochaPhantomJS :
           window.mocha;
 
-      // mocha.setup('bdd');
       myMocha.run();
 
     });

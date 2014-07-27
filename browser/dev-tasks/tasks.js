@@ -61,7 +61,7 @@ var srcDir = path.join(h.rootDir, h.src);
 var unitSrcDir = path.join(h.rootDir, h.unitSrc);
 
 var bootstrapDir =
-    'bower_components/bootstrap-sass-official/vendor/assets/stylesheets';
+    'bower_components/bootstrap-sass-official/assets/stylesheets';
 
 
 /**************************
@@ -72,14 +72,29 @@ var amWatching = false;
 var activeServers;
 var rebuildOnNext = false;
 
-function closeActiveServers() {
-  activeServers.forEach(function (server) {
+function closeActiveServers () {
+  var serverKey;
+  for (serverKey in activeServers) {
+    var server = activeServers[serverKey];
     try {
       server.close();
-    } catch (err) {}
-  });
-
+    } catch (err) {
+      console.log(err.toString());
+    }
+    delete activeServers[serverKey];
+  }
 }
+function setActiveServer (key, server) {
+  // console.log('activated: ' + key);
+  if (!activeServers) {
+    activeServers = {};
+  }
+  activeServers[key.toString()] = server;
+}
+function getActiveServer (key) {
+  return activeServers && activeServers[key.toString()];
+}
+
 function refireWatchTask (servers) {
   // $.util.log('[' + chalk.cyan('watch') + '] ' +
   //     chalk.yellow('initiating rebuild'));
@@ -95,11 +110,7 @@ function refireWatchFunc () {
         chalk.yellow(
           'restarting watch'
         ));
-    activeServers.forEach(function (server) {
-      try {
-        server.close();
-      } catch (err) {}
-    });
+    closeActiveServers();
     rebuildOnNext = true;
     tasks['watch'].func();
   }
@@ -179,13 +190,12 @@ tasks['bower-files'] = {
 };
 
 var indexHtmlStream = function (stream, target) {
-  var filt = $.filter(path.join(h.targets[target], 'index.html'));
+  var filt = $.filter(
+    path.join(h.targets[target].replace(/^builds\//, ''), 'index.html')
+  );
   stream = stream.pipe(filt);
-
   switch (target) {
     case 'build':
-      // stream = stream
-        // .pipe($.inject((h.fs.src('/bower_components/'))))
       /**************
       embed livereload script in build/index.html
       **************/
@@ -193,11 +203,8 @@ var indexHtmlStream = function (stream, target) {
       break;
     case 'unit':
       break;
-
   }
-
   return stream.pipe(filt.restore());
-
 };
 
 function organizeBuildStream (stream) {
@@ -282,13 +289,19 @@ var buildStream = function (stream) {
   SASS
   ****************/
 
+  var otherDirs = [
+    'bower_components/bourbon/dist',
+    'bower_components/bitters/app/assets/stylesheets',
+    'bower_components/neat/app/assets/stylesheets'
+  ]
+
   var sassPipe;
   var sassParams;
   if (buildParams.sassCompiler === 'ruby-sass') {
     sassParams = {
       sourcemap: true,
       sourcemapPath: '.',
-      loadPath: bootstrapDir
+      loadPath: bootstrapDir//otherDirs //.concat(bootstrapDir)
     };
 
     sassPipe = lazypipe()
@@ -315,7 +328,7 @@ var buildStream = function (stream) {
   else {
     sassParams = {
       onError: plumberErrorHandler,
-      includePaths: [bootstrapDir]
+      includePaths: [bootstrapDir] //otherDirs // .concat(bootstrapDir)
     };
 
     if (buildParams.sassCompiler !== 'node-sass-safe') {
@@ -499,43 +512,113 @@ tasks.build = {
 };
 
 function startServer (path, port) {
-  var connect = require('connect');
-  var url = require('url');
-  var proxy = require('proxy-middleware');
+  if (!getActiveServer(port)) {
+    var httpProxy = require('http-proxy');
+    var express = require('express');
+    var proxyOptions = {
+      host: 'localhost',
+      port: 8090
+    };
+    var proxy = httpProxy.createProxyServer({
+      target:'http://localhost:8090'
+    });
+    var app = express();
 
-  var server = connect()
-    .use('/v1/', proxy(url.parse(buildParams.restUrl + '/v1/')))
-    .use(
+    app.all('/v1/*',  function (req, res) {
+      return proxy.web(req, res, {target:'http://localhost:8090'});
+    });
+
+    app.use(
       require('connect-modrewrite')(
       // if lacking a dot, redirect to index.html
         ['!\\. /index.html [L]']
       )
-    )
-    .use(connect.static(path, {redirect: false}))
-    .listen(port, '0.0.0.0');
-  return server;
+    );
+    app.use(express['static'](path));
+    var httpServer = require('http').createServer(app);
+    httpServer.listen(port,'0.0.0.0');
+
+    setActiveServer(port, httpServer);
+  }
+}
+
+function startIstanbulServer (testerPath, port) {
+  if (!getActiveServer(port)) {
+    var express = require('express');
+    var im = require('istanbul-middleware');
+    var bodyParser = require('body-parser');
+    var app = express();
+    var url = require('url');
+
+    im.hookLoader(testerPath);
+    app.use('/coverage', require('connect-livereload')({
+      port: 35730
+    }));
+    app.use('/coverage', im.createHandler());
+    app.use(im.createClientHandler(
+      path.resolve(testerPath),
+      {
+        matcher: function (req) {
+          // cover js files that aren't .unit.js and are not ext dependencies
+          var parsed = url.parse(req.url).pathname;
+          if (!/\.js$/.test(parsed)) {
+            return false;
+          }
+          if (parsed.match(/index\.js/)) {
+            // its a modules index file
+            return false;
+          }
+          if (!(parsed.match(/^\/.+\/.+\//))) {
+            // it's not deep enough to be the code we really want to test
+            return false;
+          }
+          if (parsed.match(/^\/mocks\//)) {
+            // it's part of the mocks modules
+            return false;
+          }
+          var isBrowserify = /\.browserify\.js$/.test(parsed);
+          var isTestCode = /\.unit\.js$/.test(parsed);
+          // console.log(parsed + ' is test code: ' + isTestCode);
+          var isDependency = /^\/deps\//.test(parsed);
+          // console.log(parsed + ' is dep. code: ' + isDependency);
+          return !(isTestCode || isBrowserify || isDependency);
+        }
+        // pathTransformer: function (req) {
+        // }
+      }
+    ));
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
+
+    app.use(express['static'](path.resolve(testerPath)));
+    var httpServer = require('http').createServer(app);
+    httpServer.listen(port,'0.0.0.0');
+
+    setActiveServer(port, httpServer);
+  }
+}
+
+function runTests (opts, cb) {
+  startIstanbulServer(h.targets.unit, 3004);
+  var myOpts = opts || {};
+  myOpts.silent = true;
+  var stream = $.mochaPhantomjs(myOpts);
+  stream.on('error', function () {});
+  stream.on('end', function () { cb(); });
+  stream.write({path: 'http://localhost:3004/unit-runner.html'});
+  stream.end();
 }
 
 tasks['unit'] = {
   deps: ['build'],
   // deps: [],
   func: function (cb) {
-    var tempServer = startServer(h.targets.unit, 3001);
-    if (!activeServers) {
-      activeServers = [];
-    }
-    activeServers.push(tempServer);
-    h.fs.src(path.join(h.targets.unit, 'unit-runner.html'))
-    .pipe($.mochaPhantomjs({reporter: 'dot'}))
-    .on('error', function () {})
-    .pipe(
-      $.util.buffer(
-        function (err, files) {
-          tempServer.close();
-          cb();
-        }
-      )
-    );
+    runTests({ reporter: 'dot' }, function () {
+      if (!watchTaskCalled) {
+        closeActiveServers();
+      }
+      cb();
+    });
   }
 };
 
@@ -551,14 +634,17 @@ function writeWatchMenu () {
   $.util.log('[' + chalk.cyan('watch') + '] ' +
       '--> ' + chalk.magenta('UNIT TESTS') + '   : ' +
       chalk.bold.blue('http://localhost:3001/unit-runner.html'));
+  $.util.log('[' + chalk.cyan('watch') + '] ' +
+      '--> ' + chalk.magenta('COVERAGE') + '   : ' +
+      chalk.bold.blue('http://localhost:3004/coverage'));
 }
 
 tasks['run'] = {
   deps: ['build'],
   func: function (cb) {
-    activeServers = [];
-    activeServers.push(startServer(h.targets.build, 3000));
-    activeServers.push(startServer(h.targets.unit, 3001));
+    startServer(h.targets.build, 3000);
+    startServer(h.targets.unit, 3001);
+    startIstanbulServer(h.targets.unit, 3004);
     cb();
     $.util.log('[' + chalk.cyan('run') + '] ' +
         '--> ' + chalk.magenta('build server') + ': ' +
@@ -578,13 +664,65 @@ tasks['watchCalled'] = {
   }
 };
 
+function lrSetup (port, glob, name, fileRelativizer, cb) {
+  var tinylr = require('tiny-lr-fork');
+  var lrServer = new tinylr.Server();
+  lrServer.listen(port, function () {
+    var watcher = $.watch({
+      glob: glob, // path.join(h.targets.build, '**/*'),
+      name: name, // 'reload-watch',
+      emitOnGlob: false,
+      emit: 'one',
+      silent: true
+    })
+    .on('data', function (file) {
+      // file.base = path.resolve('./build');
+      // buildLr.changed({body: { files: [file.relative]}});
+      file.base = path.resolve('./build');
+      lrServer.changed({
+        body: {
+          files: [
+            fileRelativizer(file)
+          ]
+        }
+      });
+      return file;
+    });
+    setActiveServer(name, watcher);
+    setActiveServer(port, lrServer);
+    cb();
+  });
+}
+
+function lrManualSetup (port, cb) {
+  var tinylr = require('tiny-lr-fork');
+  var lrServer = new tinylr.Server();
+
+  lrServer.listen(port, function () {
+    var changer = function (files) {
+      lrServer.changed({ body: { files: files } });
+    };
+    setActiveServer(port, lrServer);
+    cb(changer);
+  });
+}
+
 tasks['watch'] = {
   deps: ['watchCalled', 'build', 'unit'],
   func: function (cb) {
-    activeServers = [];
-    activeServers.push(startServer(h.targets.build, 3000));
-    activeServers.push(startServer(h.targets.unit, 3001));
+    startServer(h.targets.build, 3000);
+    startServer(h.targets.unit, 3001);
+    startIstanbulServer(h.targets.unit, 3004);
     amWatching = true;
+
+    var lrChanger;
+    lrManualSetup(
+      35730,
+      function (changer) {
+        lrChanger = changer;
+      }
+    );
+
 
     var watcher = $.watch({
       glob: [path.join(h.src, '**/*'), path.join(h.unitSrc, '**/*')],
@@ -619,15 +757,11 @@ tasks['watch'] = {
           var out = buildStream(files).pipe(
             $.util.buffer(function (err, files) {
               if(!rebuildOnNext) {
-                h.fs.src(path.join(h.targets.unit, 'unit-runner.html'))
-                .pipe($.mochaPhantomjs())
-                .on('error', function () {})
-                .pipe($.util.buffer(
-                    function (err, files) {
-                      writeWatchMenu();
-                      gulpWatchCb();
-                    }
-                ));
+                runTests(null, function () {
+                  lrChanger(['/coverage', '/coverage/show']);
+                  writeWatchMenu();
+                  gulpWatchCb();
+                });
               }
               else {
                 // writeWatchMenu();
@@ -638,40 +772,29 @@ tasks['watch'] = {
         }
       }));
     });
-    activeServers.push(watcher);
+    setActiveServer('watcher', watcher);
 
-    var port = 35729;
-    var tinylr = require('tiny-lr-fork');
-    var buildLr = new tinylr.Server();
-    buildLr.listen(port, function () {
-      watcher = $.watch({
-        glob: path.join(h.targets.build, '**/*'),
-        name: 'reload-watch',
-        emitOnGlob: false,
-        emit: 'one',
-        silent: true
-      })
-      .on('data', function (file) {
+    lrSetup(
+      35729,
+      path.join(h.targets.build, '**/*'),
+      'reload-build-watch',
+      function (file) {
         file.base = path.resolve('./build');
-        buildLr.changed({body: { files: [file.relative]}});
-        return file;
-      });
-      activeServers.push(watcher);
-      activeServers.push(buildLr);
-
-      writeWatchMenu();
-
-      if (cb) {
-        // if we restarted this function then no cb is available or
-        // necessary
-        cb();
+        return file.relative;
+      },
+      function () {
+        writeWatchMenu();
+        if (cb) {
+          // if we restarted this function then no cb is available or
+          // necessary
+          cb();
+        }
       }
+    );
 
-    });
   }
 };
-
-var seleniumParts = buildParams.seleniumAddress.match(
+var seleniumParts = buildParams['e2e'].seleniumAddress.match(
   /([^:]*):\/\/([^:]*):(.*)[\/]?$/
 );
 var seleniumProtocol = seleniumParts[1];
@@ -809,8 +932,7 @@ var ptorConfig = {
 tasks['e2e'] = {
   deps: ['build', 'selenium-start'],
   func: function (cb) {
-    activeServers = [];
-    activeServers.push(startServer(h.targets.build, 3002));
+    startServer(h.targets.build, 3002);
 
     ptorConfig.seleniumAddress = seleniumUrl;
     var Runner = require('protractor/lib/runner');
@@ -829,28 +951,3 @@ tasks['e2e'] = {
 
   }
 };
-
-
-/********************************
-
-something like this to configure protractor
-
-config = {
-  cucumberOpts: {
-    format: 'pretty'
-  }
-  // Spec patterns are relative to the location of the spec file. They may
-  // include glob patterns.
-  suites: {
-    homepage: 'tests/e2e/homepage/** / * Spec.js',
-  },
-å    // nobody has loaded world, the page objects and steps defs here
-    // answer -- world is instantiated by stesps, prvovides access to
-    protractor stuff for the steps.  steps reuire-in page objects as they
-    need them
-    steps are preloaded in cucumberopts (see nexxt example right below)
-
-
-enhance webdriver to compare screenshots:
-https://www.npmjs.org/package/webdrivercss
-***************/
