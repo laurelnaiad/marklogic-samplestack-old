@@ -1,5 +1,5 @@
-<!-- @todo move form classes (.form-control, .btn, etc.) into sass without losing styling -->
 <header class="ss-page-header">
+  <!-- @todo move form classes (.form-control, .btn, etc.) into sass without losing styling -->
   <div class="ss-app-title">
     <h1>
       <a ui-sref="root.layout.explore">samplestack</a>
@@ -8,14 +8,18 @@
   <div class="ss-page-header-actions">
 
     <div class="ss-login">
-      <span ng-if="store.session.instance" ss-account-dropdown></span>
+      <span ng-if="store.session" ss-account-dropdown></span>
 
-      <a ng-if="!store.session.instance" href="" ng-click="openLogin()">
+      <a ng-if="!store.session" href="" ng-click="openLogin()">
         Login
       </a>
     </div>
 
-    <button ng-disabled="!store.session.instance" ng-click="ask()">
+    <button
+      class="ss-ask-button"
+      ng-disabled="!store.session"
+      ng-click="ask()"
+    >
       Ask a Question
     </button>
   </div>

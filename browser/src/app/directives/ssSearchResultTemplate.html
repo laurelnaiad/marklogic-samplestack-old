@@ -1,0 +1,29 @@
+<div class="ss-votes">
+  <div class="ss-score">
+    <label>score</label>
+    <span>{{item.content.docScore}}</span>
+  </div>
+  <div class="ss-divider">&nbsp;</div>
+  <div class="ss-answers">
+    <label>answers</label>
+    <span>{{item.content.answers.length}}</span>
+    <div class="ss-checked" ng-if="item.content.acceptedAnswerId">&nbsp;</div>
+  </div>
+</div>
+<div class="ss-result-title">
+  <a ui-sref="root.layout.qnaDoc">Q: {{item.content.title}}</a>
+</div>
+<p>{{ item.content.body }}</p>
+<div class="ss-metadata">
+  <ul class="ss-tags">
+    <li ng-repeat="tag in item.content.tags">{{tag}}</li>
+  </ul>
+  <!-- talk to charles about reputation, it's not in the results -->
+  <div class="ss-author"
+  >asked {{item.content.creationDate}} by
+  <a
+    href=""
+    ng-click="showContributor(item)"
+  >{{item.content.owner.displayName}}</a>
+  [&lt;TBD&gt;{{item.content.owner.reputation}}]</div>
+</div>

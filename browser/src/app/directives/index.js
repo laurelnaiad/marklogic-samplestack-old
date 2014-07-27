@@ -1,3 +1,9 @@
 define([
-  './ssAccountDropdown'
+  './ssAccountDropdown',
+  './ssFacetDateRange',
+  './ssFacetTags',
+  './ssMarkdown',
+  './ssMarkdownEditor',
+  './ssSearchResult',
+  './ssSearchResults'
 ], function () {});

@@ -1,7 +1,14 @@
-/*
-app/states/_layout.js
- */
 define(['app/module'], function (module) {
+
+  /**
+   * @ngdoc state
+   * @name _layout
+   * @requires appRouting
+   *
+   * @description
+   * TBD
+   *
+   */
 
   module.controller('layoutCtlr', [
     '$scope', 'appRouting',

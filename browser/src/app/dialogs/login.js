@@ -13,7 +13,7 @@ define(['app/module'], function (module) {
       mlAuth
     ) {
 
-      $scope.session = ssSession.create();
+      ssSession.create().attachScope($scope, 'session');
 
       $scope.authenticate = function () {
         mlAuth.authenticate($scope.session).then(
@@ -27,12 +27,8 @@ define(['app/module'], function (module) {
       };
 
       var onAuthFailure = function (reason) {
-        // $scope.doSomethingWithTheReasonToIndicateSituationToUser
-        /* jshint ignore:start */
-        alert('fail: ' + JSON.stringify(reason));
-        /* jshint ignore:end */
+        $scope.error = 'Login Failed.';
       };
-
 
       $scope.cancel = function () {
         $modalInstance.dismiss();
@@ -40,6 +36,15 @@ define(['app/module'], function (module) {
 
     }
   ]);
+
+  /**
+   * @ngdoc service
+   * @name loginDialog
+   *
+   * @description
+   * TBD
+   *
+   */
 
   module.factory('loginDialog', [
     '$modal',

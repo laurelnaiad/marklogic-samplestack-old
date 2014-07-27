@@ -14,11 +14,16 @@ require.config({
     'ui-router': 'deps/angular-ui-router/release/angular-ui-router<%=min%>',
     'state-helper': 'deps/angular-ui-router.stateHelper/statehelper<%=min%>',
     'ui-bootstrap': 'deps/angular-bootstrap/ui-bootstrap-tpls<%=min%>',
+    'angular-sanitize': 'deps/angular-sanitize/angular-sanitize<%=min%>',
+    'ng-markdown': 'deps/ngMarkdown/wizMarkdown/wizMarkdown<%=min%>',
     'marked': 'deps/marked/lib/marked<%=min%>',
     'angular-marked': 'deps/angular-marked/angular-marked<%=min%>',
     'jquery': 'deps/jquery/dist/jquery<%=min%>',
     'highcharts': 'deps/highcharts/highcharts',
-    'highcharts-ng': 'deps/highcharts-ng/dist/highcharts-ng<%=min%>'
+    'highcharts-ng': 'deps/highcharts-ng/dist/highcharts-ng<%=min%>',
+    'highlightjs': 'deps/highlightjs/highlight.pack<%=min%>',
+    'json': 'deps/requirejs-plugins/src/json',
+    'text': 'deps/requirejs-plugins/lib/text'
   },
 
   shim: {
@@ -29,7 +34,10 @@ require.config({
     'ui-bootstrap': { deps: ['angular'] },
     'highcharts-ng': { deps: ['angular', 'highcharts'] },
     'highcharts': { deps: ['jquery'] },
-    'angular-marked': { deps: ['angular', 'marked'] },
+    'angular-sanitize': { deps: ['angular'] },
+    'ng-markdown': { deps: ['angular', 'angular-sanitize'] },
+    'angular-marked': { deps: ['angular'] },
+    'highlightjs': { exports: 'hljs' }
   }
 });
 
@@ -46,6 +54,8 @@ define(
     'ui-bootstrap',
     'highcharts-ng',
     'angular-marked',
+    'angular-sanitize',
+    'ng-markdown',
 
     '_marklogic/marklogic'
   ],
@@ -61,6 +71,8 @@ define(
       'ui.bootstrap',
       'highcharts-ng',
       'hc.marked',
+      'ngSanitize',
+      'wiz.markdown',
 
       '_marklogic'
     ];

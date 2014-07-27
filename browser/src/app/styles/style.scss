@@ -14,6 +14,15 @@ form textarea {
   @extend .form-control;
 }
 
+.has-error {
+  border: 1px solid #f00;
+}
+
+p.has-error {
+  color: #f00;
+  font-weight: bold;
+}
+
 .ss-main {
   @extend .main;
   @extend .row;
@@ -60,6 +69,7 @@ form textarea {
   }
 }
 
+
 /*** EXPLORE VIEW ***/
 .ss-explore {
   @extend .col-lg-12;
@@ -67,22 +77,69 @@ form textarea {
     @extend .col-lg-2;
     padding-left: 0;
     padding-right: 0;
-    .ss-filters-tags {
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    min-width: 275px;
+    .ss-filters-date {
+      header {
+        width: 100%;
+        display: inline-block;
+        h3 {
+          position: relative;
+          float: left;
+        }
+        .ss-clear-date {
+          position: relative;
+          float: right;
+          margin: 21px 30px 0 0;
+          cursor: pointer;
+        }
       }
-      li {
-
+      .form-control {
+        display: inline-block;
+        width:33%;
+        padding: 6px 3px;
+      }
+    }
+    .ss-filters-tags {
+      header {
+        width: 100%;
+        display: inline-block;
+        h3 {
+          position: relative;
+          float: left;
+        }
+        .ss-clear-tags {
+          position: relative;
+          float: right;
+          margin: 21px 30px 0 0;
+          cursor: pointer;
+        }
+      }
+      .ss-facet-tags {
+        input.ss-typeahead-input {
+          display: block;
+          clear: all;
+          width: 202px;
+          margin-bottom: 5px;
+          font-size: 14px;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+      }
+      .ss-open-all-tags {
+        cursor: pointer;
+        margin-top: 3px;
       }
     }
   }
 
   .ss-results {
-    @extend .col-lg-10;
+    @extend .col-lg-8;
     padding-left: 0;
     padding-right: 0;
+    max-width: 1100;
     header {
       width: 100%;
       display: inline-block;
@@ -96,8 +153,9 @@ form textarea {
         margin-top: 20px;
         li {
           margin-left: 10px;
+          cursor: pointer;
         }
-        li.active {
+        li.ss-sort-active {
           font-weight: bold;
         }
       }
@@ -109,9 +167,51 @@ form textarea {
       .ss-votes {
         position: absolute;
         left: 0;
-        width: 60px;
-        height: 70px;
-        background-color: #DDDDDD;
+        width: 70px;
+        height: 84px;
+        background-color: #EEE;
+        border: solid 1px #CCC;
+        .ss-score, .ss-answers {
+          padding: 0;
+          label, span, .ss-divider {
+            display: block;
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            z-index: 20;
+          }
+        }
+        .ss-score label {
+          top: -2px;
+        }
+        .ss-score span {
+          top: 14px;
+          font-size: 18px;
+        }
+        .ss-answers label {
+          top: 62px;
+        }
+        .ss-answers span {
+          top: 43px;
+          font-size: 18px;
+        }
+        .ss-divider {
+          position: absolute;
+          top: 40px;
+          width: 60px;
+          height: 1px;
+          margin: 0 4px;
+          background-color: black;
+        }
+        .ss-checked {
+          position: absolute;
+          top: 41px;
+          left: 12px;
+          width: 50px;
+          height: 40px;
+          z-index: 10;
+          background-image:url('/app/images/checkmark.png');
+        }
       }
     }
     .ss-result-title {
@@ -136,9 +236,35 @@ form textarea {
     input {
       width: 500px;
     }
-    textarea {
-      width: 700px;
-      height: 200px;
+    .ss-markdown-editor {
+      li {
+        cursor: pointer;
+      }
+      img {
+        margin:0 3px;
+        cursor: pointer;
+      }
+      button {
+        margin:0 6px;
+        border:0px;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+      textarea {
+        height:174px;
+      }
+      .divider {
+        margin:0 6px;
+        color:#D3D3D3;
+      }
+      .tab-content {
+        height: 250px;
+        padding:10px 16px;
+        border:1px solid #ddd;
+        border-top:0;
+        border-radius: 0 0 4px 4px;
+      }
     }
   }
 }
@@ -147,15 +273,41 @@ form textarea {
 .ss-qnadoc {
   @extend .col-lg-12;
   .ss-question,
-  .ss-answer {
+  .ss-answer-section {
     padding: 10px;
     padding-left: 85px;
     .ss-vote {
       position: absolute;
+      text-align: center;
       left: 15px;
       width: 60px;
-      height: 70px;
-      background-color: #DDDDDD;
+      height: 76px;
+      background-color: #EEE;
+      border: solid 1px #CCC;
+      .ss-up,
+      .ss-down,
+       {
+        position: absolute;
+        left: 3px;
+        width: 50px;
+        height: 18px;
+        cursor: pointer;
+      }
+      .ss-up {
+        top: 4px;
+        background-image:url('/app/images/up.png');
+      }
+      .ss-down {
+        top: 52px;
+        background-image:url('/app/images/down.png');
+      }
+      span {
+        position: absolute;
+        display: block;
+        width: 100%;
+        top: 23px;
+        font-size: 20px;
+      }
     }
     .ss-metadata {
       min-height: 40px;
@@ -204,9 +356,7 @@ form textarea {
   }
 }
 
-
-
-/*** GLOBAL FOOTER ***/
+//** GLOBAL FOOTER **
 .ss-page-footer {
   @extend .row;
   @extend .text-center;
@@ -222,6 +372,10 @@ ul.ss-sort, ul.ss-tags {
   li {
     position: relative;
     float: left;
+    cursor: pointer;
+  }
+  li.ss-sort-active {
+    font-weight: bold;
   }
 }
 
@@ -229,7 +383,7 @@ ul.ss-tags {
   li {
     margin-right: 10px;
     padding: 3px 5px;
-    background-color: #DDD;
+    background-color: #EEE;
   }
 }
 
@@ -251,4 +405,38 @@ ul.ss-tags {
   padding: 5px;
   margin-top: 10px;
   background-color: #DDD;
+}
+
+.ss-divider {
+  width: 205px;
+  height: 1px;
+  margin: 5px 0;
+  background-color: black;
+}
+
+.ss-typeahead-item {
+  cursor: pointer;
+}
+
+.ss-column {
+  position: relative;
+  float: left;
+}
+
+.ss-paging {
+  margin-top: 10px;
+  clear: both;
+}
+
+.ss-facet-date-range {
+  .highcharts-container {
+  }
+}
+
+.ss-facet-date-range {
+
+
+  .highcharts-container {
+
+  }
 }

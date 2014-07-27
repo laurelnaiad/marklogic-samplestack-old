@@ -1,13 +1,13 @@
 define([
-  './domain/index.unit'
+  './appRouting.unit'
 ], function (
-  domain
+  appRouting
 ) {
 
   return function () {
 
     describe('services', function () {
-      domain();
+      appRouting();
     });
 
   };

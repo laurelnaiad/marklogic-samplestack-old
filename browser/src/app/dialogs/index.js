@@ -1,4 +1,5 @@
 define([
-  './login',
-  './user'
+  './allTags',
+  './contributor',
+  './login'
 ], function () {});

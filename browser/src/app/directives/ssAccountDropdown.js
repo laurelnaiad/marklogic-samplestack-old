@@ -1,6 +1,15 @@
 define([
   'app/module'
 ], function (module) {
+
+  /**
+   * @ngdoc directive
+   * @name ssAccountDropdown
+   * @restrict E
+   *
+   * @description
+   * TBD
+   */
   module.directive('ssAccountDropdown', function () {
     return {
       restrict: 'A',

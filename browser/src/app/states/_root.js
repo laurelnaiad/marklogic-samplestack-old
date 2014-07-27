@@ -1,6 +1,3 @@
-/*
-app/states/_root.js
- */
 define(['app/module'], function (module) {
 
   module.controller('rootCtlr', [
@@ -10,12 +7,14 @@ define(['app/module'], function (module) {
     '$q',
     'mlAuth',
     'loginDialog',
+    'contributorDialog',
     function (
       $scope,
       $rootScope,
       $q,
       mlAuth,
-      loginDialog
+      loginDialog,
+      contributorDialog
     ) {
       var initDefer = $q.defer();
       $rootScope.initializing = initDefer.promise;
@@ -36,18 +35,12 @@ define(['app/module'], function (module) {
       };
 
       $scope.openLogin = function () {
-        // there is a fix coming from angular-ui for the bug that is exposed
-        // by closing this dialog
-        loginDialog().then(
-          function () {
-            angular.noop($scope.store.session);
-          },
-          function () {
-            angular.noop('cancelled');
-          }
-
-        );
+        loginDialog();
       };
+
+      $scope.$on('showContributor', function (evt, args) {
+        contributorDialog(args.contributorId);
+      });
 
     }
 
