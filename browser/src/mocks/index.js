@@ -1,6 +1,7 @@
 define([
-], function (
-) {
+  './searchResult'
+], function (searchResult) {
   return {
+    searchResult: searchResult
   };
 });

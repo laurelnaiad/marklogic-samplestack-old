@@ -11,13 +11,16 @@ define([
 ) {
 
   appModule.config([
+    'mlHttpProvider',
     'appRoutingProvider',
     'statesHierarchy',
     function (
+      mlHttpProvider,
       appRoutingProvider,
       statesHierarchy
     ) {
 
+      // mlHttpProvider.setBaseUrl('http://localhost:8090/v1/');
       // Apply the statesHierarchy as configuration for the
       // appRoutingProvider/appRouting service.
       appRoutingProvider.configure(statesHierarchy);
