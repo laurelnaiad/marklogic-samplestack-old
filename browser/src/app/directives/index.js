@@ -1,3 +1,4 @@
 define([
   './ssAccountDropdown'
+  './ssFacetTags'
 ], function () {});

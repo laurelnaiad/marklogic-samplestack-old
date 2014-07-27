@@ -59,6 +59,7 @@ form textarea {
   }
 }
 
+
 /*** EXPLORE VIEW ***/
 .ss-explore {
   @extend .col-lg-12;
@@ -67,13 +68,37 @@ form textarea {
     padding-left: 0;
     padding-right: 0;
     .ss-filters-tags {
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+      header {
+        width: 100%;
+        display: inline-block;
+        h3 {
+          position: relative;
+          float: left;
+        }
+        .ss-clear-tags {
+          position: relative;
+          float: right;
+          margin: 21px 30px 0 0;
+          cursor: pointer;
+        }
       }
-      li {
-
+      .ss-facet-tags {
+        input.ss-typeahead-input {
+          display: block;
+          clear: all;
+          width: 202px;
+          margin-bottom: 5px;
+          font-size: 14px;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+      }
+      .ss-open-all-tags {
+        cursor: pointer;
+        margin-top: 3px;
       }
     }
   }
@@ -203,6 +228,70 @@ form textarea {
   }
 }
 
+/*** DIALOGS ***/
+.ss-dialog {
+  header {
+    @extend .modal-header;
+    button {
+      @extend .close;
+      margin-top: -10px;
+    }
+  }
+  h4 {
+   @extend .modal-title;
+  }
+  >div {
+    @extend .modal-body;
+  }
+  footer {
+    @extend .modal-footer;
+    clear: both;
+  }
+}
+
+.ss-dialog-login {
+  label {
+    width: 75px;
+  }
+  input {
+    width: 300px !important;
+  }
+}
+
+.ss-dialog-all-tags {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .ss-column {
+    width: 190px;
+  }
+  .ss-paging {
+    clear: both;
+  }
+  .ss-all-tags-actions {
+    display: inline-block;
+    width: 100%;
+    padding-right: 20px;
+  }
+  ul.ss-sort {
+    position: relative;
+    float: right;
+    li {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    li.ss-sort-active {
+      font-weight: bold;
+    }
+  }
+  input.ss-typeahead-input {
+    width: 202px;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+}
 
 
 /*** GLOBAL FOOTER ***/
@@ -250,4 +339,20 @@ ul.ss-tags {
   padding: 5px;
   margin-top: 10px;
   background-color: #DDD;
+}
+
+.ss-divider {
+  width: 205px;
+  height: 1px;
+  margin: 5px 0;
+  background-color: black;
+}
+
+.ss-typeahead-item {
+  cursor: pointer;
+}
+
+.ss-column {
+  position: relative;
+  float: left;
 }

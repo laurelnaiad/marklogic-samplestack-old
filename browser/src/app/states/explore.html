@@ -1,7 +1,7 @@
 <section class="ss-search-bar">
   <form>
-    <input type="text" />
-    <button>Search</button>
+    <input type="text" ng-model="searchParams.value.queryText"/>
+    <button ng-click="applyQueryText()">Search</button>
     <div class="ss-search-tips">Search Tips</label>
   </form>
 </section>
@@ -18,18 +18,14 @@
       <h3>Date</h3>
       <div class="date-placeholder">&nbsp;</div>
     </div>
-    <div class="ss-filters-tags">
-      <h3>Tags</h3>
-      <ul ng-repeat="facet in searchResults.facets">
-        <div ng-switch="facet.name">
-          <div ng-switch-when="tags">
-            <div ng-repeat="item in facet.items">
-              <li><input type="checkbox" /> {{item.name}} ({{item.count}})</li>
-            </div>
-          </div>
-        </div>
-      </ul>
-    </div>
+    <section class="ss-filters-tags">
+      <header>
+        <h3>Tags</h3>
+        <a href="" class="ss-clear-tags" ng-click="tagsScope.clearTags()">Clear</a>
+      </header>
+      <ss-facet-tags num-tags="8"></ss-facet-tags>
+      <div class="ss-open-all-tags" ng-click="openAllTags()">more...</div>
+    </section>
   </section>
 
   <section class="ss-results">
@@ -41,10 +37,10 @@
         <li>votes</li>
       </ul>
     </header>
-    <section class="ss-result" ng-repeat="result in searchResults.results">
+    <section class="ss-result" ng-repeat="result in searchResults.value.results">
       <div class="ss-votes">votes</div>
       <div class="ss-result-title">
-        <a ui-sref="root.layout.qnaDoc">Q: {{result.title}}</a>
+        <a ui-sref="root.layout.qnaDoc">Q: {{result.uri}}</a>
       </div>
       <p>This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet. This is a result snippet.</p>
       <div class="ss-metadata">
@@ -57,5 +53,4 @@
       </div>
     </section>
   </section>
-
 </section>
