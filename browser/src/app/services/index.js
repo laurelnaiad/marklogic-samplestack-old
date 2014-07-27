@@ -1,5 +1,4 @@
 define([
   './domain/index',
-  './appRouting',
-  './stubData'
+  './appRouting'
 ], function () {});
