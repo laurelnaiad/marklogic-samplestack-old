@@ -1,4 +1,5 @@
 define([
+  './ssSession.unit'
 ], function (
   ssSession
 ) {
@@ -6,6 +7,7 @@ define([
   return function () {
 
     describe('domain', function () {
+      ssSession();
     });
 
   };

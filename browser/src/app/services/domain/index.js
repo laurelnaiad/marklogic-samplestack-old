@@ -1,2 +1,4 @@
 define([
+  './ssContributor',
+  './ssSession'
 ], function () {});

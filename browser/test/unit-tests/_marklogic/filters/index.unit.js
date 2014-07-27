@@ -1,4 +1,5 @@
 define([
+  './moment.unit'
 ], function (
   moment
 ) {
@@ -6,6 +7,7 @@ define([
   return function () {
 
     describe('services', function () {
+      moment();
     });
 
   };

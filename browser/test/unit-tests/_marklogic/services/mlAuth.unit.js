@@ -1,0 +1,171 @@
+define(['testHelper'], function (helper) {
+
+  return function () {
+
+    describe('mlAuth', function () {
+      var $httpBackend;
+      var mlAuth;
+      var mlStore;
+      var $cookieStore;
+      var mlSession;
+
+      beforeEach(function (done) {
+        angular.mock.module('app');
+        inject(
+          function (
+            _$httpBackend_,
+            _$cookieStore_,
+            _mlStore_,
+            _mlAuth_,
+            _mlSession_
+          ) {
+            $httpBackend = _$httpBackend_;
+            mlAuth = _mlAuth_;
+            mlStore = _mlStore_;
+            $cookieStore = _$cookieStore_;
+            mlSession = _mlSession_;
+            done();
+          }
+        );
+      });
+
+      var credsTemplate = {
+        username: 'joseph',
+        password: 'joespass'
+      };
+      var fakeId = 'seven';
+      var userTemplate = _.clone(credsTemplate);
+      delete userTemplate.password;
+      userTemplate.id = fakeId;
+      userTemplate.role = ['hey Iz a role'];
+
+      var setExpectFormEncoded = function () {
+        $httpBackend.expectPOST(
+          /\/v1\/login$/,
+          function (body) {
+            return body ===
+                'username=' + encodeURI(credsTemplate.username) + '&' +
+                'password=' + encodeURI(credsTemplate.password);
+          },
+          function (headers) {
+            var encoded = headers['Content-Type'] ===
+                'application/x-www-form-urlencoded';
+            return encoded;
+          }
+        ).respond(userTemplate);
+
+      };
+
+      var doAuthenticate = function (done) {
+        var session = mlSession.create(credsTemplate);
+
+        helper.setExpectCsrf($httpBackend);
+        setExpectFormEncoded();
+
+        mlAuth.authenticate(session).then(
+          function (session) {
+            done(session);
+          },
+          function (reason) { assert(false, reason); done(); }
+        );
+        $httpBackend.flush();
+      };
+
+      var testSessionGoodness = function (session) {
+        // got the data back
+        session.instance.should.deep.equal(userTemplate);
+        // have a valid MlUserModel instance
+        session.$ml.valid.should.be.true;
+        mlStore.session.instance.should.deep.eql(session.instance);
+        $cookieStore.get('sessionId').should.equal('seven');
+      };
+
+      describe('authenticate', function () {
+        it('should authenticate', function (done) {
+          doAuthenticate(function (session) {
+            testSessionGoodness(session);
+            done();
+          });
+        });
+      });
+
+      describe('restoreActiveSession', function () {
+        it('should pass back session if still in store', function (done) {
+          doAuthenticate(function (session) {
+            mlAuth.restoreActiveSession().then(
+              function (session) {
+                testSessionGoodness(session);
+                done();
+              },
+              function (reason) {
+                assert(false, JSON.stringify(reason));
+                done();
+              }
+            );
+          });
+        });
+
+        it('should survive store wipeout', function (done) {
+          doAuthenticate(function (session) {
+            mlStore.session = null;
+
+            $httpBackend.expectGET(/\/v1\/contributors\/.+$/)
+                .respond(userTemplate);
+            mlAuth.restoreActiveSession().then(
+              function (session) {
+                testSessionGoodness(session);
+                done();
+              },
+              function (reason) {
+                assert(false, JSON.stringify(reason));
+                done();
+              }
+            );
+          });
+        });
+
+        it('should not upset anthing if server fail', function (done) {
+          doAuthenticate(function (session) {
+            mlStore.session = null;
+
+            $httpBackend.expectGET(/\/v1\/contributors\/.+$/)
+                .respond(401);
+            mlAuth.restoreActiveSession().then(
+              function (session) {
+                expect(session).be.undefined;
+                $cookieStore.get('sessionId').should.equal('seven');
+                done();
+              },
+              function (reason) {
+                assert(false, JSON.stringify(reason));
+                done();
+              }
+            );
+          });
+        });
+
+        it('should do nothing if no session info', function (done) {
+          doAuthenticate(function (session) {
+            mlStore.session = null;
+            $cookieStore.remove('sessionId');
+
+            mlAuth.restoreActiveSession().then(
+              function (session) {
+                expect(session).be.undefined;
+                done();
+              },
+              function (reason) {
+                assert(false, JSON.stringify(reason));
+                done();
+              }
+            );
+          });
+        });
+
+      });
+
+
+    });
+  };
+
+});
