@@ -16,6 +16,10 @@ define(['app/module'], function (module) {
       templateUrl: '/app/directives/ssSearchResultsTemplate.html',
       controller: function ($scope) {
 
+        // Paging settings
+        $scope.currentPage = 0;
+        $scope.Math = window.Math; // Make Math functions avail to template
+
         // Sort settings
         $scope.sorts = [
           {
@@ -45,7 +49,14 @@ define(['app/module'], function (module) {
       },
       link: function (scope, element, attrs) {
 
-        // some link stuff
+        /*
+        * React to paging change
+        * @todo currently not working on paging clicks, in link or controller
+        */
+        scope.$watch(scope.currentPage, function () {
+          //alert('current page changed');
+          // emit();
+        });
 
       }
     };

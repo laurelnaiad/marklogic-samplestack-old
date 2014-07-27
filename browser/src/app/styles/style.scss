@@ -331,9 +331,6 @@ form textarea {
   .ss-column {
     width: 190px;
   }
-  .ss-paging {
-    clear: both;
-  }
   .ss-all-tags-actions {
     display: inline-block;
     width: 100%;
@@ -425,6 +422,11 @@ ul.ss-tags {
 .ss-column {
   position: relative;
   float: left;
+}
+
+.ss-paging {
+  margin-top: 10px;
+  clear: both;
 }
 
 .ss-facet-date-range {

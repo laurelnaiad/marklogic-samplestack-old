@@ -1,5 +1,5 @@
 <header>
-  <h2>Browsing Questions</h2>
+  <h2>Browsing {{searchResults.value['total'] | number:0}} Questions</h2>
   <ul class="ss-sort" ng-repeat="sort in sorts">
     <li
       ng-click="setSort()"
@@ -10,3 +10,15 @@
 <section class="ss-result" ng-repeat="result in searchResults.value.results">
   <ss-search-result></ss-search-result>
 </section>
+<div class="ss-paging">
+  <button
+    ng-disabled="currentPage == 0"
+    ng-click="currentPage = currentPage - 1"
+  >&lt;</button>
+  {{currentPage+1}} /
+  {{Math.ceil(searchResults.value['total'] / searchResults.value['page-length'])}}
+  <button
+    ng-disabled="currentPage >= searchResults.value['total']/searchResults.value['page-length'] - 1"
+    ng-click="currentPage = currentPage + 1"
+  >&gt;</button>
+</div>
