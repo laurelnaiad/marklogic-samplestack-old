@@ -1,5 +1,7 @@
 define([
   './ssAccountDropdown',
   './ssFacetDateRange',
-  './ssFacetTags'
+  './ssFacetTags',
+  './ssSearchResult',
+  './ssSearchResults'
 ], function () {});

@@ -141,8 +141,9 @@ form textarea {
         margin-top: 20px;
         li {
           margin-left: 10px;
+          cursor: pointer;
         }
-        li.active {
+        li.ss-sort-active {
           font-weight: bold;
         }
       }
@@ -154,9 +155,51 @@ form textarea {
       .ss-votes {
         position: absolute;
         left: 0;
-        width: 60px;
-        height: 70px;
-        background-color: #DDDDDD;
+        width: 70px;
+        height: 84px;
+        background-color: #EEE;
+        border: solid 1px #CCC;
+        .ss-score, .ss-answers {
+          padding: 0;
+          label, span, .ss-divider {
+            display: block;
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            z-index: 20;
+          }
+        }
+        .ss-score label {
+          top: -2px;
+        }
+        .ss-score span {
+          top: 14px;
+          font-size: 18px;
+        }
+        .ss-answers label {
+          top: 62px;
+        }
+        .ss-answers span {
+          top: 43px;
+          font-size: 18px;
+        }
+        .ss-divider {
+          position: absolute;
+          top: 40px;
+          width: 60px;
+          height: 1px;
+          margin: 0 4px;
+          background-color: black;
+        }
+        .ss-checked {
+          position: absolute;
+          top: 41px;
+          left: 12px;
+          width: 50px;
+          height: 40px;
+          z-index: 10;
+          background-image:url('/app/images/checkmark.png');
+        }
       }
     }
     .ss-result-title {
@@ -312,6 +355,12 @@ form textarea {
     margin-bottom: 5px;
     font-size: 14px;
   }
+  .ss-divider {
+    width: 205px;
+    height: 1px;
+    margin: 5px 0;
+    background-color: black;
+  }
 }
 
 
@@ -338,7 +387,7 @@ ul.ss-tags {
   li {
     margin-right: 10px;
     padding: 3px 5px;
-    background-color: #DDD;
+    background-color: #EEE;
   }
 }
 

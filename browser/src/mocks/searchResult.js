@@ -23,7 +23,22 @@ define(function () {
               'http://dbpedia.org/resource/Cart http://purl.org/dc/terms/subject http://dbpedia.org/resource/Category:Horse_driving http://dbpedia.org/resource/Cart http://www.w3.org/2000/01/rdf-schema#label Cart...'
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score': 29,
+          'answers': 19,
+          'accepted': true,
+          'creationDate': 'May 12, 2014',
+          'owner': {
+            'displayName': 'Bob',
+            'reputation': 13
+          },
+          'tags': [
+            'foo',
+            'bar',
+            'baz'
+          ]
+        }
       },
       {
         'index':2,
@@ -42,7 +57,21 @@ define(function () {
               'http://dbpedia.org/resource/Cod http://www.w3.org/2000/01/rdf-schema#label Cod http://dbpedia.org/resource/Precision http://www.w3.org/2000/01/rdf-schema#label Precision...'
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score': 11,
+          'answers': 12,
+          'accepted': false,
+          'creationDate': 'Jun 4, 2014',
+          'owner': {
+            'displayName': 'Mary',
+            'reputation': 24
+          },
+          'tags': [
+            'foo',
+            'baz'
+          ]
+        }
       },
       {
         'index':3,
@@ -61,7 +90,20 @@ define(function () {
 
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score': 5,
+          'answers': 1,
+          'accepted': false,
+          'creationDate': 'February 28, 2014',
+          'owner': {
+            'displayName': 'Pat',
+            'reputation': 5
+          },
+          'tags': [
+            'baz'
+          ]
+        }
       },
       {
         'index':4,
@@ -80,7 +122,22 @@ define(function () {
               'http://dbpedia.org/resource/Woodstock http://purl.org/dc/terms/subject http://dbpedia.org/resource/Category:New_York_culture http://dbpedia.org/resource/Woodstock http://purl.org/dc/terms/subject...'
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score': 12,
+          'answers': 10,
+          'accepted': true,
+          'creationDate': 'January 1, 2014',
+          'owner': {
+            'displayName': 'BeeburLuvr1999',
+            'reputation': 54
+          },
+          'tags': [
+            'foo',
+            'bar',
+            'baz'
+          ]
+        }
       },
       {
         'index':5,
@@ -99,7 +156,20 @@ define(function () {
 
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score':17,
+          'answers': 23,
+          'accepted': false,
+          'creationDate': 'May 12, 2014',
+          'owner': {
+            'displayName': 'Harry',
+            'reputation': 99
+          },
+          'tags': [
+            'foo',
+          ]
+        }
       },
       {
         'index':6,
@@ -118,7 +188,21 @@ define(function () {
 
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score': 9,
+          'answers': 9,
+          'accepted': true,
+          'creationDate': 'December 25, 2012',
+          'owner': {
+            'displayName': 'Nicolas',
+            'reputation': 123
+          },
+          'tags': [
+            'foo',
+            'bar'
+          ]
+        }
       },
       {
         'index':7,
@@ -137,7 +221,18 @@ define(function () {
 
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score': 699,
+          'answers': 12,
+          'accepted': true,
+          'creationDate': 'May 12, 2014',
+          'owner': {
+            'displayName': 'Bob',
+            'reputation': 13
+          },
+          'tags': []
+        }
       },
       {
         'index':8,
@@ -156,7 +251,22 @@ define(function () {
               'http://dbpedia.org/resource/Category:Branches_of_philosophy http://www.w3.org/2004/02/skos/core#broader http://dbpedia.org/resource/Category:Subfields_by_academic_discipline...'
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score': 9,
+          'answers': 11,
+          'accepted': false,
+          'creationDate': 'May 12, 2014',
+          'owner': {
+            'displayName': 'Bob',
+            'reputation': 13
+          },
+          'tags': [
+            'foo',
+            'bar',
+            'baz'
+          ]
+        }
       },
       {
         'index':9,
@@ -175,7 +285,22 @@ define(function () {
               'http://dbpedia.org/resource/Calling http://www.w3.org/2000/01/rdf-schema#label Calling http://dbpedia.org/resource/Srand http://www.w3.org/2000/01/rdf-schema#label Srand...'
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score': 8,
+          'answers': 0,
+          'accepted': false,
+          'creationDate': 'May 12, 2014',
+          'owner': {
+            'displayName': 'Bob',
+            'reputation': 13
+          },
+          'tags': [
+            'foo',
+            'bar',
+            'baz'
+          ]
+        }
       },
       {
         'index':10,
@@ -194,7 +319,22 @@ define(function () {
 
             ]
           }
-        ]
+        ],
+        'metadata': {
+          'score': 1,
+          'answers': 0,
+          'accepted': false,
+          'creationDate': 'May 12, 2014',
+          'owner': {
+            'displayName': 'Bob',
+            'reputation': 13
+          },
+          'tags': [
+            'foo',
+            'bar',
+            'baz'
+          ]
+        }
       }
     ],
     'qtext':null,

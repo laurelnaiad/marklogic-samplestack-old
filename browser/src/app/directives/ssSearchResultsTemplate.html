@@ -1,0 +1,12 @@
+<header>
+  <h2>Browsing Questions</h2>
+  <ul class="ss-sort" ng-repeat="sort in sorts">
+    <li
+      ng-click="setSort()"
+      ng-class="selectedSort == sort ? 'ss-sort-active': ''"
+    >{{sort.label}}</li>
+  </ul>
+</header>
+<section class="ss-result" ng-repeat="result in searchResults.value.results">
+  <ss-search-result></ss-search-result>
+</section>

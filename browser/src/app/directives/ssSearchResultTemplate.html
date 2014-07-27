@@ -1,0 +1,22 @@
+<div class="ss-votes">
+  <div class="ss-score">
+    <label>score</label>
+    <span>{{result.metadata.score}}</span>
+  </div>
+  <div class="ss-divider">&nbsp;</div>
+  <div class="ss-answers">
+    <label>answers</label>
+    <span>{{result.metadata.answers}}</span>
+    <div class="ss-checked" ng-if="result.metadata.accepted">&nbsp;</div>
+  </div>
+</div>
+<div class="ss-result-title">
+  <a ui-sref="root.layout.qnaDoc">Q: {{result.title}}</a>
+</div>
+<p>{{ result.body }}</p>
+<div class="ss-metadata">
+  <ul class="ss-tags">
+    <li ng-repeat="tag in result.metadata.tags">{{tag}}</li>
+  </ul>
+  <div class="ss-author">asked {{result.metadata.creationDate}} by {{result.metadata.owner.displayName}} [{{result.metadata.owner.reputation}}]</div>
+</div>
