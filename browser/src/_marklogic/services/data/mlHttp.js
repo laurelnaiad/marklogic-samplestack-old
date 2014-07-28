@@ -52,7 +52,9 @@ define(['_marklogic/module'], function (module) {
       var waiterWaiter = mlWaiter.waitOn(obj);
       resourcePromise.then(
         function (data) {
-          obj.assignInstance(data._instance);
+          obj.assignInstanceHttp ?
+              obj.assignInstanceHttp(data._instance) :
+              obj.assignInstance(data._instance);
           waiterWaiter.resolve();
         },
         function (reason) {
@@ -74,7 +76,9 @@ define(['_marklogic/module'], function (module) {
       post: function (resobj) {
         var args = Array.prototype.slice.call(arguments, 1);
         var obj = args[0];
-        args[0] = obj.instance;
+        obj.extractInstanceHttp ?
+            args[0] = obj.extractInstanceHttp() :
+            args[0] = obj.instance;
         var resourcePromise = resobj.post.apply(resobj, args);
         return resourceReturned(resourcePromise, obj);
       },
