@@ -19,7 +19,7 @@
     "angular-bootstrap": "0.11.0",
     "momentjs": "2.7.0",
     "angular-marked": "0.0.12",
-    "ngMarkdown": "GrumpyWizards/ngMarkdown#c396e44b64d9e67f4dbc56",
+    "ngMarkdown": "GrumpyWizards/ngMarkdown#c396e44b64d9e67f4dbc5626e2a645d36e87ed01",
     "marked": "0.3.2",
     "angular-sanitize": "1.2.20",
     "angular-mocks": "1.2.20",
