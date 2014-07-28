@@ -24,7 +24,7 @@ define(['_marklogic/module'], function (module) {
           $rootScope.$on('logout', function () {
             svc.logout();
           });
-          
+
           var svc = {};
 
           svc.restoreActiveSession = function () {
@@ -78,23 +78,34 @@ define(['_marklogic/module'], function (module) {
           };
 
           svc.logout = function () {
-            throw new Error('not implemented');
-            // ditch the session from the store
-            // ditch the cookie
-            // attempt to log out from the server (but if the server
-            // is down we still proceed
-            // need to figure out what the java tier is setting for path of
-            // its cookie to get a full wipe
+            var deferred = $q.defer();
+
+            var successHandler = function () {
+              $cookieStore.remove('sessionId');
+              delete mlStore.session;
+              deferred.resolve();
+            };
+            // the heaviest part of being logged in is the cookie
+            // the rest we'll just wipe out
+            var sessionId = $cookieStore.get('sessionId');
+
+
+            sessionModel.delete(sessionId).then(
+              successHandler,
+
+              // unfortunately we'll end up here not knowing if there was a
+              // REAL problem b/c the REST api is trying to do a readirect
+              // on logout ..... so we treat this as success until that's
+              // fixed
+              successHandler
+            );
+            return deferred.promise;
           };
 
           return svc;
         }
       ];
     }
-
-
-
-
   ]);
 
 });
