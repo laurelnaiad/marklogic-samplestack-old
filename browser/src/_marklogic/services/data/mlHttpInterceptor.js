@@ -15,6 +15,43 @@ define(['_marklogic/module'], function (module) {
         'DELETE': true
       };
 
+      // replace the name of an endpoint
+      var replaceEndpoint = function (spec) {
+        var findExpr;
+        var newNameExpr;
+        if (spec.withParameters) {
+          findExpr = new RegExp('(.*/v1/)(' + spec.findName + ')(/.+)');
+
+          if (spec.newName) {
+            newNameExpr = '$1' + spec.newName;
+            if (!spec.dropParameters) {
+              newNameExpr += '$3';
+            }
+          }
+        }
+        else {
+          findExpr = new RegExp('(.*/v1/)(' + spec.findName + ')$');
+          if (spec.newName) {
+            newNameExpr = '$1' + spec.newName;
+          }
+        }
+        var ep = spec.config.url;
+        if (ep.match(findExpr) &&
+            spec.findMethods.indexOf(spec.config.method) !== -1 &&
+            (typeof spec.extraConditions === 'undefined' ||
+                spec.extraConditions
+            )
+        ) {
+          if (spec.newName) {
+            spec.config.url = ep.replace(findExpr, newNameExpr);
+          }
+          if (spec.newMethod) {
+            spec.config.method = spec.newMethod;
+          }
+        }
+      };
+
+
       // whether or not we need to get csrf before doing what the app
       // actually wants
       var mustGetCsrf = function (config) {
@@ -79,6 +116,7 @@ define(['_marklogic/module'], function (module) {
       return {
 
         request: function (config) {
+
           // ensure we have $http
           $http = $http || $injector.get('$http');
 
@@ -87,31 +125,33 @@ define(['_marklogic/module'], function (module) {
             return config;
           }
           else {
-            // POST /v1/session is implemented as POST /v1/login
-            if (config.url.match(/\/v1\/session/) && config.method === 'POST') {
-              config.url = config.url.replace(
-                /(.*)(\/v1\/session)$/, '$1/v1/login'
-              );
-            }
+            // POST /v1/session -> /v1/login
+            replaceEndpoint({
+              config: config,
+              findMethods: ['POST'],
+              findName: 'session',
+              newName: 'login'
+            });
 
-            // GET /v1/session is implemented as GET /v1/contributor
-            // session is hokey for a few reasons --
-            // a) it doesn't return session info once logged in
-            // b) it actually doesn't work at all ATM
-            // c) when we try to;post to it we have to turn it into a login
-            // post b/c the rest api expects posts to login rather than
-            // session.
-            // doNotOverride means this is the kind of GET /v1/session
-            // that we really need to do (subject to CSRF actually working
-            // and the endpoint really working)
-            if (config.url.match(/\/v1\/session\/.+/) &&
-                (config.method === 'GET' || config.method === 'OPTIONS') &&
-                !config.doNotOverride
-              ) {
-              config.url = config.url.replace(
-                /(.*)(\/v1\/session\/)(.+)/, '$1/v1/contributors/$3'
-              );
-            }
+            // GET/OPTIONS /v1/session/* -> /v1/contributors/*
+            replaceEndpoint({
+              config: config,
+              findMethods: ['GET', 'OPTIONS'],
+              findName: 'session',
+              withParameters: true,
+              newName: 'contributors',
+              extraConditions: !config.doNotOverride // see CSRF handling
+            });
+
+            // DELETE /v1/session/* -> GET -> /v1/logout
+            replaceEndpoint({
+              config: config,
+              findMethods: ['DELETE'],
+              findName: 'session',
+              withParameters: true,
+              newName: 'logout',
+              dropParameters: true
+            });
 
             // login requires form-encoding
             if (config.url.match(/\/v1\/login/) && config.method === 'POST') {
