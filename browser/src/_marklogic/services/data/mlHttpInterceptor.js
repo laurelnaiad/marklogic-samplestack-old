@@ -150,6 +150,7 @@ define(['_marklogic/module'], function (module) {
               findName: 'session',
               withParameters: true,
               newName: 'logout',
+              newMethod: 'GET',
               dropParameters: true
             });
 
