@@ -1,0 +1,22 @@
+<span class="ss-account-dropdown dropdown">
+  <a href="" class="dropdown-toggle">{{store.session.instance.displayName}}</a>
+  <ul class="dropdown-menu ss-account-dropdown">
+    <li>
+      <div>
+        <strong>About Me:</strong>
+        {{store.session.instance.aboutMe}}
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="{{store.session.instance.websiteUrl}}" target="_blank">
+          {{store.session.instance.websiteUrl}}
+        </a>
+      </dii>
+      <div>
+        <button ng-click="logout()">
+          Logout
+        </button>
+      </div>
+    </li>
+  </ul>
+</span>

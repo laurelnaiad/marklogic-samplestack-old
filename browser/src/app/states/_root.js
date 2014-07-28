@@ -45,17 +45,6 @@ define(['app/module'], function (module) {
         );
       };
 
-      $scope.logout = function () {
-        mlAuth.logout().then(
-          function () {
-            angular.noop($scope.store.session);
-          },
-          function (reason) {
-            angular.noop();
-          }
-        );
-      };
-
     }
 
   ]);

@@ -7,17 +7,24 @@ define(['_marklogic/module'], function (module) {
       this.sessionModel = 'mlSession';
 
       this.$get = [
+        '$rootScope',
         '$q',
         '$cookieStore',
         'mlStore',
         // overriden by many apps, in part due to funny business on
         this.sessionModel,
         function (
+          $rootScope,
           $q,
           $cookieStore,
           mlStore,
           sessionModel
         ) {
+
+          $rootScope.$on('logout', function () {
+            svc.logout();
+          });
+          
           var svc = {};
 
           svc.restoreActiveSession = function () {
