@@ -21,7 +21,9 @@ require.config({
     'jquery': 'deps/jquery/dist/jquery<%=min%>',
     'highcharts': 'deps/highcharts/highcharts',
     'highcharts-ng': 'deps/highcharts-ng/dist/highcharts-ng<%=min%>',
-    'highlightjs': 'deps/highlightjs/highlight.pack<%=min%>'
+    'highlightjs': 'deps/highlightjs/highlight.pack<%=min%>',
+    'json': 'deps/requirejs-plugins/src/json',
+    'text': 'deps/requirejs-plugins/lib/text'
   },
 
   shim: {
