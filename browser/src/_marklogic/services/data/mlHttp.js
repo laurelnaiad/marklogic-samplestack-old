@@ -26,11 +26,22 @@ define(['_marklogic/module'], function (module) {
 
     angular.extend(this, r);
 
+    // move instance data so that they aren't combined with restangular api
+    // on one object
     this.setResponseExtractor(function (response) {
       response._instance = angular.copy(response);
       return response;
     });
-    // by setting this to an array, we prepare ourselves to be able
+
+    // don't send a payload on DELETE
+    this.setRequestInterceptor(function (elem, operation) {
+      if (operation === 'remove') {
+        return undefined;
+      }
+      return elem;
+    });
+
+     // by setting this to an array, we prepare ourselves to be able
     // to choose on a model by model basis whether it is parentless
     // (i.e. lives in an embedded resource endpoint)
       /// parentless is our default since we prefer patch to using
@@ -66,6 +77,17 @@ define(['_marklogic/module'], function (module) {
         args[0] = obj.instance;
         var resourcePromise = resobj.post.apply(resobj, args);
         return resourceReturned(resourcePromise, obj);
+      },
+
+      delete: function (resobj) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        var param = args[0];
+        if (typeof param === 'object') {
+          return param.remove.apply(resobj, args).get();
+        }
+        else {
+          return resobj.one(param).remove.apply(resobj);
+        }
       }
     };
 
