@@ -34,7 +34,7 @@ define(['app/module'], function (module) {
       $scope.openLogin = function () {
         // there is a fix coming from angular-ui for the bug that is exposed
         // by closing this dialog
-        loginDialog().result.then(
+        loginDialog().then(
           function () {
             angular.noop($scope.store.session);
           },

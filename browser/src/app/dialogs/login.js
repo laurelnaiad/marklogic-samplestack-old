@@ -48,7 +48,7 @@ define(['app/module'], function (module) {
         return $modal.open({
           templateUrl : '/app/dialogs/login.html',
           controller : 'loginDialogCtlr'
-        });
+        }).result;
       };
     }
   ]);
