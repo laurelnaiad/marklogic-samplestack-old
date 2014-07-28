@@ -24,7 +24,7 @@ define(['app/module'], function (module) {
       */
       $scope.setSort = function () {
         $scope.selectedSort = this.sort;
-        console.log('sort: ' + this.sort.label);
+        angular.noop('sort: ' + this.sort.label);
         // emit()
       };
 
@@ -32,7 +32,7 @@ define(['app/module'], function (module) {
       * Tally a vote.
       */
       $scope.vote = function (num) {
-        console.log('vote: ' + num);
+        angular.noop('vote: ' + num);
         // emit()
       };
 
