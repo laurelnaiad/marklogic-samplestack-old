@@ -10,8 +10,9 @@ define(['app/module'], function (module) {
     ) {
       $scope.setPageTitle('explore');
 
-            /*jshint ignore:start */
-      $scope.searchResultsStatic = {
+      var searchResults =  {};
+      /*jshint ignore:start */
+      searchResults = {
         'results': [
           {
             'title': 'Why do birds suddenly appear every time you are near? I\'m running MarkLogic 7.0 with geospatial and semantics enabled on Fedora 99 under an IKEA Borgsjo office desk.',
@@ -162,9 +163,13 @@ define(['app/module'], function (module) {
         }
       };
       /*jshint ignore:end */
+      $scope.searchResults = { instance: searchResults };
+
 
       // All tags begin as unselected
-      $scope.unselTags = angular.copy($scope.searchResultsStatic.facets.tags);
+      $scope.unselTags = angular.copy(
+        $scope.searchResults.instance.facets.tags
+      );
       $scope.selTags = [];
 
       $scope.openAllTags = function () {

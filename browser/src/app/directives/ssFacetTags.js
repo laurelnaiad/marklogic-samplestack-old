@@ -35,7 +35,7 @@ define(['app/module'], function (module) {
 
         // Set up arrays for tags: all, unselected, selected
         // @todo Get tags from service
-        scope.tags = scope.searchResultsStatic.facets.tags;
+        scope.tags = scope.searchResults.instance.facets.tags;
         scope.unselTags = scope.tags;
         scope.selTags = [];
 
