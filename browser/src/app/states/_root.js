@@ -5,13 +5,46 @@ define(['app/module'], function (module) {
 
   module.controller('rootCtlr', [
 
-    // TODO: unstub data
+    '$scope',
+    '$rootScope',
+    '$q',
+    'mlAuth',
+    'loginDialog',
+    function (
+      $scope,
+      $rootScope,
+      $q,
+      mlAuth,
+      loginDialog
+    ) {
 
-    '$scope', '$rootScope',
-    function ($scope, $rootScope) {
+      $q.all([
+        // antyhing that is required for init should happen here
+        mlAuth.restoreActiveSession()
+      ]).then(
+        function () {
+          $rootScope.initialized = true;
+        }
+      );
+
       $scope.setPageTitle = function (title) {
         $rootScope.pageTitle = title;
       };
+
+      $scope.openLogin = function () {
+        // there is a fix coming from angular-ui for the bug that is exposed
+        // by closing this dialog
+        loginDialog().result.then(
+          function () {
+            angular.noop($scope.store.session);
+          },
+          function () {
+            angular.noop('cancelled');
+          }
+
+        );
+      };
+
     }
 
   ]);
