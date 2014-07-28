@@ -28,6 +28,14 @@ define(['app/module'], function (module) {
         // emit()
       };
 
+     /*
+      * Tally a vote.
+      */
+      $scope.vote = function (num) {
+        console.log('vote: ' + num);
+        // emit()
+      };
+
     }
 
   ]);
