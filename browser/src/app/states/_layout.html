@@ -8,28 +8,7 @@
   <div class="ss-page-header-actions">
 
     <div class="ss-login">
-      <span ng-if="store.session.instance" class="dropdown">
-        <a href="" class="dropdown-toggle">{{store.session.instance.displayName}}</a>
-        <ul class="dropdown-menu ss-account-dropdown">
-          <li>
-            <div>
-              <strong>About Me:</strong>
-              {{store.session.instance.aboutMe}}
-            </div>
-            <div>
-              <strong>Website:</strong>
-              <a href="{{store.session.instance.websiteUrl}}" target="_blank">
-                {{store.session.instance.websiteUrl}}
-              </a>
-            </dii>
-            <div>
-              <button ng-click="logout()">
-                Logout
-              </button>
-            </div>
-          </li>
-        </ul>
-      </span>
+      <span ng-if="store.session.instance" ss-account-dropdown></span>
 
       <a ng-if="!store.session.instance" href="" ng-click="openLogin()">
         Login
