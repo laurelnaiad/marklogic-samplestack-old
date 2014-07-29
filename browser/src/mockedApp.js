@@ -3,7 +3,9 @@ require.config({
     'angular': 'deps/angular/angular',
     'angular-mocks': 'deps/angular-mocks/angular-mocks',
     'appGo': './appGo',
-    'mocks': 'mocks'
+    'mocks': 'mocks',
+    'json': 'deps/requirejs-plugins/src/json',
+    'text': 'deps/requirejs-plugins/lib/text'
   },
   shim: {
     'angular-mocks': { deps: ['configuredApp'] }
