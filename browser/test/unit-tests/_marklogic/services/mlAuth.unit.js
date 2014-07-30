@@ -89,10 +89,10 @@ define(['testHelper'], function (helper) {
         });
       });
 
-      describe('restoreActiveSession', function () {
+      describe('restoreSession', function () {
         it('should pass back session if still in store', function (done) {
           doAuthenticate(function (session) {
-            mlAuth.restoreActiveSession().then(
+            mlAuth.restoreSession().then(
               function (session) {
                 testSessionGoodness(session);
                 done();
@@ -111,7 +111,7 @@ define(['testHelper'], function (helper) {
 
             $httpBackend.expectGET(/\/v1\/contributors\/.+$/)
                 .respond(userTemplate);
-            mlAuth.restoreActiveSession().then(
+            mlAuth.restoreSession().then(
               function (session) {
                 testSessionGoodness(session);
                 done();
@@ -130,7 +130,7 @@ define(['testHelper'], function (helper) {
 
             $httpBackend.expectGET(/\/v1\/contributors\/.+$/)
                 .respond(401);
-            mlAuth.restoreActiveSession().then(
+            mlAuth.restoreSession().then(
               function (session) {
                 expect(session).be.undefined;
                 $cookieStore.get('sessionId').should.equal('seven');
@@ -149,7 +149,7 @@ define(['testHelper'], function (helper) {
             mlStore.session = null;
             $cookieStore.remove('sessionId');
 
-            mlAuth.restoreActiveSession().then(
+            mlAuth.restoreSession().then(
               function (session) {
                 expect(session).be.undefined;
                 done();

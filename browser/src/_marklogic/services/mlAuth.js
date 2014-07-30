@@ -27,7 +27,7 @@ define(['_marklogic/module'], function (module) {
 
           var svc = {};
 
-          svc.restoreActiveSession = function () {
+          svc.restoreSession = function () {
             var deferred = $q.defer();
 
             if (!mlStore.session) {

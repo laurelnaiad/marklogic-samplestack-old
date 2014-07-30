@@ -17,13 +17,17 @@ define(['app/module'], function (module) {
       mlAuth,
       loginDialog
     ) {
+      var initDefer = $q.defer();
+      $rootScope.initializing = initDefer.promise;
 
       $q.all([
         // antyhing that is required for init should happen here
-        mlAuth.restoreActiveSession()
+        mlAuth.restoreSession()
       ]).then(
         function () {
           $rootScope.initialized = true;
+          delete $rootScope.initializing;
+          initDefer.resolve();
         }
       );
 
