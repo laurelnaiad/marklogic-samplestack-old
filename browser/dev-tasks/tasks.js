@@ -512,34 +512,31 @@ tasks.build = {
 };
 
 function startServer (path, port) {
-  if (!getActiveServer(port)) {
-    var httpProxy = require('http-proxy');
-    var express = require('express');
-    var proxyOptions = {
-      host: 'localhost',
-      port: 8090
-    };
-    var proxy = httpProxy.createProxyServer({
-      target:'http://localhost:8090'
-    });
-    var app = express();
+  var restartServer = function () {
+    var connect = require('connect');
+    var url = require('url');
+    var proxy = require('proxy-middleware');
+    var serveStatic = require('serve-static');
 
-    app.all('/v1/*',  function (req, res) {
-      return proxy.web(req, res, {target:'http://localhost:8090'});
-    });
-
-    app.use(
-      require('connect-modrewrite')(
-      // if lacking a dot, redirect to index.html
-        ['!\\. /index.html [L]']
+    var server = connect()
+      .use('/v1', proxy(url.parse('http://localhost:8090/v1')))
+      .use(
+        require('connect-modrewrite')(
+        // if lacking a dot, redirect to index.html
+          ['!\\. /index.html [L]']
+        )
       )
-    );
-    app.use(express['static'](path));
-    var httpServer = require('http').createServer(app);
-    httpServer.listen(port,'0.0.0.0');
+      .use(serveStatic(path, {redirect: false}))
+      .listen(port, '0.0.0.0');
 
-    setActiveServer(port, httpServer);
-  }
+    server.on('error', function (err) {
+      console.log(err);
+    });
+
+    return server;
+  };
+
+  return restartServer();
 }
 
 function startIstanbulServer (testerPath, port) {
