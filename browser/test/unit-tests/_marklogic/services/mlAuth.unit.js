@@ -8,6 +8,8 @@ define(['testHelper'], function (helper) {
       var mlStore;
       var $cookieStore;
       var mlSession;
+      var $rootScope;
+      var $timeout;
 
       beforeEach(function (done) {
         angular.mock.module('app');
@@ -17,13 +19,17 @@ define(['testHelper'], function (helper) {
             _$cookieStore_,
             _mlStore_,
             _mlAuth_,
-            _mlSession_
+            _mlSession_,
+            _$rootScope_,
+            _$timeout_
           ) {
             $httpBackend = _$httpBackend_;
             mlAuth = _mlAuth_;
             mlStore = _mlStore_;
             $cookieStore = _$cookieStore_;
             mlSession = _mlSession_;
+            $rootScope = _$rootScope_;
+            $timeout = _$timeout_;
             done();
           }
         );
@@ -78,6 +84,12 @@ define(['testHelper'], function (helper) {
         session.$ml.valid.should.be.true;
         mlStore.session.instance.should.deep.eql(session.instance);
         $cookieStore.get('sessionId').should.equal('seven');
+      };
+
+      var testSessionBadness = function () {
+        // got the data back
+        mlStore.should.not.have.property('session');
+        expect($cookieStore.get('sessionId')).to.be.null;
       };
 
       describe('authenticate', function () {
@@ -161,6 +173,22 @@ define(['testHelper'], function (helper) {
             );
           });
         });
+
+        xit(
+          '(having trouble with flushing the promise)\n' +
+          'should logout when rootscope gets a logout request event',
+          function () {
+            doAuthenticate(function (session) {
+              $httpBackend.expectDELETE(/\/v1\/session\/.+/).respond(200);
+              $rootScope.$apply(
+                function () {
+                  $rootScope.$broadcast('logout');
+                  $httpBackend.flush();
+                }
+              );
+            });
+          }
+        );
 
       });
 
