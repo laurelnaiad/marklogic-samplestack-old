@@ -7,13 +7,14 @@ define(['app/module'], function (module) {
 
     // TODO: unstub data
 
-    '$scope', '$rootScope', 'stubData',
-    function ($scope, $rootScope, stubData) {
-      $scope.searchResults = stubData;
+    '$scope', '$rootScope', 'mlStore',
+    function ($scope, $rootScope, mlStore) {
 
       $scope.setPageTitle = function (title) {
         $rootScope.pageTitle = title;
       };
+
+      $rootScope.store = mlStore;
     }
 
   ]);

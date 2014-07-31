@@ -1,0 +1,4 @@
+define([
+  './allTags',
+  './login'
+], function () {});

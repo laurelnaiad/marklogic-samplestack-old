@@ -12,8 +12,18 @@ define([
 
   appModule.config([
 
-    'appRoutingProvider', 'statesHierarchy', 'markedProvider',
-    function (appRoutingProvider, statesHierarchy, markedProvider) {
+    'mlAuthProvider',
+    'appRoutingProvider',
+    'statesHierarchy',
+    'markedProvider',
+    function (
+      mlAuthProvider,
+      appRoutingProvider,
+      statesHierarchy,
+      markedProvider
+    ) {
+
+      mlAuthProvider.userService = 'SsContributorModel';
 
       // Apply the statesHierarchy as configuration for the
       // appRoutingProvider/appRouting service.

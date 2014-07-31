@@ -57,6 +57,12 @@ define([], function () {
     return stub;
   };
 
+  helper.setExpectCsrf = function ($httpBackend) {
+    $httpBackend.expectGET(
+      '/v1/session'
+    ).respond(200, null, { 'X-CSRF-TOKEN': 'some token' });
+  };
+
   return helper;
 
 });
