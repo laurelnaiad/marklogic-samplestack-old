@@ -1,20 +1,16 @@
 define(['app/module'], function (module) {
 
-
-
-  // parrent directive for coordination of dynamic search features
-
-
   /**
    * @ngdoc directive
    * @name ssFacetDateRange
-   * @restrict E
+   * @restrict A
    *
    * @description
-   * TBD
-   *
+   * Directive rendering an array of search objects as a chart.
+   * Selection of a single date result or a range of dates is allowed
+   * for filtering. Uses <a href="https://github.com/pablojim/highcharts-ng"
+   * target="_blank">highcharts-ng</a> for chart functionality.
    */
-
   module.directive('ssFacetDateRange', function () {
 
     var chart;
@@ -22,7 +18,18 @@ define(['app/module'], function (module) {
     var chartUpdateSelection;
     var chartSelectAll;
     var convertDateToUTC;
+    var refreshChart;
+    var transformResults;
 
+  /**
+   * @name convertDateToUTC
+   * @function
+   * @param {Object} dateToConvert as Date obj or Date().getTime() ms
+   * @param {Boolean} retDateObj set return type as Date() or ms
+   * @description
+   * Utility funct to convert standard Date() object to UTC for HighCharts
+   * @returns {Number}
+   */
     convertDateToUTC = function (dateToConvert, retDateObj) {
       dateToConvert = (dateToConvert instanceof Date) ?
           dateToConvert :
@@ -40,33 +47,75 @@ define(['app/module'], function (module) {
       return (retDateObj) ? new Date(convertedDate) : convertedDate;
     };
 
+    /*
+    * Converts result "name" format to actual date
+    * @param {array} [resultsArray] - date string "201402"
+    * @returns {Date.UTC}
+    */
+    transformResults = function (resultsArray) {
+      var convertedDates;
+      if (resultsArray instanceof Array) {
+        convertedDates = [];
+        angular.forEach(resultsArray, function (dateInfo) {
+          convertedDates.push({
+            x: Date.UTC(
+              dateInfo.name.substring(0,4),
+              dateInfo.name.substring(4,6),
+              1
+            ),
+            y: dateInfo.count
+          });
+        });
+      }
+      return convertedDates;
+    };
 
-    var wasPre = function (dateData, scope, element, attrs) {
+    refreshChart = function (scope) {
+      var dateData    = scope.chartData;
+      var dataLength;
       var x;
       var i;
 
-      if (!dateData.length) {
-        dateData.push({x: new Date(), y: 0});
-      }
-      var dataLength = dateData.length;
+      if (dateData && dateData.length > 0) {
+        dataLength  = dateData.length;
+        // determine start and end dates for data
+        scope.dtDataStart =
+            scope.dtDataEnd = convertDateToUTC(dateData[0].x);
 
-      // determine start and end dates for data
-      scope.dtDataStart =
-          scope.dtDataEnd = convertDateToUTC(dateData[0].x);
-
-      for (i = 0; i < dataLength; i++) {
-        x = convertDateToUTC(dateData[i].x);
-        if (x < scope.dtDataStart) {
-          scope.dtDataStart = x;
+        for (i = 0; i < dataLength; i++) {
+          x = convertDateToUTC(dateData[i].x);
+          if (x < scope.dtDataStart) {
+            scope.dtDataStart = x;
+          }
+          if (x > scope.dtDataEnd) {
+            scope.dtDataEnd = x;
+          }
         }
-        if (x > scope.dtDataEnd) {
-          scope.dtDataEnd = x;
-        }
-      }
-      // set inputs to match data high and low
-      scope.dtStartSelection  = scope.dtDataStart;
-      scope.dtEndSelection    = scope.dtDataEnd;
+        // set inputs to match data high and low
+        scope.dtStartSelection  = scope.dtDataStart;
+        scope.dtEndSelection    = scope.dtDataEnd;
 
+        // set chart extremes from shadow data
+        // scope.chartShadowData
+
+        scope.highchartsConfig.series[0].data = scope.chartData;
+      }
+      // else {
+      //   // TODO: Show chart loading
+      // }
+    };
+
+   /*
+    * Sets up all settings and function for directive UI
+    * @param {object} [scope] - set return type as Date() or ms
+    * @param {object} [element] - as Date obj or Date().getTime() ms
+    * @param {object} [attrs] - set return type as Date() or ms
+    */
+    var setup = function (scope, element, attrs) {
+
+     /*
+      * Resets chart selection to select all points
+      */
       chartClearSelection = function () {
         var selectedPoints = chart.getSelectedPoints();
         var pointsLength = selectedPoints.length;
@@ -77,11 +126,18 @@ define(['app/module'], function (module) {
         }
       };
 
+     /*
+      * Changes selection to range of date,
+      * watch on start/end triggers chartUpdateSelection()
+      */
       chartSelectAll = function () {
         scope.dtStartSelection = scope.dtDataStart;
         scope.dtEndSelection = scope.dtDataEnd;
       };
 
+     /*
+      * Updates chart to match the currently selected range
+      */
       chartUpdateSelection = function () {
         var points = (chart && chart.series &&
               chart.series[0] && chart.series[0].points) ?
@@ -103,6 +159,64 @@ define(['app/module'], function (module) {
           });
         }
       };
+
+
+      // Date Picker Settings
+      scope.minDate = scope.dtDataStart;
+      scope.maxDate = scope.dtDataEnd;
+
+      scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+      };
+
+
+      // Calender Picker Setup and Management
+
+     /*
+      * Opens Calendar by ng-click event on directive input fields
+      * @param {object} [event] - click event
+      * @param {string} [prop] - the property bound to the input calendar
+      * state being open or not.  On being set TRUE it opens.
+      */
+      scope.open = function (event,prop) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        scope[prop] = true;
+      };
+
+     /*
+      * Calendar Picker ng-change event on directive.  Convert selection
+      * (standard Date) to UTC Date
+      * @param {object} [event] - change event
+      * @param {string} [prop] - the property bound to the input calendar
+      * dtStartSelection or dtEndSelection, depending on wiring
+      */
+      scope.selectDate = function (event,prop) {
+        scope[prop] = convertDateToUTC(event);
+      };
+
+      scope.$watch('dtStartSelection', function () {
+        chartUpdateSelection();
+        if (scope.dateData) {
+          scope.dateData.criteria.date.start = scope.dtStartSelection;
+          scope.dateData.criteria.date.end = scope.dtEndSelection;
+        }
+      });
+
+      scope.$watch('dtEndSelection', function () {
+        chartUpdateSelection();
+        if (scope.dateData) {
+          scope.dateData.criteria.date.start = scope.dtStartSelection;
+          scope.dateData.criteria.date.end = scope.dtEndSelection;
+        }
+      });
+      // Calender Picker end
+
+      // Expose functions for clearing selection to $parent scope
+      scope.$parent.dateScope = {};
+      scope.$parent.dateScope.clearSelection = chartSelectAll;
 
       scope.highchartsConfig = {
         options: {
@@ -251,52 +365,11 @@ define(['app/module'], function (module) {
         },
 
         series: [{
-          data: dateData
+          data: scope.chartData
         }]
       };
+
     };
-
-    var wasPost = function (dateData, scope, element, attrs) {
-
-      // Date Picker Settings
-      scope.minDate = scope.dtDataStart;
-      scope.maxDate = scope.dtDataEnd;
-
-      scope.dateOptions = {
-        formatYear: 'yy',
-        startingDay: 1
-      };
-
-      // Calender Picker Setup and Management
-
-      scope.open = function (event,prop) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        scope[prop] = true;
-      };
-
-      scope.selectDate = function (event,prop) {
-        scope[prop] = convertDateToUTC(event);
-      };
-
-      scope.$watch('dtStartSelection', function () {
-        chartUpdateSelection();
-      });
-
-      scope.$watch('dtEndSelection', function () {
-        chartUpdateSelection();
-      });
-      // Calender Picker end
-
-      // Expose functions to $parent scope
-      scope.$parent.dateScope = {};
-      scope.$parent.dateScope.clearSelection = chartSelectAll;
-    };
-
-
-
-
 
     return {
       restrict: 'A',
@@ -319,16 +392,39 @@ define(['app/module'], function (module) {
           'max-date="maxDate" ' +
           'is-open="endOpened" show-button-bar="false" show-weeks="false" />',
 
-      scope: '=',
+      scope: {
+        dateData: '=data'
+      },
       compile: function compile (tElement, tAttrs, transclude) {
         tElement.addClass('ss-facet-date-range');
-        return function (scope, element, attrs) {
-          scope.$watch('dateData', function (newVal) {
-            if (newVal) {
-              wasPre(newVal, scope, element, attrs);
-              wasPost(newVal, scope, element, attrs);
-            }
-          });
+
+        return {
+          pre: function (scope, element, attrs) {
+            scope.chartData = [];
+            setup(scope, element, attrs);
+          },
+          post: function (scope, element, attrs) {
+            var unregister = scope.$watch('ssFacetDateRange', function () {
+              scope.$watch('dateData.results.facets.date', function () {
+                if (scope.dateData) {
+                  var data = scope.dateData.results.facets.date;
+                  if (data && data.filtered && data.filtered.facetValues) {
+                    // update scope variable, will trigger re-render
+                    scope.chartData       =
+                                    transformResults(data.filtered.facetValues);
+                    scope.chartShadowData =
+                                    transformResults(data.shadow.facetValues)
+                                              || scope.chartData;
+                    // data of chart has refreshed,
+                    // now re-select that data per our
+                    // previous selection, if any
+                    refreshChart(scope);
+                  }
+                }
+              });
+              unregister();
+            });
+          }
         };
       }
     };

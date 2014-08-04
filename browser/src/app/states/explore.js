@@ -1,4 +1,4 @@
-define(['app/module'], function (module) {
+define(['app/module','mocks/index'], function (module,mocksIndex) {
 
   /**
    * @ngdoc state
@@ -111,7 +111,7 @@ define(['app/module'], function (module) {
                       '...';
                 }
               });
-              $scope.dateData = getDateData();
+              $scope.dateData = mocksIndex.searchObj;
             }
             finally {
               setHandlers();
