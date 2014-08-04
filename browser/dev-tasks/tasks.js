@@ -460,7 +460,7 @@ tasks['docs'] = {
   func: function (cb) {
 
     var postGenerate = function () {
-      console.log(chalk.blue('... complete\n'));
+      console.log(chalk.blue('... complete'));
       cb();
     };
     process.stdout.write(chalk.blue('\nGenerating Docs...\n\n'));
@@ -666,7 +666,7 @@ function writeWatchMenu (docsOnly) {
   var message;
 
   if (docsOnly) {
-    message = '\n\n' + ten +
+    message = '\n' + ten +
         '--> ' + chalk.magenta('DOCS') + '   : ' +
         chalk.bold.blue('http://localhost:3005') +
         '\n\n' + ten +
@@ -675,7 +675,7 @@ function writeWatchMenu (docsOnly) {
         chalk.red.italic.dim('docs') + ' directories\n';
   }
   else {
-    message = '\n\n' + ten +
+    message = '\n' + ten +
         '--> ' + chalk.magenta('BUILD server') + ' : ' +
         chalk.bold.blue('http://localhost:3000') +
         '\n' + ten +
@@ -809,7 +809,7 @@ tasks['docswatch'] = {
         chalk.blue('\nGenerating Docs...\n\n')
       );
       docGen.generate(function () {
-        console.log(chalk.blue('... complete\n'));
+        console.log(chalk.blue('... complete'));
         cb();
         writeWatchMenu(true);
       });
@@ -914,6 +914,7 @@ tasks['watch'] = {
       docGen.generate(function () {
         console.log(chalk.blue('... complete\n'));
         cb();
+        writeWatchMenu();
       }, 'warn');
     };
 
