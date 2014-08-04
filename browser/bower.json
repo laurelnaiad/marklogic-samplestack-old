@@ -25,7 +25,7 @@
     "angular-cookies": "1.2.20",
     "highcharts-ng": "0.0.6",
     "highcharts": "4.0.3",
-    "jquery": "2.1.1",
+    "jquery": "2.1.1"
   },
   "devDependencies": {
     "mocha": "1.20.1",
