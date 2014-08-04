@@ -80,7 +80,7 @@ var targetParams = {
     unit: true,
     e2eMock: true,
     appSettings: {
-      disableCsrf: false
+      disableCsrf: true
     }
   },
   // e2e target specifics

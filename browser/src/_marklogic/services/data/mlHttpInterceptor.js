@@ -1,184 +1,153 @@
 define(['_marklogic/module'], function (module) {
 
-  module.factory('mlHttpInterceptor', [
-    // we inject injector in order to avoid circular dependency on $http
-    '$injector', '$q', 'mlUtil', 'appSettings',
-    function ($injector, $q, mlUtil, appSettings) {
+  /**
+   * @ngdoc provider
+   * @name mlHttpInterceptorProvider
+   *
+   * @description
+   * Configures CSRF handling in the {@link mlHttpInterceptor}.
+   *
+   * @property {boolean=} [disableCsrf=`false`] If true, CSRF handling on
+   * requests
+   * will be suppressed and CSRF tokens on responses will be ignored.
+   * Defaults to `false` (CSRF enabled).
+   *
+   * @property {string=} [endpoint="/v1/session"] Configured the endpoint
+   * for requesting the CSRF token. Defaults to `'/v1/sesion'`.
 
-      var $http;
-      var outstanding;
+   * @property {string=} [headerName="X-CSRF-TOKEN"] The header name
+   * for the CSRF token.  Defaults to X-CSRF-TOKEN.
+   */
+  module.provider('mlHttpInterceptor', [
 
-      var csrfMethods = {
-        'POST': true,
-        'PUT': true,
-        'PATCH': true,
-        'DELETE': true
-      };
+    function () {
+      var self = this;
 
-      // replace the name of an endpoint
-      var replaceEndpoint = function (spec) {
-        var findExpr;
-        var newNameExpr;
-        if (spec.withParameters) {
-          findExpr = new RegExp('(.*/v1/)(' + spec.findName + ')(/.+)');
+      this.disableCsrf = false;
+      this.csrfUrl = '/v1/session';
+      this.headerName = 'X-CSRF-TOKEN';
 
-          if (spec.newName) {
-            newNameExpr = '$1' + spec.newName;
-            if (!spec.dropParameters) {
-              newNameExpr += '$3';
-            }
-          }
-        }
-        else {
-          findExpr = new RegExp('(.*/v1/)(' + spec.findName + ')$');
-          if (spec.newName) {
-            newNameExpr = '$1' + spec.newName;
-          }
-        }
-        var ep = spec.config.url;
-        if (ep.match(findExpr) &&
-            spec.findMethods.indexOf(spec.config.method) !== -1 &&
-            (typeof spec.extraConditions === 'undefined' ||
-                spec.extraConditions
-            )
-        ) {
-          if (spec.newName) {
-            spec.config.url = ep.replace(findExpr, newNameExpr);
-          }
-          if (spec.newMethod) {
-            spec.config.method = spec.newMethod;
-          }
-        }
-      };
+      /**
+       * @ngdoc service
+       * @name mlHttpInterceptor
+       * @requires mlUtil
+       *
+       * @description
+       * Handles CSRF tokens for all AJAX requests. May be configured or
+       * disabled  in the
+       * {@link mlHttpInterceptorProvider}.
+       *
+       * The intercept assumes that the CSRF token is named `X-CSRF-TOKEN`.
+       * and that it may be retrived from a GET request to
+       * `<protocol:server:port>//v1\/session`.
+       *
+       * As such, before the interceptor will allow through
+       * any methods that require CSRF (POST, PUT, PATCH, DELETE), it will
+       * attempt to do a round trip to the /v1/session endpoint to pick
+       * up the token from the server.
+       *
+       * The token is saved in the `$http` service default headers and will
+       * be supplied for all requests subsequently.
+       */
+      this.$get = [
+        // we inject injector in order to avoid circular dependency on $http
+        '$injector', '$q', 'mlUtil',
+        function ($injector, $q, mlUtil) {
 
+          var $http;
+          var outstanding;
 
-      // whether or not we need to get csrf before doing what the app
-      // actually wants
-      var mustGetCsrf = function (config) {
-
-        return csrfMethods[config.method]
-            && !$http.defaults.headers.common['X-CSRF-TOKEN'];
-      };
-
-      // return a promise to have set the csrf header default. To do this,
-      // round-trip with the server on get /v1/session
-      var setCsrf = function () {
-        if (outstanding) {
-          return outstanding;
-        }
-        else {
-          var requestConfig = {
-            method: 'GET',
-            url: '/v1/session',
-            doNotOverride: true
+          var csrfMethods = {
+            'POST': true,
+            'PUT': true,
+            'PATCH': true,
+            'DELETE': true
           };
-          var deferred = $q.defer();
-          $http(requestConfig).then(
-            function (response) {
-              // if the server doesn't give us a CSRF token, we should
-              // we complain? TODO
-              var token = response.headers('X-CSRF-TOKEN');
-              if (token){
-                $http.defaults.headers.common['X-CSRF-TOKEN'] = token;
-              }
-              else {
-                $http.defaults.headers.common['X-CSRF-TOKEN'] = 'dummy';
-              }
-              deferred.resolve(token);
-            },
-            function (reason) {
-              deferred.reject(new Error('unable to get CSRF token', reason));
-            }
-          );
 
-          outstanding = deferred.promise;
-          return outstanding;
-        }
-      };
+          // whether or not we need to get csrf before doing what the app
+          // actually wants
+          var mustGetCsrf = function (config) {
 
-      var setCsrfThenResolveConfig = function (config) {
-        var deferred = $q.defer();
+            return csrfMethods[config.method]
+                && !$http.defaults.headers.common[self.headerName];
+          };
 
-        setCsrf().then(
-          function (token) {
-            config.headers['X-CSRF-TOKEN'] = token;
-            deferred.resolve(config);
-          },
-          deferred.reject
-        );
-
-        return deferred.promise;
-      };
-
-      // the interceptor service
-      //
-
-      return {
-
-        request: function (config) {
-
-          // ensure we have $http
-          $http = $http || $injector.get('$http');
-
-          if (config.doNotOverride) {
-            delete config.doNotOverride;
-            return config;
-          }
-          else {
-            // POST /v1/session -> /v1/login
-            replaceEndpoint({
-              config: config,
-              findMethods: ['POST'],
-              findName: 'session',
-              newName: 'login'
-            });
-
-            // GET/OPTIONS /v1/session/* -> /v1/contributors/*
-            replaceEndpoint({
-              config: config,
-              findMethods: ['GET', 'OPTIONS'],
-              findName: 'session',
-              withParameters: true,
-              newName: 'contributors',
-              extraConditions: !config.doNotOverride // see CSRF handling
-            });
-
-            // DELETE /v1/session/* -> GET -> /v1/logout
-            replaceEndpoint({
-              config: config,
-              findMethods: ['DELETE'],
-              findName: 'session',
-              withParameters: true,
-              newName: 'logout',
-              newMethod: 'GET',
-              dropParameters: true
-            });
-
-            // login requires form-encoding
-            if (config.url.match(/\/v1\/login/) && config.method === 'POST') {
-              config.headers['Content-Type'] =
-                  'application/x-www-form-urlencoded';
-              config.data =
-                  'username=' + encodeURI(config.data.username) + '&' +
-                  'password=' + encodeURI(config.data.password);
-            }
-
-            if (appSettings.disableCsrf) {
-              return config;
+          // return a promise to have set the csrf header default. To do this,
+          // round-trip with the server on get /v1/session
+          var setCsrf = function () {
+            if (outstanding) {
+              return outstanding;
             }
             else {
-              if (mustGetCsrf(config)) {
-                return setCsrfThenResolveConfig(config);
-              }
-              else {
+              var requestConfig = {
+                method: 'GET',
+                url: self.csrfUrl,
+                doNotOverride: true
+              };
+              var deferred = $q.defer();
+              $http(requestConfig).then(
+                function (response) {
+                  // if the server doesn't give us a CSRF token, we should
+                  // we complain? TODO
+                  var token = response.headers(self.headerName);
+                  if (token){
+                    $http.defaults.headers.common[self.headerName] = token;
+                  }
+                  else {
+                    $http.defaults.headers.common[self.headerName] = 'dummy';
+                  }
+                  deferred.resolve(token);
+                },
+                function (reason) {
+                  deferred.reject(
+                    new Error('unable to get CSRF token', reason)
+                  );
+                }
+              );
+
+              outstanding = deferred.promise;
+              return outstanding;
+            }
+          };
+
+          var setCsrfThenResolveConfig = function (config) {
+            var deferred = $q.defer();
+
+            setCsrf().then(
+              function (token) {
+                config.headers[self.headerName] = token;
+                deferred.resolve(config);
+              },
+              deferred.reject
+            );
+
+            return deferred.promise;
+          };
+
+          return {
+
+            request: function (config) {
+
+              // ensure we have $http
+              $http = $http || $injector.get('$http');
+
+              if (self.disableCsrf) {
                 return config;
               }
+              else {
+                if (mustGetCsrf(config)) {
+                  return setCsrfThenResolveConfig(config);
+                }
+                else {
+                  return config;
+                }
 
+              }
             }
-          }
-        }
-      };
+          };
 
+        }
+      ];
     }
   ]);
 

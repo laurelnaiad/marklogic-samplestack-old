@@ -62,7 +62,7 @@ define(
       'highcharts-ng',
       'hc.marked',
 
-      'marklogic.sample'
+      '_marklogic'
     ];
   }
 );

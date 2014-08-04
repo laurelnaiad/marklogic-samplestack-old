@@ -7,7 +7,7 @@ require.config({
 
 });
 
-require(['configuredApp'], function () {
+require(['application'], function () {
   require(['angular-mocks'], function () {
 
     require(['testHelper', 'index.unit'], function (helper) {

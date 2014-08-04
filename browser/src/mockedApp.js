@@ -2,18 +2,16 @@ require.config({
   paths: {
     'angular': 'deps/angular/angular',
     'angular-mocks': 'deps/angular-mocks/angular-mocks',
-    'appGo': './appGo',
-    'mocks': 'mocks',
     'json': 'deps/requirejs-plugins/src/json',
     'text': 'deps/requirejs-plugins/lib/text'
   },
   shim: {
-    'angular-mocks': { deps: ['configuredApp'] }
+    'angular-mocks': { deps: ['application'] }
   }
 });
 
 define([
-  'configuredApp', 'mocks/index', 'angular-mocks'
+  'application', 'mocks/index', 'angular-mocks'
 ], function (appModule, mocks) {
 
   var mockModule = angular.module('mockModule', ['ngMockE2E']);

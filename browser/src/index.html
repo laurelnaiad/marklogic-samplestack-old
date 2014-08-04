@@ -70,26 +70,26 @@ entering running state.
 See app/services/appRouting.js
  */
 
-var configuredApp;
+var app;
 /* jshint ignore:start */
 <% if(e2eMock) { %>
-configuredApp = '/mockedApp.js';
+app = 'mockedApp.js';
 <% } else { %>
-configuredApp = '/configuredApp.js';
+app = 'application.js';
 <% } %>
 /* jshint ignore:end */
 
-require([configuredApp], function (appModule) {
+require([app], function (app) {
   var htmlEl = angular.element(window.document.childNodes[1]);
 
-  appModule.run(['appRouting', function (appRouting) {}]);
+  app.run(['appRouting', function (appRouting) {}]);
 
   angular.bootstrap(
     htmlEl,
     [
-      '<%=appName%>',
+      'app',
       function() {
-        htmlEl.attr('ng-app', '<%=appName%>');
+        htmlEl.attr('ng-app', 'app');
       }
     ]
   );

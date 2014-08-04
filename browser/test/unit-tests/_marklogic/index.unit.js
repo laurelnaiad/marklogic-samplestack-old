@@ -9,7 +9,7 @@ define([
 ) {
   return function () {
 
-    describe('_marklogic', function () {
+    describe('marklogic', function () {
       directives();
       filters();
       services();
