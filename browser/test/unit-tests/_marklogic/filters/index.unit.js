@@ -1,13 +1,13 @@
 define([
-  './moment.unit'
+  './iso8601.unit'
 ], function (
-  moment
+  iso8601
 ) {
 
   return function () {
 
     describe('services', function () {
-      moment();
+      iso8601();
     });
 
   };

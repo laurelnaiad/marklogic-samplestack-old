@@ -18,8 +18,7 @@ require.config({
     'angular': 'deps/angular/angular<%=min%>',
     'angular-cookies': 'deps/angular-cookies/angular-cookies<%=min%>',
     'moment': 'deps/momentjs/moment<%=min%>',
-    'lodash': 'deps/lodash/dist/lodash.compat<%=min%>',
-    'restangular': 'deps/restangular/dist/restangular<%=min%>'
+    'lodash': 'deps/lodash/dist/lodash.compat<%=min%>'
   },
 
   shim: {
@@ -38,8 +37,7 @@ require.config({
 define(
   [
     'angular',
-    'angular-cookies',
-    'restangular'
+    'angular-cookies'
   ],
   function (angular) {
 
@@ -48,6 +46,6 @@ define(
 
     // we won't introduce any angular dependencies -- otherwisethis would be
     // an array
-    return ['ngCookies', 'restangular'];
+    return ['ngCookies'];
   }
 );

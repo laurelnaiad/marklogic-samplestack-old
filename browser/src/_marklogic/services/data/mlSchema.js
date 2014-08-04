@@ -2,6 +2,17 @@ define([
   '_marklogic/module', './_jsonschema.browserify'
 ], function (module, jsonschema) {
 
+  /**
+   * @ngdoc service
+   * @name mlSchema
+   *
+   * @description
+   * Manages JSON schemas and enables validation of instances against
+   * the schema.
+   *
+   * More TODO
+   */
+
   module.factory('mlSchema', [
 
     function (

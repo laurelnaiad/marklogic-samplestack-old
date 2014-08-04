@@ -7,22 +7,32 @@ define(['_marklogic/module'], function (module) {
       this.sessionModel = 'mlSession';
 
       this.$get = [
+        '$injector',
         '$rootScope',
         '$q',
+        '$window',
         '$cookieStore',
         'mlStore',
-        // overriden by many apps, in part due to funny business on
-        this.sessionModel,
         function (
+          $injector,
           $rootScope,
           $q,
+          $window,
           $cookieStore,
-          mlStore,
-          sessionModel
+          mlStore
         ) {
+          var sessionModel = $injector.get(this.sessionModel);
 
-          $rootScope.$on('logout', function () {
-            svc.logout();
+          $rootScope.$on('logout', function (evt) {
+            svc.logout().then(
+              angular.noop,
+              function (err) {
+                $rootScope.$broadcast('logoutFailed', err);
+                $window.alert(
+                  'An error ocurred while logging out: ' + err
+                );
+              }
+            );
           });
 
           var svc = {};
@@ -40,7 +50,7 @@ define(['_marklogic/module'], function (module) {
                   // should be exempt from it -- we'd prefer to drop the
                   // session silently
                   function () {
-                    $cookieStore.put('sessionId', sess.instance.id);
+                    $cookieStore.put('sessionId', sess.id);
                     mlStore.session = sess;
                     deferred.resolve(sess);
                   },
@@ -69,7 +79,7 @@ define(['_marklogic/module'], function (module) {
             sess.$ml.waiting.then(
               function () {
                 mlStore.session = sess;
-                $cookieStore.put('sessionId', sess.instance.id);
+                $cookieStore.put('sessionId', sess.id);
                 deferred.resolve(sess);
               },
               deferred.reject
@@ -85,19 +95,14 @@ define(['_marklogic/module'], function (module) {
               delete mlStore.session;
               deferred.resolve();
             };
+
             // the heaviest part of being logged in is the cookie
             // the rest we'll just wipe out
             var sessionId = $cookieStore.get('sessionId');
 
-
-            sessionModel.delete(sessionId).then(
+            sessionModel.del(sessionId).then(
               successHandler,
-
-              // unfortunately we'll end up here not knowing if there was a
-              // REAL problem b/c the REST api is trying to do a readirect
-              // on logout ..... so we treat this as success until that's
-              // fixed
-              successHandler
+              deferred.reject
             );
             return deferred.promise;
           };

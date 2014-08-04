@@ -7,7 +7,7 @@ define(['testHelper'], function (testHelper) {
       var $timeout;
 
       beforeEach(function (done) {
-        angular.mock.module('app');
+        angular.mock.module('_marklogic');
         inject(
           function (_mlWaiter_, _$q_, _$timeout_) {
             mlWaiter = _mlWaiter_;

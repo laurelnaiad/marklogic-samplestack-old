@@ -12,7 +12,10 @@ define(['testHelper'], function (helper) {
       var $timeout;
 
       beforeEach(function (done) {
-        angular.mock.module('app');
+        angular.mock.module('_marklogic');
+        module(function (mlAuthProvider) {
+          mlAuthProvider.sessionModel = 'mlSession';
+        });
         inject(
           function (
             _$httpBackend_,
@@ -45,28 +48,17 @@ define(['testHelper'], function (helper) {
       userTemplate.id = fakeId;
       userTemplate.role = ['hey Iz a role'];
 
-      var setExpectFormEncoded = function () {
-        $httpBackend.expectPOST(
-          /\/v1\/login$/,
-          function (body) {
-            return body ===
-                'username=' + encodeURI(credsTemplate.username) + '&' +
-                'password=' + encodeURI(credsTemplate.password);
-          },
-          function (headers) {
-            var encoded = headers['Content-Type'] ===
-                'application/x-www-form-urlencoded';
-            return encoded;
-          }
-        ).respond(userTemplate);
-
-      };
-
       var doAuthenticate = function (done) {
         var session = mlSession.create(credsTemplate);
 
         helper.setExpectCsrf($httpBackend);
-        setExpectFormEncoded();
+        $httpBackend.expectPOST(
+          /\/v1\/session$/,
+          {
+            username: credsTemplate.username,
+            password: credsTemplate.password
+          }
+        ).respond(userTemplate);
 
         mlAuth.authenticate(session).then(
           function (session) {
@@ -79,17 +71,17 @@ define(['testHelper'], function (helper) {
 
       var testSessionGoodness = function (session) {
         // got the data back
-        session.instance.should.deep.equal(userTemplate);
+        session.should.deep.equal(mlSession.create(userTemplate));
         // have a valid MlUserModel instance
         session.$ml.valid.should.be.true;
-        mlStore.session.instance.should.deep.eql(session.instance);
+        mlStore.session.should.deep.eql(session);
         $cookieStore.get('sessionId').should.equal('seven');
       };
 
       var testSessionBadness = function () {
         // got the data back
         mlStore.should.not.have.property('session');
-        expect($cookieStore.get('sessionId')).to.be.null;
+        expect($cookieStore.get('sessionId')).not.to.be.ok;
       };
 
       describe('authenticate', function () {
@@ -121,7 +113,7 @@ define(['testHelper'], function (helper) {
           doAuthenticate(function (session) {
             mlStore.session = null;
 
-            $httpBackend.expectGET(/\/v1\/contributors\/.+$/)
+            $httpBackend.expectGET(/\/v1\/session\/.+$/)
                 .respond(userTemplate);
             mlAuth.restoreSession().then(
               function (session) {
@@ -140,7 +132,7 @@ define(['testHelper'], function (helper) {
           doAuthenticate(function (session) {
             mlStore.session = null;
 
-            $httpBackend.expectGET(/\/v1\/contributors\/.+$/)
+            $httpBackend.expectGET(/\/v1\/session\/.+$/)
                 .respond(401);
             mlAuth.restoreSession().then(
               function (session) {
@@ -174,21 +166,18 @@ define(['testHelper'], function (helper) {
           });
         });
 
-        xit(
-          '(having trouble with flushing the promise)\n' +
-          'should logout when rootscope gets a logout request event',
-          function () {
-            doAuthenticate(function (session) {
-              $httpBackend.expectDELETE(/\/v1\/session\/.+/).respond(200);
-              $rootScope.$apply(
-                function () {
-                  $rootScope.$broadcast('logout');
-                  $httpBackend.flush();
-                }
-              );
-            });
-          }
-        );
+        it('should enable logout', function (done) {
+          doAuthenticate(function (session) {
+            $httpBackend.expectDELETE(/\/v1\/session\/.+/).respond(200);
+            mlAuth.logout().then(
+              function () {
+                testSessionBadness();
+                done();
+              },
+              function (err) { assert(false, 'saw error: ' + err); done(); }
+            );
+          });
+        });
 
       });
 

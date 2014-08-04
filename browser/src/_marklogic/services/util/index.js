@@ -1,3 +1,3 @@
 define([
-  './mlSession'
+  './mlUtil'
 ], function () {});

@@ -4,15 +4,12 @@ define(['testHelper'], function (helper) {
     describe('mlSession', function () {
       var $httpBackend;
       var mlSession;
-      var mlHttp;
 
       beforeEach(function (done) {
-        angular.mock.module('app');
+        angular.mock.module('_marklogic');
         inject(
-          function (_$httpBackend_, _mlHttp_, _mlSession_) {
+          function (_$httpBackend_, _mlSession_) {
             $httpBackend = _$httpBackend_;
-            mlHttp = _mlHttp_;
-            mlHttp.setBaseUrl('/v1');
             mlSession = _mlSession_;
             done();
           }
@@ -54,7 +51,7 @@ define(['testHelper'], function (helper) {
 
       it('should POST as expected', function (done) {
         helper.setExpectCsrf($httpBackend);
-        $httpBackend.expectPOST(/\/v1\/login$/).respond(200, {
+        $httpBackend.expectPOST(/\/v1\/session$/).respond(200, {
           id: 'someid',
           username: 'username',
           someProp: 'val'
@@ -68,9 +65,9 @@ define(['testHelper'], function (helper) {
         mlSession.post(s);
         s.$ml.waiting.then(
           function () {
-            s.instance.id.should.equal('someid');
-            s.instance.someProp.should.equal('val');
-            s.instance.should.not.have.property('password');
+            s.id.should.equal('someid');
+            s.someProp.should.equal('val');
+            s.should.not.have.property('password');
             done();
           },
           function (reason) { assert(false, JSON.stringify(reason)); done(); }

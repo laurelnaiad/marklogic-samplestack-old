@@ -1,7 +1,13 @@
 define([
-  'json!./searchResult1.json'
-], function (searchResult) {
+  'json!./searchResult1.json',
+  'json!./contributor.json'
+], function (
+  searchResult,
+  contributor
+) {
   return {
-    searchResult: searchResult
+    searchResult: searchResult,
+    contributor: contributor
+
   };
 });

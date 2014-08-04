@@ -1,6 +1,6 @@
 define([
   './mlHttpInterceptor',
-  './mlModel',
+  './mlModelBase',
   './mlSchema',
   './mlStore',
   './mlWaiter'

@@ -5,7 +5,7 @@ define(['testHelper'], function (helper) {
       var sut;
 
       beforeEach(function (done) {
-        angular.mock.module('app');
+        angular.mock.module('_marklogic');
         inject(
           function (mlSchema) {
             sut = mlSchema;
