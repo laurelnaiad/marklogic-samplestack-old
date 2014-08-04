@@ -6,13 +6,16 @@
 *****************************************************
 *****************************************************
 
+due to ongoing updates to gulp related to consistently
+using the new node streams api:
 
 gulp-filter is pegged in pacakge.json at 0.4.1.
 
-0.5.0 of the library break things badly
+0.5.0 of the library breaks things badly
 
 through2 breaks the build at 0.5.1, pinned to 0.4.2
 
+will sort out when the gulp dust settles
 *****************************************************
 *****************************************************
 *****************************************************
@@ -22,13 +25,7 @@ through2 breaks the build at 0.5.1, pinned to 0.4.2
  */
 
 
-/**
- * Proto-tasks -- the objects exported are to be converted to tasks by a
- * gulpfile.  This module exists to allow for its tasks to be driven
- * from outside of this project (.e.g from a larger app that combines
- * a Node.js server with this browser app).
- * @type {Object}
- */
+var mochaReporter = 'dot';
 var tasks = module.exports = {};
 
 var path = require('path');
@@ -43,9 +40,6 @@ var lazypipe = require('lazypipe');
 
 var childProcess = require('child_process');
 var winExt = /^win/.test(process.platform) ? '.cmd' : '';
-
-// var fs = require('fs');
-// var download = require('download');
 
 var h = require('./helper');
 var buildParams = require('../buildParams');
@@ -143,7 +137,8 @@ tasks.clean = {
   deps: [],
   func: function (cb) {
     require('del')([
-      path.join(buildsRoot, '**/*'),
+      path.join(buildsRoot, 'built', '**/*'),
+      path.join(buildsRoot, 'unit-tester', '**/*'),
       path.join(distDir, '**/*'),
       '!**/README.md' // leave any markdown docs, they're there for a reason
     ], cb);
@@ -243,27 +238,19 @@ var buildStream = function (stream) {
   ****************/
   filt = $.filter(['src/**/*.js', '!**/*.browserify.*']);
   stream = stream.pipe(filt)
+    .pipe($.plumber(plumberErrorHandler))
     .pipe($.jshint(path.join(srcDir, '.jshintrc')))
     .pipe($.jshint.reporter('jshint-stylish'))
-  /***************
-  JSCS (unit)
-  ****************/
-    .pipe($.plumber(plumberErrorHandler))
-    .pipe($.jscs(path.join(h.rootDir, '.jscsrc')))
-    .pipe($.plumber.stop());
+    .pipe($.jshint.reporter('fail'))
+    .pipe($.jscs(path.join(h.rootDir, '.jscsrc')));
   stream = stream.pipe(filt.restore());
 
   filt = $.filter('unit/**/*.js');
   stream = stream.pipe(filt)
     .pipe($.jshint(path.join(unitSrcDir, '.jshintrc')))
     .pipe($.jshint.reporter('jshint-stylish'))
-  /***************
-  JSCS (unit)
-  ****************/
-    .pipe($.plumber(plumberErrorHandler))
-    .pipe($.jscs(path.join(h.rootDir, '.jscsrc')))
-    .pipe($.plumber.stop());
-
+    .pipe($.jshint.reporter('fail'))
+    .pipe($.jscs(path.join(h.rootDir, '.jscsrc')));
 
   stream = stream.pipe(filt.restore());
 
@@ -271,7 +258,6 @@ var buildStream = function (stream) {
   //
   // the src dir is applicable to build and unit, so we need to get it cloned
   // the first step is to isolate these files
-
   filt = $.filter('src/**/*');
   var srcFiles = stream.pipe($.filter('src/**/*'));
   // when we restore from filt it will bring back the non-src file.
@@ -312,9 +298,9 @@ var buildStream = function (stream) {
         ],
         { base: h.rootDir }
       )
-      .pipe($.plumber, plumberErrorHandler)
-      .pipe($.rubySass, sassParams)
-      .pipe($.plumber.stop);
+      // .pipe($.plumber, plumberErrorHandler)
+      .pipe($.rubySass, sassParams);
+      // .pipe($.plumber.stop);
 
     buildStream = buildStream
       .pipe(
@@ -363,8 +349,6 @@ var buildStream = function (stream) {
 
   buildStream = buildStream
     .pipe($.rebase(h.targets.build));
-    // .pipe($.plumber(plumberErrorHandler));
-
 
   /***********************
   UNIT STREAM break out.  TODO: factor this out
@@ -372,7 +356,6 @@ var buildStream = function (stream) {
   unitStream = targets['unit'];
 
   //might as well drop things that we won't be using
-
   unitStream = unitStream.pipe($.rename(
     function (filepath) {
       filepath.dirname = filepath.dirname.replace(/^src[\/]?/, '');
@@ -394,9 +377,7 @@ var buildStream = function (stream) {
   );
   unitStream = unitStream.pipe($.filter(['!index.html', '!run.js']));
   unitStream = unitStream.pipe($.rebase(h.targets.unit));
-    // .pipe($.plumber(plumberErrorHandler));
 
-  // buildStream = buildStream.pipe($.filter(['!styles/']));
   unitStream = unitStream
     .pipe(
       $.ignore.exclude(['**/*.scss', '**/*.png'])
@@ -418,26 +399,6 @@ var buildStream = function (stream) {
   /****************
   TEMPLATE
   *****************/
-
-  buildParams.build.mlComponents =
-      globule.find(
-        ['marklogic/**/*.js'],
-        { cwd: path.join(__dirname, '..', h.src, '/')}
-      );
-  buildParams.unit.mlComponents = buildParams.build.mlComponents;
-  buildParams.build.appComponents =
-      globule.find(
-        ['app/**/*.js'],
-        { cwd: path.join(__dirname, '..', h.src, '/')}
-      );
-  buildParams.unit.appComponents = buildParams.build.appComponents;
-  buildParams.unit.unitComponents =
-      globule.find(
-        ['**/*.unit.js'],
-        { cwd: path.join(__dirname, '..', h.unitSrc, '/')}
-      );
-  buildParams.unit.unitComponents.unshift('testHelper.js');
-
   filt = $.filter(['**/*.html', '**/*.js']);
   buildStream = buildStream.pipe(filt)
     .pipe($.template(buildParams.build))
@@ -446,16 +407,6 @@ var buildStream = function (stream) {
   unitStream = unitStream.pipe(filt)
     .pipe($.template(buildParams.unit))
     .pipe(filt.restore());
-
-  // /***************
-  // JSCS (build)
-  // ****************/
-  // filt = $.filter(['**/*.js', '!**/*.browserify.*']);
-  // buildStream = buildStream.pipe(filt)
-  //   .pipe($.plumber(plumberErrorHandler))
-  //   .pipe($.jscs(path.join(h.rootDir, '.jscsrc')))
-  //   .pipe($.plumber.stop());
-  // buildStream = buildStream.pipe(filt.restore());
 
   buildStream = indexHtmlStream(buildStream, 'build');
   unitStream = indexHtmlStream(unitStream, 'unit');
@@ -494,9 +445,35 @@ function rubySassCheck () {
   }
 }
 
+var docGen = require('../docs');
+
+tasks['prepare-docs'] = {
+  deps: [],
+  func: function (cb) {
+    $.util.log(chalk.blue('preparing dgeni'));
+    docGen.prepare(cb);
+  }
+};
+
+tasks['docs'] = {
+  deps: ['unit', 'prepare-docs'],
+  func: function (cb) {
+
+    var postGenerate = function () {
+      console.log(chalk.blue('... complete\n'));
+      cb();
+      writeWatchMenu(true);
+    };
+    process.stdout.write(chalk.blue('\nGenerating Docs...\n\n'));
+
+    docGen.generate(postGenerate);
+  }
+};
+
+
 tasks.build = {
-  deps: ['clean', 'bower-files'],
-  func: function () {
+  deps: ['clean', 'bower-files', 'prepare-docs'],
+  func: function (cb) {
 
     rubySassCheck();
 
@@ -506,13 +483,13 @@ tasks.build = {
     ]);
 
     srcs = organizeBuildStream(srcs);
-
     return buildStream(srcs);
+
   }
 };
 
 function startServer (path, port) {
-  var restartServer = function () {
+  if (!getActiveServer(port)) {
     var connect = require('connect');
     var url = require('url');
     var proxy = require('proxy-middleware');
@@ -532,11 +509,46 @@ function startServer (path, port) {
     server.on('error', function (err) {
       console.log(err);
     });
+    setActiveServer(port, server);
 
     return server;
-  };
+  }
+}
 
-  return restartServer();
+function startDocs (path, port) {
+  if (!getActiveServer(port)) {
+    var connect = require('connect');
+    // var url = require('url');
+    // var proxy = require('proxy-middleware');
+    var serveStatic = require('serve-static');
+
+    var server = connect()
+      .use(function (req, res, next) {
+        var REWRITE = /\/(guide|api|cookbook|misc|tutorial|error).*$/;
+        var IGNORED = /(\.(css|js|png|jpg)$|partials\/.*\.html$)/;
+        var match;
+
+        if (!IGNORED.test(req.url) && (match = req.url.match(REWRITE))) {
+          req.url = req.url.replace(match[0], '/index-production.html');
+        }
+        if (req.url === '/index.html' || req.url === '/') {
+          req.url = '/index-production.html';
+        }
+        next();
+      })
+      .use('/', require('connect-livereload')({
+        port: 35732
+      }))
+      .use(serveStatic(path, {redirect: false}))
+      .listen(port, '0.0.0.0');
+
+    server.on('error', function (err) {
+      console.log(err);
+    });
+    setActiveServer(port, server);
+
+    return server;
+  }
 }
 
 function startIstanbulServer (testerPath, port) {
@@ -600,8 +612,14 @@ function runTests (opts, cb) {
   var myOpts = opts || {};
   myOpts.silent = true;
   var stream = $.mochaPhantomjs(myOpts);
+  // clear screen
+  process.stdout.write('\u001b[2J');
+  // set cursor position
+  process.stdout.write('\u001b[1;3H' + chalk.blue('\nUnit Tests:'));
   stream.on('error', function () {});
-  stream.on('end', function () { cb(); });
+  stream.on('end', function () {
+    cb();
+  });
   stream.write({path: 'http://localhost:3004/unit-runner.html'});
   stream.end();
 }
@@ -610,30 +628,58 @@ tasks['unit'] = {
   deps: ['build'],
   // deps: [],
   func: function (cb) {
-    runTests({ reporter: 'dot' }, function () {
-      if (!watchTaskCalled) {
-        closeActiveServers();
-      }
+    if (hadErrors || rebuildOnNext) {
+      $.util.log('skipping unit tests due to build errors');
       cb();
-    });
+    }
+    else {
+      runTests({ reporter: mochaReporter }, function () {
+        if (!watchTaskCalled) {
+          closeActiveServers();
+        }
+        cb();
+      });
+    }
   }
 };
 
-function writeWatchMenu () {
-  $.util.log('\n\n');
-  $.util.log('[' + chalk.cyan('watch') + '] ' +
-      'watching for ' + chalk.green('changes') + ' to the ' +
-      chalk.red.italic.dim('src') + ' and ' +
-      chalk.red.italic.dim('test') + ' directories');
-  $.util.log('[' + chalk.cyan('watch') + '] ' +
-      '--> ' + chalk.magenta('BUILD server') + ' : ' +
-      chalk.bold.blue('http://localhost:3000'));
-  $.util.log('[' + chalk.cyan('watch') + '] ' +
-      '--> ' + chalk.magenta('UNIT TESTS') + '   : ' +
-      chalk.bold.blue('http://localhost:3001/unit-runner.html'));
-  $.util.log('[' + chalk.cyan('watch') + '] ' +
-      '--> ' + chalk.magenta('COVERAGE') + '   : ' +
-      chalk.bold.blue('http://localhost:3004/coverage'));
+function writeWatchMenu (docsOnly) {
+  // $.util.log('\n\n');
+
+  var ten = '          ';
+  var message;
+
+  if (docsOnly) {
+    message = '\n' + ten +
+        'watching for ' + chalk.green('changes') + ' to the ' +
+        chalk.red.italic.dim('src') + ' and ' +
+        chalk.red.italic.dim('docs') + ' directories' +
+      '\n\n' + ten +
+      '--> ' + chalk.magenta('DOCS') + '   : ' +
+      chalk.bold.blue('http://localhost:3005') + '\n';
+
+  }
+  else {
+    message = '\n' + ten +
+        'watching for ' + chalk.green('changes') + ' to the ' +
+        chalk.red.italic.dim('src') + ' and ' +
+        chalk.red.italic.dim('test') + ' and ' +
+        chalk.red.italic.dim('docs') + ' directories' +
+        '\n\n' + ten +
+        '--> ' + chalk.magenta('BUILD server') + ' : ' +
+        chalk.bold.blue('http://localhost:3000') +
+        '\n' + ten +
+        '--> ' + chalk.magenta('UNIT TESTS') + '   : ' +
+        chalk.bold.blue('http://localhost:3001/unit-runner.html') +
+        '\n' + ten +
+        '--> ' + chalk.magenta('COVERAGE') + '   : ' +
+        chalk.bold.blue('http://localhost:3004/coverage') +
+        '\n' + ten +
+        '--> ' + chalk.magenta('DOCS') + '   : ' +
+        chalk.bold.blue('http://localhost:3005') + '\n';
+
+  }
+  process.stdout.write(message);
 }
 
 tasks['run'] = {
@@ -687,7 +733,9 @@ function lrSetup (port, glob, name, fileRelativizer, cb) {
     });
     setActiveServer(name, watcher);
     setActiveServer(port, lrServer);
-    cb();
+    if (cb) {
+      cb();
+    }
   });
 }
 
@@ -704,8 +752,69 @@ function lrManualSetup (port, cb) {
   });
 }
 
+var docsReloader;
+
+tasks['docswatch'] = {
+  deps: ['build', 'docs'],
+  func: function (cb) {
+    startDocs('builds/docs', 3005);
+    var docsWatcher = $.watch({
+      glob: [
+        path.join(h.rootDir, 'docs', '**/*.*'),
+        path.join(h.src, '**/*.*')
+      ],
+      name: 'docsWatch',
+      emitOnGlob: false,
+      emit: 'one',
+      silent: true
+    }, function (file, cb) {
+      file.pipe($.util.buffer(function (err, files) {
+        try {
+          var relpath = path.relative(
+            path.join(__dirname, '..'), files[0].path
+          );
+          $.util.log('[' + chalk.cyan('watch') + '] ' +
+              chalk.bold.blue(relpath) + ' was ' + chalk.magenta(files[0].event));
+        }
+        catch (errObj) {
+          console.log('err watching: ' + errObj);
+        }
+        doDocs(function () {
+          docsReloader(['/*']);
+          cb();
+        }, true);
+      }));
+    });
+    setActiveServer('docsWatcher', docsWatcher);
+
+    var doDocs = function (cb, skipMenu) {
+      if (skipMenu) {
+        // clear screen
+        process.stdout.write('\u001b[2J');
+        // set cursor position
+        process.stdout.write('\u001b[1;3H');
+      }
+      process.stdout.write(
+        chalk.blue('\nGenerating Docs...\n\n')
+      );
+      docGen.generate(function () {
+        console.log(chalk.blue('... complete\n'));
+        cb();
+        writeWatchMenu(true);
+      });
+    };
+    lrManualSetup(
+      35732,
+      function (changer) {
+        docsReloader = changer;
+      }
+    );
+
+  }
+};
+
 tasks['watch'] = {
-  deps: ['watchCalled', 'build', 'unit'],
+  deps: ['watchCalled', 'build', 'unit', 'docs'],
   func: function (cb) {
     startServer(h.targets.build, 3000);
     startServer(h.targets.unit, 3001);
@@ -729,7 +838,6 @@ tasks['watch'] = {
       silent: true
     }, function (file, gulpWatchCb) {
       file.pipe($.util.buffer(function (err, files) {
-
         var relpath = path.relative(
           path.join(__dirname, '../src'), files[0].path
         );
@@ -753,23 +861,54 @@ tasks['watch'] = {
 
           var out = buildStream(files).pipe(
             $.util.buffer(function (err, files) {
-              if(!rebuildOnNext) {
-                runTests(null, function () {
+              if(!rebuildOnNext && !hadErrors) {
+                runTests({ reporter: mochaReporter }, function () {
                   lrChanger(['/coverage', '/coverage/show']);
-                  writeWatchMenu();
-                  gulpWatchCb();
+                  doDocs(gulpWatchCb);
                 });
               }
               else {
-                // writeWatchMenu();
-                gulpWatchCb();
+                doDocs(gulpWatchCb);
               }
             })
           );
         }
       }));
     });
+
+    var docsWatcher = $.watch({
+      glob: [path.join(h.rootDir, 'docs', '**/*.*')],
+      name: 'docsWatch',
+      emitOnGlob: false,
+      emit: 'one',
+      silent: true
+    }, function (file, gulpWatchCb) {
+      file.pipe($.util.buffer(function (err, files) {
+        doDocs(gulpWatchCb, true);
+      }));
+    });
+    setActiveServer('docsWatcher', docsWatcher);
+
+
+    var doDocs = function (cb, skipMenu) {
+      if (skipMenu) {
+        // clear screen
+        process.stdout.write('\u001b[2J');
+        // set cursor position
+        process.stdout.write('\u001b[1;3H');
+      }
+      process.stdout.write(
+        chalk.blue('\nGenerating Docs...\n\n')
+      );
+      docGen.generate(function () {
+        writeWatchMenu();
+        cb();
+      }, 'warn');
+    };
+
     setActiveServer('watcher', watcher);
+
+    startDocs('builds/docs', 3005);
 
     lrSetup(
       35729,
@@ -791,6 +930,7 @@ tasks['watch'] = {
 
   }
 };
+
 var seleniumParts = buildParams['e2e'].seleniumAddress.match(
   /([^:]*):\/\/([^:]*):(.*)[\/]?$/
 );

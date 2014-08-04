@@ -15,7 +15,11 @@ var defaultParams = {
     'ngSanitize',
     'hc.marked'
   ],
-  html5Mode: true,
+  docs: {
+    repoUrl: 'https://github.com/stu-salsbury/marklogic-samplestack.git',
+    branch: 'docs/browser'
+  },
+
   seleniumAddress: 'http://localhost:4445',
   // if true, disable sourcemaps b/c node-sass segfaults on syntax err
   sassCompiler: 'node-sass-safe'
@@ -99,7 +103,6 @@ _.forEach(targetParams, function (thoseParams, targetName) {
   _.merge(fromDefault, defaultParams, thoseParams);
   params[targetName] = fromDefault;
 });
-
 
 /**
  * Parameters for builds

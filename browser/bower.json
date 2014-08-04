@@ -36,7 +36,11 @@
     "sinon-browser-only": "1.9.0",
     "bourbon": "3.2.3",
     "neat": "1.5.1",
-    "bitters": "0.10.0"
+    "bitters": "0.10.0",
+    "bootstrap": "3.2.0",
+    "open-sans-fontface": "1.1.0",
+    "lunr.js": "0.5.4",
+    "google-code-prettify": "1.0.2"
   },
   "overrides": {
     "modernizr": {
