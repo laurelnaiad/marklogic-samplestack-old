@@ -52,6 +52,8 @@
     "gulp-util": "3.0.0",
     "gulp-watch": "0.6.8",
     "istanbul-middleware": "0.2.0",
+    "jscs": "1.5.9",
+    "jscs-jsdoc": "0.0.6",
     "jshint-stylish": "0.4.0",
     "jsonschema": "1.0.0",
     "lazypipe": "0.2.2",
