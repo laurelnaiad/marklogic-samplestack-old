@@ -64,7 +64,8 @@ define([
           inject(function (
             $controller,
             $rootScope,
-            $compile
+            $compile,
+            allTagsStartFromFilter
           ) {
             scope = $rootScope.$new();
             el = angular.element(html);

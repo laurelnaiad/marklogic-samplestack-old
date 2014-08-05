@@ -1,8 +1,33 @@
 define(['app/module'], function (module) {
 
+
+  /**
+   * @ngdoc controller
+   * @kind constructor
+   * @name allTagsDialogCtlr
+   * @usage the controller is injected by the $modal service
+   * @description
+   * Controller for {@link allTagsDialog}.
+   * @param {angular.Scope} $scope (injected)
+   * @param {ui.bootstrap.modal.$modalInstance} $modalInstance (injected)
+   * @param  {ui.bootstrap.$modalInstance} $modalInstance
+   * @param  {Array.<object>} unselTags unselected tags
+   * @param  {Array.<object>} selTags selected tags
+   */
   module.controller('allTagsDialogCtlr', [
-    '$scope', '$filter', '$modalInstance', 'unselTags', 'selTags',
-    function ($scope, $filter, $modalInstance, unselTags, selTags) {
+
+    '$scope',
+    '$modalInstance',
+    'allTagsStartFromFilter',
+    'unselTags',
+    'selTags',
+    function (
+      $scope,
+      $modalInstance,
+      allTagsStartFromFilter,
+      unselTags,
+      selTags
+    ) {
 
       // Tag settings
       $scope.unselTags = unselTags;
@@ -36,6 +61,13 @@ define(['app/module'], function (module) {
       ];
       $scope.selectedSort = $scope.sorts[1]; // Default sort
 
+      /**
+       * @ngdoc method
+       * @name allTagsDialogCtlr#$scope.clicked
+       * @description
+       * Handle a click event for a tag checkbox
+       * @param  {object} tag the clicked element
+       */
       $scope.clicked = function (tag) {
         // Selection
         var index;
@@ -51,6 +83,14 @@ define(['app/module'], function (module) {
           $scope.selTags.splice(index, 1);
         }
       };
+
+      /**
+       * @ngdoc method
+       * @name allTagsDialogCtlr#$scope.submit
+       * @description
+       * Close the dialog via the $modalInstance. This resolves the promise
+       * from the {@link allTagsDialog} service
+       */
 
       $scope.submit = function () {
         $modalInstance.close({
@@ -68,6 +108,12 @@ define(['app/module'], function (module) {
         $scope.currentPage = 0; // TODO not working, paging stays same???
       };
 
+      /**
+       * Handle typeahead selection.
+       * @param {object} $item selected item [description]
+       * @param {*} $model selected value
+       * @param {string} $label selected label
+       */
       $scope.onMenuSelect = function ($item, $model, $label) {
         // Add to selected (if not there already)
         if ($scope.selTags.indexOf($item) === -1) {
@@ -86,21 +132,24 @@ define(['app/module'], function (module) {
 
   /**
    * @ngdoc dialog
+   * @kind function
    * @name allTagsDialog
-   *
    * @description
-   * Someone should really describe me quite soon.
+   * Displays all tags in the database in a paged modal, and allows for
+   * searching and selecting the tags for inclusion as filters on a search.
+   * Uses <a href="http://angular-ui.github.io/bootstrap/"
+   * target="_blaank">ui.bootstrap.modal</a>. Also see the
+   * {@link allTagsDialogCtlr}
+   * and the {@link allTagsStartFrom allTagsStartFrom filter}. .
+   * @param {Array.<object>} unselTags unselected tags
+   * @param {Array.<object>} selTags selected tags
+   * @returns {angular.Promise} the promise will either be rejected
+   * or will resolve to an object the following properties that reflect the
+   * result of the user interaction has the dialog:
    *
-   * This this is *too* quick!
-   *
-   * Is it dead?
-   *
-   * ### No, I'm not dead yet!
-   *
-   * ##### But I do appear to be dying.
-   *
+   *   * **unselTags** - `{Array.<object}` the unselected tags
+   *   * **selTags** - `{Array.<object}` - the selected tags
    */
-
   module.factory('allTagsDialog', [
     '$modal',
     function ($modal) {
@@ -122,7 +171,20 @@ define(['app/module'], function (module) {
     }
   ]);
 
-  module.filter('startFrom', function () {
+  /**
+  * @ngdoc filter
+  * @name allTagsStartFrom
+  * @kind function
+  * @description
+  * Returns the starting element for columnar display of tags. See
+  * {@link allTagsDialog}.
+  * @param {Array.<object>} tags set of tags
+  * @param {integer} startIndex starting index based on current page
+  * @param {integer} colOffset offset based on the column index
+  * @returns {object} The starting tag for the column
+  */
+
+  module.filter('allTagsStartFrom', function () {
     return function (tags, startIndex, colOffset) {
       var index = startIndex + colOffset;
       return tags.slice(index);
