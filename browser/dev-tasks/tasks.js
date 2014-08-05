@@ -460,7 +460,7 @@ tasks['docs'] = {
   func: function (cb) {
 
     var postGenerate = function () {
-      console.log(chalk.blue('... complete'));
+      console.log(chalk.blue('... complete\n'));
       cb();
     };
     process.stdout.write(chalk.blue('\nGenerating Docs...\n\n'));
@@ -667,7 +667,7 @@ function writeWatchMenu (docsOnly) {
 
   if (docsOnly) {
     message = '\n' + ten +
-        '--> ' + chalk.magenta('DOCS') + '   : ' +
+        '--> ' + chalk.magenta('DOCS') + '         : ' +
         chalk.bold.blue('http://localhost:3005') +
         '\n\n' + ten +
         'watching for ' + chalk.green('changes') + ' to the ' +
@@ -676,16 +676,16 @@ function writeWatchMenu (docsOnly) {
   }
   else {
     message = '\n' + ten +
-        '--> ' + chalk.magenta('BUILD server') + ' : ' +
+        '--> ' + chalk.magenta('BUILD') + '        : ' +
         chalk.bold.blue('http://localhost:3000') +
         '\n' + ten +
         '--> ' + chalk.magenta('UNIT TESTS') + '   : ' +
         chalk.bold.blue('http://localhost:3001/unit-runner.html') +
         '\n' + ten +
-        '--> ' + chalk.magenta('COVERAGE') + '   : ' +
+        '--> ' + chalk.magenta('COVERAGE') + '     : ' +
         chalk.bold.blue('http://localhost:3004/coverage') +
         '\n' + ten +
-        '--> ' + chalk.magenta('DOCS') + '   : ' +
+        '--> ' + chalk.magenta('DOCS') + '         : ' +
         chalk.bold.blue('http://localhost:3005') +
         '\n\n' + ten +
         'watching for ' + chalk.green('changes') + ' to the ' +
@@ -909,10 +909,10 @@ tasks['watch'] = {
         process.stdout.write('\u001b[1;3H');
       }
       process.stdout.write(
-        chalk.blue('\nGenerating Docs...\n\n')
+        chalk.blue('Generating Docs...\n\n')
       );
       docGen.generate(function () {
-        console.log(chalk.blue('... complete\n'));
+        console.log(chalk.blue('... complete'));
         cb();
         writeWatchMenu();
       }, 'warn');
