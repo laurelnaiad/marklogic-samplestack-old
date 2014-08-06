@@ -4,7 +4,6 @@ define(['app/module'], function (module) {
    * @ngdoc directive
    * @name ssFacetDateRange
    * @restrict A
-   * @param {object} data results to bind to
    *
    * @description
    * Directive rendering an array of search objects as a chart.
