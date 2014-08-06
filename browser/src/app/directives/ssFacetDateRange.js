@@ -1,8 +1,17 @@
 define(['app/module'], function (module) {
 
-
-
-  // parrent directive for coordination of dynamic search features
+  /**
+   * @ngdoc directive
+   * @name ssFacetDateRange
+   * @restrict A
+   * @param {object} data results to bind to
+   *
+   * @description
+   * Directive rendering an array of search objects as a chart.
+   * Selection of a single date result or a range of dates is allowed
+   * for filtering. Uses <a href="https://github.com/pablojim/highcharts-ng"
+   * target="_blank">highcharts-ng</a> for chart functionality.
+   */
   module.directive('ssFacetDateRange', function () {
 
     var chart;
@@ -13,12 +22,15 @@ define(['app/module'], function (module) {
     var refreshChart;
     var transformResults;
 
-    /*
-    * Utility funct to convert standard Date() object to UTC for HighCharts
-    * @param {object} [dateToConvert] - as Date obj or Date().getTime() ms
-    * @param {boolean} [retDateObj] - set return type as Date() or ms
-    * @returns {Number}
-    */
+  /**
+   * @name convertDateToUTC
+   * @function
+   * @param {Object} dateToConvert as Date obj or Date().getTime() ms
+   * @param {Boolean} retDateObj set return type as Date() or ms
+   * @description
+   * Utility funct to convert standard Date() object to UTC for HighCharts
+   * @returns {Number}
+   */
     convertDateToUTC = function (dateToConvert, retDateObj) {
       dateToConvert = (dateToConvert instanceof Date) ?
           dateToConvert :
@@ -362,10 +374,6 @@ define(['app/module'], function (module) {
 
     return {
       restrict: 'A',
-      // replace: true,
-      // higchart is embedded, this is subject to change as to how to get
-      // the chart loaded. Much of the work here will be in driving highchart
-      // bindings from data
       template: '<highchart config="highchartsConfig"></highchart>' +
           '<label for="date-from">From:</label>' +
           '<input type="text" id="date-from" ' +
@@ -395,7 +403,6 @@ define(['app/module'], function (module) {
           pre: function (scope, element, attrs) {
             scope.chartData = [];
             setup(scope, element, attrs);
-            //refreshChart(scope);
           },
           post: function (scope, element, attrs) {
             var unregister = scope.$watch('ssFacetDateRange', function () {
