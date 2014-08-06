@@ -22,13 +22,10 @@ define(['app/module'], function (module) {
     var transformResults;
 
   /**
-   * @name convertDateToUTC
-   * @function
+   * Utility funct to convert standard Date() object to UTC for HighCharts
    * @param {Object} dateToConvert as Date obj or Date().getTime() ms
    * @param {Boolean} retDateObj set return type as Date() or ms
-   * @description
-   * Utility funct to convert standard Date() object to UTC for HighCharts
-   * @returns {Number}
+   * @returns {Date}
    */
     convertDateToUTC = function (dateToConvert, retDateObj) {
       dateToConvert = (dateToConvert instanceof Date) ?
@@ -393,7 +390,8 @@ define(['app/module'], function (module) {
           'is-open="endOpened" show-button-bar="false" show-weeks="false" />',
 
       scope: {
-        dateData: '=data'
+        results: '=results',
+        criteria: '=criteria'
       },
       compile: function compile (tElement, tAttrs, transclude) {
         tElement.addClass('ss-facet-date-range');

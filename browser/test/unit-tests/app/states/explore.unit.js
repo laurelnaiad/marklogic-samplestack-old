@@ -66,7 +66,6 @@ define([
               .respond(200);
           $httpBackend.expectGET('/app/states/explore.html')
               .respond(200);
-          // helper.setExpectCsrf($httpBackend);
           $httpBackend.expectPOST('/v1/search').respond(mocks.searchResult);
           scope.$apply();
           $httpBackend.flush();
@@ -81,7 +80,7 @@ define([
                   '...';
             }
           });
-          scope.main.results.should.deep.equal(expectedResults);
+          scope.search.results.should.deep.equal(expectedResults);
           done();
         });
       });

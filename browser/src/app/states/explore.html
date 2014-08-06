@@ -19,7 +19,10 @@
         <h3>Date</h3>
         <a href="" class="ss-clear-date" ng-click="dateScope.clearSelection()">Clear</a>
       </header>
-      <div ss-facet-date-range data="dateData"></div>
+      <div ss-facet-date-range
+        results="search.results.facets.date"
+        critera="search.criteria.date"
+      ></div>
     </section>
     <section class="ss-filters-tags">
       <header>

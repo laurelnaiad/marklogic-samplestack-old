@@ -96,16 +96,16 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
       };
 
       var runSearch = function () {
-        $scope.main.assignData(getSearchSpec($scope.params));
+        $scope.search.assignData(getSearchSpec($scope.params));
         appRouting.updateQueryParams(
           getStateParams($scope.params),
           $scope
         );
 
-        mlSearch.post($scope.main).$ml.waiting.then(
+        $scope.search.post().$ml.waiting.then(
           function () {
             try {
-              $scope.main.results.items.forEach(function (item) {
+              $scope.search.results.items.forEach(function (item) {
                 if (item.content.body && item.content.body.length > 400) {
                   item.content.body = item.content.body.substring(0,400) +
                       '...';
@@ -160,7 +160,7 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
       };
 
       var initSearch = function () {
-        $scope.main = mlSearch.create();
+        mlSearch.create().attachScope($scope, 'search');
         runSearch();
       };
 
@@ -170,33 +170,6 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
       else {
         initSearch();
       }
-
-      // execute the search
-      // temp hack on date data for daterange directive
-      // [ { name: '201401', count: 63, value '201401'}, {...}, ...]
-      var getDateData = function () {
-        var resultsDates;
-
-        var results = $scope.main.resuls;
-
-        var resultsDate = results && results.facets &&
-            results.facets.facetValues ?
-                results.facets.facetValues :
-                [];
-
-        var dateData = [];
-        angular.forEach(resultsDates, function (obj) {
-          dateData.push({
-            x: Date.UTC(
-              obj.value.substring(0,4),
-              obj.value.substring(4,6),
-              1
-            ),
-            y: obj.count
-          });
-        });
-        return dateData;
-      };
 
       $scope.openAllTags = function () {
         // Open dialog and pass in tags
