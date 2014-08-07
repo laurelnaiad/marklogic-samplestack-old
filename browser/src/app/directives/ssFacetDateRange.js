@@ -196,17 +196,17 @@ define(['app/module'], function (module) {
 
       scope.$watch('dtStartSelection', function () {
         chartUpdateSelection();
-        if (scope.dateData) {
-          scope.dateData.criteria.date.start = scope.dtStartSelection;
-          scope.dateData.criteria.date.end = scope.dtEndSelection;
+        if (scope.criteria) {
+          scope.criteria.start = scope.dtStartSelection;
+          scope.criteria.end = scope.dtEndSelection;
         }
       });
 
       scope.$watch('dtEndSelection', function () {
         chartUpdateSelection();
-        if (scope.dateData) {
-          scope.dateData.criteria.date.start = scope.dtStartSelection;
-          scope.dateData.criteria.date.end = scope.dtEndSelection;
+        if (scope.criteria) {
+          scope.criteria.start = scope.dtStartSelection;
+          scope.criteria.end = scope.dtEndSelection;
         }
       });
       // Calender Picker end
@@ -403,16 +403,16 @@ define(['app/module'], function (module) {
           },
           post: function (scope, element, attrs) {
             var unregister = scope.$watch('ssFacetDateRange', function () {
-              scope.$watch('dateData.results.facets.date', function () {
-                if (scope.dateData) {
-                  var data = scope.dateData.results.facets.date;
-                  if (data && data.filtered && data.filtered.facetValues) {
+              scope.$watch('results', function () {
+                if (scope.results) {
+                  if (scope.results
+                          && scope.results.facetValues) {
                     // update scope variable, will trigger re-render
                     scope.chartData       =
-                                    transformResults(data.filtered.facetValues);
+                          transformResults(scope.results.facetValues);
                     scope.chartShadowData =
-                                    transformResults(data.shadow.facetValues)
-                                              || scope.chartData;
+                          transformResults(scope.results.facetValues)
+                            || scope.chartData;
                     // data of chart has refreshed,
                     // now re-select that data per our
                     // previous selection, if any

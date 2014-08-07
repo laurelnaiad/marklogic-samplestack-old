@@ -111,7 +111,6 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
                       '...';
                 }
               });
-              $scope.dateData = mocksIndex.searchObj;
             }
             finally {
               setHandlers();

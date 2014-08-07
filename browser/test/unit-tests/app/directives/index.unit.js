@@ -1,9 +1,11 @@
 define([
   './ssAccountDropdown.unit',
-  './ssFacetDateRange.unit'
+  './ssFacetDateRange.unit',
+  './ssMarkdownEditor.unit'
 ], function (
   ssAccountDropdown,
-  ssFacetDateRange
+  ssFacetDateRange,
+  ssMarkdownEditor
 ) {
 
   return function () {
@@ -11,6 +13,7 @@ define([
     describe('directives', function () {
       ssAccountDropdown();
       ssFacetDateRange();
+      ssMarkdownEditor();
     });
 
   };
