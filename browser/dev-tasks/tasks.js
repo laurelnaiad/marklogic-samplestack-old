@@ -91,8 +91,6 @@ function getActiveServer (key) {
 }
 
 function refireWatchTask (servers) {
-  // $.util.log('[' + chalk.cyan('watch') + '] ' +
-  //     chalk.yellow('initiating rebuild'));
   closeActiveServers();
   rebuildOnNext = false;
   gulp.start('watch');
@@ -390,11 +388,6 @@ var buildStream = function (stream) {
   );
   unitStream = unitStream.pipe($.filter(['!index.html', '!run.js']));
   unitStream = unitStream.pipe($.rebase(h.targets.unit));
-
-  unitStream = unitStream
-    .pipe(
-      $.ignore.exclude(['**/*.scss', '**/*.png'])
-    );
 
   /****************
   TEMPLATE

@@ -13,7 +13,11 @@
   </header>
 
   <section class="ss-question">
-    <div class="ss-vote">vote</div>
+    <div class="ss-vote">
+      <div class="ss-up" ng-click="vote(1)"></div>
+      <span>471</span>
+      <div class="ss-down" ng-click="vote(-1)"></div>
+    </div>
     <p>Tonx pour-over, readymade Pitchfork slow-carb Portland brunch Schlitz gastropub artisan. Trust fund Echo Park wayfarers Godard ethnic leggings kale chips Shoreditch Bushwick, post-ironic forage blog beard meh. Fap narwhal farm-to-table, wolf XOXO seitan four loko. Dreamcatcher banh mi try-hard Tumblr literally. Swag literally Kickstarter selfies. </p>
     <div class="ss-metadata">
       <ul class="ss-tags">
@@ -31,13 +35,20 @@
     <header>
       <h3>1 Answer</h3>
       <ul class="ss-sort">
-        <li class="ss-sort-active">newest</li>
-        <li>votes</li>
+        <li
+          ng-repeat="sort in sorts"
+          ng-click="setSort()"
+          ng-class="selectedSort == sort ? 'ss-sort-active': ''"
+        >{{sort.label}}</li>
       </ul>
     </header>
 
     <section class="ss-answer-section">
-      <div class="ss-vote">vote</div>
+      <div class="ss-vote">
+        <div class="ss-up" ng-click="vote(1)"></div>
+        <span>29</span>
+        <div class="ss-down" ng-click="vote(-1)"></div>
+      </div>
       <div class="ss-answer">
         <p>Tonx pour-over, readymade Pitchfork slow-carb Portland brunch Schlitz gastropub artisan. Trust fund Echo Park wayfarers Godard ethnic leggings kale chips Shoreditch Bushwick, post-ironic forage blog beard meh. Fap narwhal farm-to-table, wolf XOXO seitan four loko. Dreamcatcher banh mi try-hard Tumblr literally. Swag literally Kickstarter selfies. </p>
         <div class="ss-metadata">
