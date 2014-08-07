@@ -27,7 +27,6 @@ define(['testHelper','mocks/index'], function (helper, mocksIndex) {
             dsElement = angular.element(
               '<div ss-facet-date-range ' +
                   'results="results" ' +
-                  'criteria="criteria" ' +
                 '></div>'
             );
 
@@ -35,7 +34,6 @@ define(['testHelper','mocks/index'], function (helper, mocksIndex) {
             dsElement.append(pageElement);
 
             scope.results   = mockSeachObj.results.facets.date.filtered;
-            scope.criteria  = mockSeachObj.criteria.date;
             $compile(dsElement)(scope);
 
             scope.$digest();
@@ -48,9 +46,8 @@ define(['testHelper','mocks/index'], function (helper, mocksIndex) {
       });
 
       it(
-        'should have access to dateData object and properties',
+        'should have access to results object and properties',
           function () {
-            dsScope.criteria.should.be.ok;
             dsScope.results.should.be.ok;
             //.should.equal('hey');
             //  dsScope.config.pageLength.should.equal(5);
