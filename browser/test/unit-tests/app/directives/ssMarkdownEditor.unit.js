@@ -5,41 +5,24 @@ define(['testHelper'], function (helper) {
       var el;
       var scope;
       var $compile;
-      var $httpBackend;
-      var $timeout;
-      var dsElement;
-      var dsScope;
-      var dsIsolate;
+      var divElement;
+      var editorElement;
+      var editorScope;
 
       beforeEach(function (done) {
         angular.mock.module('app');
         inject(
           function ($rootScope, _$httpBackend_, _$compile_, _$timeout_) {
-
             scope         = $rootScope.$new();
-            $httpBackend = _$httpBackend_;
             $compile      = _$compile_;
-            $timeout      = _$timeout_;
 
-            dsElement = angular.element(
-              '<div ss-markdown-editor content="question"></div>'
+            divElement = angular.element('<div"/>');
+            editorElement = angular.element(
+              '<div ss-markdown-editor content="testContent"></div>'
             );
-
-            scope.question = 'this is my question with `var some = code();`';
-
-            $httpBackend.expectGET(
-              '/app/images/ss-markdown-editor/md-bold.png'
-            ).respond(200);
-
-            // $httpBackend.expectGET(
-            //   /^.*\.png$/
-            // ).respond(200);
-
-            $compile(dsElement)(scope);
-            // $httpBackend.flush();
-            scope.$apply();
-
-            dsScope = dsElement.isolateScope();
+            divElement.append(editorElement);
+            $compile(divElement)(scope);
+            editorScope = editorElement.isolateScope();
 
             done();
           }
@@ -47,27 +30,21 @@ define(['testHelper'], function (helper) {
       });
 
       it(
-        'should have access to question',
+        'should call highlight on code',
           function () {
-            dsScope.content.should.be.ok;
-            //.should.equal('hey');
-            //  dsScope.config.pageLength.should.equal(5);
+            scope.testContent = 'testing';
+            scope.$apply();
+            editorScope.content.should.equal('testing');
           }
       );
 
       it(
         'should be rendering question in textarea',
           function () {
-            var txtArea = dsElement.find('textarea');
-            txtArea.val().should.equal(dsScope.content);
-          }
-      );
-
-      it(
-        'should be rendering random text',
-          function () {
-            var txtArea = dsElement.find('textarea');
-            txtArea.val().should.not.equal('TEST');
+            scope.testContent = 'testing';
+            scope.$apply();
+            var txtArea = editorElement.find('textarea');
+            txtArea.val().should.equal('testing');
           }
       );
 
