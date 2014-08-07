@@ -4,6 +4,11 @@
 @import 'dialogs/all';
 @import 'directives/all';
 
+.highcharts {
+  height: 240px;
+  min-width: 275px;
+}
+
 button {
   @extend .btn;
   @extend .btn-default;
@@ -137,6 +142,7 @@ p.has-error {
 
   .ss-results {
     @extend .col-lg-8;
+    margin-left: 20px;
     padding-left: 0;
     padding-right: 0;
     max-width: 1100;

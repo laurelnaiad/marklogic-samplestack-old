@@ -370,7 +370,8 @@ define(['app/module'], function (module) {
 
     return {
       restrict: 'A',
-      template: '<highchart config="highchartsConfig"></highchart>' +
+      template: '<highchart class="highcharts" ' +
+          'config="highchartsConfig"></highchart>' +
           '<label for="date-from">From:</label>' +
           '<input type="text" id="date-from" ' +
           'class="form-control ng-valid-date" datepicker-popup="MM/dd/yyyy" ' +

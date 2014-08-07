@@ -18,12 +18,17 @@
   <ul class="ss-tags">
     <li ng-repeat="tag in item.content.tags">{{tag}}</li>
   </ul>
-  <!-- talk to charles about reputation, it's not in the results -->
   <div class="ss-author"
-  >asked {{item.content.creationDate}} by
-  <a
-    href=""
-    ng-click="showContributor(item)"
-  >{{item.content.owner.displayName}}</a>
-  [&lt;TBD&gt;{{item.content.owner.reputation}}]</div>
+  >asked {{ item.content.creationDate | iso8601ToDay }} by
+    <a ng-if="isLocalOwner(item)"
+      href=""
+      ng-click="showContributor(item)"
+    >{{item.content.owner.displayName}}</a>
+    <a ng-if="soOwnerId(item)"
+      href="{{soUserLink(item)}}"
+      target="_blank"
+    >{{soUserName(item)}}</a>
+    <span ng-if="noValidUser(item)">(user not available)</span>
+    {{item.content.owner.reputation}}
+  </div>
 </div>

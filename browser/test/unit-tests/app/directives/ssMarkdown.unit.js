@@ -6,15 +6,19 @@ define(['testHelper'], function (helper) {
       var scope;
       var $compile;
 
+      this.timeout(500);
+
       beforeEach(function (done) {
         angular.mock.module('app');
         inject(
           function ($rootScope, _$httpBackend_, _$compile_, _$timeout_) {
 
-            scope         = $rootScope.$new();
-            $compile      = _$compile_;
+            scope = $rootScope.$new();
+            $compile = _$compile_;
 
-            el = angular.element('<div ss-markdown content="md"/>');
+            el = angular.element(
+              '<div><div ss-markdown content="content"/></div>'
+            );
             $compile(el)(scope);
 
             done();

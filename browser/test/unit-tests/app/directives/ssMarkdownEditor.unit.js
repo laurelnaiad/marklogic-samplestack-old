@@ -30,15 +30,6 @@ define(['testHelper'], function (helper) {
       });
 
       it(
-        'should call highlight on code',
-          function () {
-            scope.testContent = 'testing';
-            scope.$apply();
-            editorScope.content.should.equal('testing');
-          }
-      );
-
-      it(
         'should be rendering question in textarea',
           function () {
             scope.testContent = 'testing';

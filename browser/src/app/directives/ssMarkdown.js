@@ -27,11 +27,8 @@ define([
       scope: {
         content: '=content'
       },
-      compile: function compile (tElement, tAttrs, transclude) {
+      compile: function (tElement) {
         tElement.append('<div marked="content"></div>');
-        return function () {
-
-        };
       }
     };
   }]);

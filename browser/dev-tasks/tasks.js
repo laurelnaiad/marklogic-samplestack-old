@@ -25,7 +25,7 @@ will sort out when the gulp dust settles
  */
 
 
-var mochaReporter = 'spec';
+var mochaReporter = 'nyan';
 var tasks = module.exports = {};
 
 var path = require('path');

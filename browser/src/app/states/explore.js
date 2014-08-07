@@ -85,18 +85,16 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
         };
 
         return {
-          criteria: {
-            query: {
-              qtext: typedParams.q,
-              'and-query': makeTags(typedParams.tags)
-            },
-            start: 1 + (typedParams.page - 1) * 10
-          }
+          query: {
+            qtext: typedParams.q,
+            'and-query': makeTags(typedParams.tags)
+          },
+          start: 1 + (typedParams.page - 1) * 10
         };
       };
 
       var runSearch = function () {
-        $scope.search.assignData(getSearchSpec($scope.params));
+        $scope.search.criteria = getSearchSpec($scope.params);
         appRouting.updateQueryParams(
           getStateParams($scope.params),
           $scope
