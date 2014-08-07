@@ -1,0 +1,28 @@
+<input
+  type="text"
+  ng-model="selected"
+  typeahead="tag.count as tag.name+' ('+tag.count+')' for tag in unselTags.concat(selTags) | filter:$viewValue | orderBy:sort"
+  class="ss-typeahead-input"
+  typeahead-on-select="onMenuSelect($item, $model, $label)"
+/>
+
+<ul>
+  <li ng-repeat="tag in selTags | orderBy:sort">
+    <input
+      type="checkbox"
+      checked="true"
+      ng-click="clicked(this.tag)"
+    /> {{tag.name}} ({{tag.count}})
+  </li>
+</ul>
+
+<div class="ss-divider" ng-if="selTags.length > 0">&nbsp</div>
+
+<ul>
+  <li ng-repeat="tag in unselTags | orderBy:sort | limitTo:tagLimit">
+    <input
+      type="checkbox"
+      ng-click="clicked(this.tag)"
+    /> {{tag.name}} ({{tag.count}})
+  </li>
+</ul>
