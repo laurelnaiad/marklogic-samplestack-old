@@ -39,6 +39,11 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
           null;
       };
 
+      /**
+       * Convert from ui-router $stateParams format to typed Javascript objects
+       * @param {$stateParams} stateParams
+       * @returns {object} the typed javascript object
+       */
       var getTypedParams = function (stateParams) {
         return {
           q: dedasherize(appRouting.params.q),
@@ -56,6 +61,14 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
         return 'tbd-soon';
       };
 
+      /**
+       * Convert from Javascript objects to variables appropriate for ui-router
+       * $stateParams
+       * @param {object} typedParams
+       * @returns {object} object that should represent the keys and values to
+       * be
+       * assigned to $stateParams
+       */
       var getStateParams = function (typedParams) {
         return {
           q: dasherize(typedParams.q),
@@ -65,6 +78,12 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
         };
       };
 
+      /**
+       * Convert from Javascript typed values to Marklogic-specific schema,
+       * which we represent as mlSearch schema.
+       * @param {object} typedParams
+       * @returns {object} object consistent with an mlSearch instance
+       */
       var getSearchSpec = function (typedParams) {
 
         var makeTags = function (tags) {
