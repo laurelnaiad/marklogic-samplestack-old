@@ -9,15 +9,8 @@ define(['testHelper','mocks/index'], function (helper, mocksIndex) {
       var dsElement;
       var qtElement;
       var pageElement;
-      var facet1Element;
-      var facet2Element;
-      var resultsElement;
       var dsScope;
       var dsIsolate;
-      var qtScope;
-      var facet1Scope;
-      var facet2Scope;
-      var resultsScope;
       var mockSeachObj;
 
       beforeEach(function (done) {
@@ -32,13 +25,17 @@ define(['testHelper','mocks/index'], function (helper, mocksIndex) {
             mockSeachObj = mocksIndex.searchObj;
 
             dsElement = angular.element(
-              '<div ss-facet-date-range data="dateData"></div>'
+              '<div ss-facet-date-range ' +
+                  'results="results" ' +
+                  'criteria="criteria" ' +
+                '></div>'
             );
 
             dsElement.append(qtElement);
             dsElement.append(pageElement);
 
-            scope.dateData = mockSeachObj;
+            scope.results   = mockSeachObj.results.facets.date.filtered;
+            scope.criteria  = mockSeachObj.criteria.date;
             $compile(dsElement)(scope);
 
             scope.$digest();
@@ -53,9 +50,8 @@ define(['testHelper','mocks/index'], function (helper, mocksIndex) {
       it(
         'should have access to dateData object and properties',
           function () {
-            dsScope.dateData.should.be.ok;
-            dsScope.dateData.criteria.should.be.ok;
-            dsScope.dateData.results.facets.date.filtered.should.be.ok;
+            dsScope.criteria.should.be.ok;
+            dsScope.results.should.be.ok;
             //.should.equal('hey');
             //  dsScope.config.pageLength.should.equal(5);
           }
