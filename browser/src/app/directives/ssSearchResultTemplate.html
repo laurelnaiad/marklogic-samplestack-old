@@ -1,0 +1,34 @@
+<div class="ss-votes">
+  <div class="ss-score">
+    <label>score</label>
+    <span>{{item.content.docScore}}</span>
+  </div>
+  <div class="ss-divider">&nbsp;</div>
+  <div class="ss-answers">
+    <label>answers</label>
+    <span>{{item.content.answers.length}}</span>
+    <div class="ss-checked" ng-if="item.content.acceptedAnswerId">&nbsp;</div>
+  </div>
+</div>
+<div class="ss-result-title">
+  <a ui-sref="root.layout.qnaDoc">Q: {{item.content.title}}</a>
+</div>
+<p>{{ item.content.body }}</p>
+<div class="ss-metadata">
+  <ul class="ss-tags">
+    <li ng-repeat="tag in item.content.tags">{{tag}}</li>
+  </ul>
+  <div class="ss-author"
+  >asked {{ item.content.creationDate | iso8601ToDay }} by
+    <a ng-if="isLocalOwner(item)"
+      href=""
+      ng-click="showContributor(item)"
+    >{{item.content.owner.displayName}}</a>
+    <a ng-if="soOwnerId(item)"
+      href="{{soUserLink(item)}}"
+      target="_blank"
+    >{{soUserName(item)}}</a>
+    <span ng-if="noValidUser(item)">(user not available)</span>
+    {{item.content.owner.reputation}}
+  </div>
+</div>

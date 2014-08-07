@@ -1,0 +1,27 @@
+<header>
+  <h2>Browsing {{results.total | number:0}} Questions</h2>
+  <ul class="ss-sort">
+    <li
+      ng-repeat="sort in sorts"
+      ng-click="setSort()"
+      ng-class="selectedSort == sort ? 'ss-sort-active': ''"
+    >{{sort.label}}</li>
+  </ul>
+</header>
+<section class="ss-result" ng-repeat="item in results.items">
+  <ss-search-result></ss-search-result>
+</section>
+<div class="ss-paging">
+  <button
+    type="button"
+    ng-disabled="currentPage == 0"
+    ng-click="decrementPage()"
+  >&lt;</button>
+  {{currentPage+1}} /
+  {{Math.ceil(results.total / results['page-length'])}}
+  <button
+    type="button"
+    ng-disabled="currentPage >= results['total']/ results['page-length'] - 1"
+    ng-click="incrementPage()"
+  >&gt;</button>
+</div>

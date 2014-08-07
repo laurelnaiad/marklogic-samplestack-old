@@ -34,4 +34,16 @@ define(['_marklogic/module'], function (module) {
     };
   });
 
+  module.filter('iso8601ToDay', function () {
+    return function (str) {
+      if (!str) {
+        return undefined;
+      }
+      else {
+        var m = moment(str);
+        return m.format('MMM D') + ', \'' + m.format('YY');
+      }
+    };
+  });
+
 });
