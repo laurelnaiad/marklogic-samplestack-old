@@ -32,10 +32,10 @@ define(['testHelper'], function (helper) {
       it(
         'should be rendering question in textarea',
           function () {
-            scope.testContent = 'testing';
+            scope.testContent = 'this is my text `var code = content;`';
             scope.$apply();
             var txtArea = editorElement.find('textarea');
-            txtArea.val().should.equal('testing');
+            txtArea.val().should.equal(scope.testContent);
           }
       );
 

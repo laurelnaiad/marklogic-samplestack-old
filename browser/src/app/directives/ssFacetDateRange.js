@@ -20,6 +20,7 @@ define(['app/module'], function (module) {
     var convertDateToUTC;
     var refreshChart;
     var transformResults;
+    var emitDates;
 
   /**
    * Utility funct to convert standard Date() object to UTC for HighCharts
@@ -65,6 +66,20 @@ define(['app/module'], function (module) {
         });
       }
       return convertedDates;
+    };
+
+    emitDates = function (scope) {
+      if (scope.dtStartSelection && scope.dtEndSelection) {
+        scope.$emit(
+          'datesChange',
+          {
+            dates: {
+              start: scope.dtStartSelection,
+              end: scope.dtEndSelection
+            }
+          }
+        );
+      }
     };
 
     refreshChart = function (scope) {
@@ -196,18 +211,12 @@ define(['app/module'], function (module) {
 
       scope.$watch('dtStartSelection', function () {
         chartUpdateSelection();
-        if (scope.criteria) {
-          scope.criteria.start = scope.dtStartSelection;
-          scope.criteria.end = scope.dtEndSelection;
-        }
+        emitDates(scope);
       });
 
       scope.$watch('dtEndSelection', function () {
         chartUpdateSelection();
-        if (scope.criteria) {
-          scope.criteria.start = scope.dtStartSelection;
-          scope.criteria.end = scope.dtEndSelection;
-        }
+        emitDates(scope);
       });
       // Calender Picker end
 
@@ -391,8 +400,7 @@ define(['app/module'], function (module) {
           'is-open="endOpened" show-button-bar="false" show-weeks="false" />',
 
       scope: {
-        results: '=results',
-        criteria: '=criteria'
+        results: '=results'
       },
       compile: function compile (tElement, tAttrs, transclude) {
         tElement.addClass('ss-facet-date-range');

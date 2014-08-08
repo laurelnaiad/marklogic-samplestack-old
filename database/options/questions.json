@@ -17,6 +17,18 @@
             "facet":"true",
             "json-property":"creationYearMonth"
         }},
+        {"name":"activityDate",
+        "range":{
+            "type":"xs:dateTime",
+            "facet":"false",
+            "json-property":"lastActivityDate"
+        }},
+        {"name":"creationDate",
+        "range":{
+            "type":"xs:dateTime",
+            "facet":"false",
+            "json-property":"creationDate"
+        }},
         {"name":"tag",
         "range":{
             "type":"xs:string",

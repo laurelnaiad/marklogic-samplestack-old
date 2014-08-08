@@ -39,6 +39,10 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
           null;
       };
 
+      var getDatesStateParam = function () {
+        return 'tbd-soon';
+      };
+
       /**
        * Convert from ui-router $stateParams format to typed Javascript objects
        * @param {$stateParams} stateParams
@@ -53,12 +57,14 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
                 return tag.trim();
               }) :
               [],
-          dates: []
+          dates: (appRouting.params.dateStart &&
+              appRouting.params.dateEnd) ?
+              {
+                start: appRouting.params.dateStart,
+                end: appRouting.params.dateEnd
+              } :
+              {}
         };
-      };
-
-      var getDatesStateParam = function () {
-        return 'tbd-soon';
       };
 
       /**
@@ -74,7 +80,10 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
           q: dasherize(typedParams.q),
           page: typedParams.page ? typedParams.page : undefined,
           tags: typedParams.tags ? typedParams.tags.join(',') : undefined,
-          dates: getDatesStateParam(typedParams.dates)
+          dateStart: typedParams.dates.start ?
+                        typedParams.dates.start : undefined,
+          dateEnd: typedParams.dates.end ?
+                        typedParams.dates.end : undefined
         };
       };
 
@@ -85,18 +94,38 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
        * @returns {object} object consistent with an mlSearch instance
        */
       var getSearchSpec = function (typedParams) {
-
-        var makeTags = function (tags) {
-          var tagsAnd = [];
+        var makeAndQuery = function (params) {
+          var andQuery = [];
+          var tags = params.tags;
+          var dates = params.dates;
           tags.forEach(function (tag) {
-            tagsAnd.push({
+            andQuery.push({
               'range-constraint-query': {
                 'constraint-name': 'tag', text: tag
               }
             });
           });
-          if (tagsAnd.length) {
-            return { queries: tagsAnd };
+
+          if (dates.start && dates.end) {
+            andQuery.push({
+              'range-constraint-query': {
+                'constraint-name': 'creationDate',
+                'value':new Date(dates.start).toISOString().split('T')[0],
+                'operator':'GE'
+              }
+            });
+
+            andQuery.push({
+              'range-constraint-query': {
+                'constraint-name': 'creationDate',
+                'value':new Date(dates.end).toISOString().split('T')[0],
+                'operator':'LT'
+              }
+            });
+          }
+
+          if (andQuery.length) {
+            return { queries: andQuery };
           }
           else {
             return undefined;
@@ -106,7 +135,7 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
         return {
           query: {
             qtext: typedParams.q,
-            'and-query': makeTags(typedParams.tags)
+            'and-query': makeAndQuery(typedParams)
           },
           start: 1 + (typedParams.page - 1) * 10
         };
@@ -150,6 +179,10 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
 
       $scope.$on('tagsChange', function (evt, arg) {
         $scope.params.tags = arg.tags;
+      });
+
+      $scope.$on('datesChange', function (evt, arg) {
+        $scope.params.dates = arg.dates;
       });
 
       $scope.setQueryText = function () {

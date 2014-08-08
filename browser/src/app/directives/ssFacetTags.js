@@ -98,7 +98,7 @@ define(['app/module'], function (module) {
           scope.tagLimit = attrs.numTags;
         };
         scope.$watch(
-          'main.results.facets.tag.facetValues',
+          'search.results.facets.tag.facetValues',
           function (tagFacetValues) {
             onResults(tagFacetValues || []);
           },
