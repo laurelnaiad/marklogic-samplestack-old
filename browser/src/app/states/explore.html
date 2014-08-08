@@ -1,12 +1,12 @@
-<section class="ss-search-bar">
-  <form>
-    <input type="text" ng-model="searchbarText"/>
-    <button ng-click="setQueryText()">Search</button>
-    <div class="ss-search-tips">Search Tips</label>
-  </form>
-</section>
-
 <section class="ss-explore">
+  <section class="ss-search-bar">
+    <form>
+      <input type="text" ng-model="searchbarText"/>
+      <button ng-click="setQueryText()">Search</button>
+      <div class="ss-search-tips">Search Tips</label>
+    </form>
+  </section>
+
   <section class="ss-filters" ng-hide="!search.results">
     <header>
       <h2>Filter Results</h2>
