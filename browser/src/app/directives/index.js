@@ -4,6 +4,7 @@ define([
   './ssFacetTags',
   './ssMarkdown',
   './ssMarkdownEditor',
+  './ssSearchBar',
   './ssSearchResult',
   './ssSearchResults'
 ], function () {});

@@ -84,11 +84,17 @@ $view-min-width: 1030px;
 
 /*** EXPLORE VIEW ***/
 .ss-explore {
-  @extend .col-lg-12;
-  min-width: $view-min-width;
   position: relative;
+  min-width: $view-min-width;
   min-height: 650px;
-  padding-left: 290px;
+
+  /* Container for fixed+fluid content */
+  .ss-filters-results {
+    @extend .col-lg-12;
+    position: relative;
+    padding-left: 290px;
+  }
+
   .ss-filters {
     position: absolute;
     left: 0;
