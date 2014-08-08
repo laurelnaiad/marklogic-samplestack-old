@@ -40,7 +40,7 @@ define(['_marklogic/module'], function (module) {
         return undefined;
       }
       else {
-        var m = moment(str);
+        var m = window.moment(str);
         return m.format('MMM D') + ', \'' + m.format('YY');
       }
     };
