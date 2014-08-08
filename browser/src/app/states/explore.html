@@ -1,39 +1,39 @@
-<section class="ss-search-bar">
-  <form>
-    <input type="text" ng-model="searchbarText"/>
-    <button ng-click="setQueryText()">Search</button>
-    <div class="ss-search-tips">Search Tips</label>
-  </form>
-</section>
-
 <section class="ss-explore">
-  <section class="ss-filters" ng-hide="!search.results">
-    <header>
-      <h2>Filter Results</h2>
-    </header>
-    <div class="ss-filters-entries"><input type="checkbox" /> Show my entries only</div>
-    <div class="ss-filters-resolved"><input type="checkbox" /> Show resolved only</div>
-    <section class="ss-filters-date">
-      <header>
-        <h3>Date</h3>
-        <a href="" class="ss-clear-date" ng-click="dateScope.clearSelection()">Clear</a>
-      </header>
-      <div ss-facet-date-range
-        results="search.results.facets.date"
-        criteria="search.criteria.date"
-      ></div>
-    </section>
-    <section class="ss-filters-tags">
-      <header>
-        <h3>Tags</h3>
-        <a href="" class="ss-clear-tags" ng-click="tagsScope.clearTags()">Clear</a>
-      </header>
-      <ss-facet-tags num-tags="8"></ss-facet-tags>
-      <div class="ss-open-all-tags" ng-click="openAllTags()">more...</div>
-    </section>
-  </section>
 
-  <section class="ss-results">
-    <ss-search-results results="search.results"></ss-search-results>
-  </section>
+  <ss-search-bar></ss-search-bar>
+
+  <div class="ss-filters-results">
+
+    <section class="ss-filters" ng-hide="!search.results">
+      <header>
+        <h2>Filter Results</h2>
+      </header>
+      <div class="ss-filters-entries"><input type="checkbox" /> Show my entries only</div>
+      <div class="ss-filters-resolved"><input type="checkbox" /> Show resolved only</div>
+      <section class="ss-filters-date">
+        <header>
+          <h3>Date</h3>
+          <a href="" class="ss-clear-date" ng-click="dateScope.clearSelection()">Clear</a>
+        </header>
+        <div ss-facet-date-range
+          results="search.results.facets.date"
+          criteria="search.criteria.date"
+        ></div>
+      </section>
+      <section class="ss-filters-tags">
+        <header>
+          <h3>Tags</h3>
+          <a href="" class="ss-clear-tags" ng-click="tagsScope.clearTags()">Clear</a>
+        </header>
+        <ss-facet-tags num-tags="8"></ss-facet-tags>
+        <div class="ss-open-all-tags" ng-click="openAllTags()">more...</div>
+      </section>
+    </section>
+
+    <section class="ss-results">
+      <ss-search-results results="search.results"></ss-search-results>
+    </section>
+
+  </div>
+
 </section>
