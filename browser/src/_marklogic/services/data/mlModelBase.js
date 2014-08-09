@@ -214,8 +214,31 @@ define(['_marklogic/module'], function (module) {
         return config;
       };
 
+      var dedate = function (obj) {
+        var newObj = angular.copy(obj);
+        angular.forEach(newObj, function (val, key) {
+          if (val) {
+            if (val.toJSON) {
+              newObj[key] = val.toJSON();
+            }
+            else {
+              if (typeof newObj[key] === 'object') {
+                newObj[key] = dedate(newObj[key]);
+              }
+            }
+          }
+        });
+        return newObj;
+      };
+
       MlModel.prototype.validateObject = function (obj) {
-        return mlSchema.validate(obj, this.$mlSpec.schema.id);
+        var own = {};
+        Object.getOwnPropertyNames(obj).reduce(
+          function (dummy, key) {
+            own[key] = obj[key];
+          }
+        );
+        return mlSchema.validate(dedate(own), this.$mlSpec.schema.id);
       };
 
       MlModel.prototype.testValidity = function () {
@@ -251,6 +274,14 @@ define(['_marklogic/module'], function (module) {
 
       MlModel.prototype.propertyValid = function (property) {
         return this.errors(property).length === 0;
+      };
+
+      MlModel.prototype.getStateParams = function () {
+        throw new Error('not implemented'); // override this to use it
+      };
+
+      MlModel.prototype.assignStateParams = function (stateParams) {
+        throw new Error('not implemented');  // override this to use it
       };
 
       var http = function (instance, httpMethod) {

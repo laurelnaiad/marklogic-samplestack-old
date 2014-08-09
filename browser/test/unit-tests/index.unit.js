@@ -10,7 +10,7 @@ define([
   describe('unit tests', function () {
 
     marklogic();
-    app();
+    // app();
 
 
     after(function (done) {

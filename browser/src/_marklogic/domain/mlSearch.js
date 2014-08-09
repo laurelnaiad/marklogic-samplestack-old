@@ -19,7 +19,7 @@ define(['_marklogic/module'], function (module) {
    *          function ($scope, mlSearch) {
    *            var search = mlSearch.create({
    *              criteria: {
-   *                query: { qtext: '"red flag"' }
+   *                q: '"red flag"'
    *              }
    *            });
    *            search.post().$ml.waiting.then(
@@ -37,24 +37,97 @@ define(['_marklogic/module'], function (module) {
    */
   module.factory('mlSearch', [
 
-    'mlModelBase', 'mlSchema',
+    'mlModelBase', 'mlSchema', 'mlUtil',
     function (
-      mlModelBase, mlSchema
+      mlModelBase, mlSchema, mlUtil
     ) {
 
       mlSchema.addSchema({
         id: 'http://marklogic.com/#searchCriteria',
-        required: ['query'],
-        additionalProperties: true,
+        additionalProperties: false,
         properties: {
-          query: {
-            type: 'object',
-            required: ['qtext'],
-            properties: {
-              qtext: { type: 'string' }
+          q: {
+            oneOf: [ { type: 'string' }, { type: 'null' } ]
+          },
+          constraints: {
+            patternProperties: {
+              '^.+$': {
+                oneOf: [
+                  { $ref: 'http://marklogic.com/#searchConstraintText' },
+                  { $ref: 'http://marklogic.com/#searchConstraintBoolean' },
+                  { $ref: 'http://marklogic.com/#searchConstraintEnum' },
+                  { $ref: 'http://marklogic.com/#searchConstraintDate' }
+                ]
+              }
             }
           }
         }
+      });
+
+      mlSchema.addSchema({
+        id: 'http://marklogic.com/#searchConstraintText',
+        allOf: [
+          { $ref: 'http://marklogic.com/#searchConstraintBase' },
+          {
+            required: ['type'],
+            properties: {
+              type: { enum: ['text'] },
+              value: { type: ['string', 'null' ] }
+            }
+          }
+        ]
+      });
+
+      mlSchema.addSchema({
+        id: 'http://marklogic.com/#searchConstraintBoolean',
+        allOf: [
+          { $ref: 'http://marklogic.com/#searchConstraintBase' },
+          {
+            required: ['type'],
+            properties: {
+              type: { enum: ['boolean'] },
+              value: { type: ['boolean', 'null' ] }
+            }
+          }
+        ]
+      });
+
+      mlSchema.addSchema({
+        id: 'http://marklogic.com/#searchConstraintEnum',
+        allOf: [
+          { $ref: 'http://marklogic.com/#searchConstraintBase' },
+          {
+            required: ['type'],
+            properties: {
+              type: { enum: ['enum'] },
+              values: { type: ['array', 'null' ] }
+            }
+          }
+        ]
+      });
+
+      mlSchema.addSchema({
+        id: 'http://marklogic.com/#searchConstraintDate',
+        allOf: [
+          { $ref: 'http://marklogic.com/#searchConstraintBase' },
+          {
+            required: ['type'],
+            properties: {
+              type: { enum: ['date'] },
+              value: { type: ['date-time', 'null' ] },
+              operator: { enum: ['GE', 'LE' ] }
+            }
+          }
+        ]
+      });
+
+      mlSchema.addSchema({
+        id: 'http://marklogic.com/#searchConstraintBase',
+        required: ['constraintName', 'queryStringName'],
+        properties: {
+          constraintName: { type: 'string' },
+          queryStringName: { type: 'string' }
+        },
       });
 
       mlSchema.addSchema({
@@ -81,7 +154,7 @@ define(['_marklogic/module'], function (module) {
       mlSchema.addSchema({
         id: 'http://marklogic.com/#searchResultsFacet',
         required: ['type', 'facetValues'],
-        additionalProperties: true,
+        additionalProperties: false,
         properties: {
           type: { type: 'string' },
           'facetValues': {
@@ -98,20 +171,31 @@ define(['_marklogic/module'], function (module) {
       };
 
       var MlSearchObject = function (spec) {
+        spec = mlUtil.merge({
+          page: 1,
+          criteria: {
+            q: null,
+            constraints: {}
+          }
+        }, spec);
         mlModelBase.object.call(this, spec);
       };
       MlSearchObject.prototype = Object.create(mlModelBase.object.prototype);
-      MlSearchObject.prototype.$mlSpec = {
-        schema: mlSchema.addSchema({
-          id: 'http://marklogic.com/#search',
-          required: ['criteria'],
-          additionalProperties: true,
-          properties: {
-            criteria: { $ref: 'http://marklogic.com/#searchCriteria' },
-            results: { $ref: 'http://marklogic.com/#searchResults' }
-          }
-        })
-      };
+      Object.defineProperty(MlSearchObject.prototype, '$mlSpec', {
+        value: {
+          schema: mlSchema.addSchema({
+            id: 'http://marklogic.com/#search',
+            required: ['criteria'],
+            additionalProperties: false,
+            properties: {
+              page: { type: 'integer' },
+              criteria: { $ref: 'http://marklogic.com/#searchCriteria' },
+              results: { $ref: 'http://marklogic.com/#searchResults' }
+            }
+          })
+        }
+      });
+
       MlSearchObject.prototype.put = throwMethod('PUT'),
       MlSearchObject.prototype.del = throwMethod('DELETE'),
       MlSearchObject.prototype.getOne = throwMethod('GET'),
@@ -120,9 +204,191 @@ define(['_marklogic/module'], function (module) {
         delete data.results;
         this.results = data;
       };
-      MlSearchObject.prototype.getHttpDataPOST = function (httpMethod) {
-        return this.criteria;
+
+      MlSearchObject.prototype.getMlConstraint = function (constraint) {
+        // default and only type of constraint in samplestack is range
+        // default and only application of constraints in samplestack
+        // is a range query
+        // so we are basically hardcoding that everything is a range query
+        // in and criteria
+        var synt = [];
+        var self = this;
+
+        if (constraint.type === 'enum') {
+          angular.forEach(constraint.values, function (enumValue) {
+            // expand an enum constraint to multiple constraints (remember
+            // everything is an and query in samplestack)
+            var singleEnum = {
+              constraintName: constraint.constraintName,
+              operator: constraint.operator,
+              type: constraint.subType,
+              value: enumValue
+            };
+            synt = synt.concat(self.getMlConstraint(singleEnum));
+          });
+        }
+        else {
+          if (constraint.value) {
+            var mySynt = {
+              'range-constraint-query': {
+                'constraint-name': constraint.constraintName,
+                'operator': constraint.operator
+              }
+            };
+
+            if (constraint.type === 'text') {
+              mySynt['range-constraint-query'].text = constraint.value;
+            }
+            if (constraint.type === 'date') {
+              mySynt['range-constraint-query'].value =
+                  constraint.value.format('YYYY-MM-DD');
+            }
+            if (constraint.type === 'boolean') {
+              mySynt['range-constraint-query'].value = constraint.value;
+            }
+
+            synt.push(mySynt);
+          }
+        }
+
+        return synt;
       };
+
+
+      MlSearchObject.prototype.getHttpDataPOST = function (httpMethod) {
+        var myCriteria = angular.copy(this.criteria);
+        var self = this;
+
+        var criteriaToPost = {
+          query: {
+            qtext: myCriteria.q || ''
+          }
+        };
+
+        var andQueries = [];
+        angular.forEach(myCriteria.constraints, function (constraint) {
+          // concat because some of these contraints will be represented
+          // as arrays of constraints
+          var newConstraints = self.getMlConstraint(constraint);
+          andQueries = andQueries.concat(newConstraints);
+        });
+
+        if (andQueries.length) {
+          criteriaToPost.query['and-query'] = {
+            queries: andQueries
+          };
+        }
+
+        return criteriaToPost;
+      };
+
+      MlSearchObject.prototype.stateParamFromConstraint = function (
+        constraint
+      ) {
+        var param = {};
+        if (constraint.type === 'enum') {
+          var vals = constraint.values &&
+              constraint.values.length &&
+              constraint.values.join(',');
+          if (vals) {
+            param[constraint.queryStringName] = vals;
+          }
+        }
+        if (constraint.type === 'date' ) {
+          if (constraint.value) {
+            param[constraint.queryStringName] =
+                constraint.value.format('YYYY-MM-DD');
+          }
+        }
+        if (constraint.type === 'boolean' ) {
+          if (typeof constraint.value === 'boolean') {
+            param[constraint.queryStringName] = constraint.value;
+          }
+        }
+        if (constraint.type === 'text' ) {
+          if (constraint.value) {
+            param[constraint.queryStringName] = constraint.value;
+          }
+        }
+        return param;
+      };
+
+      MlSearchObject.prototype.getStateParams = function () {
+        var self = this;
+        var params = {};
+        if (this.criteria.q) {
+          params.q = this.criteria.q;
+        }
+        angular.forEach(this.criteria.constraints, function (constraint) {
+          mlUtil.merge(params, self.stateParamFromConstraint(constraint));
+        });
+        return params;
+      };
+
+      MlSearchObject.prototype.constraintFromStateParam = function (
+        constraint,
+        stateParams
+      ) {
+        var trimmed = stateParams[constraint.queryStringName] &&
+            stateParams[constraint.queryStringName].trim();
+
+        if (trimmed) {
+          if (constraint.type === 'enum') {
+            constraint.values = trimmed.split(',');
+          }
+          if (constraint.type === 'boolean') {
+            switch (trimmed) {
+              case '1':
+              case 'true':
+              case 'yes':
+                constraint.value = true;
+                break;
+              case '0':
+              case 'false':
+              case 'no':
+                constraint.value = false;
+                break;
+              default:
+                constraint.value = null;
+                break;
+            }
+          }
+          if (constraint.type === 'text') {
+            if (trimmed.length) {
+              constraint.value = trimmed;
+            }
+            else {
+              constraint.value = null;
+            }
+          }
+          if (constraint.type === 'date') {
+            if (trimmed.length) {
+              constraint.value = mlUtil.moment(trimmed);
+            }
+            else {
+              constraint.value = null;
+            }
+          }
+        }
+      };
+
+      MlSearchObject.prototype.assignStateParams = function (stateParams) {
+        var params = {};
+        var self = this;
+        this.page = stateParams.page ? parseInt(stateParams.page.trim()) : null;
+        this.criteria = this.criteria || {};
+        this.criteria.q = stateParams.q ? stateParams.q.trim() : null;
+        angular.forEach(this.criteria.constraints, function (constraint) {
+          mlUtil.merge(params, self.constraintFromStateParam(
+            constraint,
+            stateParams
+          ));
+        });
+
+        mlUtil.merge(this.criteria, { constraints : params} );
+        this.testValidity();
+      };
+
 
       return mlModelBase.extend('MlSearchObject', MlSearchObject);
     }
