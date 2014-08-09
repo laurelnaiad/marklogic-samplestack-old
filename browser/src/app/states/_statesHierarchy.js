@@ -42,7 +42,7 @@ define(
         name: 'root.layout.explore',
         // will deal with all sorts of parameters here, potentially
         // as sub-states
-        url: '/?q&tags&dates&page',
+        url: '/?q&tags&date-start&date-end&resolved&user&page',
         controller: 'exploreCtlr',
         reloadOnSearch: false,
         templateUrl: '/app/states/explore.html'

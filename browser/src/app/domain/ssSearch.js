@@ -22,6 +22,41 @@ define(['app/module'], function (module) {
       var mlSearchObj = mlSearch.object;
 
       var SsSearchObject = function (spec) {
+        spec = mlUtil.merge(
+          {
+            criteria: {
+              constraints: {
+                resolvedOnly: {
+                  constraintName: 'resolved',
+                  type: 'boolean',
+                  queryStringName: 'resolved'
+                },
+                userName: {
+                  constraintName: 'userName',
+                  type: 'text',
+                  queryStringName: 'user'
+                },
+                tags: {
+                  constraintName: 'tag',
+                  type: 'enum',
+                  subType: 'text',
+                  queryStringName: 'tags'
+                },
+                dateStart: {
+                  constraintName: 'activity-date',
+                  type: 'date',
+                  queryStringName: 'date-start'
+                },
+                dateEnd: {
+                  constraintName: 'activity-date',
+                  type: 'date',
+                  queryStringName: 'date-end'
+                }
+              }
+            }
+          },
+          spec
+        );
         mlSearch.object.call(this, spec);
       };
       SsSearchObject.prototype = Object.create(

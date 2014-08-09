@@ -48,20 +48,14 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
 
         $scope.search.post().$ml.waiting.then(
           function () {
-            try {
-              $scope.search.results.items.forEach(function (item) {
-                if (item.content.body && item.content.body.length > 400) {
-                  item.content.body = item.content.body.substring(0,400) +
-                      '...';
-                }
-              });
-            }
-            finally {
-              setHandlers();
-            }
+            $scope.search.results.items.forEach(function (item) {
+              if (item.content.body && item.content.body.length > 400) {
+                item.content.body = item.content.body.substring(0,400) +
+                    '...';
+              }
+            });
           },
           function (reason) {
-            setHandlers();
             $scope.fail = reason;
           }
         );
@@ -69,59 +63,40 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
 
       $scope.setPageTitle('explore');
 
-      ssSearch.create({}).attachScope($scope, 'search');
       var params = angular.copy(appRouting.params);
       if (params.q) {
         dedasherize(params.q);
       }
-      $scope.search.assignStateParams(params);
+      var search = ssSearch.create();
+      search.assignStateParams(params);
+      $scope.search = search;
+      // search.attachScope($scope, 'search');
 
       $scope.searchbarText = $scope.search.criteria.q;
 
       $scope.$on('pageChange', function (evt, arg) {
-        $scope.params.page = arg.newPage;
+        // $scope.params.page = arg.newPage;
       });
 
       $scope.$on('tagsChange', function (evt, arg) {
-        $scope.params.tags = arg.tags;
+        // $scope.params.tags = arg.tags;
       });
 
       $scope.setQueryText = function () {
         $scope.search.criteria.q = $scope.searchbarText;
       };
 
-      $scope.$watch('store.session.id', function (newVal, oldVal) {
-        if (newVal !== oldVal) {
-          $scope.sessionId = newVal;
-        }
-      });
-
-      var setHandlers = function () {
-        var unregister1 = $scope.$watch(
-          'search',
-          function (newVal, oldVal) {
-            if (newVal !== oldVal) {
-              unregister1();
-              unregister2();
-              runSearch();
-            }
-          },
-          true
-        );
-        var unregister2 = $scope.$watch(
-          'sessionId',
-          function (newVal, oldVal) {
-            if (newVal !== oldVal) {
-              unregister1();
-              unregister2();
-              runSearch();
-            }
-          }
-        );
-      };
-
       if ($scope.initializing) {
-        $scope.initializing.then(runSearch);
+        $scope.initializing.then(function () {
+
+          $scope.$watch('store.session.id', function (newVal, oldVal) {
+            if (newVal !== oldVal) {
+              runSearch();
+            }
+          });
+
+          runSearch();
+        });
       }
       else {
         runSearch();
