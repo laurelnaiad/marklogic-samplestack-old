@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2449599.json.json", "creationDate":"2010-03-15T18:45:08.220", "body":"\n\nI placed UISwitch on main view. Now I try change state. But the state changed only when I touch on the left side of the UISwitch. and never on the right. \n\nFor example in Settings App the airplane mode chanhed any of those ways. \n\nCan anybody help me?", "lastActivityDate":"2011-08-12T11:42:11.647", "title":"UISwitch not tapped on right area", "tags":[["ios"], ["uiswitch"], ["tap"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2449599.json",
+  "creationDate": "2010-03-15T18:45:08.220",
+  "body": "\n\nI placed UISwitch on main view. Now I try change state. But the state changed only when I touch on the left side of the UISwitch. and never on the right. \n\nFor example in Settings App the airplane mode chanhed any of those ways. \n\nCan anybody help me?",
+  "lastActivityDate": "2011-08-12T11:42:11.647",
+  "title": "UISwitch not tapped on right area",
+  "tags": [
+    "ios",
+    "uiswitch",
+    "tap"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2839262.json.json", "creationDate":"2010-05-15T07:14:14.023", "body":"\n\nI'm doing some large integer computing, and I need to raise a BigInteger to the power of another BigInteger. The .pow() method does what I want, but takes an int value as an argument.  The .modPow method takes a BigInteger as an argument, but I do not want an answer congruent to  the value I'm trying to compute.\n\nMy BigInteger exponent is too large to be represented as an int, can someone suggest a way to work around this limitation?", "lastActivityDate":"2011-10-27T17:28:15.020", "title":"How do you raise a Java BigInteger to the power of a BigInteger without doing modular arithmetic?", "tags":[["java"], ["biginteger"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2839262.json",
+  "creationDate": "2010-05-15T07:14:14.023",
+  "body": "\n\nI'm doing some large integer computing, and I need to raise a BigInteger to the power of another BigInteger. The .pow() method does what I want, but takes an int value as an argument.  The .modPow method takes a BigInteger as an argument, but I do not want an answer congruent to  the value I'm trying to compute.\n\nMy BigInteger exponent is too large to be represented as an int, can someone suggest a way to work around this limitation?",
+  "lastActivityDate": "2011-10-27T17:28:15.020",
+  "title": "How do you raise a Java BigInteger to the power of a BigInteger without doing modular arithmetic?",
+  "tags": [
+    "java",
+    "biginteger"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

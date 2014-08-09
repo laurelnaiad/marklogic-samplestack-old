@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2444392.json.json", "creationDate":"2010-03-15T00:10:16.787", "body":"\n\nRegarding the worker pool, what happens when the computer restarts? Does the worker continue where it left off?", "lastActivityDate":"2010-03-16T21:19:34.273", "title":"What happens when the computer restarts to a Google Gears worker?", "tags":[["google-gears"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2444392.json",
+  "creationDate": "2010-03-15T00:10:16.787",
+  "body": "\n\nRegarding the worker pool, what happens when the computer restarts? Does the worker continue where it left off?",
+  "lastActivityDate": "2010-03-16T21:19:34.273",
+  "title": "What happens when the computer restarts to a Google Gears worker?",
+  "tags": [
+    "google-gears"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

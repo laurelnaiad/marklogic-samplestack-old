@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2445284.json.json", "creationDate":"2010-03-15T05:29:36.530", "body":"\n\nHow would I usually represent this business logic in a graph?\n\n\tA is true if\n\t B is true or\n\t C is true\n\t\n\tC is true if\n\t D is true and\n\t E is true and\n\t F is true\n\t\n\tX is true if\n\t Y is true and\n\t C is not true \n\t\n\nIs it a directed acyclic graph?  How do I represent the 'and'/'or' logic in the graph, in graph terminology?\n\n(I am looking for the correct graph terminology, so I can focus my reading.)", "lastActivityDate":"2010-03-31T04:03:31.093", "title":"What sort of graph to represent this business logic decision tree?", "tags":[["algorithm"], ["graph"], ["business-logic"], ["decisiontrees"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2445284.json",
+  "creationDate": "2010-03-15T05:29:36.530",
+  "body": "\n\nHow would I usually represent this business logic in a graph?\n\n\tA is true if\n\t B is true or\n\t C is true\n\t\n\tC is true if\n\t D is true and\n\t E is true and\n\t F is true\n\t\n\tX is true if\n\t Y is true and\n\t C is not true \n\t\n\nIs it a directed acyclic graph?  How do I represent the 'and'/'or' logic in the graph, in graph terminology?\n\n(I am looking for the correct graph terminology, so I can focus my reading.)",
+  "lastActivityDate": "2010-03-31T04:03:31.093",
+  "title": "What sort of graph to represent this business logic decision tree?",
+  "tags": [
+    "algorithm",
+    "graph",
+    "business-logic",
+    "decisiontrees"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

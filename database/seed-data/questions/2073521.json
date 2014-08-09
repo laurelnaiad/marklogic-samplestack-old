@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2073521.json.json", "creationDate":"2010-01-15T17:25:43.373", "body":"\n\nHi\nHow can i write all bits of a file using c#?\nFor example writing 0 to all bits\n\nPlease provide me with a sample", "lastActivityDate":"2010-01-15T17:39:53.993", "title":"Write all bits in C#", "tags":[["c#"], [".net"], ["file"], ["io"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2073521.json",
+  "creationDate": "2010-01-15T17:25:43.373",
+  "body": "\n\nHi\nHow can i write all bits of a file using c#?\nFor example writing 0 to all bits\n\nPlease provide me with a sample",
+  "lastActivityDate": "2010-01-15T17:39:53.993",
+  "title": "Write all bits in C#",
+  "tags": [
+    "c#",
+    ".net",
+    "file",
+    "io"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

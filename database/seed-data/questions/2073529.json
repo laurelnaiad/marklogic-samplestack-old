@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2073529.json.json", "creationDate":"2010-01-15T17:26:54.230", "body":"\n\nIt appears that the Hibernate `NotEmpty` annotation does not result in an error for strings filled with whitespace (`\"    \"`).  Only works for nulls or empty strings (ie: `new String()`).  Is there a workaround/fix for this?", "lastActivityDate":"2011-06-07T17:18:34.617", "title":"Hibernate validator NotEmpty trim issue", "tags":[["java"], ["hibernate"], ["validation"], ["hibernate-validator"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2073529.json",
+  "creationDate": "2010-01-15T17:26:54.230",
+  "body": "\n\nIt appears that the Hibernate `NotEmpty` annotation does not result in an error for strings filled with whitespace (`\"    \"`).  Only works for nulls or empty strings (ie: `new String()`).  Is there a workaround/fix for this?",
+  "lastActivityDate": "2011-06-07T17:18:34.617",
+  "title": "Hibernate validator NotEmpty trim issue",
+  "tags": [
+    "java",
+    "hibernate",
+    "validation",
+    "hibernate-validator"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

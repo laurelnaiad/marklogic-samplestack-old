@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2451049.json.json", "creationDate":"2010-03-15T22:56:35.150", "body":"\n\nCan you do the following with a Java ResourceBundle?\n\nIn the properties file...\n\n\texample.dynamicresource=You currently have {0} accounts.\n\t\n\nAt runtime...\n\n\tint accountAcount = 3;\n\tbundle.get(\"example.dynamicresource\",accountCount,param2,...);\n\t\n\nTo give a result of\n\n\"You currently have 3 accounts.\"", "lastActivityDate":"2013-11-14T13:25:48.270", "title":"Do resource bundles in Java support runtime string substitution?", "tags":[["java"], ["resourcebundle"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2451049.json",
+  "creationDate": "2010-03-15T22:56:35.150",
+  "body": "\n\nCan you do the following with a Java ResourceBundle?\n\nIn the properties file...\n\n\texample.dynamicresource=You currently have {0} accounts.\n\t\n\nAt runtime...\n\n\tint accountAcount = 3;\n\tbundle.get(\"example.dynamicresource\",accountCount,param2,...);\n\t\n\nTo give a result of\n\n\"You currently have 3 accounts.\"",
+  "lastActivityDate": "2013-11-14T13:25:48.270",
+  "title": "Do resource bundles in Java support runtime string substitution?",
+  "tags": [
+    "java",
+    "resourcebundle"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

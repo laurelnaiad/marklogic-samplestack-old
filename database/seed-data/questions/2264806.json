@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2264806.json.json", "creationDate":"2010-02-15T08:57:12.590", "body":"\n\nA lot of Natural Language Processing (NLP) algorithms and libraries have a hard time working with random texts from the web, usually because they are presupposing clean, articulate writing. I can understand why that would be easier than parsing YouTube comments.\n\nMy question is: given a random piece of text, is there a process to determine whether that text is well written, and is a good candidate for use in NLP? What is the general name for these algorithm?\n\nI would appreciate links to articles, algorithms or code libraries, but I would settle for good search terms.", "lastActivityDate":"2010-02-28T03:09:04.440", "title":"How to automatically determine text quality?", "tags":[["nlp"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2264806.json",
+  "creationDate": "2010-02-15T08:57:12.590",
+  "body": "\n\nA lot of Natural Language Processing (NLP) algorithms and libraries have a hard time working with random texts from the web, usually because they are presupposing clean, articulate writing. I can understand why that would be easier than parsing YouTube comments.\n\nMy question is: given a random piece of text, is there a process to determine whether that text is well written, and is a good candidate for use in NLP? What is the general name for these algorithm?\n\nI would appreciate links to articles, algorithms or code libraries, but I would settle for good search terms.",
+  "lastActivityDate": "2010-02-28T03:09:04.440",
+  "title": "How to automatically determine text quality?",
+  "tags": [
+    "nlp"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

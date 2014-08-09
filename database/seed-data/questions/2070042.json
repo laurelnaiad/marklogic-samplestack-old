@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2070042.json.json", "creationDate":"2010-01-15T07:21:07.663", "body":"\n\nI get a page response from a web and it is having strings like `\"Lluís Quílez\"`. But i get it as `\"Llu&#xED;s Qu&#xED;lez\"`. So how do i change it back to `\"Lluís Quílez\"` in C#?\n\nThank you.", "lastActivityDate":"2010-01-15T07:26:05.330", "title":"Encoding string C#", "tags":[["c#"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2070042.json",
+  "creationDate": "2010-01-15T07:21:07.663",
+  "body": "\n\nI get a page response from a web and it is having strings like `\"Lluís Quílez\"`. But i get it as `\"Llu&#xED;s Qu&#xED;lez\"`. So how do i change it back to `\"Lluís Quílez\"` in C#?\n\nThank you.",
+  "lastActivityDate": "2010-01-15T07:26:05.330",
+  "title": "Encoding string C#",
+  "tags": [
+    "c#"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2446232.json.json", "creationDate":"2010-03-15T09:56:58.557", "body":"\n\nI have directory with > 1000 .html files, and would like to check all of them for bad links - preferably using console. Any tool you can recommend for such task?", "lastActivityDate":"2012-02-06T00:46:53.053", "title":"What to use to check html links in large project, on Linux?", "tags":[["html"], ["linux"], ["hyperlink"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2446232.json",
+  "creationDate": "2010-03-15T09:56:58.557",
+  "body": "\n\nI have directory with > 1000 .html files, and would like to check all of them for bad links - preferably using console. Any tool you can recommend for such task?",
+  "lastActivityDate": "2012-02-06T00:46:53.053",
+  "title": "What to use to check html links in large project, on Linux?",
+  "tags": [
+    "html",
+    "linux",
+    "hyperlink"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

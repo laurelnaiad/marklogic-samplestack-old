@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2450806.json.json", "creationDate":"2010-03-15T22:04:42.420", "body":"\n\nI am looking for a good **GUI** testing framework/automation testing tool for windows forms based apps.\n\nCan you recommend any ?", "lastActivityDate":"2010-10-30T13:39:44.513", "title":"Looking for some good GUI testing frameworks/gui automation test tools for Windows Forms .NET", "tags":[[".net"], ["gui"], ["automation"], ["testing"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2450806.json",
+  "creationDate": "2010-03-15T22:04:42.420",
+  "body": "\n\nI am looking for a good **GUI** testing framework/automation testing tool for windows forms based apps.\n\nCan you recommend any ?",
+  "lastActivityDate": "2010-10-30T13:39:44.513",
+  "title": "Looking for some good GUI testing frameworks/gui automation test tools for Windows Forms .NET",
+  "tags": [
+    ".net",
+    "gui",
+    "automation",
+    "testing"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

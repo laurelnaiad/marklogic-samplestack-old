@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2642908.json.json", "creationDate":"2010-04-15T05:20:45.620", "body":"\n\nJava's equivalence to Python's \"Got value: %s\" % variable?", "lastActivityDate":"2010-04-16T00:03:59.997", "title":"Java's equivalence to Python's \"Got value: %s\" % variable?", "tags":[["java"], ["python"], ["string"], ["formatting"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2642908.json",
+  "creationDate": "2010-04-15T05:20:45.620",
+  "body": "\n\nJava's equivalence to Python's \"Got value: %s\" % variable?",
+  "lastActivityDate": "2010-04-16T00:03:59.997",
+  "title": "Java's equivalence to Python's \"Got value: %s\" % variable?",
+  "tags": [
+    "java",
+    "python",
+    "string",
+    "formatting"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

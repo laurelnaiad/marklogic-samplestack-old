@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2446501.json.json", "creationDate":"2010-03-15T10:50:18.507", "body":"\n\nmessagecontroller  is  nothing but object of initialize  nib file.\n\n\t[self.navigationController pushViewController:messageController animated:YES];\n\t\n\nthis statement executes in normal condition\n\nthis statement also works on state maintainace testing ,\nthis line executes properly but not open new view ,why?", "lastActivityDate":"2010-03-15T13:37:04.553", "title":"simple question of pushViewController", "tags":[["iphone"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2446501.json",
+  "creationDate": "2010-03-15T10:50:18.507",
+  "body": "\n\nmessagecontroller  is  nothing but object of initialize  nib file.\n\n\t[self.navigationController pushViewController:messageController animated:YES];\n\t\n\nthis statement executes in normal condition\n\nthis statement also works on state maintainace testing ,\nthis line executes properly but not open new view ,why?",
+  "lastActivityDate": "2010-03-15T13:37:04.553",
+  "title": "simple question of pushViewController",
+  "tags": [
+    "iphone"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

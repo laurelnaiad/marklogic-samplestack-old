@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2838554.json.json", "creationDate":"2010-05-15T01:34:13.127", "body":"\n\nI'd like to know if all formatting rules of **printf functions** currently work (or are implemented) in F# ?\n\nFor instance, if I want to align arguments on 9 characters (padding with spaces or 0), I would use:\n\n\tprintfn \"%9A %9A\" arg1 arg2 //don't seem to work\n\t\n\nThanks!", "lastActivityDate":"2010-05-15T01:43:58.793", "title":"printf and formatting rules", "tags":[["f#"], ["printf"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2838554.json",
+  "creationDate": "2010-05-15T01:34:13.127",
+  "body": "\n\nI'd like to know if all formatting rules of **printf functions** currently work (or are implemented) in F# ?\n\nFor instance, if I want to align arguments on 9 characters (padding with spaces or 0), I would use:\n\n\tprintfn \"%9A %9A\" arg1 arg2 //don't seem to work\n\t\n\nThanks!",
+  "lastActivityDate": "2010-05-15T01:43:58.793",
+  "title": "printf and formatting rules",
+  "tags": [
+    "f#",
+    "printf"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2838641.json.json", "creationDate":"2010-05-15T02:12:59.027", "body":"\n\nHow can I check if the user has input a null or empty string in classic-asp? Right now I am have this code.\n\n\tIf Request.Form(\"productId\") == \"\" Then\n\t'my code here\n\tEnd If\n\t\n\nBut its not working.", "lastActivityDate":"2012-10-02T19:50:33.233", "title":"Detecting null/empty input from user", "tags":[["asp-classic"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2838641.json",
+  "creationDate": "2010-05-15T02:12:59.027",
+  "body": "\n\nHow can I check if the user has input a null or empty string in classic-asp? Right now I am have this code.\n\n\tIf Request.Form(\"productId\") == \"\" Then\n\t'my code here\n\tEnd If\n\t\n\nBut its not working.",
+  "lastActivityDate": "2012-10-02T19:50:33.233",
+  "title": "Detecting null/empty input from user",
+  "tags": [
+    "asp-classic"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2268828.json.json", "creationDate":"2010-02-15T20:53:28.810", "body":"\n\nIn Erlang how do I convert a String to a binary value?", "lastActivityDate":"2013-10-09T12:40:26.693", "title":"In Erlang how do I convert a String to a binary value?", "tags":[["erlang"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2268828.json",
+  "creationDate": "2010-02-15T20:53:28.810",
+  "body": "\n\nIn Erlang how do I convert a String to a binary value?",
+  "lastActivityDate": "2013-10-09T12:40:26.693",
+  "title": "In Erlang how do I convert a String to a binary value?",
+  "tags": [
+    "erlang"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

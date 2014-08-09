@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2649449.json.json", "creationDate":"2010-04-15T22:36:09.610", "body":"\n\nLook at the following code:\n\n\tStringBuilder row = TemplateManager.GetRow(\"xyz\"); // no control over this method \n\tStringBuilder rows = new StringBuilder();\n\t\n\tforeach(Record r in records)\n\t{\n\t    StringBuilder thisRow = new StringBuilder(row.ToString());\n\t    thisRow.Replace(\"%firstName%\", r.FirstName)\n\t       .Replace(\"%lastName%\", r.LastName)\n\t          // all other replacement goes here\n\t       .Replace(\"%LastModifiedDate%\", r.LastModifiedDate);\n\t\n\t    //finally append row to rows\n\t    rows.Append(thisRow);\n\t}\n\t\n\nCurrently 3 StringBuilders and *row.ToString()* is inside a loop. Is there any room for further optimization here? ", "lastActivityDate":"2012-01-30T21:50:47.893", "title":"How can this code be optimized further?", "tags":[["c#"], ["optimization"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2649449.json",
+  "creationDate": "2010-04-15T22:36:09.610",
+  "body": "\n\nLook at the following code:\n\n\tStringBuilder row = TemplateManager.GetRow(\"xyz\"); // no control over this method \n\tStringBuilder rows = new StringBuilder();\n\t\n\tforeach(Record r in records)\n\t{\n\t    StringBuilder thisRow = new StringBuilder(row.ToString());\n\t    thisRow.Replace(\"%firstName%\", r.FirstName)\n\t       .Replace(\"%lastName%\", r.LastName)\n\t          // all other replacement goes here\n\t       .Replace(\"%LastModifiedDate%\", r.LastModifiedDate);\n\t\n\t    //finally append row to rows\n\t    rows.Append(thisRow);\n\t}\n\t\n\nCurrently 3 StringBuilders and *row.ToString()* is inside a loop. Is there any room for further optimization here? ",
+  "lastActivityDate": "2012-01-30T21:50:47.893",
+  "title": "How can this code be optimized further?",
+  "tags": [
+    "c#",
+    "optimization"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

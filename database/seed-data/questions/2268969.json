@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2268969.json.json", "creationDate":"2010-02-15T21:16:29.820", "body":"\n\nGiven a month string such as:\n\n\t    \"Feb\"\n\tor\n\t    \"February\"\n\t\n\nIs there any core java or third party library functionality that would allow you to convert this string to the corresponding month number in a locale agnostic way?", "lastActivityDate":"2010-02-15T23:52:10.880", "title":"Convert month string to integer in java", "tags":[["java"], ["datetime"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2268969.json",
+  "creationDate": "2010-02-15T21:16:29.820",
+  "body": "\n\nGiven a month string such as:\n\n\t    \"Feb\"\n\tor\n\t    \"February\"\n\t\n\nIs there any core java or third party library functionality that would allow you to convert this string to the corresponding month number in a locale agnostic way?",
+  "lastActivityDate": "2010-02-15T23:52:10.880",
+  "title": "Convert month string to integer in java",
+  "tags": [
+    "java",
+    "datetime"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

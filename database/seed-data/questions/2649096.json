@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2649096.json.json", "creationDate":"2010-04-15T21:26:34.810", "body":"\n\nWhat are setters and getters? Why do I need them? What is a good example of them in use in an effective way? What is the point of a setter and getter?\n\nUpdate:\nCan I get some coding examples please?", "lastActivityDate":"2011-06-22T10:51:16.193", "title":"Explain to me what is a setter and getter", "tags":[["oop"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2649096.json",
+  "creationDate": "2010-04-15T21:26:34.810",
+  "body": "\n\nWhat are setters and getters? Why do I need them? What is a good example of them in use in an effective way? What is the point of a setter and getter?\n\nUpdate:\nCan I get some coding examples please?",
+  "lastActivityDate": "2011-06-22T10:51:16.193",
+  "title": "Explain to me what is a setter and getter",
+  "tags": [
+    "oop"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

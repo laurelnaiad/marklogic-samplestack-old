@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2072812.json.json", "creationDate":"2010-01-15T15:49:43.897", "body":"\n\nHi \nI'm building an as3 only web application and want to be able to include external html content within a flash 'window'. In AIR there is the flash.html.HTMLLoader class which makes this possible.\n\nCan anyone point to an example of this being done in a flash as opposed to AIR application?", "lastActivityDate":"2011-02-02T16:17:20.043", "title":"Equivalent of HTMLLoader class for an AS3 only project?", "tags":[["html"], ["actionscript-3"], ["air"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2072812.json",
+  "creationDate": "2010-01-15T15:49:43.897",
+  "body": "\n\nHi \nI'm building an as3 only web application and want to be able to include external html content within a flash 'window'. In AIR there is the flash.html.HTMLLoader class which makes this possible.\n\nCan anyone point to an example of this being done in a flash as opposed to AIR application?",
+  "lastActivityDate": "2011-02-02T16:17:20.043",
+  "title": "Equivalent of HTMLLoader class for an AS3 only project?",
+  "tags": [
+    "html",
+    "actionscript-3",
+    "air"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

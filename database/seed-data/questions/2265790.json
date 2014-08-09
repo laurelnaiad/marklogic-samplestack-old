@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2265790.json.json", "creationDate":"2010-02-15T12:14:21.370", "body":"\n\nI've created a MenuItem and added an ActionListener using allProducts.addActionListener(this);\n\nIs there a way to simulate the menu being clicked in a unit test?", "lastActivityDate":"2010-02-15T15:09:51.953", "title":"MenuItem Listener Test in IceFaces", "tags":[["jsf"], ["icefaces"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2265790.json",
+  "creationDate": "2010-02-15T12:14:21.370",
+  "body": "\n\nI've created a MenuItem and added an ActionListener using allProducts.addActionListener(this);\n\nIs there a way to simulate the menu being clicked in a unit test?",
+  "lastActivityDate": "2010-02-15T15:09:51.953",
+  "title": "MenuItem Listener Test in IceFaces",
+  "tags": [
+    "jsf",
+    "icefaces"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

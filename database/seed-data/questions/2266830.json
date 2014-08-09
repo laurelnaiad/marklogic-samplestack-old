@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2266830.json.json", "creationDate":"2010-02-15T15:13:09.247", "body":"\n\nI am saving a raw email in a TEXT column in MySQL with Ruby on Rails. It keeps getting truncated to 65535 characters, does anyone know what causes this?\n\nMySQL is running with `max_allowed_packet=64M`\n\nUsing InnoDB for the storage engine.", "lastActivityDate":"2010-12-03T13:16:14.247", "title":"Why is rails trucating TEXT column to 65535 chars?", "tags":[["mysql"], ["ruby-on-rails"], ["ruby"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2266830.json",
+  "creationDate": "2010-02-15T15:13:09.247",
+  "body": "\n\nI am saving a raw email in a TEXT column in MySQL with Ruby on Rails. It keeps getting truncated to 65535 characters, does anyone know what causes this?\n\nMySQL is running with `max_allowed_packet=64M`\n\nUsing InnoDB for the storage engine.",
+  "lastActivityDate": "2010-12-03T13:16:14.247",
+  "title": "Why is rails trucating TEXT column to 65535 chars?",
+  "tags": [
+    "mysql",
+    "ruby-on-rails",
+    "ruby"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

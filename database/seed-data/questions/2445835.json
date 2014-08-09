@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2445835.json.json", "creationDate":"2010-03-15T08:31:18.313", "body":"\n\nI am using Mark Murphy's DroidEx tool to project my android device screen; is there a way to supply a skin(e.g. a HTC Hero skin that we use with Android emulator) to DroidEx?\n\nI have also asked this question on the google group for DroidEx project. \n\nThanks!", "lastActivityDate":"2012-04-22T21:38:47.923", "title":"Project Android Screen with DroidEx", "tags":[["android"], ["droidex"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2445835.json",
+  "creationDate": "2010-03-15T08:31:18.313",
+  "body": "\n\nI am using Mark Murphy's DroidEx tool to project my android device screen; is there a way to supply a skin(e.g. a HTC Hero skin that we use with Android emulator) to DroidEx?\n\nI have also asked this question on the google group for DroidEx project. \n\nThanks!",
+  "lastActivityDate": "2012-04-22T21:38:47.923",
+  "title": "Project Android Screen with DroidEx",
+  "tags": [
+    "android",
+    "droidex"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2643305.json.json", "creationDate":"2010-04-15T07:02:18.083", "body":"\n\nI want to center a background image. There is no div used, this is the [CSS](http://en.wikipedia.org/wiki/Cascading_Style_Sheets) style:\n\n\tbody{\n\t    background-position:center;\n\t    background-image:url(../images/images2.jpg) no-repeat;\n\t}\n\t\n\nThe above CSS tiles all over and does center it, but half the image is not seen, it just kind of moves up. What I want to do is center the image. Could I adopt the image to view even on a 21\" screen?", "lastActivityDate":"2013-09-15T08:46:15.893", "title":"Centering a background image, using CSS", "tags":[["css"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2643305.json",
+  "creationDate": "2010-04-15T07:02:18.083",
+  "body": "\n\nI want to center a background image. There is no div used, this is the [CSS](http://en.wikipedia.org/wiki/Cascading_Style_Sheets) style:\n\n\tbody{\n\t    background-position:center;\n\t    background-image:url(../images/images2.jpg) no-repeat;\n\t}\n\t\n\nThe above CSS tiles all over and does center it, but half the image is not seen, it just kind of moves up. What I want to do is center the image. Could I adopt the image to view even on a 21\" screen?",
+  "lastActivityDate": "2013-09-15T08:46:15.893",
+  "title": "Centering a background image, using CSS",
+  "tags": [
+    "css"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

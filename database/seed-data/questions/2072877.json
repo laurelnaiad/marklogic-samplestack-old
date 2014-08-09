@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2072877.json.json", "creationDate":"2010-01-15T15:58:05.660", "body":"\n\nI am trying to figure out a way to search through posts' custom fields. Basically, what I need is to find a post where post.CustomField1 == \"some value\"\n\nI've searched and searched and been digging through the Graffiti CMS source code (graffiticms.codeplex.com) and can't figure out how I would do this.", "lastActivityDate":"2010-01-25T22:04:30.503", "title":"Graffiti CMS: Search Custom Fields", "tags":[["c#"], ["graffiticms"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2072877.json",
+  "creationDate": "2010-01-15T15:58:05.660",
+  "body": "\n\nI am trying to figure out a way to search through posts' custom fields. Basically, what I need is to find a post where post.CustomField1 == \"some value\"\n\nI've searched and searched and been digging through the Graffiti CMS source code (graffiticms.codeplex.com) and can't figure out how I would do this.",
+  "lastActivityDate": "2010-01-25T22:04:30.503",
+  "title": "Graffiti CMS: Search Custom Fields",
+  "tags": [
+    "c#",
+    "graffiticms"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

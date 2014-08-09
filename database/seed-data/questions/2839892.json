@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2839892.json.json", "creationDate":"2010-05-15T11:20:52.723", "body":"\n\n\tFeatureEvents.bit_Activate = Convert.ToBoolean(collection[\"bit_Activate\"]);\n\t\n\nbit_Activate is checkbox ,how would i convert it to boolean above,collection is coming from the formcollection variable", "lastActivityDate":"2010-12-17T00:40:55.520", "title":"string was not recognized as the valid boolean", "tags":[["asp.net"], ["asp.net-mvc"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2839892.json",
+  "creationDate": "2010-05-15T11:20:52.723",
+  "body": "\n\n\tFeatureEvents.bit_Activate = Convert.ToBoolean(collection[\"bit_Activate\"]);\n\t\n\nbit_Activate is checkbox ,how would i convert it to boolean above,collection is coming from the formcollection variable",
+  "lastActivityDate": "2010-12-17T00:40:55.520",
+  "title": "string was not recognized as the valid boolean",
+  "tags": [
+    "asp.net",
+    "asp.net-mvc"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

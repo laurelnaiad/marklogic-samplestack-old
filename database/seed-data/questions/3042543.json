@@ -1,1 +1,17 @@
-{"id":"/questions//questions/3042543.json.json", "creationDate":"2010-06-15T04:42:33.350", "body":"\n\nIn Socket Programming, how will a Unix thread receive a Socket CLOSE event from a client if connection is closed?\n\nAre there any API's which will notify the unix thread about the CLOSE event received?\n\nAs in Windows we have WSAEnumNetworkEvents API which gets the event notification for a specified socket descriptor. What will be the equivalent API used in the Unix socket programing?\n\nPlease provide the help for the query.", "lastActivityDate":"2010-06-15T07:01:13.110", "title":"Porting Windows socket program to Unix: Alternative for winsock32 APIs in unix", "tags":[["c++"], ["unix-socket"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201006", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/3042543.json",
+  "creationDate": "2010-06-15T04:42:33.350",
+  "body": "\n\nIn Socket Programming, how will a Unix thread receive a Socket CLOSE event from a client if connection is closed?\n\nAre there any API's which will notify the unix thread about the CLOSE event received?\n\nAs in Windows we have WSAEnumNetworkEvents API which gets the event notification for a specified socket descriptor. What will be the equivalent API used in the Unix socket programing?\n\nPlease provide the help for the query.",
+  "lastActivityDate": "2010-06-15T07:01:13.110",
+  "title": "Porting Windows socket program to Unix: Alternative for winsock32 APIs in unix",
+  "tags": [
+    "c++",
+    "unix-socket"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201006",
+  "itemTally": 0,
+  "owner": null
+}

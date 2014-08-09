@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2644373.json.json", "creationDate":"2010-04-15T10:14:03.493", "body":"\n\nI want to check whether a date is between start date and end date.\n\ni have added a where clause\n\n\twhere datepaid between '2010-04-01' AND '2010-04-15'\n\t\n\nbut the problem is that it excludes '2010-04-15'.\n\nIt should include end date also how can i do this?\n\nPlease help me on this\n\nRegards,\n\npankaj", "lastActivityDate":"2010-04-15T13:37:56.097", "title":"Finding date between start date and end date", "tags":[["sql"], ["mysql"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2644373.json",
+  "creationDate": "2010-04-15T10:14:03.493",
+  "body": "\n\nI want to check whether a date is between start date and end date.\n\ni have added a where clause\n\n\twhere datepaid between '2010-04-01' AND '2010-04-15'\n\t\n\nbut the problem is that it excludes '2010-04-15'.\n\nIt should include end date also how can i do this?\n\nPlease help me on this\n\nRegards,\n\npankaj",
+  "lastActivityDate": "2010-04-15T13:37:56.097",
+  "title": "Finding date between start date and end date",
+  "tags": [
+    "sql",
+    "mysql"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

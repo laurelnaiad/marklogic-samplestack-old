@@ -1,1 +1,20 @@
-{"id":"/questions//questions/2445899.json.json", "creationDate":"2010-03-15T08:51:37.197", "body":"\n\nMy problem seems to be this: heap data allocated by one thread (that later dies) seems to die as well. As so:\n1. Thread X: starts\n2. Thread Y: starts\n3. Thread X: ptr = new some bytes\n4. Thread X: dies\n5. Thread Y: tries to use ptr - and crashes!\n\nSo far, I've only seen this problem on Darwin (Mac OS 10.5 and 10.6), but haven't tried more other platforms than Windows and Linux (Ubuntu) where it works as expected. I've had this problem for some time, so any know-how or more information about this is highly appreciated!\n\n**Edit:** the problem was caused by an [unrelated crash bug](http://stackoverflow.com/questions/2536536/va-list-crash-bug-from-hell).", "lastActivityDate":"2010-03-29T08:18:23.263", "title":"Does operator new allocate on THREAD heap?", "tags":[["c++"], ["multithreading"], ["heap"], ["portability"], ["darwin"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2445899.json",
+  "creationDate": "2010-03-15T08:51:37.197",
+  "body": "\n\nMy problem seems to be this: heap data allocated by one thread (that later dies) seems to die as well. As so:\n1. Thread X: starts\n2. Thread Y: starts\n3. Thread X: ptr = new some bytes\n4. Thread X: dies\n5. Thread Y: tries to use ptr - and crashes!\n\nSo far, I've only seen this problem on Darwin (Mac OS 10.5 and 10.6), but haven't tried more other platforms than Windows and Linux (Ubuntu) where it works as expected. I've had this problem for some time, so any know-how or more information about this is highly appreciated!\n\n**Edit:** the problem was caused by an [unrelated crash bug](http://stackoverflow.com/questions/2536536/va-list-crash-bug-from-hell).",
+  "lastActivityDate": "2010-03-29T08:18:23.263",
+  "title": "Does operator new allocate on THREAD heap?",
+  "tags": [
+    "c++",
+    "multithreading",
+    "heap",
+    "portability",
+    "darwin"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

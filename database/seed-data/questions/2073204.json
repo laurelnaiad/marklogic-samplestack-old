@@ -1,1 +1,20 @@
-{"id":"/questions//questions/2073204.json.json", "creationDate":"2010-01-15T16:39:49.613", "body":"\n\nIs it possible to specify what is returned by `RoleProvider.GetRoles()` if a user is not logged in? I was thinking in case of a '`Guest`' user account.", "lastActivityDate":"2010-01-15T17:37:27.783", "title":"ASP.NET 'Guest' Membership", "tags":[["c#"], [".net"], ["asp.net"], ["asp.net-membership"], ["membership"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2073204.json",
+  "creationDate": "2010-01-15T16:39:49.613",
+  "body": "\n\nIs it possible to specify what is returned by `RoleProvider.GetRoles()` if a user is not logged in? I was thinking in case of a '`Guest`' user account.",
+  "lastActivityDate": "2010-01-15T17:37:27.783",
+  "title": "ASP.NET 'Guest' Membership",
+  "tags": [
+    "c#",
+    ".net",
+    "asp.net",
+    "asp.net-membership",
+    "membership"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

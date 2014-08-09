@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2647982.json.json", "creationDate":"2010-04-15T18:28:57.457", "body":"\n\nI'm new to the Win32 API and the many new types begin to confuse me.\n\nSome functions take 1-2 `ints` and 3 `UINTS` as arguments. \n* Why can't they just use ints? What are UINTS?\n\nThen, there are those other types:\n\n\tDWORD LPCWSTR LPBOOL \n\t\n* Again, I think the \"primitive\" C types would be enough - why introduce 100 new types?\n\nThis one was a pain: `WCHAR*`\n\nI had to iterate through it and push_back every character to an std::string as there wasn't another way to convert it to one. Horrible.\n* Why `WCHAR`? Why reinvent the wheel? They could have just used `char*` instead, or?", "lastActivityDate":"2010-04-16T13:15:59.350", "title":"Why does the Win32-API have so many custom types?", "tags":[["c"], ["winapi"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2647982.json",
+  "creationDate": "2010-04-15T18:28:57.457",
+  "body": "\n\nI'm new to the Win32 API and the many new types begin to confuse me.\n\nSome functions take 1-2 `ints` and 3 `UINTS` as arguments. \n* Why can't they just use ints? What are UINTS?\n\nThen, there are those other types:\n\n\tDWORD LPCWSTR LPBOOL \n\t\n* Again, I think the \"primitive\" C types would be enough - why introduce 100 new types?\n\nThis one was a pain: `WCHAR*`\n\nI had to iterate through it and push_back every character to an std::string as there wasn't another way to convert it to one. Horrible.\n* Why `WCHAR`? Why reinvent the wheel? They could have just used `char*` instead, or?",
+  "lastActivityDate": "2010-04-16T13:15:59.350",
+  "title": "Why does the Win32-API have so many custom types?",
+  "tags": [
+    "c",
+    "winapi"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

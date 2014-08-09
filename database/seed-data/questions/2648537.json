@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2648537.json.json", "creationDate":"2010-04-15T19:55:34.300", "body":"\n\nI was wondering if is it possible to deploy a jar file in Jetty? \nIf not, are there applications servers who can do so? \n\nI am beginner. I am asking this question because all the docs that i have found, it seems that we can only deploy war archive in application servers. Is that true? ", "lastActivityDate":"2010-04-16T00:53:18.767", "title":"Deploy a jar in Jetty", "tags":[["java"], ["jar"], ["jetty"], ["war"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2648537.json",
+  "creationDate": "2010-04-15T19:55:34.300",
+  "body": "\n\nI was wondering if is it possible to deploy a jar file in Jetty? \nIf not, are there applications servers who can do so? \n\nI am beginner. I am asking this question because all the docs that i have found, it seems that we can only deploy war archive in application servers. Is that true? ",
+  "lastActivityDate": "2010-04-16T00:53:18.767",
+  "title": "Deploy a jar in Jetty",
+  "tags": [
+    "java",
+    "jar",
+    "jetty",
+    "war"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

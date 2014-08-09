@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2446908.json.json", "creationDate":"2010-03-15T12:08:28.960", "body":"\n\nI need to save objects - instances of classes - in my app like some filetype. How I can write own serializer/deserializer for it? \n\nOr exist some easier way how to save objects to some filetype?\n\nUsing of io.serialization was commented as not so good solution for \"real\" app. Why?", "lastActivityDate":"2013-07-20T20:24:58.570", "title":"how to write own serializer/deserializer?", "tags":[["java"], ["serialization"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2446908.json",
+  "creationDate": "2010-03-15T12:08:28.960",
+  "body": "\n\nI need to save objects - instances of classes - in my app like some filetype. How I can write own serializer/deserializer for it? \n\nOr exist some easier way how to save objects to some filetype?\n\nUsing of io.serialization was commented as not so good solution for \"real\" app. Why?",
+  "lastActivityDate": "2013-07-20T20:24:58.570",
+  "title": "how to write own serializer/deserializer?",
+  "tags": [
+    "java",
+    "serialization"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

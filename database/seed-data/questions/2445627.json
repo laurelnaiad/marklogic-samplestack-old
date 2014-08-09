@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2445627.json.json", "creationDate":"2010-03-15T07:29:49.940", "body":"\n\nam having a WPF user control in my WPF Form, when i click my button in my form , i just want to pass some value to the textbox which is in the usercontrol, tell me how to do this.", "lastActivityDate":"2010-03-16T11:11:15.730", "title":"How to pass value from wpf form to wpf user control", "tags":[["c#"], [".net"], ["wpf"], ["user-controls"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2445627.json",
+  "creationDate": "2010-03-15T07:29:49.940",
+  "body": "\n\nam having a WPF user control in my WPF Form, when i click my button in my form , i just want to pass some value to the textbox which is in the usercontrol, tell me how to do this.",
+  "lastActivityDate": "2010-03-16T11:11:15.730",
+  "title": "How to pass value from wpf form to wpf user control",
+  "tags": [
+    "c#",
+    ".net",
+    "wpf",
+    "user-controls"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2263643.json.json", "creationDate":"2010-02-15T01:54:11.177", "body":"\n\nHow to get the cursor point in a Window instead of whole desktop?", "lastActivityDate":"2013-03-13T18:01:00.620", "title":"How to get the cursor point in a Window instead of whole desktop?", "tags":[["c++"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2263643.json",
+  "creationDate": "2010-02-15T01:54:11.177",
+  "body": "\n\nHow to get the cursor point in a Window instead of whole desktop?",
+  "lastActivityDate": "2013-03-13T18:01:00.620",
+  "title": "How to get the cursor point in a Window instead of whole desktop?",
+  "tags": [
+    "c++"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

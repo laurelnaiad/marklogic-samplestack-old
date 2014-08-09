@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2264218.json.json", "creationDate":"2010-02-15T05:44:07.007", "body":"\n\ni have sniffed a file upload to find out tcp segments. i see a dup ack and and fast retransmission in the ethereal output. i want to verify that the timer for retransmission of this packet is indeed the one that is indicated by jacobson's formula. i have the timestamps for all segments. what portion of my linux source should i study to find out the retransmission timer value calculation algorithm used by my system.\nif it is the same as jacobson's algorithm i want to know the value of alpha for the retransmission timer.", "lastActivityDate":"2010-02-15T08:38:43.823", "title":"how to determine value of alpha for retransmission timer of tcp", "tags":[["tcp"], ["packet-sniffers"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2264218.json",
+  "creationDate": "2010-02-15T05:44:07.007",
+  "body": "\n\ni have sniffed a file upload to find out tcp segments. i see a dup ack and and fast retransmission in the ethereal output. i want to verify that the timer for retransmission of this packet is indeed the one that is indicated by jacobson's formula. i have the timestamps for all segments. what portion of my linux source should i study to find out the retransmission timer value calculation algorithm used by my system.\nif it is the same as jacobson's algorithm i want to know the value of alpha for the retransmission timer.",
+  "lastActivityDate": "2010-02-15T08:38:43.823",
+  "title": "how to determine value of alpha for retransmission timer of tcp",
+  "tags": [
+    "tcp",
+    "packet-sniffers"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

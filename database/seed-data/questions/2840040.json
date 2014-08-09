@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2840040.json.json", "creationDate":"2010-05-15T12:07:55.490", "body":"\n\nIn a custom ASP.NET AJAX control, i have this to do some repositioning.\n\n\tvar dims = Sys.UI.DomElement.getBounds(control);\n\tthis.get_element().style.position = \"absolute\";\n\t//Sys.UI.DomElement.setLocation(this.get_element(), dims.x, (dims.y + dims.height));\n\t\n\tthis.get_element().style.left = dims.x;\n\tthis.get_element().style.top = (dims.y + dims.height);\n\t\n\ngetBounds simply returns the x/y and width/height.  I use this to set the left/top, but in IE, it's doubling; say the coordinates are 500, 20; when it sets this on the element, its actually setting to 1000, 40.  Any ideas why?  In firefox, this works correctly.\n\nthis.get_element() returns the correct element and all, but it's not setting correctly, even though event logging says it's the correct coordinates.  When using setLocation too, it doesn't work in either...\n\nWhat else in my code may be affecting it?  JQuery isn't an option here too.\n\nThanks.", "lastActivityDate":"2010-06-24T10:41:05.187", "title":"Setting left/top position not working in IE", "tags":[["asp.net"], ["javascript"], ["asp.net-ajax"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2840040.json",
+  "creationDate": "2010-05-15T12:07:55.490",
+  "body": "\n\nIn a custom ASP.NET AJAX control, i have this to do some repositioning.\n\n\tvar dims = Sys.UI.DomElement.getBounds(control);\n\tthis.get_element().style.position = \"absolute\";\n\t//Sys.UI.DomElement.setLocation(this.get_element(), dims.x, (dims.y + dims.height));\n\t\n\tthis.get_element().style.left = dims.x;\n\tthis.get_element().style.top = (dims.y + dims.height);\n\t\n\ngetBounds simply returns the x/y and width/height.  I use this to set the left/top, but in IE, it's doubling; say the coordinates are 500, 20; when it sets this on the element, its actually setting to 1000, 40.  Any ideas why?  In firefox, this works correctly.\n\nthis.get_element() returns the correct element and all, but it's not setting correctly, even though event logging says it's the correct coordinates.  When using setLocation too, it doesn't work in either...\n\nWhat else in my code may be affecting it?  JQuery isn't an option here too.\n\nThanks.",
+  "lastActivityDate": "2010-06-24T10:41:05.187",
+  "title": "Setting left/top position not working in IE",
+  "tags": [
+    "asp.net",
+    "javascript",
+    "asp.net-ajax"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

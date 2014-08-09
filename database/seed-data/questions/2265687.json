@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2265687.json.json", "creationDate":"2010-02-15T11:52:37.313", "body":"\n\nI have currently changed to Mac from Ubuntu and for some reason viewing xml files in Firefox differ between the two. In Ubuntu Firefox(3.5) I get a XML tree but in Mac OS(10.6) Firefox(3.6) i get plain text. To se the xml tree i need to check the source. It is the same xml file. \nCould someone please explain why and how to turn it on in Firefox for Mac.\n(thought it could be that Javascript was disabled, but is enabled)", "lastActivityDate":"2010-02-15T14:21:41.810", "title":"Firefox in macosx is not displaying xml tree", "tags":[["xml"], ["firefox"], ["ubuntu"], ["osx"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2265687.json",
+  "creationDate": "2010-02-15T11:52:37.313",
+  "body": "\n\nI have currently changed to Mac from Ubuntu and for some reason viewing xml files in Firefox differ between the two. In Ubuntu Firefox(3.5) I get a XML tree but in Mac OS(10.6) Firefox(3.6) i get plain text. To se the xml tree i need to check the source. It is the same xml file. \nCould someone please explain why and how to turn it on in Firefox for Mac.\n(thought it could be that Javascript was disabled, but is enabled)",
+  "lastActivityDate": "2010-02-15T14:21:41.810",
+  "title": "Firefox in macosx is not displaying xml tree",
+  "tags": [
+    "xml",
+    "firefox",
+    "ubuntu",
+    "osx"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

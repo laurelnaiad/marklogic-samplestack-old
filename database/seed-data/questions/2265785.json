@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2265785.json.json", "creationDate":"2010-02-15T12:13:02.417", "body":"\n\ni was wondering how to make a ViewController (or TTViewController) scrollable, e.g. for long pages?\n\nMy first try (make the frame bigger) doesnt work. \n\n\tCGRect appFrame = [UIScreen mainScreen].applicationFrame;\n\tCGRect frame = CGRectMake(0, 0, appFrame.size.width, appFrame.size.height + 200);\n\tself.view = [[[UIView alloc] initWithFrame:frame] autorelease];\n\t\n\nthanks", "lastActivityDate":"2010-02-15T12:15:34.393", "title":"Make a ViewController scrollable?", "tags":[["iphone"], ["objective-c"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2265785.json",
+  "creationDate": "2010-02-15T12:13:02.417",
+  "body": "\n\ni was wondering how to make a ViewController (or TTViewController) scrollable, e.g. for long pages?\n\nMy first try (make the frame bigger) doesnt work. \n\n\tCGRect appFrame = [UIScreen mainScreen].applicationFrame;\n\tCGRect frame = CGRectMake(0, 0, appFrame.size.width, appFrame.size.height + 200);\n\tself.view = [[[UIView alloc] initWithFrame:frame] autorelease];\n\t\n\nthanks",
+  "lastActivityDate": "2010-02-15T12:15:34.393",
+  "title": "Make a ViewController scrollable?",
+  "tags": [
+    "iphone",
+    "objective-c"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

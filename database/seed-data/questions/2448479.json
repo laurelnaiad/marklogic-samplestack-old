@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2448479.json.json", "creationDate":"2010-03-15T15:53:52.033", "body":"\n\nI have a backup created of my mysql database (vbulletin forum v3.8) everyday. It's about 360mb in size. It's stored as one text file in a secure folder.\n\nI'm thinking of getting another server, through a different host, and somehow automatically transferring the backup to my second server every day. \n\nAny ideas on how I could automate this process? I'm thinking PHP and a cron job.", "lastActivityDate":"2010-03-15T16:01:43.107", "title":"Automatically backing up a file to another server?", "tags":[["php"], ["mysql"], ["ftp"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2448479.json",
+  "creationDate": "2010-03-15T15:53:52.033",
+  "body": "\n\nI have a backup created of my mysql database (vbulletin forum v3.8) everyday. It's about 360mb in size. It's stored as one text file in a secure folder.\n\nI'm thinking of getting another server, through a different host, and somehow automatically transferring the backup to my second server every day. \n\nAny ideas on how I could automate this process? I'm thinking PHP and a cron job.",
+  "lastActivityDate": "2010-03-15T16:01:43.107",
+  "title": "Automatically backing up a file to another server?",
+  "tags": [
+    "php",
+    "mysql",
+    "ftp"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

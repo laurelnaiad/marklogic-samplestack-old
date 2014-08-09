@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2444695.json.json", "creationDate":"2010-03-15T02:11:40.610", "body":"\n\nI have a question about the difference between volatile and mutable. I noticed that both of the two means that it could be changed. What else? Are they the same thing? What's the difference? Where are they applicable? Why the two ideas are proposed? How to use them in different way?\n\nThanks a lot. ", "lastActivityDate":"2013-10-30T18:04:59.873", "title":"volatile vs. mutable in C++", "tags":[["c++"], ["volatile"], ["mutable"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2444695.json",
+  "creationDate": "2010-03-15T02:11:40.610",
+  "body": "\n\nI have a question about the difference between volatile and mutable. I noticed that both of the two means that it could be changed. What else? Are they the same thing? What's the difference? Where are they applicable? Why the two ideas are proposed? How to use them in different way?\n\nThanks a lot. ",
+  "lastActivityDate": "2013-10-30T18:04:59.873",
+  "title": "volatile vs. mutable in C++",
+  "tags": [
+    "c++",
+    "volatile",
+    "mutable"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

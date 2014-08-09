@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2838715.json.json", "creationDate":"2010-05-15T02:46:45.673", "body":"\n\n\tsomevar := apple\n\texport somevar\n\tupdate := $(shell echo \"v=$$somevar\")\n\t\n\tall:\n\t    @echo $(update)\n\t\n\nI was hoping to apple as output of command, however it's empty, which makes me think export and `:=` variable expansion taking place on different phases. how to overcome this?", "lastActivityDate":"2010-05-15T05:42:48.540", "title":"Makefile variable initialization and export", "tags":[["variables"], ["makefile"], ["export"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2838715.json",
+  "creationDate": "2010-05-15T02:46:45.673",
+  "body": "\n\n\tsomevar := apple\n\texport somevar\n\tupdate := $(shell echo \"v=$$somevar\")\n\t\n\tall:\n\t    @echo $(update)\n\t\n\nI was hoping to apple as output of command, however it's empty, which makes me think export and `:=` variable expansion taking place on different phases. how to overcome this?",
+  "lastActivityDate": "2010-05-15T05:42:48.540",
+  "title": "Makefile variable initialization and export",
+  "tags": [
+    "variables",
+    "makefile",
+    "export"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

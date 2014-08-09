@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2649526.json.json", "creationDate":"2010-04-15T22:48:40.953", "body":"\n\nI am trying grab all the member variables in AS3, and then foreach one i would like to process it in various ways. I would need the name and then if it is a collection of some type I would like to loop through that collection as well. I am attempting to essentially serialize in a somewhat custom fashion.\nThanks!", "lastActivityDate":"2010-04-16T01:52:20.897", "title":"Is it possible to get all member variables in flash(AS3)?", "tags":[["actionscript-3"], ["reflection"], ["instance-variables"], ["member-variables"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2649526.json",
+  "creationDate": "2010-04-15T22:48:40.953",
+  "body": "\n\nI am trying grab all the member variables in AS3, and then foreach one i would like to process it in various ways. I would need the name and then if it is a collection of some type I would like to loop through that collection as well. I am attempting to essentially serialize in a somewhat custom fashion.\nThanks!",
+  "lastActivityDate": "2010-04-16T01:52:20.897",
+  "title": "Is it possible to get all member variables in flash(AS3)?",
+  "tags": [
+    "actionscript-3",
+    "reflection",
+    "instance-variables",
+    "member-variables"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

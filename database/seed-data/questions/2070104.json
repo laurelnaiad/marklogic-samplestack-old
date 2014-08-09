@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2070104.json.json", "creationDate":"2010-01-15T07:40:44.023", "body":"\n\nHow to compare values present in two sets with same size.", "lastActivityDate":"2013-01-19T20:15:30.530", "title":"How to compare values present in two sets with same size", "tags":[["java"], ["collections"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2070104.json",
+  "creationDate": "2010-01-15T07:40:44.023",
+  "body": "\n\nHow to compare values present in two sets with same size.",
+  "lastActivityDate": "2013-01-19T20:15:30.530",
+  "title": "How to compare values present in two sets with same size",
+  "tags": [
+    "java",
+    "collections"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

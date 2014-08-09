@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2838511.json.json", "creationDate":"2010-05-15T01:16:53.440", "body":"\n\nI made a jquery function that binds some fields, but it doesn't work when i add a new inline.  \n\nThe main problem is that i don't know how to detect the insertion in DOM and bind it to my function.\n\nThanks", "lastActivityDate":"2011-11-25T10:45:45.700", "title":"How to bind events with jquery in django admin when new *Inline is added", "tags":[["jquery"], ["django"], ["javascript-events"], ["django-admin"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2838511.json",
+  "creationDate": "2010-05-15T01:16:53.440",
+  "body": "\n\nI made a jquery function that binds some fields, but it doesn't work when i add a new inline.  \n\nThe main problem is that i don't know how to detect the insertion in DOM and bind it to my function.\n\nThanks",
+  "lastActivityDate": "2011-11-25T10:45:45.700",
+  "title": "How to bind events with jquery in django admin when new *Inline is added",
+  "tags": [
+    "jquery",
+    "django",
+    "javascript-events",
+    "django-admin"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

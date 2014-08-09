@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2646863.json.json", "creationDate":"2010-04-15T15:50:45.613", "body":"\n\nI know how Kerberos works and understand it purpose but I need some real world examples, where does it fit, and have you ever use it?", "lastActivityDate":"2012-08-22T03:28:09.523", "title":"Kerberos - real world examples?", "tags":[["security"], ["kerberos"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2646863.json",
+  "creationDate": "2010-04-15T15:50:45.613",
+  "body": "\n\nI know how Kerberos works and understand it purpose but I need some real world examples, where does it fit, and have you ever use it?",
+  "lastActivityDate": "2012-08-22T03:28:09.523",
+  "title": "Kerberos - real world examples?",
+  "tags": [
+    "security",
+    "kerberos"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

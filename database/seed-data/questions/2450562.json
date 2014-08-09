@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2450562.json.json", "creationDate":"2010-03-15T21:16:45.213", "body":"\n\nI'm getting a runt-time \"Unsatisfied link error\" for libraries installed in Linux system library, which are definitely visible. This project works normally when I let Eclipse to manage it.\n\nDoes someone know if there any caveats regarding JNI and Maven, and can advice about this case?\n\nThanks in advance.", "lastActivityDate":"2010-03-16T01:00:51.520", "title":"Unsatisfied link error under Maven exec / debug plugins on Linux", "tags":[["java"], ["linux"], ["maven-2"], ["jni"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2450562.json",
+  "creationDate": "2010-03-15T21:16:45.213",
+  "body": "\n\nI'm getting a runt-time \"Unsatisfied link error\" for libraries installed in Linux system library, which are definitely visible. This project works normally when I let Eclipse to manage it.\n\nDoes someone know if there any caveats regarding JNI and Maven, and can advice about this case?\n\nThanks in advance.",
+  "lastActivityDate": "2010-03-16T01:00:51.520",
+  "title": "Unsatisfied link error under Maven exec / debug plugins on Linux",
+  "tags": [
+    "java",
+    "linux",
+    "maven-2",
+    "jni"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

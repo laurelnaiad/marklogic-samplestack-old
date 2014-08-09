@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2068557.json.json", "creationDate":"2010-01-15T00:20:51.223", "body":"\n\nit's not a programming question, but programmers related.\n\nif yes, please guide me to some colleges that have that program.\nthanks.", "lastActivityDate":"2012-10-28T14:21:10.280", "title":"is there a masters degree in Mobile development like android?", "tags":[["android"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2068557.json",
+  "creationDate": "2010-01-15T00:20:51.223",
+  "body": "\n\nit's not a programming question, but programmers related.\n\nif yes, please guide me to some colleges that have that program.\nthanks.",
+  "lastActivityDate": "2012-10-28T14:21:10.280",
+  "title": "is there a masters degree in Mobile development like android?",
+  "tags": [
+    "android"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

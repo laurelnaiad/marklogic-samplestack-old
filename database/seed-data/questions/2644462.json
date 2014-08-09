@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2644462.json.json", "creationDate":"2010-04-15T10:29:37.883", "body":"\n\nI am considering using Facelets and JSTL in the same web project.\n\nAre there any issues in integrating these ?", "lastActivityDate":"2013-03-04T13:11:29.340", "title":"Integrating JSTL With Facelets", "tags":[["jsf"], ["jstl"], ["facelets"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2644462.json",
+  "creationDate": "2010-04-15T10:29:37.883",
+  "body": "\n\nI am considering using Facelets and JSTL in the same web project.\n\nAre there any issues in integrating these ?",
+  "lastActivityDate": "2013-03-04T13:11:29.340",
+  "title": "Integrating JSTL With Facelets",
+  "tags": [
+    "jsf",
+    "jstl",
+    "facelets"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

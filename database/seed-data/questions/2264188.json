@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2264188.json.json", "creationDate":"2010-02-15T05:37:41.280", "body":"\n\nim storing down ranks in one of my app, and i frequently do this:\n\n\tselect count(*) from table where score > ?\n\t\n\nand ? = the current person's score.  i intend to memcache this, and i use an index on this table, is there a good way to index it?", "lastActivityDate":"2010-02-15T05:45:28.880", "title":"Using an index for a ranged where", "tags":[["mysql"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2264188.json",
+  "creationDate": "2010-02-15T05:37:41.280",
+  "body": "\n\nim storing down ranks in one of my app, and i frequently do this:\n\n\tselect count(*) from table where score > ?\n\t\n\nand ? = the current person's score.  i intend to memcache this, and i use an index on this table, is there a good way to index it?",
+  "lastActivityDate": "2010-02-15T05:45:28.880",
+  "title": "Using an index for a ranged where",
+  "tags": [
+    "mysql"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

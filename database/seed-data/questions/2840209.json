@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2840209.json.json", "creationDate":"2010-05-15T13:10:02.240", "body":"\n\nWhat's the broad math idea behind the calendar if you need to build one from scratch without depending on OS or other libraries ?", "lastActivityDate":"2010-05-15T13:19:40.163", "title":"Idea of developing \"Calendar\" from scratch", "tags":[["math"], ["date"], ["time"], ["calendar"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2840209.json",
+  "creationDate": "2010-05-15T13:10:02.240",
+  "body": "\n\nWhat's the broad math idea behind the calendar if you need to build one from scratch without depending on OS or other libraries ?",
+  "lastActivityDate": "2010-05-15T13:19:40.163",
+  "title": "Idea of developing \"Calendar\" from scratch",
+  "tags": [
+    "math",
+    "date",
+    "time",
+    "calendar"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

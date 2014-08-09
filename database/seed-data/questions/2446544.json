@@ -1,1 +1,20 @@
-{"id":"/questions//questions/2446544.json.json", "creationDate":"2010-03-15T10:57:18.363", "body":"\n\nI want to have 5 lines for the height of the text area. I am using the following code.\n\n\t<EditText\n\t    android:layout_width=\"fill_parent\"\n\t    android:layout_height=\"wrap_content\"\n\t    android:gravity=\"center\"\n\t    android:singleLine=\"false\"\n\t    android:lines=\"5\"\n\t    android:layout_marginLeft=\"10dip\"\n\t    android:layout_marginRight=\"10dip\" />\n\t\n\nThe text area looks fine, but the problem is that the cursor is blinking in the middle of the text field. I want it to blink at first line, at the first character of the text field.", "lastActivityDate":"2013-09-11T04:47:33.927", "title":"Android: Vertical alignment for multi line EditText (Text area)", "tags":[["android"], ["edittext"], ["vertical-alignment"], ["android-edittext"], ["multiline"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2446544.json",
+  "creationDate": "2010-03-15T10:57:18.363",
+  "body": "\n\nI want to have 5 lines for the height of the text area. I am using the following code.\n\n\t<EditText\n\t    android:layout_width=\"fill_parent\"\n\t    android:layout_height=\"wrap_content\"\n\t    android:gravity=\"center\"\n\t    android:singleLine=\"false\"\n\t    android:lines=\"5\"\n\t    android:layout_marginLeft=\"10dip\"\n\t    android:layout_marginRight=\"10dip\" />\n\t\n\nThe text area looks fine, but the problem is that the cursor is blinking in the middle of the text field. I want it to blink at first line, at the first character of the text field.",
+  "lastActivityDate": "2013-09-11T04:47:33.927",
+  "title": "Android: Vertical alignment for multi line EditText (Text area)",
+  "tags": [
+    "android",
+    "edittext",
+    "vertical-alignment",
+    "android-edittext",
+    "multiline"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

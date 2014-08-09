@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2839954.json.json", "creationDate":"2010-05-15T11:37:22.260", "body":"\n\nI'm done some WinForms work in C# but now moving to have to develop a web application front end in .NET (C#).  I have experience developing web apps in Ruby on Rails (& a little with Java with JSP pages & struts mvc).\n\nShould I jump straight to MVC framework?  (as opposed to going ASP.net)  That is from the point of view of future direction for Microsoft & as well ease in ramping up from myself.\n\nOr if you like, given my experience to date, what would the pros/cons for me re MVC versus ASP.net?\n\nthanks", "lastActivityDate":"2013-10-09T12:29:38.547", "title":"My first .net web app - should I go straight to MVC framework (c.f. ASP.net)", "tags":[["c#"], ["asp.net-mvc"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2839954.json",
+  "creationDate": "2010-05-15T11:37:22.260",
+  "body": "\n\nI'm done some WinForms work in C# but now moving to have to develop a web application front end in .NET (C#).  I have experience developing web apps in Ruby on Rails (& a little with Java with JSP pages & struts mvc).\n\nShould I jump straight to MVC framework?  (as opposed to going ASP.net)  That is from the point of view of future direction for Microsoft & as well ease in ramping up from myself.\n\nOr if you like, given my experience to date, what would the pros/cons for me re MVC versus ASP.net?\n\nthanks",
+  "lastActivityDate": "2013-10-09T12:29:38.547",
+  "title": "My first .net web app - should I go straight to MVC framework (c.f. ASP.net)",
+  "tags": [
+    "c#",
+    "asp.net-mvc"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

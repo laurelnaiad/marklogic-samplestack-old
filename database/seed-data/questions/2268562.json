@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2268562.json.json", "creationDate":"2010-02-15T20:02:16.073", "body":"\n\nCan anyone explain what they are and why I would need them? What kind of applications am I building if I need to use intrinsics?", "lastActivityDate":"2010-02-15T22:28:18.480", "title":"What are intrinsics", "tags":[["c++"], ["visual-c++"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2268562.json",
+  "creationDate": "2010-02-15T20:02:16.073",
+  "body": "\n\nCan anyone explain what they are and why I would need them? What kind of applications am I building if I need to use intrinsics?",
+  "lastActivityDate": "2010-02-15T22:28:18.480",
+  "title": "What are intrinsics",
+  "tags": [
+    "c++",
+    "visual-c++"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

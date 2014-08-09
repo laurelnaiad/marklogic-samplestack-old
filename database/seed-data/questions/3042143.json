@@ -1,1 +1,17 @@
-{"id":"/questions//questions/3042143.json.json", "creationDate":"2010-06-15T02:20:28.890", "body":"\n\nI haven't found anything mentioning a double right-click windows message but am curious if anybody knows of events that fire for a double right-click.\n\nAny ideas?", "lastActivityDate":"2013-09-06T16:56:29.560", "title":"Is there a such thing as a double right-click in Win32?", "tags":[["winapi"], ["windows-messages"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201006", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/3042143.json",
+  "creationDate": "2010-06-15T02:20:28.890",
+  "body": "\n\nI haven't found anything mentioning a double right-click windows message but am curious if anybody knows of events that fire for a double right-click.\n\nAny ideas?",
+  "lastActivityDate": "2013-09-06T16:56:29.560",
+  "title": "Is there a such thing as a double right-click in Win32?",
+  "tags": [
+    "winapi",
+    "windows-messages"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201006",
+  "itemTally": 0,
+  "owner": null
+}

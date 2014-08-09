@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2646150.json.json", "creationDate":"2010-04-15T14:28:48.447", "body":"\n\nHow to override svn repository using subclipse?\nOr, in last case, by command line?", "lastActivityDate":"2010-04-15T15:16:32.277", "title":"How to override svn repository?", "tags":[["svn"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2646150.json",
+  "creationDate": "2010-04-15T14:28:48.447",
+  "body": "\n\nHow to override svn repository using subclipse?\nOr, in last case, by command line?",
+  "lastActivityDate": "2010-04-15T15:16:32.277",
+  "title": "How to override svn repository?",
+  "tags": [
+    "svn"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2648874.json.json", "creationDate":"2010-04-15T20:49:14.073", "body":"\n\nUsing PHP I'd like to compare an actual ip address to part of one, and see if it matches.\nFor example I want to see if the address matches 12.34.*.*\n\n\t<?php\n\t$rem_address = getenv('REMOTE_ADDR');\n\t$temp = substr ($rem_address,0,6)\n\tif ($temp == \"12.34.\") echo \"It's a match\";\n\t?>\n\t\n\nIs there an easier/better way to do this?", "lastActivityDate":"2010-04-16T07:39:02.507", "title":"comparing actual IP with partial IP in PHP", "tags":[["php"], ["string"], ["ip-address"], ["substrings"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2648874.json",
+  "creationDate": "2010-04-15T20:49:14.073",
+  "body": "\n\nUsing PHP I'd like to compare an actual ip address to part of one, and see if it matches.\nFor example I want to see if the address matches 12.34.*.*\n\n\t<?php\n\t$rem_address = getenv('REMOTE_ADDR');\n\t$temp = substr ($rem_address,0,6)\n\tif ($temp == \"12.34.\") echo \"It's a match\";\n\t?>\n\t\n\nIs there an easier/better way to do this?",
+  "lastActivityDate": "2010-04-16T07:39:02.507",
+  "title": "comparing actual IP with partial IP in PHP",
+  "tags": [
+    "php",
+    "string",
+    "ip-address",
+    "substrings"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

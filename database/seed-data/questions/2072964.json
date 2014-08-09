@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2072964.json.json", "creationDate":"2010-01-15T16:08:12.270", "body":"\n\nHow do I write a code that loops while the LEFT or RIGHT arrow key is pressed?", "lastActivityDate":"2010-01-15T16:10:35.413", "title":"Java while ( keyispressed )", "tags":[["java"], ["keypress"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2072964.json",
+  "creationDate": "2010-01-15T16:08:12.270",
+  "body": "\n\nHow do I write a code that loops while the LEFT or RIGHT arrow key is pressed?",
+  "lastActivityDate": "2010-01-15T16:10:35.413",
+  "title": "Java while ( keyispressed )",
+  "tags": [
+    "java",
+    "keypress"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2649464.json.json", "creationDate":"2010-04-15T22:39:22.363", "body":"\n\nIs there a quicker way of creating a date such as:\n\n\techo date('Y-m-d', mktime(0, 0, 0, date(\"m\"), date(\"d\")+3,   date(\"Y\")));\n\t\n\nThanks if you can help.", "lastActivityDate":"2010-04-15T22:41:51.130", "title":"Better way of creating a PHP future date", "tags":[["php"], ["date"], ["mktime"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2649464.json",
+  "creationDate": "2010-04-15T22:39:22.363",
+  "body": "\n\nIs there a quicker way of creating a date such as:\n\n\techo date('Y-m-d', mktime(0, 0, 0, date(\"m\"), date(\"d\")+3,   date(\"Y\")));\n\t\n\nThanks if you can help.",
+  "lastActivityDate": "2010-04-15T22:41:51.130",
+  "title": "Better way of creating a PHP future date",
+  "tags": [
+    "php",
+    "date",
+    "mktime"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2072996.json.json", "creationDate":"2010-01-15T16:12:01.883", "body":"\n\nIs there a convenient method to access .NET class documentation (i.e. the MSDN documentation) from within PowerShel similar to \"man 3\" in UNIX shells?", "lastActivityDate":"2010-01-15T17:07:25.113", "title":".NET class documentation from within PowerShell?", "tags":[[".net"], ["powershell"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2072996.json",
+  "creationDate": "2010-01-15T16:12:01.883",
+  "body": "\n\nIs there a convenient method to access .NET class documentation (i.e. the MSDN documentation) from within PowerShel similar to \"man 3\" in UNIX shells?",
+  "lastActivityDate": "2010-01-15T17:07:25.113",
+  "title": ".NET class documentation from within PowerShell?",
+  "tags": [
+    ".net",
+    "powershell"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

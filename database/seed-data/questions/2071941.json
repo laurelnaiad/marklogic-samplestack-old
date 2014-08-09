@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2071941.json.json", "creationDate":"2010-01-15T13:53:47.353", "body":"\n\nIm doing my own ajax thing with dropdowns. Ive positioned an imput over a select tag. When stuff is typed into input it collects from db and populates the select menu. Problem is its not noticeable. Is there a way to make the select menu open as if a user has clicked on it?", "lastActivityDate":"2010-01-15T14:18:02.457", "title":"Trigger select tag to show options", "tags":[["javascript"], ["javascript-events"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2071941.json",
+  "creationDate": "2010-01-15T13:53:47.353",
+  "body": "\n\nIm doing my own ajax thing with dropdowns. Ive positioned an imput over a select tag. When stuff is typed into input it collects from db and populates the select menu. Problem is its not noticeable. Is there a way to make the select menu open as if a user has clicked on it?",
+  "lastActivityDate": "2010-01-15T14:18:02.457",
+  "title": "Trigger select tag to show options",
+  "tags": [
+    "javascript",
+    "javascript-events"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

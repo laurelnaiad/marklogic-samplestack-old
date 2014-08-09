@@ -1,1 +1,16 @@
-{"id":"/questions//questions/3043002.json.json", "creationDate":"2010-06-15T06:34:52.417", "body":"\n\nhallo all \ni was wondering how i can change the indentation settings of vs2010\nso instead of it doing this:\n\n\tfunction test () {\n\t}\n\t\n\nit will do this:\n\n\tfunction test ()\n\t{\n\t\n\t}\n\t\n\nits bugging me out!\n\nthank you", "lastActivityDate":"2011-04-29T05:06:14.310", "title":"javascript indentation in vs2010", "tags":[["visual-studio-2010"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201006", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/3043002.json",
+  "creationDate": "2010-06-15T06:34:52.417",
+  "body": "\n\nhallo all \ni was wondering how i can change the indentation settings of vs2010\nso instead of it doing this:\n\n\tfunction test () {\n\t}\n\t\n\nit will do this:\n\n\tfunction test ()\n\t{\n\t\n\t}\n\t\n\nits bugging me out!\n\nthank you",
+  "lastActivityDate": "2011-04-29T05:06:14.310",
+  "title": "javascript indentation in vs2010",
+  "tags": [
+    "visual-studio-2010"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201006",
+  "itemTally": 0,
+  "owner": null
+}

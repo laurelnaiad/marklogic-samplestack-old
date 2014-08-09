@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2645706.json.json", "creationDate":"2010-04-15T13:37:44.723", "body":"\n\nIs there any api/lib for python that will get me the synonyms of a word?\n\nFor example if i have the word \"house\" it will return \"building, domicile, mansion, etc...\"", "lastActivityDate":"2010-04-15T13:53:12.833", "title":"Is there any lib for python that will get me the synonyms of a word?", "tags":[["python"], ["nlp"], ["synonym"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2645706.json",
+  "creationDate": "2010-04-15T13:37:44.723",
+  "body": "\n\nIs there any api/lib for python that will get me the synonyms of a word?\n\nFor example if i have the word \"house\" it will return \"building, domicile, mansion, etc...\"",
+  "lastActivityDate": "2010-04-15T13:53:12.833",
+  "title": "Is there any lib for python that will get me the synonyms of a word?",
+  "tags": [
+    "python",
+    "nlp",
+    "synonym"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

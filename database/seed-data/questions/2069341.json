@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2069341.json.json", "creationDate":"2010-01-15T03:38:29.330", "body":"\n\nAdd expires headers in iis is very Easy,but this cache all the static files. now i want only \nadd expires headers to images,how can i do that? even i want cached specific file?", "lastActivityDate":"2013-01-23T16:34:31.767", "title":"iis only Add Expires headers to images", "tags":[["iis"], ["expires"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2069341.json",
+  "creationDate": "2010-01-15T03:38:29.330",
+  "body": "\n\nAdd expires headers in iis is very Easy,but this cache all the static files. now i want only \nadd expires headers to images,how can i do that? even i want cached specific file?",
+  "lastActivityDate": "2013-01-23T16:34:31.767",
+  "title": "iis only Add Expires headers to images",
+  "tags": [
+    "iis",
+    "expires"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

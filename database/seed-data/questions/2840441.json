@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2840441.json.json", "creationDate":"2010-05-15T14:23:22.320", "body":"\n\nI am implementing Magento Community edition and want to disable the \"**add to cart**\" functionality temporarily until i am prepared to proceed with online orders.\n\nI wanted to use Magento without checkout and add to cart functionality.\n\nPlease advice.\nSIA", "lastActivityDate":"2013-10-01T13:31:10.880", "title":"How to disable magento online sales functionality?", "tags":[["php"], ["mysql"], ["magento"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2840441.json",
+  "creationDate": "2010-05-15T14:23:22.320",
+  "body": "\n\nI am implementing Magento Community edition and want to disable the \"**add to cart**\" functionality temporarily until i am prepared to proceed with online orders.\n\nI wanted to use Magento without checkout and add to cart functionality.\n\nPlease advice.\nSIA",
+  "lastActivityDate": "2013-10-01T13:31:10.880",
+  "title": "How to disable magento online sales functionality?",
+  "tags": [
+    "php",
+    "mysql",
+    "magento"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

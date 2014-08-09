@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2073284.json.json", "creationDate":"2010-01-15T16:50:44.940", "body":"\n\nIs there a way to import Visual Studio TFS workspace, I have over 30 workspace and I need to import them to a TFS on new machine.\nThanks", "lastActivityDate":"2010-01-15T19:51:20.307", "title":"Import Visual Studio TFS workspaces", "tags":[["visual-studio"], ["tfs"], ["import"], ["workspace"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2073284.json",
+  "creationDate": "2010-01-15T16:50:44.940",
+  "body": "\n\nIs there a way to import Visual Studio TFS workspace, I have over 30 workspace and I need to import them to a TFS on new machine.\nThanks",
+  "lastActivityDate": "2010-01-15T19:51:20.307",
+  "title": "Import Visual Studio TFS workspaces",
+  "tags": [
+    "visual-studio",
+    "tfs",
+    "import",
+    "workspace"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

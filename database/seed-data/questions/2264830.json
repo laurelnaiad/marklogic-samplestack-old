@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2264830.json.json", "creationDate":"2010-02-15T09:02:30.707", "body":"\n\nDBCC (DB Consistency Check) commands are powerful tools but they don,t have a graphical user interface. now Is there a application that works like DBCC wizard?", "lastActivityDate":"2010-02-15T10:16:09.457", "title":"Is there an application that works as DBCC wizard?", "tags":[["sql-server"], ["dbcc"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2264830.json",
+  "creationDate": "2010-02-15T09:02:30.707",
+  "body": "\n\nDBCC (DB Consistency Check) commands are powerful tools but they don,t have a graphical user interface. now Is there a application that works like DBCC wizard?",
+  "lastActivityDate": "2010-02-15T10:16:09.457",
+  "title": "Is there an application that works as DBCC wizard?",
+  "tags": [
+    "sql-server",
+    "dbcc"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

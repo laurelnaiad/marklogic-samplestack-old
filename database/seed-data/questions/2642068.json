@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2642068.json.json", "creationDate":"2010-04-15T01:03:33.587", "body":"\n\nI have a few tutorials that I would like to write up. Many web-based tutorials have a demo page and a zip download of the demo. I can easily upload a zip file to my post, but the for the demo i'm not quite sure. The demo page would need to be different from the theme I'm currently using. One example of this style would be [http://css-tricks.com/3d-text-tower/](http://css-tricks.com/3d-text-tower/) . Does anyone know how to make a demo page in this style using wordpress?", "lastActivityDate":"2010-04-15T13:44:10.903", "title":"Wordpress Demo Pages for Tutorials", "tags":[["php"], ["wordpress"], ["demo"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2642068.json",
+  "creationDate": "2010-04-15T01:03:33.587",
+  "body": "\n\nI have a few tutorials that I would like to write up. Many web-based tutorials have a demo page and a zip download of the demo. I can easily upload a zip file to my post, but the for the demo i'm not quite sure. The demo page would need to be different from the theme I'm currently using. One example of this style would be [http://css-tricks.com/3d-text-tower/](http://css-tricks.com/3d-text-tower/) . Does anyone know how to make a demo page in this style using wordpress?",
+  "lastActivityDate": "2010-04-15T13:44:10.903",
+  "title": "Wordpress Demo Pages for Tutorials",
+  "tags": [
+    "php",
+    "wordpress",
+    "demo"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

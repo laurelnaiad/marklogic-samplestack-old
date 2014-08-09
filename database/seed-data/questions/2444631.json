@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2444631.json.json", "creationDate":"2010-03-15T01:52:15.503", "body":"\n\nIs there an equivalent in VB.NET to the C# ^= operator?", "lastActivityDate":"2010-03-15T01:55:21.580", "title":"^= operator in vb.net (Xor Equals)?", "tags":[["operators"], ["xor"], ["c#-to-vb.net"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2444631.json",
+  "creationDate": "2010-03-15T01:52:15.503",
+  "body": "\n\nIs there an equivalent in VB.NET to the C# ^= operator?",
+  "lastActivityDate": "2010-03-15T01:55:21.580",
+  "title": "^= operator in vb.net (Xor Equals)?",
+  "tags": [
+    "operators",
+    "xor",
+    "c#-to-vb.net"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

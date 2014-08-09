@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2840181.json.json", "creationDate":"2010-05-15T13:01:28.913", "body":"\n\nhow  to  remove the  extra  column that comes  default in datagrid  silverlight 4.0\n\nis there any good links to  designing(css) data grid in silverlight 4.0\n\nthanks in advance.\n prince", "lastActivityDate":"2010-05-19T18:49:27.450", "title":"remove the extra column that comes datagrid", "tags":[["silverlight-4.0"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2840181.json",
+  "creationDate": "2010-05-15T13:01:28.913",
+  "body": "\n\nhow  to  remove the  extra  column that comes  default in datagrid  silverlight 4.0\n\nis there any good links to  designing(css) data grid in silverlight 4.0\n\nthanks in advance.\n prince",
+  "lastActivityDate": "2010-05-19T18:49:27.450",
+  "title": "remove the extra column that comes datagrid",
+  "tags": [
+    "silverlight-4.0"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2447165.json.json", "creationDate":"2010-03-15T12:51:40.430", "body":"\n\nI have a function a time consuming operation that is done\nI want to start and end operations appear to be user (By statusbar control)\nBut when performed function, both text executed at the end of function.\n(user can not sees \"Start Operation ...\")\nWhat solution do you recommend to me?\n\n\t    private void btnUpdateDataBase_Click(object sender, RoutedEventArgs e)\n\t    {\n\t        TextBlockStatus.Text = \"Start Operation ...\";\n\t\n\t        //Time consuming operation \n\t\n\t        TextBlockStatus.Text = \"End Operation ...\";\n\t    }\n\t", "lastActivityDate":"2010-03-15T12:58:37.607", "title":"Delay in the implementation of text change in Statusbar control", "tags":[["c#"], ["wpf"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2447165.json",
+  "creationDate": "2010-03-15T12:51:40.430",
+  "body": "\n\nI have a function a time consuming operation that is done\nI want to start and end operations appear to be user (By statusbar control)\nBut when performed function, both text executed at the end of function.\n(user can not sees \"Start Operation ...\")\nWhat solution do you recommend to me?\n\n\t    private void btnUpdateDataBase_Click(object sender, RoutedEventArgs e)\n\t    {\n\t        TextBlockStatus.Text = \"Start Operation ...\";\n\t\n\t        //Time consuming operation \n\t\n\t        TextBlockStatus.Text = \"End Operation ...\";\n\t    }\n\t",
+  "lastActivityDate": "2010-03-15T12:58:37.607",
+  "title": "Delay in the implementation of text change in Statusbar control",
+  "tags": [
+    "c#",
+    "wpf"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

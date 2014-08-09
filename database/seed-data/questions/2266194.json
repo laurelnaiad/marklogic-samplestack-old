@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2266194.json.json", "creationDate":"2010-02-15T13:27:10.723", "body":"\n\nI would like to change the way a DateTime object is displayed in a DataGridView.\nSpecifically, I would like to have seconds displayed with the time.\n\nc#\n.net 2.0", "lastActivityDate":"2010-02-23T21:12:49.557", "title":"how do I change the way a DateTime object is displayed in a DataGridView", "tags":[["c#"], [".net"], ["winforms"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2266194.json",
+  "creationDate": "2010-02-15T13:27:10.723",
+  "body": "\n\nI would like to change the way a DateTime object is displayed in a DataGridView.\nSpecifically, I would like to have seconds displayed with the time.\n\nc#\n.net 2.0",
+  "lastActivityDate": "2010-02-23T21:12:49.557",
+  "title": "how do I change the way a DateTime object is displayed in a DataGridView",
+  "tags": [
+    "c#",
+    ".net",
+    "winforms"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

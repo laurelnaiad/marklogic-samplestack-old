@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2648754.json.json", "creationDate":"2010-04-15T20:29:09.193", "body":"\n\nWould I want to nest one function into another?", "lastActivityDate":"2010-07-31T02:17:39.590", "title":"How do I combine 2 prewritten Javascript functions", "tags":[["javascript"], ["function"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2648754.json",
+  "creationDate": "2010-04-15T20:29:09.193",
+  "body": "\n\nWould I want to nest one function into another?",
+  "lastActivityDate": "2010-07-31T02:17:39.590",
+  "title": "How do I combine 2 prewritten Javascript functions",
+  "tags": [
+    "javascript",
+    "function"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2642825.json.json", "creationDate":"2010-04-15T04:57:56.657", "body":"\n\nWhat is the best choice for webcam video/image capture under Mac OSX with C/C++? It seems that Apple recommended QTKit, but it is a Objective-C library. Any sample code to do the job?", "lastActivityDate":"2010-04-15T11:45:57.743", "title":"the choice for video capture in Mac OSX?", "tags":[["c++"], ["osx"], ["apple"], ["webcam"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2642825.json",
+  "creationDate": "2010-04-15T04:57:56.657",
+  "body": "\n\nWhat is the best choice for webcam video/image capture under Mac OSX with C/C++? It seems that Apple recommended QTKit, but it is a Objective-C library. Any sample code to do the job?",
+  "lastActivityDate": "2010-04-15T11:45:57.743",
+  "title": "the choice for video capture in Mac OSX?",
+  "tags": [
+    "c++",
+    "osx",
+    "apple",
+    "webcam"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

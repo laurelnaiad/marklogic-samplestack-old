@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2447502.json.json", "creationDate":"2010-03-15T13:42:14.263", "body":"\n\nI am looking for something like a portal, or a community where everybody posts their contributions in Java. \n\nEx. polynomial calculations, ...\n\nScenario:  Search -> \"polynomial\" -> download package (source code)\n\nThank you.", "lastActivityDate":"2010-03-15T13:49:34.480", "title":"Where is the best place to find pre-made, open source, java packages?", "tags":[["java"], ["open-source"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2447502.json",
+  "creationDate": "2010-03-15T13:42:14.263",
+  "body": "\n\nI am looking for something like a portal, or a community where everybody posts their contributions in Java. \n\nEx. polynomial calculations, ...\n\nScenario:  Search -> \"polynomial\" -> download package (source code)\n\nThank you.",
+  "lastActivityDate": "2010-03-15T13:49:34.480",
+  "title": "Where is the best place to find pre-made, open source, java packages?",
+  "tags": [
+    "java",
+    "open-source"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2445605.json.json", "creationDate":"2010-03-15T07:24:34.613", "body":"\n\nis there a way to get with printf colored output?\n\n\t#!/usr/bin/perl\n\tuse warnings; \n\tuse strict;\n\tuse Term::ANSIColor;\n\t\n\tprintf \"%4.4s\\n\", colored( '0123456789', 'magenta' );\n\t\n\nOutput: (only newline)\n\n> ", "lastActivityDate":"2010-03-15T18:59:53.557", "title":"How can I get colored output with printf and Perl's Term::ANSIColor?", "tags":[["perl"], ["colors"], ["printf"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2445605.json",
+  "creationDate": "2010-03-15T07:24:34.613",
+  "body": "\n\nis there a way to get with printf colored output?\n\n\t#!/usr/bin/perl\n\tuse warnings; \n\tuse strict;\n\tuse Term::ANSIColor;\n\t\n\tprintf \"%4.4s\\n\", colored( '0123456789', 'magenta' );\n\t\n\nOutput: (only newline)\n\n> ",
+  "lastActivityDate": "2010-03-15T18:59:53.557",
+  "title": "How can I get colored output with printf and Perl's Term::ANSIColor?",
+  "tags": [
+    "perl",
+    "colors",
+    "printf"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2838597.json.json", "creationDate":"2010-05-15T01:50:02.580", "body":"\n\nWe are getting rid of our flash based charting solutions to help users use our site on IPAD.", "lastActivityDate":"2010-05-15T02:33:46.777", "title":"Any good charting solutions for asp.net that can generate charts on server side and push them to the client?", "tags":[["asp.net"], ["charts"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2838597.json",
+  "creationDate": "2010-05-15T01:50:02.580",
+  "body": "\n\nWe are getting rid of our flash based charting solutions to help users use our site on IPAD.",
+  "lastActivityDate": "2010-05-15T02:33:46.777",
+  "title": "Any good charting solutions for asp.net that can generate charts on server side and push them to the client?",
+  "tags": [
+    "asp.net",
+    "charts"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

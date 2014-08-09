@@ -1,1 +1,20 @@
-{"id":"/questions//questions/2444467.json.json", "creationDate":"2010-03-15T00:39:04.470", "body":"\n\nMuch of our C# release code is built with the 'Optimize code' option turned off. I believe this is to allow code built in Release mode to be debugged more easily.\n\nGiven that we are creating fairly simple desktop software which connects to backend Web Services, (ie. not a particularly processor-intensive application) then what if any sort of performance hit might be expected?\n\nAnd is any particular platform likely to be worse affected? Eg. multi-processor / 64 bit.", "lastActivityDate":"2010-03-15T14:16:04.893", "title":"Benefits of 'Optimize code' option in Visual Studio build", "tags":[["c#"], ["visual-studio"], ["compiler"], ["build"], ["compiler-optimization"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2444467.json",
+  "creationDate": "2010-03-15T00:39:04.470",
+  "body": "\n\nMuch of our C# release code is built with the 'Optimize code' option turned off. I believe this is to allow code built in Release mode to be debugged more easily.\n\nGiven that we are creating fairly simple desktop software which connects to backend Web Services, (ie. not a particularly processor-intensive application) then what if any sort of performance hit might be expected?\n\nAnd is any particular platform likely to be worse affected? Eg. multi-processor / 64 bit.",
+  "lastActivityDate": "2010-03-15T14:16:04.893",
+  "title": "Benefits of 'Optimize code' option in Visual Studio build",
+  "tags": [
+    "c#",
+    "visual-studio",
+    "compiler",
+    "build",
+    "compiler-optimization"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

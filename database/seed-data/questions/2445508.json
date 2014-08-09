@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2445508.json.json", "creationDate":"2010-03-15T06:46:55.900", "body":"\n\nI am looking for a component that resizes and ftp's images to a website.\nIt doesn't have to be free.\nIn fact, I prefer something we pay for that comes with solid support.\n\nIt has to be able to transfer multiple images at once too.\n\nWe work in an ASP.NET MVC environment but the component could be in Flash or Java.", "lastActivityDate":"2010-03-23T03:13:26.307", "title":"Client side image resize and ftp component", "tags":[["image"], ["ftp"], ["resize"], ["client"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2445508.json",
+  "creationDate": "2010-03-15T06:46:55.900",
+  "body": "\n\nI am looking for a component that resizes and ftp's images to a website.\nIt doesn't have to be free.\nIn fact, I prefer something we pay for that comes with solid support.\n\nIt has to be able to transfer multiple images at once too.\n\nWe work in an ASP.NET MVC environment but the component could be in Flash or Java.",
+  "lastActivityDate": "2010-03-23T03:13:26.307",
+  "title": "Client side image resize and ftp component",
+  "tags": [
+    "image",
+    "ftp",
+    "resize",
+    "client"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

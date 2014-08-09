@@ -1,1 +1,17 @@
-{"id":"/questions//questions/3043154.json.json", "creationDate":"2010-06-15T07:06:48.533", "body":"\n\nAccording to the following description I have to frame a `CASE...END` statement in SQL server , help me to frame a complex `CASE...END` statement to fulfill the following condition.\n\n\tif PAT_ENT.SCR_DT is not null and PAT_ENTRY.ELIGIBILITY is null then display display 'Favor'\n\tif PAT_ENT.SCR_DT is not null and PAT_ENTRY.EL is equal to No, display 'Error'\n\tif PAT_ENTRY.EL is Yes and DS.DES is equal to null or OFF, display 'Active'\n\tif DS.DES is equal to N, display 'Early Term'\n\tif DS.DES is equal to Y, display 'Complete'\n\t\n\nThanks in advance.", "lastActivityDate":"2013-10-03T16:35:29.297", "title":"Combining multiple condition in single case statement in Sql Server", "tags":[["sql-server"], ["sql-server-2005"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201006", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/3043154.json",
+  "creationDate": "2010-06-15T07:06:48.533",
+  "body": "\n\nAccording to the following description I have to frame a `CASE...END` statement in SQL server , help me to frame a complex `CASE...END` statement to fulfill the following condition.\n\n\tif PAT_ENT.SCR_DT is not null and PAT_ENTRY.ELIGIBILITY is null then display display 'Favor'\n\tif PAT_ENT.SCR_DT is not null and PAT_ENTRY.EL is equal to No, display 'Error'\n\tif PAT_ENTRY.EL is Yes and DS.DES is equal to null or OFF, display 'Active'\n\tif DS.DES is equal to N, display 'Early Term'\n\tif DS.DES is equal to Y, display 'Complete'\n\t\n\nThanks in advance.",
+  "lastActivityDate": "2013-10-03T16:35:29.297",
+  "title": "Combining multiple condition in single case statement in Sql Server",
+  "tags": [
+    "sql-server",
+    "sql-server-2005"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201006",
+  "itemTally": 0,
+  "owner": null
+}

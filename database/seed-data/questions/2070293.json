@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2070293.json.json", "creationDate":"2010-01-15T08:31:14.170", "body":"\n\nWhy doesn't Java allow to throw an exception from static initialization block? What was the reason behind this design decision?\n\nAny help would be greatly appreciated.\n\nThanks.", "lastActivityDate":"2013-03-08T07:59:51.140", "title":"Exception in static initialization block", "tags":[["java"], ["design"], ["exception"], ["static-initializer"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2070293.json",
+  "creationDate": "2010-01-15T08:31:14.170",
+  "body": "\n\nWhy doesn't Java allow to throw an exception from static initialization block? What was the reason behind this design decision?\n\nAny help would be greatly appreciated.\n\nThanks.",
+  "lastActivityDate": "2013-03-08T07:59:51.140",
+  "title": "Exception in static initialization block",
+  "tags": [
+    "java",
+    "design",
+    "exception",
+    "static-initializer"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

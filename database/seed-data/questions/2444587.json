@@ -1,1 +1,20 @@
-{"id":"/questions//questions/2444587.json.json", "creationDate":"2010-03-15T01:31:19.397", "body":"\n\nI have an NSView in which the user can draw circles. These circles are stored as an array of NSBezierPaths, and in drawRect:, I loop through the array and call `-stroke` on each of the paths. How do I add a button to zoom in and out the NSView? Just change the bounds of the view?\n\nThanks.", "lastActivityDate":"2010-03-15T01:48:37.300", "title":"Zooming in an NSView", "tags":[["objective-c"], ["cocoa"], ["nsview"], ["appkit"], ["nsscrollview"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2444587.json",
+  "creationDate": "2010-03-15T01:31:19.397",
+  "body": "\n\nI have an NSView in which the user can draw circles. These circles are stored as an array of NSBezierPaths, and in drawRect:, I loop through the array and call `-stroke` on each of the paths. How do I add a button to zoom in and out the NSView? Just change the bounds of the view?\n\nThanks.",
+  "lastActivityDate": "2010-03-15T01:48:37.300",
+  "title": "Zooming in an NSView",
+  "tags": [
+    "objective-c",
+    "cocoa",
+    "nsview",
+    "appkit",
+    "nsscrollview"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

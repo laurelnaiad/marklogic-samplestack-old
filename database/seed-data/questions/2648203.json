@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2648203.json.json", "creationDate":"2010-04-15T19:07:03.923", "body":"\n\nI have a variable that reads as _123456 and I need to delete the underscore prefix on this variable before storing it to a field.  How do I do this?\n\n\t var value = \"_123456\"\n\t", "lastActivityDate":"2010-04-15T19:42:51.343", "title":"How do I delete a '_' prefix on a variable using jQuery?", "tags":[["javascript"], ["string"], ["variables"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2648203.json",
+  "creationDate": "2010-04-15T19:07:03.923",
+  "body": "\n\nI have a variable that reads as _123456 and I need to delete the underscore prefix on this variable before storing it to a field.  How do I do this?\n\n\t var value = \"_123456\"\n\t",
+  "lastActivityDate": "2010-04-15T19:42:51.343",
+  "title": "How do I delete a '_' prefix on a variable using jQuery?",
+  "tags": [
+    "javascript",
+    "string",
+    "variables"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

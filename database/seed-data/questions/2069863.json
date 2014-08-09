@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2069863.json.json", "creationDate":"2010-01-15T06:31:25.770", "body":"\n\n\tprivate enum E_Week\n\t{\n\t   Mon = 0,\n\t   Tue,\n\t   . . .\n\t}\n\t\n\nWhat does the following code mean?\n\n\tE_Week? week= null;\n\t\n\nIs it equal to the following code? What is the function of the '?' sign here?\n\n\tE_Week week= null;\n\t", "lastActivityDate":"2011-03-29T10:17:48.450", "title":"A curious C# syntax with a question mark", "tags":[["c#"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2069863.json",
+  "creationDate": "2010-01-15T06:31:25.770",
+  "body": "\n\n\tprivate enum E_Week\n\t{\n\t   Mon = 0,\n\t   Tue,\n\t   . . .\n\t}\n\t\n\nWhat does the following code mean?\n\n\tE_Week? week= null;\n\t\n\nIs it equal to the following code? What is the function of the '?' sign here?\n\n\tE_Week week= null;\n\t",
+  "lastActivityDate": "2011-03-29T10:17:48.450",
+  "title": "A curious C# syntax with a question mark",
+  "tags": [
+    "c#"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

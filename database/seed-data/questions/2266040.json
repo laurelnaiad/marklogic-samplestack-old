@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2266040.json.json", "creationDate":"2010-02-15T13:00:19.303", "body":"\n\nI'm coding by python about Gtalk I use XMPPPY.\n\nBut I can chat with GTalk client but the problem is I can't accept invitation.\n\nIs XMPPY can do ?", "lastActivityDate":"2010-02-17T14:25:49.780", "title":"XMPPPY have function to manage invitation in client side?", "tags":[["python"], ["chat"], ["xmpp"], ["google-talk"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2266040.json",
+  "creationDate": "2010-02-15T13:00:19.303",
+  "body": "\n\nI'm coding by python about Gtalk I use XMPPPY.\n\nBut I can chat with GTalk client but the problem is I can't accept invitation.\n\nIs XMPPY can do ?",
+  "lastActivityDate": "2010-02-17T14:25:49.780",
+  "title": "XMPPPY have function to manage invitation in client side?",
+  "tags": [
+    "python",
+    "chat",
+    "xmpp",
+    "google-talk"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

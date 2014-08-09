@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2840160.json.json", "creationDate":"2010-05-15T12:50:07.550", "body":"\n\nWhen I use SQLMetal to create the linq version of one of my stored procs it creates a returned class specific to the proc - I want to map the result to an existing DA table class.\n\nany ideas?", "lastActivityDate":"2010-05-15T13:28:02.830", "title":"How to map a Stored proc result to an existing DA class", "tags":[["linq"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2840160.json",
+  "creationDate": "2010-05-15T12:50:07.550",
+  "body": "\n\nWhen I use SQLMetal to create the linq version of one of my stored procs it creates a returned class specific to the proc - I want to map the result to an existing DA table class.\n\nany ideas?",
+  "lastActivityDate": "2010-05-15T13:28:02.830",
+  "title": "How to map a Stored proc result to an existing DA class",
+  "tags": [
+    "linq"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

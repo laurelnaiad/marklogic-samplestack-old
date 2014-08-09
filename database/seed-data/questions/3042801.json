@@ -1,1 +1,17 @@
-{"id":"/questions//questions/3042801.json.json", "creationDate":"2010-06-15T05:45:29.563", "body":"\n\nI can't seem to find this and I feel like it should be easy. In Ruby on Rails, how do I take:\n\n\t2010-06-14 19:01:00 UTC\n\t\n\nand turn it into\n\n\tJune 14th, 2010\n\t\n\nCan I not just use a helper in the view?", "lastActivityDate":"2013-01-28T22:31:47.937", "title":"Transforming Datetime into month, day and year?", "tags":[["ruby-on-rails"], ["ruby"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201006", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/3042801.json",
+  "creationDate": "2010-06-15T05:45:29.563",
+  "body": "\n\nI can't seem to find this and I feel like it should be easy. In Ruby on Rails, how do I take:\n\n\t2010-06-14 19:01:00 UTC\n\t\n\nand turn it into\n\n\tJune 14th, 2010\n\t\n\nCan I not just use a helper in the view?",
+  "lastActivityDate": "2013-01-28T22:31:47.937",
+  "title": "Transforming Datetime into month, day and year?",
+  "tags": [
+    "ruby-on-rails",
+    "ruby"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201006",
+  "itemTally": 0,
+  "owner": null
+}

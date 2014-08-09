@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2075444.json.json", "creationDate":"2010-01-15T23:30:43.123", "body":"\n\nI'm using ASIHTTP and trying to perform a GET request for a site:\n\n\tNSURL *url = [[NSURL URLWithString:@\"/verifyuser.aspx?user=%@\" relativeToURL:@\"http://domain.com\"],userName  retain];       \n\tASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];\n\t[request setTemporaryFileDownloadPath:@\"myfile2.txt\"];\n\t[request setDownloadDestinationPath:@\"myfile.txt\"];\n\t\n\t[request startSynchronous];\n\t\n\nHowever, when I put a breakpoint on [request startSynchronous] and go into the debugger, the url value of the request object is equal to the userName variable. I'm trying to insert the userName variable into a string and then use that as the url, so something's not right in my NSURL declaration.\n\nThanks for your help!", "lastActivityDate":"2013-04-17T19:25:00.037", "title":"Setting an NSURL with %@ making value equal to %@ instead of inserting %@", "tags":[["iphone"], ["nsurl"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2075444.json",
+  "creationDate": "2010-01-15T23:30:43.123",
+  "body": "\n\nI'm using ASIHTTP and trying to perform a GET request for a site:\n\n\tNSURL *url = [[NSURL URLWithString:@\"/verifyuser.aspx?user=%@\" relativeToURL:@\"http://domain.com\"],userName  retain];       \n\tASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];\n\t[request setTemporaryFileDownloadPath:@\"myfile2.txt\"];\n\t[request setDownloadDestinationPath:@\"myfile.txt\"];\n\t\n\t[request startSynchronous];\n\t\n\nHowever, when I put a breakpoint on [request startSynchronous] and go into the debugger, the url value of the request object is equal to the userName variable. I'm trying to insert the userName variable into a string and then use that as the url, so something's not right in my NSURL declaration.\n\nThanks for your help!",
+  "lastActivityDate": "2013-04-17T19:25:00.037",
+  "title": "Setting an NSURL with %@ making value equal to %@ instead of inserting %@",
+  "tags": [
+    "iphone",
+    "nsurl"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

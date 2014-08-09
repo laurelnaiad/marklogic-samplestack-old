@@ -1,1 +1,17 @@
-{"id":"/questions//questions/3043066.json.json", "creationDate":"2010-06-15T06:49:10.293", "body":"\n\nIn the following:\n\n`<span>This cost $15.99 per item</span>`\n\nhow do I return \"$15.99\" using jquery? The value can also be for example \"$7\".", "lastActivityDate":"2010-07-09T03:19:15.780", "title":"jQuery: match currency with a regular expression", "tags":[["jquery"], ["regex"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201006", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/3043066.json",
+  "creationDate": "2010-06-15T06:49:10.293",
+  "body": "\n\nIn the following:\n\n`<span>This cost $15.99 per item</span>`\n\nhow do I return \"$15.99\" using jquery? The value can also be for example \"$7\".",
+  "lastActivityDate": "2010-07-09T03:19:15.780",
+  "title": "jQuery: match currency with a regular expression",
+  "tags": [
+    "jquery",
+    "regex"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201006",
+  "itemTally": 0,
+  "owner": null
+}

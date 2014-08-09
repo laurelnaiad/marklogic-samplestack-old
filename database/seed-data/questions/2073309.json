@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2073309.json.json", "creationDate":"2010-01-15T16:54:36.673", "body":"\n\nIs there a way to programmatically tap a key, just as a user would so the key pop up animation takes place?", "lastActivityDate":"2010-01-15T17:04:26.773", "title":"Simulating keyboard tap", "tags":[["iphone"], ["objective-c"], ["cocoa-touch"], ["uikeyboard"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2073309.json",
+  "creationDate": "2010-01-15T16:54:36.673",
+  "body": "\n\nIs there a way to programmatically tap a key, just as a user would so the key pop up animation takes place?",
+  "lastActivityDate": "2010-01-15T17:04:26.773",
+  "title": "Simulating keyboard tap",
+  "tags": [
+    "iphone",
+    "objective-c",
+    "cocoa-touch",
+    "uikeyboard"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

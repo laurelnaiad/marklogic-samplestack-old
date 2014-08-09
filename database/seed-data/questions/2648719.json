@@ -1,1 +1,20 @@
-{"id":"/questions//questions/2648719.json.json", "creationDate":"2010-04-15T20:23:27.277", "body":"\n\nI'm creating a UIDatePicker programmatically, and setting its locale with the following code:\n\n\tdatePicker.locale = [[[NSLocale alloc] initWithLocaleIdentifier:@\"es_ES\"] autorelease];\n\t\n\nThe datepicker still appears in English (or whatever language I've set the phone to).  Anyone have any idea why this does nothing, or how to fix it?", "lastActivityDate":"2010-07-15T13:25:04.703", "title":"UIDatePicker locale does nothing?", "tags":[["iphone"], ["objective-c"], ["cocoa-touch"], ["uikit"], ["locale"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2648719.json",
+  "creationDate": "2010-04-15T20:23:27.277",
+  "body": "\n\nI'm creating a UIDatePicker programmatically, and setting its locale with the following code:\n\n\tdatePicker.locale = [[[NSLocale alloc] initWithLocaleIdentifier:@\"es_ES\"] autorelease];\n\t\n\nThe datepicker still appears in English (or whatever language I've set the phone to).  Anyone have any idea why this does nothing, or how to fix it?",
+  "lastActivityDate": "2010-07-15T13:25:04.703",
+  "title": "UIDatePicker locale does nothing?",
+  "tags": [
+    "iphone",
+    "objective-c",
+    "cocoa-touch",
+    "uikit",
+    "locale"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2647103.json.json", "creationDate":"2010-04-15T16:22:53.903", "body":"\n\nI'm using Windows to develop android apps and want to know where user preference data is located. It says at /data/data/package/...., but where can I actually see the preference file? Via eclipse or command line tools?", "lastActivityDate":"2010-04-15T16:30:36.337", "title":"android: user preference data location in windows", "tags":[["android"], ["preferences"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2647103.json",
+  "creationDate": "2010-04-15T16:22:53.903",
+  "body": "\n\nI'm using Windows to develop android apps and want to know where user preference data is located. It says at /data/data/package/...., but where can I actually see the preference file? Via eclipse or command line tools?",
+  "lastActivityDate": "2010-04-15T16:30:36.337",
+  "title": "android: user preference data location in windows",
+  "tags": [
+    "android",
+    "preferences"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

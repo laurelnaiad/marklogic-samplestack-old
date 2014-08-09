@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2644296.json.json", "creationDate":"2010-04-15T10:00:27.143", "body":"\n\nIf I had 1000 rows, would an single-line separator make the table view bigger in height? Or is it an overlay on a cell only?", "lastActivityDate":"2010-04-15T10:15:41.900", "title":"does the separator contribute to the total hight of an UITableView?", "tags":[["iphone"], ["uitableview"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2644296.json",
+  "creationDate": "2010-04-15T10:00:27.143",
+  "body": "\n\nIf I had 1000 rows, would an single-line separator make the table view bigger in height? Or is it an overlay on a cell only?",
+  "lastActivityDate": "2010-04-15T10:15:41.900",
+  "title": "does the separator contribute to the total hight of an UITableView?",
+  "tags": [
+    "iphone",
+    "uitableview"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

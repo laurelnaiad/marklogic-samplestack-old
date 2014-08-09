@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2074240.json.json", "creationDate":"2010-01-15T19:32:48.670", "body":"\n\nI am trying to serialize a class several of the data-members are Nullable objects, here is a example\n\n\t[XmlAttribute(\"AccountExpirationDate\")]\n\tpublic Nullable<DateTime> AccountExpirationDate \n\t{ \n\t  get { return userPrincipal.AccountExpirationDate; } \n\t  set { userPrincipal.AccountExpirationDate = value; } \n\t}\n\t\n\nHowever at runtime I get the error\n\nCannot serialize member 'AccountExpirationDate' of type System.Nullable`1[System.DateTime]. XmlAttribute/XmlText cannot be used to encode complex types.\n\nHowever I checked and Nullable is a [SerializableAttribute](http://msdn.microsoft.com/en-us/library/b3h38hb0.aspx). What am I doing wrong? ", "lastActivityDate":"2010-03-17T10:23:30.990", "title":"Serializing a Nullable<DateTime> in to XML", "tags":[["c#"], ["xml-serialization"], ["nullable"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2074240.json",
+  "creationDate": "2010-01-15T19:32:48.670",
+  "body": "\n\nI am trying to serialize a class several of the data-members are Nullable objects, here is a example\n\n\t[XmlAttribute(\"AccountExpirationDate\")]\n\tpublic Nullable<DateTime> AccountExpirationDate \n\t{ \n\t  get { return userPrincipal.AccountExpirationDate; } \n\t  set { userPrincipal.AccountExpirationDate = value; } \n\t}\n\t\n\nHowever at runtime I get the error\n\nCannot serialize member 'AccountExpirationDate' of type System.Nullable`1[System.DateTime]. XmlAttribute/XmlText cannot be used to encode complex types.\n\nHowever I checked and Nullable is a [SerializableAttribute](http://msdn.microsoft.com/en-us/library/b3h38hb0.aspx). What am I doing wrong? ",
+  "lastActivityDate": "2010-03-17T10:23:30.990",
+  "title": "Serializing a Nullable<DateTime> in to XML",
+  "tags": [
+    "c#",
+    "xml-serialization",
+    "nullable"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

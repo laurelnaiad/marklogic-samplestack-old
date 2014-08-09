@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2073897.json.json", "creationDate":"2010-01-15T18:37:20.623", "body":"\n\nHow do I invoke a static method on a CFC without using cfinvoke? I know that I can do this: \n\n\t<cfinvoke component=\"MyComponent\" method=\"myStaticMethod' arg1=\"blah\" returnvariable=myReturnVar>\n\t\n\nI would like to be able to invoke this method the same way I would a UDF:\n\n\t<cfset myReturnVar = MyComponent.myStaticMethod(blah)>\n\t\n\nThis, however, does not work. Is there syntax that I am messing up or is this just not possible?", "lastActivityDate":"2010-01-20T22:46:53.467", "title":"How do I run a static method on a CFC without using cfinvoke?", "tags":[["coldfusion"], ["cfc"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2073897.json",
+  "creationDate": "2010-01-15T18:37:20.623",
+  "body": "\n\nHow do I invoke a static method on a CFC without using cfinvoke? I know that I can do this: \n\n\t<cfinvoke component=\"MyComponent\" method=\"myStaticMethod' arg1=\"blah\" returnvariable=myReturnVar>\n\t\n\nI would like to be able to invoke this method the same way I would a UDF:\n\n\t<cfset myReturnVar = MyComponent.myStaticMethod(blah)>\n\t\n\nThis, however, does not work. Is there syntax that I am messing up or is this just not possible?",
+  "lastActivityDate": "2010-01-20T22:46:53.467",
+  "title": "How do I run a static method on a CFC without using cfinvoke?",
+  "tags": [
+    "coldfusion",
+    "cfc"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

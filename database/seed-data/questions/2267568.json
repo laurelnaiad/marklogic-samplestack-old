@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2267568.json.json", "creationDate":"2010-02-15T17:04:51.340", "body":"\n\nAre theere any functions in 3.x using the http.client.HTTPMessage().get_content_type() ?", "lastActivityDate":"2010-02-15T17:12:20.087", "title":"How do I get the content-type from return of urlopen(url) in python2.x?", "tags":[["python"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2267568.json",
+  "creationDate": "2010-02-15T17:04:51.340",
+  "body": "\n\nAre theere any functions in 3.x using the http.client.HTTPMessage().get_content_type() ?",
+  "lastActivityDate": "2010-02-15T17:12:20.087",
+  "title": "How do I get the content-type from return of urlopen(url) in python2.x?",
+  "tags": [
+    "python"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2646514.json.json", "creationDate":"2010-04-15T15:09:43.647", "body":"\n\nWhat are XAND and XOR? Also is there an XNot", "lastActivityDate":"2013-11-12T18:51:22.853", "title":"What are XAND and XOR", "tags":[["operators"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2646514.json",
+  "creationDate": "2010-04-15T15:09:43.647",
+  "body": "\n\nWhat are XAND and XOR? Also is there an XNot",
+  "lastActivityDate": "2013-11-12T18:51:22.853",
+  "title": "What are XAND and XOR",
+  "tags": [
+    "operators"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

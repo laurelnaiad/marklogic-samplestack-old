@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2074154.json.json", "creationDate":"2010-01-15T19:20:42.350", "body":"\n\nWhat is the maximum size of one BlobProperty in appengine? \nI'm not talking about of the Blobstore API, i'm referring to the property class [BlobProperty](http://code.google.com/appengine/docs/python/datastore/typesandpropertyclasses.html#BlobProperty)\n\nPlease add a link who support your answers ", "lastActivityDate":"2010-01-20T00:09:04.383", "title":"max size in BlobProperty (appengine)", "tags":[["python"], ["google-app-engine"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2074154.json",
+  "creationDate": "2010-01-15T19:20:42.350",
+  "body": "\n\nWhat is the maximum size of one BlobProperty in appengine? \nI'm not talking about of the Blobstore API, i'm referring to the property class [BlobProperty](http://code.google.com/appengine/docs/python/datastore/typesandpropertyclasses.html#BlobProperty)\n\nPlease add a link who support your answers ",
+  "lastActivityDate": "2010-01-20T00:09:04.383",
+  "title": "max size in BlobProperty (appengine)",
+  "tags": [
+    "python",
+    "google-app-engine"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

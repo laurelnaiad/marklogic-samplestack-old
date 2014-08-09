@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2446868.json.json", "creationDate":"2010-03-15T12:00:43.893", "body":"\n\nI'm trying to create a layout with display: table and alike, but it seems that display: table-row and others do not respect width property. Is there a way to over come with this?", "lastActivityDate":"2010-03-15T12:10:13.993", "title":"Setting width for display: table", "tags":[["html"], ["css"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2446868.json",
+  "creationDate": "2010-03-15T12:00:43.893",
+  "body": "\n\nI'm trying to create a layout with display: table and alike, but it seems that display: table-row and others do not respect width property. Is there a way to over come with this?",
+  "lastActivityDate": "2010-03-15T12:10:13.993",
+  "title": "Setting width for display: table",
+  "tags": [
+    "html",
+    "css"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

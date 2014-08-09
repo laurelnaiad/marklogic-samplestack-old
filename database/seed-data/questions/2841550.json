@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2841550.json.json", "creationDate":"2010-05-15T19:53:02.080", "body":"\n\nI'm new to regular expressions and came accros the following \\d+ . I do not exactly know what this means, please point me in the right direction.", "lastActivityDate":"2010-05-15T20:00:09.027", "title":"What does \\d+ mean in regular expression terms?", "tags":[["php"], ["regex"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2841550.json",
+  "creationDate": "2010-05-15T19:53:02.080",
+  "body": "\n\nI'm new to regular expressions and came accros the following \\d+ . I do not exactly know what this means, please point me in the right direction.",
+  "lastActivityDate": "2010-05-15T20:00:09.027",
+  "title": "What does \\d+ mean in regular expression terms?",
+  "tags": [
+    "php",
+    "regex"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

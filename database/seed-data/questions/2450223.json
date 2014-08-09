@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2450223.json.json", "creationDate":"2010-03-15T20:24:07.887", "body":"\n\nI have a question about the JFileChooser in Swing. I'm trying to get multiple file extensions in the drop-down box, but have no idea how to do it.\n\nThere is the method\n\n\textFilter = FileNameExtensionFilter(description, extensions);\n\t\n\nthat I can then use by writing\n\n\tfileChooser.setFileFilter(extFilter);\n\t\n\nhowever, as you can see, this only supports one option in the drop-down list. How do I add more?", "lastActivityDate":"2010-11-15T21:53:01.357", "title":"JFileChooser - multiple file filters?", "tags":[["java"], ["file"], ["save"], ["jfilechooser"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2450223.json",
+  "creationDate": "2010-03-15T20:24:07.887",
+  "body": "\n\nI have a question about the JFileChooser in Swing. I'm trying to get multiple file extensions in the drop-down box, but have no idea how to do it.\n\nThere is the method\n\n\textFilter = FileNameExtensionFilter(description, extensions);\n\t\n\nthat I can then use by writing\n\n\tfileChooser.setFileFilter(extFilter);\n\t\n\nhowever, as you can see, this only supports one option in the drop-down list. How do I add more?",
+  "lastActivityDate": "2010-11-15T21:53:01.357",
+  "title": "JFileChooser - multiple file filters?",
+  "tags": [
+    "java",
+    "file",
+    "save",
+    "jfilechooser"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2446221.json.json", "creationDate":"2010-03-15T09:55:20.480", "body":"\n\nIs there any CMD command line that shows all partition letters. For example: C, D, E...\n\nCan that command also show all the partition's information? Free space, used space, total space?", "lastActivityDate":"2012-09-03T15:28:39.230", "title":"Partition information from CMD", "tags":[["command-line"], ["disk-partitioning"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2446221.json",
+  "creationDate": "2010-03-15T09:55:20.480",
+  "body": "\n\nIs there any CMD command line that shows all partition letters. For example: C, D, E...\n\nCan that command also show all the partition's information? Free space, used space, total space?",
+  "lastActivityDate": "2012-09-03T15:28:39.230",
+  "title": "Partition information from CMD",
+  "tags": [
+    "command-line",
+    "disk-partitioning"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

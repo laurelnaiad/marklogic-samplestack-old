@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2839336.json.json", "creationDate":"2010-05-15T07:45:31.177", "body":"\n\nHow would you do this:\n[http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page](http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page)\n\nExcept with a fluid center (vertically stretched, height 100%)?", "lastActivityDate":"2011-08-28T00:53:37.960", "title":"CSS: Fluid layout - footer always at the bottom, and a fluid center", "tags":[["css"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2839336.json",
+  "creationDate": "2010-05-15T07:45:31.177",
+  "body": "\n\nHow would you do this:\n[http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page](http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page)\n\nExcept with a fluid center (vertically stretched, height 100%)?",
+  "lastActivityDate": "2011-08-28T00:53:37.960",
+  "title": "CSS: Fluid layout - footer always at the bottom, and a fluid center",
+  "tags": [
+    "css"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

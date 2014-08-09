@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2263925.json.json", "creationDate":"2010-02-15T03:27:06.597", "body":"\n\nHow can I replace a particular term in multiple files in Linux?\n\nFor instance, I have a number of files in my directory:\n\nfile1.txt\nfile2.txt\nfile3.txt\n\nAnd I need to find a word \"searchword\" and replace it with \"replaceword\".", "lastActivityDate":"2010-02-15T04:03:43.923", "title":"Find and replace a particular term in multiple files", "tags":[["linux"], ["search"], ["ubuntu"], ["replace"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2263925.json",
+  "creationDate": "2010-02-15T03:27:06.597",
+  "body": "\n\nHow can I replace a particular term in multiple files in Linux?\n\nFor instance, I have a number of files in my directory:\n\nfile1.txt\nfile2.txt\nfile3.txt\n\nAnd I need to find a word \"searchword\" and replace it with \"replaceword\".",
+  "lastActivityDate": "2010-02-15T04:03:43.923",
+  "title": "Find and replace a particular term in multiple files",
+  "tags": [
+    "linux",
+    "search",
+    "ubuntu",
+    "replace"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

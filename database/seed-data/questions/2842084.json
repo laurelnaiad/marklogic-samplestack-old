@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2842084.json.json", "creationDate":"2010-05-15T23:29:11.970", "body":"\n\nI have the following AutoCompleteBox defined inside DataTemplate:\n\n\t<Window.Resources>\n\t  <DataTemplate x:key=\"PaneTitleTemplate\">\n\t    <Grid>\n\t      <Grid.ColumnDefinitions>\n\t        <ColumnDefinition />\n\t        <ColumnDefinition />\n\t      </Grid.ColumnDefinition>\n\t      <ContentPresenter Content=\"{Binding}\" />\n\t      <toolkit:AutoCompleteBox x:Name=\"InsertBox\" ItemsSource=\"{???}\" />\n\t    </Grid>\n\t  </DataTemplate>\n\t</Window.Resources>\n\t...\n\t<radRock:RadPane x:Name=\"pane1\" TitleTemplate=\"{StaticResource PaneTitleTemplate}\"/>\n\t\n\nNow I'd like to fill it with a list of strings, but I don't know which Binding should I use. The list of strings is an instance variable from the Window. What should I do?", "lastActivityDate":"2010-05-16T00:59:47.880", "title":"Binding AutoCompleteBox inside DataTemplate", "tags":[["binding"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2842084.json",
+  "creationDate": "2010-05-15T23:29:11.970",
+  "body": "\n\nI have the following AutoCompleteBox defined inside DataTemplate:\n\n\t<Window.Resources>\n\t  <DataTemplate x:key=\"PaneTitleTemplate\">\n\t    <Grid>\n\t      <Grid.ColumnDefinitions>\n\t        <ColumnDefinition />\n\t        <ColumnDefinition />\n\t      </Grid.ColumnDefinition>\n\t      <ContentPresenter Content=\"{Binding}\" />\n\t      <toolkit:AutoCompleteBox x:Name=\"InsertBox\" ItemsSource=\"{???}\" />\n\t    </Grid>\n\t  </DataTemplate>\n\t</Window.Resources>\n\t...\n\t<radRock:RadPane x:Name=\"pane1\" TitleTemplate=\"{StaticResource PaneTitleTemplate}\"/>\n\t\n\nNow I'd like to fill it with a list of strings, but I don't know which Binding should I use. The list of strings is an instance variable from the Window. What should I do?",
+  "lastActivityDate": "2010-05-16T00:59:47.880",
+  "title": "Binding AutoCompleteBox inside DataTemplate",
+  "tags": [
+    "binding"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

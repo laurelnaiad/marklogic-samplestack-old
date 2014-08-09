@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2841094.json.json", "creationDate":"2010-05-15T17:41:26.607", "body":"\n\nIt appears they are both encryption algorithms that require public and private keys.  Why would I pick one versus the other to provide encryption in my client server application?", "lastActivityDate":"2013-10-23T12:30:06.913", "title":"What is the difference between DSA and RSA?", "tags":[["encryption"], ["rsa"], ["key"], ["dsa"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2841094.json",
+  "creationDate": "2010-05-15T17:41:26.607",
+  "body": "\n\nIt appears they are both encryption algorithms that require public and private keys.  Why would I pick one versus the other to provide encryption in my client server application?",
+  "lastActivityDate": "2013-10-23T12:30:06.913",
+  "title": "What is the difference between DSA and RSA?",
+  "tags": [
+    "encryption",
+    "rsa",
+    "key",
+    "dsa"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

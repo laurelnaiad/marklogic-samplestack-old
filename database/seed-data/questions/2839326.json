@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2839326.json.json", "creationDate":"2010-05-15T07:41:37.770", "body":"\n\nIs there any way for filezilla(or any other program) to make a folder that is a live ftp folder and any changes I make automatically go to the website.", "lastActivityDate":"2012-08-04T16:43:30.223", "title":"FTP as folder/webdisk", "tags":[["ftp"], ["filezilla"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2839326.json",
+  "creationDate": "2010-05-15T07:41:37.770",
+  "body": "\n\nIs there any way for filezilla(or any other program) to make a folder that is a live ftp folder and any changes I make automatically go to the website.",
+  "lastActivityDate": "2012-08-04T16:43:30.223",
+  "title": "FTP as folder/webdisk",
+  "tags": [
+    "ftp",
+    "filezilla"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

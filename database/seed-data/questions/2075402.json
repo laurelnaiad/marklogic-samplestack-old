@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2075402.json.json", "creationDate":"2010-01-15T23:19:53.647", "body":"\n\nI return a chart image (with axis x and y) to the browser created my matplotlit. \nNow I want to show the axis values when there is mouseover event.", "lastActivityDate":"2010-01-18T16:40:31.100", "title":"Displaying the axis values for a mouseover event in a chart image", "tags":[["javascript"], ["graphics"], ["matplotlib"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2075402.json",
+  "creationDate": "2010-01-15T23:19:53.647",
+  "body": "\n\nI return a chart image (with axis x and y) to the browser created my matplotlit. \nNow I want to show the axis values when there is mouseover event.",
+  "lastActivityDate": "2010-01-18T16:40:31.100",
+  "title": "Displaying the axis values for a mouseover event in a chart image",
+  "tags": [
+    "javascript",
+    "graphics",
+    "matplotlib"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

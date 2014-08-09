@@ -1,1 +1,20 @@
-{"id":"/questions//questions/2445918.json.json", "creationDate":"2010-03-15T08:55:28.310", "body":"\n\nI am not sure whether audio units can work as codecs in a streaming audio scenario on the iPhone. \n\nI've read in various places that it can be done, but I haven't seen any examples or proper documentation for that. Instead, I find that most of the apps released have utilised ffmpeg and libmms.\n\nI appreciate any help you can give me.", "lastActivityDate":"2012-05-10T11:06:55.567", "title":"Is it possible to decode an MMS+WMA2 stream using audio units on the iPhone?", "tags":[["iphone"], ["core-audio"], ["audio-streaming"], ["mms"], ["wma"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2445918.json",
+  "creationDate": "2010-03-15T08:55:28.310",
+  "body": "\n\nI am not sure whether audio units can work as codecs in a streaming audio scenario on the iPhone. \n\nI've read in various places that it can be done, but I haven't seen any examples or proper documentation for that. Instead, I find that most of the apps released have utilised ffmpeg and libmms.\n\nI appreciate any help you can give me.",
+  "lastActivityDate": "2012-05-10T11:06:55.567",
+  "title": "Is it possible to decode an MMS+WMA2 stream using audio units on the iPhone?",
+  "tags": [
+    "iphone",
+    "core-audio",
+    "audio-streaming",
+    "mms",
+    "wma"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

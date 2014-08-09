@@ -1,1 +1,18 @@
-{"id":"/questions//questions/3042877.json.json", "creationDate":"2010-06-15T06:04:33.277", "body":"\n\nHow to make Form Transperent in windows c# ? I have a GridView in my form, which should be visible.", "lastActivityDate":"2010-06-15T07:59:57.597", "title":"How to make Form Transperent in windows c#?", "tags":[["c#"], [".net"], ["winforms"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201006", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/3042877.json",
+  "creationDate": "2010-06-15T06:04:33.277",
+  "body": "\n\nHow to make Form Transperent in windows c# ? I have a GridView in my form, which should be visible.",
+  "lastActivityDate": "2010-06-15T07:59:57.597",
+  "title": "How to make Form Transperent in windows c#?",
+  "tags": [
+    "c#",
+    ".net",
+    "winforms"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201006",
+  "itemTally": 0,
+  "owner": null
+}

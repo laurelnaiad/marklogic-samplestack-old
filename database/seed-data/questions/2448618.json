@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2448618.json.json", "creationDate":"2010-03-15T16:12:21.400", "body":"\n\nSo the question is in title. I almost sure that the answer is NO, but maybe there are some stream converters exist or any other way???\n\nThanks in advance", "lastActivityDate":"2010-03-15T16:17:28.327", "title":"mms video streaming on iPhone? (Microsoft Media Server)", "tags":[["iphone"], ["video-streaming"], ["mms"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2448618.json",
+  "creationDate": "2010-03-15T16:12:21.400",
+  "body": "\n\nSo the question is in title. I almost sure that the answer is NO, but maybe there are some stream converters exist or any other way???\n\nThanks in advance",
+  "lastActivityDate": "2010-03-15T16:17:28.327",
+  "title": "mms video streaming on iPhone? (Microsoft Media Server)",
+  "tags": [
+    "iphone",
+    "video-streaming",
+    "mms"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

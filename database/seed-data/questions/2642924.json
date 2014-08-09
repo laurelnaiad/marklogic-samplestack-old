@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2642924.json.json", "creationDate":"2010-04-15T05:24:56.737", "body":"\n\nI saw `ExpandEnvironmentStrings` is used [here](http://src.chromium.org/svn/trunk/src/base/registry.cc) for Desktop. How do I do it in Windows Mobile? The data type looks [valid in Windows Mobile](http://msdn.microsoft.com/en-us/library/aa912205.aspx)", "lastActivityDate":"2010-04-15T07:07:37.487", "title":"How to expand REG_EXPAND_SZ in Windows Mobile?", "tags":[["windows-mobile"], ["registry"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2642924.json",
+  "creationDate": "2010-04-15T05:24:56.737",
+  "body": "\n\nI saw `ExpandEnvironmentStrings` is used [here](http://src.chromium.org/svn/trunk/src/base/registry.cc) for Desktop. How do I do it in Windows Mobile? The data type looks [valid in Windows Mobile](http://msdn.microsoft.com/en-us/library/aa912205.aspx)",
+  "lastActivityDate": "2010-04-15T07:07:37.487",
+  "title": "How to expand REG_EXPAND_SZ in Windows Mobile?",
+  "tags": [
+    "windows-mobile",
+    "registry"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2269312.json.json", "creationDate":"2010-02-15T22:17:05.463", "body":"\n\nIn Django admin, how can I increase the width of the ManyToMany field's widget when using filter_horizontal?", "lastActivityDate":"2010-02-15T22:23:27.630", "title":"In Django admin, how can I increase the width of the ManyToMany field's widget when using filter_horizontal?", "tags":[["django"], ["django-admin"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2269312.json",
+  "creationDate": "2010-02-15T22:17:05.463",
+  "body": "\n\nIn Django admin, how can I increase the width of the ManyToMany field's widget when using filter_horizontal?",
+  "lastActivityDate": "2010-02-15T22:23:27.630",
+  "title": "In Django admin, how can I increase the width of the ManyToMany field's widget when using filter_horizontal?",
+  "tags": [
+    "django",
+    "django-admin"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

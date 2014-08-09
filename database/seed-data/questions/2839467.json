@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2839467.json.json", "creationDate":"2010-05-15T08:29:07.177", "body":"\n\nI have a image in Java2d and I would like user to give an option to select any rectangle portion of the image by left clicking and dragging the mouse.(similar to mspaint). How is this actually done?\n\nThank you.", "lastActivityDate":"2010-07-18T13:30:47.367", "title":"Java2d: Option to show a selection window when mouse is dragged", "tags":[["java"], ["swing"], ["graphics"], ["java-2d"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2839467.json",
+  "creationDate": "2010-05-15T08:29:07.177",
+  "body": "\n\nI have a image in Java2d and I would like user to give an option to select any rectangle portion of the image by left clicking and dragging the mouse.(similar to mspaint). How is this actually done?\n\nThank you.",
+  "lastActivityDate": "2010-07-18T13:30:47.367",
+  "title": "Java2d: Option to show a selection window when mouse is dragged",
+  "tags": [
+    "java",
+    "swing",
+    "graphics",
+    "java-2d"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

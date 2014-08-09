@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2449305.json.json", "creationDate":"2010-03-15T17:58:49.893", "body":"\n\nWhen using `:methods` in `to_json`, is there a way to rename the key? I'm trying to replace the real id with a base62 version of it and I want that the value of `base62_id` has the key `id`.\n\n\t@obj.to_json(\n\t    :except => :id\n\t    :methods => :base62_id\n\t)\n\t\n\nI tried to do\n\n\t@obj.to_json(\n\t    :except => :id\n\t    :methods => { :id => :base62_id }\n\t)\n\t\n\nbut that didn't work.\n\nAny advice?", "lastActivityDate":"2010-03-15T19:07:49.097", "title":"using different key for to_json :methods", "tags":[["ruby-on-rails"], ["json"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2449305.json",
+  "creationDate": "2010-03-15T17:58:49.893",
+  "body": "\n\nWhen using `:methods` in `to_json`, is there a way to rename the key? I'm trying to replace the real id with a base62 version of it and I want that the value of `base62_id` has the key `id`.\n\n\t@obj.to_json(\n\t    :except => :id\n\t    :methods => :base62_id\n\t)\n\t\n\nI tried to do\n\n\t@obj.to_json(\n\t    :except => :id\n\t    :methods => { :id => :base62_id }\n\t)\n\t\n\nbut that didn't work.\n\nAny advice?",
+  "lastActivityDate": "2010-03-15T19:07:49.097",
+  "title": "using different key for to_json :methods",
+  "tags": [
+    "ruby-on-rails",
+    "json"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

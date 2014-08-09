@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2450530.json.json", "creationDate":"2010-03-15T21:12:45.753", "body":"\n\nHi I have 1000 encrypted workbooks which I would like to decrypt by providing a pwd.\nI could not find a decrypt method under apache poi or python's xlrd module.\n\nDoes anyone know a library which could handle this (`wbc.decrypt(pwd)`). I would prefer a lib i could you use from a unix box.\n\nThanks", "lastActivityDate":"2011-05-30T11:38:58.043", "title":"decrypt excel files", "tags":[["python"], ["excel"], ["apache-poi"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2450530.json",
+  "creationDate": "2010-03-15T21:12:45.753",
+  "body": "\n\nHi I have 1000 encrypted workbooks which I would like to decrypt by providing a pwd.\nI could not find a decrypt method under apache poi or python's xlrd module.\n\nDoes anyone know a library which could handle this (`wbc.decrypt(pwd)`). I would prefer a lib i could you use from a unix box.\n\nThanks",
+  "lastActivityDate": "2011-05-30T11:38:58.043",
+  "title": "decrypt excel files",
+  "tags": [
+    "python",
+    "excel",
+    "apache-poi"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

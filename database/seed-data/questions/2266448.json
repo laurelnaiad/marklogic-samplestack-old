@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2266448.json.json", "creationDate":"2010-02-15T14:12:56.387", "body":"\n\ni am trying to develop a website and i want that after entering correct username and password desired page should open. how i can achieve this.", "lastActivityDate":"2013-12-06T14:47:17.263", "title":"open one php page from other", "tags":[["php"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201002", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2266448.json",
+  "creationDate": "2010-02-15T14:12:56.387",
+  "body": "\n\ni am trying to develop a website and i want that after entering correct username and password desired page should open. how i can achieve this.",
+  "lastActivityDate": "2013-12-06T14:47:17.263",
+  "title": "open one php page from other",
+  "tags": [
+    "php"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201002",
+  "itemTally": 0,
+  "owner": null
+}

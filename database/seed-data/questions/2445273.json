@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2445273.json.json", "creationDate":"2010-03-15T05:27:17.567", "body":"\n\nI want to make Task in Google Calendar using Google Calendar API : c#.\nBefore that i manually tried to create Task in Google Calendar.But i didn't found it there.\n\nSo, My question is that if Task doesn't exist in Google then how Google Tool For Calendar migration manage it?\n\nThanx", "lastActivityDate":"2013-12-11T03:47:26.300", "title":"Do we have Tasks in Google Calendar? If not then how it is managed during migration from Outlook to Google Calendar?", "tags":[["google-calendar"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2445273.json",
+  "creationDate": "2010-03-15T05:27:17.567",
+  "body": "\n\nI want to make Task in Google Calendar using Google Calendar API : c#.\nBefore that i manually tried to create Task in Google Calendar.But i didn't found it there.\n\nSo, My question is that if Task doesn't exist in Google then how Google Tool For Calendar migration manage it?\n\nThanx",
+  "lastActivityDate": "2013-12-11T03:47:26.300",
+  "title": "Do we have Tasks in Google Calendar? If not then how it is managed during migration from Outlook to Google Calendar?",
+  "tags": [
+    "google-calendar"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

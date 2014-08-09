@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2644353.json.json", "creationDate":"2010-04-15T10:11:56.960", "body":"\n\nI have a Silverlight application that reads its content from an XML file. User can enter data and It'll be stored in SQL database. How can I read the data from SQL database and store it into an XML file ?\n\nThanks,", "lastActivityDate":"2010-04-15T16:10:30.270", "title":"How to read data from SQL database and store it into an XML file?", "tags":[["sql"], ["xml"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2644353.json",
+  "creationDate": "2010-04-15T10:11:56.960",
+  "body": "\n\nI have a Silverlight application that reads its content from an XML file. User can enter data and It'll be stored in SQL database. How can I read the data from SQL database and store it into an XML file ?\n\nThanks,",
+  "lastActivityDate": "2010-04-15T16:10:30.270",
+  "title": "How to read data from SQL database and store it into an XML file?",
+  "tags": [
+    "sql",
+    "xml"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

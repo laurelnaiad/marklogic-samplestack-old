@@ -1,1 +1,17 @@
-{"id":"/questions//questions/2648700.json.json", "creationDate":"2010-04-15T20:21:01.283", "body":"\n\nI'm not entirely sure what to call what C# does, so I haven't had any luck searching for the VB.Net equivalent syntax (if it exists, which I suspect it probably doesn't).\n\nIn c#, you can do this:\n\n\tpublic void DoSomething() {\n\t    new MyHelper().DoIt(); // works just fine\n\t}\n\t\n\nBut as far as I can tell, in VB.Net, you must assign the helper object to a local variable or you just get a syntax error:\n\n\tPublic Sub DoSomething()\n\t    New MyHelper().DoIt() ' won't compile\n\tEnd Sub\n\t\n\nJust one of those curiosity things I run into from day to day working on mixed language projects - often there is a VB.Net equivalent which uses less than obvious syntax.  Anyone?", "lastActivityDate":"2010-04-16T00:39:27.563", "title":"Constructing an object and calling a method without assignment in VB.Net", "tags":[["vb.net"], ["c#-to-vb.net"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2648700.json",
+  "creationDate": "2010-04-15T20:21:01.283",
+  "body": "\n\nI'm not entirely sure what to call what C# does, so I haven't had any luck searching for the VB.Net equivalent syntax (if it exists, which I suspect it probably doesn't).\n\nIn c#, you can do this:\n\n\tpublic void DoSomething() {\n\t    new MyHelper().DoIt(); // works just fine\n\t}\n\t\n\nBut as far as I can tell, in VB.Net, you must assign the helper object to a local variable or you just get a syntax error:\n\n\tPublic Sub DoSomething()\n\t    New MyHelper().DoIt() ' won't compile\n\tEnd Sub\n\t\n\nJust one of those curiosity things I run into from day to day working on mixed language projects - often there is a VB.Net equivalent which uses less than obvious syntax.  Anyone?",
+  "lastActivityDate": "2010-04-16T00:39:27.563",
+  "title": "Constructing an object and calling a method without assignment in VB.Net",
+  "tags": [
+    "vb.net",
+    "c#-to-vb.net"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

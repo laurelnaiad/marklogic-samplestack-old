@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2839237.json.json", "creationDate":"2010-05-15T07:01:37.613", "body":"\n\nFirst: sorry for my poor English writing.\n\nI remember that in VB6.0 days, we had some modules just for popular tasks like making disabled/enabled all buttons of a toolbar buttons or like calculating records count in a specific recordset.\n\nNow, in .Net days, What is your approach for doing such these popular tasks? Do you create a static class? \n\nThank you", "lastActivityDate":"2010-05-23T14:05:20.437", "title":".Net: What is your approach for doing some popular task like making disabled/enabled all buttons of a toolstrip buttons, when developing a software?", "tags":[[".net"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201005", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2839237.json",
+  "creationDate": "2010-05-15T07:01:37.613",
+  "body": "\n\nFirst: sorry for my poor English writing.\n\nI remember that in VB6.0 days, we had some modules just for popular tasks like making disabled/enabled all buttons of a toolbar buttons or like calculating records count in a specific recordset.\n\nNow, in .Net days, What is your approach for doing such these popular tasks? Do you create a static class? \n\nThank you",
+  "lastActivityDate": "2010-05-23T14:05:20.437",
+  "title": ".Net: What is your approach for doing some popular task like making disabled/enabled all buttons of a toolstrip buttons, when developing a software?",
+  "tags": [
+    ".net"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201005",
+  "itemTally": 0,
+  "owner": null
+}

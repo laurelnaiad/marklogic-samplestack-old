@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2450688.json.json", "creationDate":"2010-03-15T21:39:25.280", "body":"\n\nIam quite new to functions in SQL and I would like to create a function to compare values in a MySQL table against previous and I am not sure how to do this.\n\nFor example (iId is the input value)\n\n<pre>\nDECLARE pVal INT(20);\nDECLARE val INT(20);\n\nSELECT price INTO pVal FROM products WHERE Id=iId;\n\nSELECT price FROM products;\n\nIF price == pVal THEN\nSET val = price;\nEND IF;\n</pre>\n\nThanks", "lastActivityDate":"2010-03-16T16:15:10.243", "title":"MySQL function to compare values in a db table against the previous", "tags":[["sql"], ["mysql"], ["stored-procedures"], ["sql-function"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201003", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2450688.json",
+  "creationDate": "2010-03-15T21:39:25.280",
+  "body": "\n\nIam quite new to functions in SQL and I would like to create a function to compare values in a MySQL table against previous and I am not sure how to do this.\n\nFor example (iId is the input value)\n\n<pre>\nDECLARE pVal INT(20);\nDECLARE val INT(20);\n\nSELECT price INTO pVal FROM products WHERE Id=iId;\n\nSELECT price FROM products;\n\nIF price == pVal THEN\nSET val = price;\nEND IF;\n</pre>\n\nThanks",
+  "lastActivityDate": "2010-03-16T16:15:10.243",
+  "title": "MySQL function to compare values in a db table against the previous",
+  "tags": [
+    "sql",
+    "mysql",
+    "stored-procedures",
+    "sql-function"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201003",
+  "itemTally": 0,
+  "owner": null
+}

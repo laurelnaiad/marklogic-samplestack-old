@@ -1,1 +1,16 @@
-{"id":"/questions//questions/2068967.json.json", "creationDate":"2010-01-15T01:58:52.523", "body":"\n\nWhat's the best way to extract HTML out of $var?\n\nexample of $var\n\n\t$var = \"<a href=\"http://stackoverflow.com/\">Stack Overflow</a>\"\n\t\n\nI want \n\n\t$var2 = \"http://stackoverflow.com/\"\n\t\n\nexample: preg_match();\n\nwhat else?", "lastActivityDate":"2010-01-15T02:53:13.780", "title":"Extract link attributes from string of HTML", "tags":[["php"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201001", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2068967.json",
+  "creationDate": "2010-01-15T01:58:52.523",
+  "body": "\n\nWhat's the best way to extract HTML out of $var?\n\nexample of $var\n\n\t$var = \"<a href=\"http://stackoverflow.com/\">Stack Overflow</a>\"\n\t\n\nI want \n\n\t$var2 = \"http://stackoverflow.com/\"\n\t\n\nexample: preg_match();\n\nwhat else?",
+  "lastActivityDate": "2010-01-15T02:53:13.780",
+  "title": "Extract link attributes from string of HTML",
+  "tags": [
+    "php"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201001",
+  "itemTally": 0,
+  "owner": null
+}

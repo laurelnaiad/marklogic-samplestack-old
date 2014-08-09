@@ -1,1 +1,19 @@
-{"id":"/questions//questions/2643556.json.json", "creationDate":"2010-04-15T07:54:38.357", "body":"\n\nI am wondering if F# RC equal to RTM? \nIf not is there any doc mentioning about that?\n\nThanks in advance.", "lastActivityDate":"2010-04-15T08:06:33.133", "title":"Is F# RC equal to RTM?", "tags":[["f#"], ["version"], ["rc"], ["rtm"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2643556.json",
+  "creationDate": "2010-04-15T07:54:38.357",
+  "body": "\n\nI am wondering if F# RC equal to RTM? \nIf not is there any doc mentioning about that?\n\nThanks in advance.",
+  "lastActivityDate": "2010-04-15T08:06:33.133",
+  "title": "Is F# RC equal to RTM?",
+  "tags": [
+    "f#",
+    "version",
+    "rc",
+    "rtm"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}

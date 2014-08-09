@@ -1,1 +1,18 @@
-{"id":"/questions//questions/2649431.json.json", "creationDate":"2010-04-15T22:30:32.887", "body":"\n\nI have a lot of classes and want to create some kind of 'directory'.\n\nSo that I can create menus automatically.\n\nClicking a menu-item would then create an instance of the class and shows the window.\n\nWhat I want for this is an array of System.Type where I can stuff in all the classes without instantiating them.\n\nThough from my test and (unsuccessful) googling, this doesn't seem possible.\n\nAny ideas?", "lastActivityDate":"2010-04-16T18:09:02.253", "title":"Array/List/Directory of System.Type", "tags":[["c#"], [".net"], ["mono"]], "docScore":0, "comments":[], "answers":[], "creationYearMonth":"201004", "itemTally":0, "owner":null}
+{
+  "id": "/questions/questions/2649431.json",
+  "creationDate": "2010-04-15T22:30:32.887",
+  "body": "\n\nI have a lot of classes and want to create some kind of 'directory'.\n\nSo that I can create menus automatically.\n\nClicking a menu-item would then create an instance of the class and shows the window.\n\nWhat I want for this is an array of System.Type where I can stuff in all the classes without instantiating them.\n\nThough from my test and (unsuccessful) googling, this doesn't seem possible.\n\nAny ideas?",
+  "lastActivityDate": "2010-04-16T18:09:02.253",
+  "title": "Array/List/Directory of System.Type",
+  "tags": [
+    "c#",
+    ".net",
+    "mono"
+  ],
+  "docScore": 0,
+  "comments": [],
+  "answers": [],
+  "creationYearMonth": "201004",
+  "itemTally": 0,
+  "owner": null
+}
