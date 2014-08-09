@@ -97,10 +97,11 @@ define(['_marklogic/module'], function (module) {
         allOf: [
           { $ref: 'http://marklogic.com/#searchConstraintBase' },
           {
-            required: ['type'],
+            required: ['type', 'subType'],
             properties: {
               type: { enum: ['enum'] },
-              values: { type: ['array', 'null' ] }
+              subType: { enum: ['text'] },
+              values: { type: ['array', 'null' ], items: { type: 'text' } }
             }
           }
         ]

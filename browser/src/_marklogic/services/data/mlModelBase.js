@@ -43,7 +43,6 @@ define(['_marklogic/module'], function (module) {
         });
         this.assignData(spec || {});
         this.postconstruct(spec);
-        this.testValidity();
       };
 
       MlModel.prototype.preconstruct = function (spec) {
