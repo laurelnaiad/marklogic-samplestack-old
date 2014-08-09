@@ -75,27 +75,27 @@ define(['app/module'], function (module) {
         };
 
         var onResults = function (tagFacetValues) {
-          // Set up arrays for tags: all, unselected, selected
-          // @todo Get tags from service
-          scope.tags = angular.copy(tagFacetValues);
-          scope.unselTags = scope.tags;
-          scope.selTags = scope.params.tags ?
-              scope.params.tags
-                  .filter(function (tag) {
-                    return scope.tags[tag];
-                  })
-                  .map(function (tag) {
-                    return scope.tags[tag];
-                  }) :
-              [];
-
-          scope.selected = ''; // For typeahead
-
-          // Sort precedence
-          scope.sort = ['-count', 'name'];
-
-          // Number of tags to display in unselected list
-          scope.tagLimit = attrs.numTags;
+          // // Set up arrays for tags: all, unselected, selected
+          // // @todo Get tags from service
+          // scope.tags = angular.copy(tagFacetValues);
+          // scope.unselTags = scope.tags;
+          // scope.selTags = scope.params.tags ?
+          //     scope.params.tags
+          //         .filter(function (tag) {
+          //           return scope.tags[tag];
+          //         })
+          //         .map(function (tag) {
+          //           return scope.tags[tag];
+          //         }) :
+          //     [];
+          //
+          // scope.selected = ''; // For typeahead
+          //
+          // // Sort precedence
+          // scope.sort = ['-count', 'name'];
+          //
+          // // Number of tags to display in unselected list
+          // scope.tagLimit = attrs.numTags;
         };
         scope.$watch(
           'main.results.facets.tag.facetValues',

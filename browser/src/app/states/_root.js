@@ -20,7 +20,7 @@ define(['app/module'], function (module) {
       $rootScope.initializing = initDefer.promise;
 
       $q.all([
-        // antyhing that is required for init should happen here
+        // anything that is required for init should happen here
         mlAuth.restoreSession()
       ]).then(
         function () {

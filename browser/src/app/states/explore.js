@@ -13,12 +13,12 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
 
     '$scope',
     'appRouting',
-    'mlSearch',
+    'ssSearch',
     'allTagsDialog',
     function (
       $scope,
       appRouting,
-      mlSearch,
+      ssSearch,
       allTagsDialog
     ) {
 
@@ -39,85 +39,12 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
           null;
       };
 
-      /**
-       * Convert from ui-router $stateParams format to typed Javascript objects
-       * @param {$stateParams} stateParams
-       * @returns {object} the typed javascript object
-       */
-      var getTypedParams = function (stateParams) {
-        return {
-          q: dedasherize(appRouting.params.q),
-          page: appRouting.params.page ? parseInt(appRouting.params.page) : 1,
-          tags: appRouting.params.tags ?
-              appRouting.params.tags.split(',').filter(function (tag) {
-                return tag.trim();
-              }) :
-              [],
-          dates: []
-        };
-      };
-
-      var getDatesStateParam = function () {
-        return 'tbd-soon';
-      };
-
-      /**
-       * Convert from Javascript objects to variables appropriate for ui-router
-       * $stateParams
-       * @param {object} typedParams
-       * @returns {object} object that should represent the keys and values to
-       * be
-       * assigned to $stateParams
-       */
-      var getStateParams = function (typedParams) {
-        return {
-          q: dasherize(typedParams.q),
-          page: typedParams.page ? typedParams.page : undefined,
-          tags: typedParams.tags ? typedParams.tags.join(',') : undefined,
-          dates: getDatesStateParam(typedParams.dates)
-        };
-      };
-
-      /**
-       * Convert from Javascript typed values to Marklogic-specific schema,
-       * which we represent as mlSearch schema.
-       * @param {object} typedParams
-       * @returns {object} object consistent with an mlSearch instance
-       */
-      var getSearchSpec = function (typedParams) {
-
-        var makeTags = function (tags) {
-          var tagsAnd = [];
-          tags.forEach(function (tag) {
-            tagsAnd.push({
-              'range-constraint-query': {
-                'constraint-name': 'tag', text: tag
-              }
-            });
-          });
-          if (tagsAnd.length) {
-            return { queries: tagsAnd };
-          }
-          else {
-            return undefined;
-          }
-        };
-
-        return {
-          query: {
-            qtext: typedParams.q,
-            'and-query': makeTags(typedParams.tags)
-          },
-          start: 1 + (typedParams.page - 1) * 10
-        };
-      };
-
       var runSearch = function () {
-        $scope.search.criteria = getSearchSpec($scope.params);
-        appRouting.updateQueryParams(
-          getStateParams($scope.params),
-          $scope
-        );
+        var newStateParams = $scope.search.getStateParams();
+        if (newStateParams.q) {
+          newStateParams.q = dasherize(newStateParams.q);
+        }
+        appRouting.updateQueryParams(newStateParams);
 
         $scope.search.post().$ml.waiting.then(
           function () {
@@ -141,8 +68,15 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
       };
 
       $scope.setPageTitle('explore');
-      $scope.params = getTypedParams(appRouting.params);
-      $scope.searchbarText = $scope.params.q;
+
+      ssSearch.create({}).attachScope($scope, 'search');
+      var params = angular.copy(appRouting.params);
+      if (params.q) {
+        dedasherize(params.q);
+      }
+      $scope.search.assignStateParams(params);
+
+      $scope.searchbarText = $scope.search.criteria.q;
 
       $scope.$on('pageChange', function (evt, arg) {
         $scope.params.page = arg.newPage;
@@ -153,7 +87,7 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
       });
 
       $scope.setQueryText = function () {
-        $scope.params.q = $scope.searchbarText;
+        $scope.search.criteria.q = $scope.searchbarText;
       };
 
       $scope.$watch('store.session.id', function (newVal, oldVal) {
@@ -175,16 +109,11 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
         );
       };
 
-      var initSearch = function () {
-        mlSearch.create().attachScope($scope, 'search');
-        runSearch();
-      };
-
       if ($scope.initializing) {
-        $scope.initializing.then(initSearch);
+        $scope.initializing.then(runSearch);
       }
       else {
-        initSearch();
+        runSearch();
       }
 
       $scope.openAllTags = function () {
