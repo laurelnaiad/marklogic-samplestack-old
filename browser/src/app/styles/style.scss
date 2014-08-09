@@ -86,7 +86,9 @@ $view-min-width: 1030px;
 .ss-explore {
   position: relative;
   min-width: $view-min-width;
-  min-height: 650px;
+  /* @todo The following min-height rule breaks the Login link. Find a */
+  /* different way to enforce footer placement below page content. */
+  /* min-height: 650px; */
 
   /* Container for fixed+fluid content */
   .ss-filters-results {
