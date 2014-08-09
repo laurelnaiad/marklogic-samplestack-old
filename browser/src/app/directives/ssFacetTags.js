@@ -97,13 +97,13 @@ define(['app/module'], function (module) {
           // // Number of tags to display in unselected list
           // scope.tagLimit = attrs.numTags;
         };
-        scope.$watch(
-          'search.results.facets.tag.facetValues',
-          function (tagFacetValues) {
-            onResults(tagFacetValues || []);
-          },
-          true
-        );
+        // scope.$watch(
+        //   'search.results.facets.tag.facetValues',
+        //   function (tagFacetValues) {
+        //     onResults(tagFacetValues || []);
+        //   },
+        //   true
+        // );
 
       }
     };

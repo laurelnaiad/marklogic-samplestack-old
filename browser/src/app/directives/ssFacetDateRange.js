@@ -411,26 +411,26 @@ define(['app/module'], function (module) {
             setup(scope, element, attrs);
           },
           post: function (scope, element, attrs) {
-            var unregister = scope.$watch('ssFacetDateRange', function () {
-              scope.$watch('results', function () {
-                if (scope.results) {
-                  if (scope.results
-                          && scope.results.facetValues) {
-                    // update scope variable, will trigger re-render
-                    scope.chartData       =
-                          transformResults(scope.results.facetValues);
-                    scope.chartShadowData =
-                          transformResults(scope.results.facetValues)
-                            || scope.chartData;
-                    // data of chart has refreshed,
-                    // now re-select that data per our
-                    // previous selection, if any
-                    refreshChart(scope);
-                  }
-                }
-              });
-              unregister();
-            });
+            // var unregister = scope.$watch('ssFacetDateRange', function () {
+            //   scope.$watch('results', function () {
+            //     if (scope.results) {
+            //       if (scope.results
+            //               && scope.results.facetValues) {
+            //         // update scope variable, will trigger re-render
+            //         scope.chartData       =
+            //               transformResults(scope.results.facetValues);
+            //         scope.chartShadowData =
+            //               transformResults(scope.results.facetValues)
+            //                 || scope.chartData;
+            //         // data of chart has refreshed,
+            //         // now re-select that data per our
+            //         // previous selection, if any
+            //         refreshChart(scope);
+            //       }
+            //     }
+            //   });
+            //   unregister();
+            // });
           }
         };
       }

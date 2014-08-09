@@ -1,7 +1,7 @@
 define(['testHelper','mocks/index'], function (helper, mocksIndex) {
 
   return function () {
-    describe('ssFacetDateRange', function () {
+    xdescribe('ssFacetDateRange', function () {
       var el;
       var scope;
       var $compile;
