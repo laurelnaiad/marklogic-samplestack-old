@@ -85,6 +85,7 @@ $view-min-width: 1030px;
 /*** EXPLORE VIEW ***/
 .ss-explore {
   position: relative;
+  display: block;
   min-width: $view-min-width;
   /* @todo The following min-height rule breaks the Login link. Find a */
   /* different way to enforce footer placement below page content. */
