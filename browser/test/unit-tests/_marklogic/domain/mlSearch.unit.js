@@ -426,15 +426,25 @@ define([
             a: { type: 'boolean', queryStringName: 'a' },
             b: { type: 'text', queryStringName: 'b'  },
             c: { type: 'enum', subType: 'string', queryStringName: 'c'  },
-            d: { type: 'date', queryStringName: 'd'  }
+            d: { type: 'date', queryStringName: 'd'  },
+            e: { type: 'enum', queryStringName: 'e' },
+            f: { type: 'date', queryStringName: 'f' },
+            g: { type: 'text', queryStringName: 'g' },
+            h: { type: 'boolean', queryStringName: 'h' },
+            i: { type: 'boolean', queryStringName: 'i' }
           }}
         });
 
         s.assignStateParams({
-          a: 'true',
+          a: 'yes',
           b: 'test',
           c: '1,2',
           d: '2001-01-01',
+          e: '',
+          f: '',
+          g: '',
+          h: 'junk',
+          i: 'no',
           q: 'stuff',
           page: '1'
         });
@@ -454,10 +464,34 @@ define([
             type: 'date',
             queryStringName: 'd',
             value: mlUtil.moment('2001-01-01')
+          },
+          e: {
+            type: 'enum',
+            queryStringName: 'e',
+            values: null
+          },
+          f: {
+            type: 'date',
+            queryStringName: 'f',
+            value: null
+          },
+          g: {
+            type: 'text',
+            queryStringName: 'g',
+            value: ''
+          },
+          h: {
+            type: 'boolean',
+            queryStringName: 'h',
+            value: null
+          },
+          i: {
+            type: 'boolean',
+            queryStringName: 'i',
+            value: false
           }
         });
       });
-
 
       it('should throw for unsupported methods', function () {
         try {

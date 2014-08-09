@@ -332,42 +332,37 @@ define(['_marklogic/module'], function (module) {
         var trimmed = stateParams[constraint.queryStringName] &&
             stateParams[constraint.queryStringName].trim();
 
-        if (trimmed) {
-          if (constraint.type === 'enum') {
+        var propName = constraint.type === 'enum' ? 'values' : 'value';
+        if (constraint.type === 'enum') {
+          if (trimmed && trimmed.length) {
             constraint.values = trimmed.split(',');
           }
-          if (constraint.type === 'boolean') {
-            switch (trimmed) {
-              case '1':
-              case 'true':
-              case 'yes':
-                constraint.value = true;
-                break;
-              case '0':
-              case 'false':
-              case 'no':
-                constraint.value = false;
-                break;
-              default:
-                constraint.value = null;
-                break;
-            }
+          else {
+            constraint.values = null;
           }
-          if (constraint.type === 'text') {
-            if (trimmed.length) {
-              constraint.value = trimmed;
-            }
-            else {
+        }
+        if (constraint.type === 'boolean') {
+          switch (trimmed) {
+            case 'yes':
+              constraint.value = true;
+              break;
+            case 'no':
+              constraint.value = false;
+              break;
+            default:
               constraint.value = null;
-            }
+              break;
           }
-          if (constraint.type === 'date') {
-            if (trimmed.length) {
-              constraint.value = mlUtil.moment(trimmed);
-            }
-            else {
-              constraint.value = null;
-            }
+        }
+        if (constraint.type === 'text') {
+          constraint.value = trimmed;
+        }
+        if (constraint.type === 'date') {
+          if (trimmed && trimmed.length) {
+            constraint.value = mlUtil.moment(trimmed);
+          }
+          else {
+            constraint.value = null;
           }
         }
       };
@@ -376,7 +371,6 @@ define(['_marklogic/module'], function (module) {
         var params = {};
         var self = this;
         this.page = stateParams.page ? parseInt(stateParams.page.trim()) : null;
-        this.criteria = this.criteria || {};
         this.criteria.q = stateParams.q ? stateParams.q.trim() : null;
         angular.forEach(this.criteria.constraints, function (constraint) {
           mlUtil.merge(params, self.constraintFromStateParam(
