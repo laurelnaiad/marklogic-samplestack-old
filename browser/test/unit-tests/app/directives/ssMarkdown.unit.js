@@ -6,8 +6,6 @@ define(['testHelper'], function (helper) {
       var scope;
       var $compile;
 
-      this.timeout(500);
-
       beforeEach(function (done) {
         angular.mock.module('app');
         inject(
@@ -29,6 +27,7 @@ define(['testHelper'], function (helper) {
       it(
         'should call highlight on code',
           function () {
+            this.timeout(150);
             scope.content = '# I Heading\n\n' +
                 '```javascript\nreturn \'I Code\';\n```\n';
             scope.$apply();

@@ -19,7 +19,7 @@
     <li ng-repeat="tag in item.content.tags">{{tag}}</li>
   </ul>
   <div class="ss-author"
-  >asked {{ item.content.creationDate.format('MMM, d \'YY') }} by
+  >asked {{ formatDate(item.content.creationDate) }} by
     <a ng-if="isLocalOwner(item)"
       href=""
       ng-click="showContributor(item)"

@@ -11,8 +11,8 @@ define(['app/module'], function (module) {
    */
 
   module.directive('ssSearchResult', [
-    '$parse',
-    function ($parse) {
+    '$parse', 'mlUtil',
+    function ($parse, mlUtil) {
       return {
         restrict: 'E',
         templateUrl: '/app/directives/ssSearchResultTemplate.html',
@@ -25,6 +25,14 @@ define(['app/module'], function (module) {
               }
             );
           };
+
+          scope.formatDate = function (str) {
+            if (str && str.length) {
+              return mlUtil.moment(str).format('MMM D, \'YY');
+
+            }
+          };
+
           scope.isLocalOwner = function (item) {
             var n = item.content.owner ?
                 item.content.owner.displayName :

@@ -92,20 +92,31 @@ define(['app/module','mocks/index'], function (module,mocksIndex) {
 
       $scope.$watch('store.session.id', function (newVal, oldVal) {
         if (newVal !== oldVal) {
-          $scope.params.sessionId = newVal;
+          $scope.sessionId = newVal;
         }
       });
 
       var setHandlers = function () {
-        var unregister = $scope.$watch(
-          'params',
+        var unregister1 = $scope.$watch(
+          'search',
           function (newVal, oldVal) {
             if (newVal !== oldVal) {
-              unregister();
+              unregister1();
+              unregister2();
               runSearch();
             }
           },
           true
+        );
+        var unregister2 = $scope.$watch(
+          'sessionId',
+          function (newVal, oldVal) {
+            if (newVal !== oldVal) {
+              unregister1();
+              unregister2();
+              runSearch();
+            }
+          }
         );
       };
 

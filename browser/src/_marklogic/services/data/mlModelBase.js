@@ -286,6 +286,7 @@ define(['_marklogic/module'], function (module) {
 
       var http = function (instance, httpMethod) {
         var httpConfig = instance.getHttpConfig(httpMethod);
+        httpConfig.timeout = 3000;
         var waiter = mlWaiter.waitOn(instance);
         httpConfig.url = self.baseUrl + httpConfig.url;
         $http(httpConfig).then(
