@@ -6,14 +6,24 @@ define([
   return function () {
     describe('mlSearch', function () {
       var $httpBackend;
+      var $injector;
+      var $timeout;
       var mlSearch;
       var mlUtil;
 
       beforeEach(function (done) {
         angular.mock.module('_marklogic');
         inject(
-          function (_$httpBackend_, _mlSearch_, _mlUtil_) {
+          function (
+            _$httpBackend_,
+            _$injector_,
+            _$timeout_,
+            _mlSearch_,
+            _mlUtil_
+          ) {
             $httpBackend = _$httpBackend_;
+            $injector = _$injector_;
+            $timeout = _$timeout_;
             mlSearch = _mlSearch_;
             mlUtil = _mlUtil_;
             done();
@@ -548,6 +558,116 @@ define([
 
         $httpBackend.flush();
       });
+
+      it(
+        'should not modify watched criteria when making shadow queries',
+        function () {
+          var shadowResult = angular.copy(mocks.searchResult);
+          angular.forEach(shadowResult.facets, function (facet) {
+            angular.forEach(facet.facetValues, function (facetValues) {
+              facetValues.count = facetValues.count * 2;
+            });
+          });
+          var s = mlSearch.create({
+            criteria: {
+              q: 'testy',
+              constraints: {
+                dummy: {
+                  queryStringName: 'dummy',
+                  constraintName: 'dummy',
+                  constraintType: 'range',
+                  type: 'enum',
+                  subType: 'text',
+                  values: ['test1', 'test2']
+                }
+              }
+            }
+          });
+
+          var scope = $injector.get('$rootScope').$new();
+
+          scope.search = s;
+          var nowWatch = false;
+          scope.$watch(
+            'search.criteria.constraints.dummy',
+            function (newVal, oldVal) {
+              if (nowWatch) {
+                assert(false, 'detected a criteria change:\n\n' +
+                    '\toldVal:\n' + JSON.stringify(oldVal, null, ' ') +
+                    '\n\n\tnewVal:\n' + JSON.stringify(newVal, null, ' '));
+              }
+            },
+            true
+          );
+          scope.$apply();
+          nowWatch = true;
+
+          scope.search.makeShadowQueries(['dummy'], mlSearch);
+          scope.$apply();
+          assert(true);
+        }
+      );
+
+      it(
+        'should not modify watched criteria when doing a shadow query',
+        function (done) {
+          var shadowResult = angular.copy(mocks.searchResult);
+          angular.forEach(shadowResult.facets, function (facet) {
+            angular.forEach(facet.facetValues, function (facetValues) {
+              facetValues.count = facetValues.count * 2;
+            });
+          });
+          helper.setExpectCsrf($httpBackend);
+          $httpBackend.expectPOST(/\/v1\/search$/)
+              .respond(mocks.searchResponse);
+          $httpBackend.expectPOST(/\/v1\/search$/)
+              .respond(mocks.searchResponse);
+
+          var s = mlSearch.create({
+            criteria: {
+              q: 'testy',
+              constraints: {
+                dummy: {
+                  queryStringName: 'dummy',
+                  constraintName: 'dummy',
+                  constraintType: 'range',
+                  type: 'enum',
+                  subType: 'text',
+                  values: ['test1', 'test2']
+                }
+              }
+            }
+          });
+
+          var scope = $injector.get('$rootScope').$new();
+
+          scope.search = s;
+          var beWatching = false;
+          scope.$watch(
+            'search.criteria',
+            function (newVal, oldVal) {
+              if (beWatching) {
+                assert(false, 'detected a criteria change:\n\n' +
+                    '\toldVal:\n' + JSON.stringify(oldVal, null, ' ') +
+                    '\n\n\tnewVal:\n' + JSON.stringify(newVal, null, ' '));
+              }
+            },
+            true
+          );
+          scope.$apply();
+
+          beWatching = true;
+          s.go(['dummy'], mlSearch).then(
+            function () {
+              assert(true);
+              done();
+            },
+            function (reason) { assert(false, JSON.stringify(reason)); done(); }
+          );
+
+          $httpBackend.flush();
+        }
+      );
     });
 
   };
